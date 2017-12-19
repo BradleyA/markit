@@ -1,0 +1,71 @@
+#!/bin/bash
+#	markit	1.1	2017-12-18_19:09:50_CST uthree
+#	Testing added code to support one line description
+#
+#	set -x
+#	set -v
+#
+#	Insert the file name, version, date, and programmer as the second line in the file.
+#	Insert a one line breif description about the changes as a third line in the file.
+#	
+#	I created this script because git fails me when it comes to including the version 
+#	number and change description in the file being checked in.
+#	Maybe it does but I don't have the time to figure that out.
+#	Git helps with the team source code management challenge but omits the very basic
+#	function of version control, which was first developed with SCCS and RCS (%W% %G% %U%).
+#	Version control must place the version number in the text when code is checked in!
+#	Even if the code is a fork or branch of the orginal code!   Bite me
+#
+FILE_NAME=$1
+FILE_RELEASE=$2
+#	The COMMENT_CHAR is the comment character(s) used in the FILE_NAME being edited.
+COMMENT_CHAR=""
+#	The FILE_MESSAGE is a one line breif description about the changes.
+FILE_MESSAGE=""
+#
+TEMP_FILE="TEMP_MARKIT_FILE"
+TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
+#
+if [ -z $FILE_NAME ]
+then
+	echo "Enter file_name to be marked with version and date:"
+	read FILE_NAME
+#		At a later time I need to add code to support -?, -h, --help, -v
+fi
+if [ -a "./$FILE_NAME" ]
+then
+	if [ -z $FILE_RELEASE ]
+	then
+		echo "Enter release number for $FILE_NAME (example 3.01.01):"
+		read FILE_RELEASE
+	fi
+	if [ -z $COMMENT_CHAR ]
+	then
+		echo "Enter Single-line comment character(s) to use in $FILE_NAME (example: # // -- ;; ):"
+		read COMMENT_CHAR
+#			At a later time I need to add code to support comments that use 
+#			multiple line or opening with closing comment character(s) and code requiring to be compiled.
+#			Multiple line comments require an opening and closing comment mark.
+	fi
+	if [ -z $FILE_MESSAGE ]
+	then
+		echo "Enter a one line description about the changes:"
+		read FILE_MESSAGE
+	fi
+	touch $TEMP_FILE
+	head -1 $FILE_NAME >> $TEMP_FILE
+	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE	$TIME_STAMP $USER" >> $TEMP_FILE
+	echo "$COMMENT_CHAR	$FILE_MESSAGE" >> $TEMP_FILE
+	tail -n `wc -l $FILE_NAME | awk '{print $1  - 1}'` $FILE_NAME >> $TEMP_FILE
+	cp $TEMP_FILE $FILE_NAME
+	rm $TEMP_FILE
+#		At a later time I need to see if I can add some git commands and use this script as a git wrapper
+#			Add change description
+#		git commit -m ‘$FILE_MESSAGE’ $FILE_NAME
+#			Add tag reference
+#		git tag -a $FILE_RELEASE -m ‘$FILE_MESSAGE’
+else
+	echo ">>>	ERR File not found:	$FILE_NAME"
+	echo ">>>	systax markit <FILE_NAME> <FILE_RELEASE>"
+fi
+#
