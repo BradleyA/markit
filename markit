@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
+#	add FQDN to version line to help understand the system the code was tested on and add git commands
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
 #	Testing added code to support one line description
 #
@@ -54,16 +56,17 @@ then
 	fi
 	touch $TEMP_FILE
 	head -1 $FILE_NAME >> $TEMP_FILE
-	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE	$TIME_STAMP $USER" >> $TEMP_FILE
+	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE	$TIME_STAMP $USER `hostname -f`" >> $TEMP_FILE
 	echo "$COMMENT_CHAR	$FILE_MESSAGE" >> $TEMP_FILE
 	tail -n `wc -l $FILE_NAME | awk '{print $1  - 1}'` $FILE_NAME >> $TEMP_FILE
 	cp $TEMP_FILE $FILE_NAME
 	rm $TEMP_FILE
 #		At a later time I need to see if I can add some git commands and use this script as a git wrapper
-#			Add change description
-#		git commit -m ‘$FILE_MESSAGE’ $FILE_NAME
-#			Add tag reference
-#		git tag -a $FILE_RELEASE -m ‘$FILE_MESSAGE’
+	git add $FILE_NAME
+#		Add change description
+	git commit -m "$FILE_MESSAGE" $FILE_NAME
+#		Add tag reference
+	git tag -a $FILE_RELEASE -m "$FILE_MESSAGE"
 else
 	echo ">>>	ERR File not found:	$FILE_NAME"
 	echo ">>>	systax markit <FILE_NAME> <FILE_RELEASE>"
