@@ -59,7 +59,7 @@ fi
 #
 if [ -a "./$FILE_NAME" ] ; then
 	if [ -z $FILE_RELEASE ] ; then
-		echo "Enter release number for $FILE_NAME (example 3.01.01):"
+		echo "Enter release number for $FILE_NAME (example 3.01):"
 		read FILE_RELEASE
 	fi
 	if [ -z $FILE_RELEASE ] ; then
