@@ -54,6 +54,52 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	?? test1.sh
 #	?? test2.sh
 #	
+#	look at parsing git log --name-only -n 1 HEAD~1..HEAD
+#			git log --name-status -n 1 HEAD~1..HEA
+#	for commited files
+#
+#	   $ git status
+#	On branch master
+#	Your branch is ahead of 'origin/master' by 1 commit.
+#	  (use "git push" to publish your local commits)
+#	Changes not staged for commit:
+#	  (use "git add <file>..." to update what will be committed)
+#	  (use "git checkout -- <file>..." to discard changes in working directory)
+#	
+#		modified:   markit
+#	
+#	Untracked files:
+#	  (use "git add <file>..." to include in what will be committed)
+#	
+#		test2.sh
+#	
+#	no changes added to commit (use "git add" and/or "git commit -a")
+#	052331 uadmin@six-rpi3b:~/github/BradleyA/markit
+#	   $ git log --name-status -n 1 HEAD~1..HEAD
+#	commit 78de3ca5e3fd28fc72afdb4a930c133c60b98576
+#	Author: BradleyA <allen.bradley@ymail.com>
+#	Date:   Mon Feb 5 23:05:43 2018 -0600
+#	
+#	    ting git commit
+#	
+#	M       markit
+#	A       test1.sh
+#	052338 uadmin@six-rpi3b:~/github/BradleyA/markit
+#	   $ git show --stat --oneline HEAD
+#	78de3ca ting git commit
+#	 markit   | 19 +++++++++++++------
+#	 test1.sh |  6 ++++++
+#	 2 files changed, 19 insertions(+), 6 deletions(-)
+#	052339 uadmin@six-rpi3b:~/github/BradleyA/markit
+#	   $ git show --stat --oneline HEAD^^..HEAD
+#	78de3ca ting git commit
+#	 markit   | 19 +++++++++++++------
+#	 test1.sh |  6 ++++++
+#	 2 files changed, 19 insertions(+), 6 deletions(-)
+#	fc475e2 show current release when entering new release number: this closes issue 1
+#	 markit | 14 +++++++++++---
+#	 1 file changed, 11 insertions(+), 3 deletions(-)
+#
 #
 if [ -z ${FILE_NAME} ] ; then
 	echo "Enter file_name to be marked with version and date:"
