@@ -4,12 +4,19 @@ markit is a bash script that
  * Insert the file name, version, date, programmer, and hostname as the second line in the file.
  * Insert a one line breif description about the changes as a third line in the file.
 
+## Install
+
+To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
+    git clone https://github.com/BradleyA/markit
+    cd markit
+
 ## Usage
     markit <FILE_NAME> <VERSION_NUMBER>
 
 ## Output
       $ markit sample.sh
-    Enter release number for sample.sh (example 3.01.01):
+    Enter release number for sample.sh (example 3.01):
     2.02
     Enter Single-line comment character(s) to use in sample.sh (example: # // -- ;; ):
     #	
@@ -17,13 +24,6 @@ markit is a bash script that
     sample change description
     [master f8b18d5] sample change description
      1 file changed, 2 insertions(+)
-
-## Install
-
-To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
-
-    git clone https://github.com/BradleyA/markit
-    cd markit
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
