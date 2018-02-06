@@ -100,6 +100,7 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	 markit | 14 +++++++++++---
 #	 1 file changed, 11 insertions(+), 3 deletions(-)
 ###########################################################3
+#	https://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit
 #	git show --stat --oneline HEAD
 #	git show --stat --oneline b24f5fb
 #	git show --stat --oneline HEAD^^..HEAD
@@ -109,6 +110,13 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	git show --name-only --oneline HEAD
 #	git show --name-only --oneline b24f5fb
 #	git show --name-only --oneline HEAD^^..HEAD
+###########################################
+#	https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+#	
+#	That command compares what is in your working directory with what is in your staging area. The result tells you the changes you’ve made that you haven’t yet staged.
+#	
+#	If you want to see what you’ve staged that will go into your next commit, you can use git diff --staged. This command compares your staged changes to your last commit:
+#	
 #	
 #
 if [ -z ${FILE_NAME} ] ; then
@@ -167,6 +175,7 @@ if [ -a "./${FILE_NAME}" ] ; then
 #	Add file contents to the index
 	git add $FILE_NAME
 #	Record changes to the repository
+###		think about how to add git commit -v
 	git commit -m "$FILE_MESSAGE" $FILE_NAME
 #	Add tag reference
 	git tag -a $FILE_RELEASE -m "$FILE_MESSAGE"
