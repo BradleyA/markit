@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
+#	show current release when entering new release number: this closes issue 1
 #	markit	2.01.20	2018-02-05_20:08:39_CST uadmin six-rpi3b.cptx86.com 1.03
 #	corrected logic with line description string
 #	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
@@ -46,20 +48,26 @@ FILE_MESSAGE=""
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #
-if [ -z $FILE_NAME ] ; then
+if [ -z ${FILE_NAME} ] ; then
 	echo "Enter file_name to be marked with version and date:"
 	read FILE_NAME
 fi
 #
-if [ -z $FILE_NAME ] ; then
+if [ -z ${FILE_NAME} ] ; then
 	echo -e "${0} ${LINENO} [ERROR]:	File name is required.\n"	1>&2
 	display_help
 	exit 1
 fi
 #
 if [ -a "./$FILE_NAME" ] ; then
+#	Check if file has used markit before by checking second line 
+	TEST_FILE_NAME=`head -2 ${FILE_NAME} | awk '{print $2}'`
+	if [ ${FILE_NAME} == ${TEST_FILE_NAME} ] ; then
+		CURRENT_FILE_RELEASE=`head -2 ${FILE_NAME} | awk '{print $3}' | cut -f1,2 -d.`	
+		echo    "Current release number is "${CURRENT_FILE_RELEASE}
+	fi
 	if [ -z $FILE_RELEASE ] ; then
-		echo "Enter release number for $FILE_NAME (example 3.01):"
+		echo "Enter release number for $FILE_NAME to commit (example 3.01):"
 		read FILE_RELEASE
 	fi
 	if [ -z $FILE_RELEASE ] ; then
