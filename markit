@@ -99,7 +99,17 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	fc475e2 show current release when entering new release number: this closes issue 1
 #	 markit | 14 +++++++++++---
 #	 1 file changed, 11 insertions(+), 3 deletions(-)
-#
+###########################################################3
+#	git show --stat --oneline HEAD
+#	git show --stat --oneline b24f5fb
+#	git show --stat --oneline HEAD^^..HEAD
+#	
+#	If you do not like/want the addition/removal stats, you can replace --stat with --name-only
+#	
+#	git show --name-only --oneline HEAD
+#	git show --name-only --oneline b24f5fb
+#	git show --name-only --oneline HEAD^^..HEAD
+#	
 #
 if [ -z ${FILE_NAME} ] ; then
 	echo "Enter file_name to be marked with version and date:"
