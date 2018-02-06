@@ -8,13 +8,15 @@ markit is a bash script that
     markit <FILE_NAME> <FILE_RELEASE>
 
 ## Output
-   $ ./markit sample.sh 
-   Enter release number for sample.sh (example 3.01.01):
-   1.01
-   Enter Single-line comment character(s) to use in sample.sh (example: # // -- ;; ):
-   #
-   Enter a one line description about the changes:
-   inital commit
+      $ markit sample.sh
+    Enter release number for sample.sh (example 3.01.01):
+    2.02
+    Enter Single-line comment character(s) to use in sample.sh (example: # // -- ;; ):
+    #	
+    Enter a one line description about the changes:
+    sample change description
+    [master f8b18d5] sample change description
+     1 file changed, 2 insertions(+)
 
 ## Install
 
