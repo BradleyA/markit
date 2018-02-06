@@ -25,6 +25,11 @@ To install, change directory to the location you want to download the scripts. U
     [master f8b18d5] sample change description
      1 file changed, 2 insertions(+)
 
+## Example file
+    #!/bin/bash
+    #       sample.sh       0.01.29 2018-02-05_20:51:50_CST uadmin six-rpi3b.cptx86.com 1.2-25-g0d6e47a
+    #       Inital commit
+
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
