@@ -48,6 +48,13 @@ FILE_MESSAGE=""
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #
+#		At a later time I need to add code to support multiple files
+#	$ git status -s
+#	 M markit
+#	?? test1.sh
+#	?? test2.sh
+#	
+#
 if [ -z ${FILE_NAME} ] ; then
 	echo "Enter file_name to be marked with version and date:"
 	read FILE_NAME
@@ -59,24 +66,24 @@ if [ -z ${FILE_NAME} ] ; then
 	exit 1
 fi
 #
-if [ -a "./$FILE_NAME" ] ; then
+if [ -a "./${FILE_NAME}" ] ; then
 #	Check if file has used markit before by checking second line 
 	TEST_FILE_NAME=`head -2 ${FILE_NAME} | awk '{print $2}'`
 	if [ ${FILE_NAME} == ${TEST_FILE_NAME} ] ; then
 		CURRENT_FILE_RELEASE=`head -2 ${FILE_NAME} | awk '{print $3}' | cut -f1,2 -d.`	
 		echo    "Current release number is "${CURRENT_FILE_RELEASE}
 	fi
-	if [ -z $FILE_RELEASE ] ; then
-		echo "Enter release number for $FILE_NAME to commit (example 3.01):"
+	if [ -z ${FILE_RELEASE} ] ; then
+		echo "Enter release number for ${FILE_NAME} to commit (example 3.01):"
 		read FILE_RELEASE
 	fi
-	if [ -z $FILE_RELEASE ] ; then
+	if [ -z ${FILE_RELEASE} ] ; then
 		echo -e "${0} ${LINENO} [ERROR]:	Release number is required.\n"	1>&2
 		display_help
 		exit 1
 	fi
-	if [ -z $COMMENT_CHAR ] ; then
-		echo "Enter Single-line comment character(s) to use in $FILE_NAME (example: # // -- ;; ):"
+	if [ -z ${COMMENT_CHAR} ] ; then
+		echo "Enter Single-line comment character(s) to use in ${FILE_NAME} (example: # // -- ;; ):"
 		read COMMENT_CHAR
 #			At a later time I need to add code to support comments that use 
 #			multiple line or opening with closing comment character(s) and code requiring to be compiled.
