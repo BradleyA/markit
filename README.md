@@ -1,11 +1,11 @@
 # markit
 
 markit is a bash script that
- * Insert the file name, version, date, and programmer as the second line in the file.
+ * Insert the file name, version, date, programmer, and hostname as the second line in the file.
  * Insert a one line breif description about the changes as a third line in the file.
 
 ## Usage
-    markit <FILE_NAME> <FILE_RELEASE>
+    markit <FILE_NAME> <VERSION_NUMBER>
 
 ## Output
       $ markit sample.sh
