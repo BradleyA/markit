@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
+#	add logic for errors and display_help
 #	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
 #	add FQDN to version line to help understand the system the code was tested on and add git commands
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
@@ -7,17 +9,31 @@
 #	set -x
 #	set -v
 #
-#	Insert the file name, version, date, and programmer as the second line in the file.
-#	Insert a one line breif description about the changes as a third line in the file.
-#	
-#	I created this script because git fails me when it comes to including the version 
-#	number and change description in the file being checked in.
-#	Maybe it does but I don't have the time to figure that out.
-#	Git helps with the team source code management challenge but omits the very basic
-#	function of version control, which was first developed with SCCS and RCS (%W% %G% %U%).
-#	Version control must place the version number in the text when code is checked in!
-#	Even if the code is a fork or branch of the orginal code!   Bite me
-#
+#	I created this script because git fails me when it comes to including the
+#	version number and change description in each file being checked-in.
+#	Maybe it does, but I don't have anymore time to try and figure that out.  
+#	Git helps with team source code management challenge but omits this very
+#	basic function, which was first developed with SCCS and RCS (%W% %G% %U%).
+#	Version control must place a version number in the text when code is checked in!
+#	Bite me!
+###
+display_help() {
+echo -e "\nAdd file name, version, date, programmer, and hostname as the second line"
+echo	"in a file.  Followed by a single line breif description about the changes"
+echo	"made to a file."
+echo	"This script uses two arguements;"
+echo	"   FILE_NAME - name of file to mark, no default, prompt if not arguement"
+echo    "   FILE_RELEASE - version number of file, no default, prompt if not arguement"
+echo -e "A Single-line comment character(s) to use in file $FILE_NAME\n\tis required when prompted (example: # // -- ;; )."
+echo    "A Single-line description is required when prompted."
+echo -e "Documentation:https://github.com/BradleyA/markit\n"
+echo -e "Example:\t${0} sample.sh 3.02\n"
+}
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
+	display_help
+	exit 0
+fi
+###
 FILE_NAME=$1
 FILE_RELEASE=$2
 #	The COMMENT_CHAR is the comment character(s) used in the FILE_NAME being edited.
@@ -28,47 +44,65 @@ FILE_MESSAGE=""
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #
-if [ -z $FILE_NAME ]
-then
+if [ -z $FILE_NAME ] ; then
 	echo "Enter file_name to be marked with version and date:"
 	read FILE_NAME
-#		At a later time I need to add code to support -?, -h, --help, -v
 fi
-if [ -a "./$FILE_NAME" ]
-then
-	if [ -z $FILE_RELEASE ]
-	then
+#
+if [ -z $FILE_NAME ] ; then
+	echo -e "${0} ${LINENO} [ERROR]:	File name is required.\n"	1>&2
+	display_help
+	exit 1
+fi
+#
+if [ -a "./$FILE_NAME" ] ; then
+	if [ -z $FILE_RELEASE ] ; then
 		echo "Enter release number for $FILE_NAME (example 3.01.01):"
 		read FILE_RELEASE
 	fi
-	if [ -z $COMMENT_CHAR ]
-	then
+	if [ -z $FILE_RELEASE ] ; then
+		echo -e "${0} ${LINENO} [ERROR]:	Release number is required.\n"	1>&2
+		display_help
+		exit 1
+	fi
+	if [ -z $COMMENT_CHAR ] ; then
 		echo "Enter Single-line comment character(s) to use in $FILE_NAME (example: # // -- ;; ):"
 		read COMMENT_CHAR
 #			At a later time I need to add code to support comments that use 
 #			multiple line or opening with closing comment character(s) and code requiring to be compiled.
 #			Multiple line comments require an opening and closing comment mark.
 	fi
-	if [ -z $FILE_MESSAGE ]
-	then
+	if [ -z $COMMENT_CHAR ] ; then
+		echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
+		display_help
+		exit 1
+	fi
+	if [ -z $FILE_MESSAGE ] ; then
 		echo "Enter a one line description about the changes:"
 		read FILE_MESSAGE
 	fi
+	if [ -z $FILE_MESSAGE ] ; then
+		echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\n"       1>&2
+		display_help
+		exit 1
+	fi
 	touch $TEMP_FILE
 	head -1 $FILE_NAME >> $TEMP_FILE
-	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE	$TIME_STAMP $USER `hostname -f`" >> $TEMP_FILE
+	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE.`git rev-list HEAD | wc -l`	$TIME_STAMP $USER `hostname -f` `git describe`" >> $TEMP_FILE
 	echo "$COMMENT_CHAR	$FILE_MESSAGE" >> $TEMP_FILE
 	tail -n `wc -l $FILE_NAME | awk '{print $1  - 1}'` $FILE_NAME >> $TEMP_FILE
 	cp $TEMP_FILE $FILE_NAME
 	rm $TEMP_FILE
-#		At a later time I need to see if I can add some git commands and use this script as a git wrapper
+#	Add file contents to the index
 	git add $FILE_NAME
-#		Add change description
+#	Record changes to the repository
 	git commit -m "$FILE_MESSAGE" $FILE_NAME
-#		Add tag reference
+#	Add tag reference
 	git tag -a $FILE_RELEASE -m "$FILE_MESSAGE"
+	exit 0
 else
-	echo ">>>	ERR File not found:	$FILE_NAME"
-	echo ">>>	systax markit <FILE_NAME> <FILE_RELEASE>"
+	echo -e "${0} ${LINENO} [ERROR]:	File $FILE_NAME NOT found.\n"	1>&2
+	display_help
+	exit 1
 fi
-#
+###
