@@ -1,6 +1,6 @@
 #!/bin/bash
 #	markit	2.01.20	2018-02-05_20:08:39_CST uadmin six-rpi3b.cptx86.com 1.03
-#	corrected login with line description string
+#	corrected logic with line description string
 #	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
 #	add logic for errors and display_help
 #	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
