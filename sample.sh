@@ -1,4 +1,5 @@
 #!/bin/bash
+#			1.6
 #			1.5
 #	sample.sh	1.4.33	2018-02-05_22:22:57_CST uadmin six-rpi3b.cptx86.com 1.2-29-g01daba2
 #	Closes #1
