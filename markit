@@ -10,7 +10,7 @@
 #	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
 #	add logic for errors and display_help
 #	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
-#	add FQDN to version line to help understand the system the code was tested on and add git commands
+#	add FQDN to version line to help understand the system code was tested on; add git commands
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
 #	Testing added code to support one line description
 #
@@ -20,26 +20,29 @@
 #	I created this script because git fails me when it comes to including the
 #	version number and change description in each file being checked-in.
 #	Maybe it does, but I don't have anymore time to read and figure that out.  
-#	Version control must place a version number in the text when code is checked in!
+#	Version control must place a version number in text when code is checked in!
 #	This is not a kernal.  Bite me!
-#
-#	I am sure some day I will think of a diferent way to create this tool.
-#	Git does alot more than I need or want today.
 ###
 display_help() {
-echo -e "\nAdd two comment lines of information about file changes & push changes"
-echo    "This script uses one arguements;"
+echo -e "\n${0} - Add two comment lines about file changes & push to github"
+echo -e "\nUSAGE:\n      ${0} [no | normal | all]"
+echo    "      ${0} [--help | -help | help | -h | h | -? | ?]"
+echo -e "\nDESCRIPTION:\nAdd two comment lines of information about file changes to tracked modified"
+echo    "files in your Git repository.  Then push those changed files to github."
+echo    "To change an untracked file to a tracked file enter, git add <file_name>."
+echo    "To prevent an untracked file from being tracked, add file to .gitignore file."
+echo    "The first comment line includes file name, version, date, programmer, and"
+echo    "hostname as the second line of the file(s).  Followed by a single comment"
+echo    "line including a brief description about changes made to the file.  There will"
+echo    "be prompts for comment character(s) and description."
+echo    "This script uses one arguement;"
 echo    "   UNTRACKED_FILES - used to specify the handling of untracked files"
-echo    "      no - no untracked files"
+echo    "      no - no untracked files (default)"
 echo    "      normal - untracked files and directories"
 echo    "      all - Also individual files in untracked directories"
-echo    "The first comment line includes file name, version, date, programmer,"
-echo    "and hostname as the second line of the file(s).  Followed by a single"
-echo    "comment line including a breif description about changes made to the"
-echo    "file.  There will be prompts for comment character(s) and description."
-#
-echo -e "Documentation:https://github.com/BradleyA/markit\n"
-echo -e "Example:\t${0}\n"
+echo -e "\nDOCUMENTATION:\n      https://github.com/BradleyA/markit"
+echo -e "\nEXAMPLES:\n      ${0}\n"
+echo -e "   Mark untracked files, directories, and files in untracked directories\n\n      ${0} all\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
@@ -78,7 +81,8 @@ if [ -z "${FILE_LIST}" ] ; then
 	exit 1
 fi
 ###
-# >>>	Need to add a check for agrment, display_help, exit 1; $1 veriable no, notmal, all
+# >>>	Need to add a check for argument, display_help, exit 1; $1 variable no, normal, all
+# >>>	add code here
 ###
 #	Prompt for release number
 echo -e "Files to be marked and pushed to github:\n${FILE_LIST}"
