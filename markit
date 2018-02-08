@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.45	2018-02-07_22:21:27_CST uadmin six-rpi3b.cptx86.com 3.1-2-g3da2b25 
+#	Close #2 
 #	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
 #	Major rewrite to support multiple files 
 #	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
@@ -25,10 +27,17 @@
 #	Git does alot more than I need or want today.
 ###
 display_help() {
-echo -e "\nAdd file name, version, date, programmer, and hostname as the second line"
-echo	"in the file(s).  Followed by a single line breif description about the changes"
-echo	"made to a file.  You will be prompted for a single-line comment character(s)"
-echo    "and a single-line description."
+echo -e "\nAdd two comment lines of information about file changes & push changes"
+echo    "This script uses one arguements;"
+echo    "   UNTRACKED_FILES - used to specify the handling of untracked files"
+echo    "      no - no untracked files"
+echo    "      normal - untracked files and directories"
+echo    "      all - Also individual files in untracked directories"
+echo    "The first comment line includes file name, version, date, programmer,"
+echo    "and hostname as the second line of the file(s).  Followed by a single"
+echo    "comment line including a breif description about changes made to the"
+echo    "file.  There will be prompts for comment character(s) and description."
+#
 echo -e "Documentation:https://github.com/BradleyA/markit\n"
 echo -e "Example:\t${0}\n"
 }
@@ -36,8 +45,9 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 	display_help
 	exit 0
 fi
-###
+###	test for
 #	>>>	use cases
+#	>>>		blank $1 & no, normal, all
 #	>>>		all files are new and not on github
 #	>>>		no files need markit and commit with a push
 #	>>>		one file need markit
@@ -47,10 +57,12 @@ fi
 #	>>>			I would say yes to all BUT untracked(??) because some time people want untracked files but
 #	>>>			they should put them in .gitignore file / right?	
 ###
+UNTRACKED_FILES=${1:-no}
+#
 CURRENT_RELEASE=`git tag | tail -1`
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
-FILE_LIST=`git status -s | awk '{print $2}'`
+FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | awk '{print $2}'`
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
@@ -65,6 +77,9 @@ if [ -z "${FILE_LIST}" ] ; then
 	display_help
 	exit 1
 fi
+###
+# >>>	Need to add a check for agrment, display_help, exit 1; $1 veriable no, notmal, all
+###
 #	Prompt for release number
 echo -e "Files to be marked and pushed to github:\n${FILE_LIST}"
 echo    "Current release number: ${CURRENT_RELEASE} "
@@ -114,12 +129,17 @@ for FILE_NAME in ${FILE_LIST} ; do
 	cp ${TEMP_FILE} ${FILE_NAME}
 	rm ${TEMP_FILE}
 #	Add file contents to the index
-	git add .
+	git add ${FILE_NAME}
 done
+#	Commit staged file(s) for git push
+	echo    " commit ${FILE_LIST}"
+	git commit ${FILE_LIST}
 #	Check if release number is new then add tag reference with new release number
+# >>>	   think about changing == to >= (are all release numbers? no A.01 ?)
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 fi
 #	Push changes to github repository
-git push --follow-tags
+#	git push --follow-tags
+echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###

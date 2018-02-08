@@ -1,6 +1,6 @@
 #!/bin/bash
-#	fred.sh	3.1.44	2018-02-07_22:14:19_CST uadmin six-rpi3b.cptx86.com 3.1-1-g011ac2d 
-#	Closes #2 
+#	fred.sh	3.1.45	2018-02-07_22:21:27_CST uadmin six-rpi3b.cptx86.com 3.1-2-g3da2b25 
+#	Close #2 
 #	fred.sh	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
 #	Major rewrite to support multiple files 
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
