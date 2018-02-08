@@ -1,5 +1,5 @@
 #!/bin/bash
-#	markit	3.1.46	2018-02-07_22:29:07_CST uadmin six-rpi3b.cptx86.com 3.1-3-g72294c4 
+#	markit	3.1.47	2018-02-07_22:38:16_CST uadmin six-rpi3b.cptx86.com 3.1-4-g336c768 
 #	Closes #2 
 #	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
 #	Major rewrite to support multiple files 
@@ -132,13 +132,16 @@ for FILE_NAME in ${FILE_LIST} ; do
 	git add ${FILE_NAME}
 done
 #	Commit staged file(s) for git push
-	git commit 
+	git commit -m "${FILE_MESSAGE}"
 #	Check if release number is new then add tag reference with new release number
 # >>>	   think about changing == to >= (are all release numbers? no A.01 ?)
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
-fi
 #	Push changes to github repository
-git push --follow-tags
+	git push --follow-tags
+else
+#	Push changes to github repository
+	git push
+fi
 echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###
