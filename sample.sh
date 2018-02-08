@@ -1,5 +1,5 @@
 #!/bin/bash
-#	sample.sh	3.1.47	2018-02-07_22:38:16_CST uadmin six-rpi3b.cptx86.com 3.1-4-g336c768 
+#	sample.sh	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
 #	Closes #2 
 #			1.6
 #			1.5

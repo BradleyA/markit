@@ -1,5 +1,5 @@
 #!/bin/bash
-#	fred.sh	3.1.47	2018-02-07_22:38:16_CST uadmin six-rpi3b.cptx86.com 3.1-4-g336c768 
+#	fred.sh	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
 #	Closes #2 
 #	fred.sh	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
 #	Major rewrite to support multiple files 
