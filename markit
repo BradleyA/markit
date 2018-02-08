@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
+#	Major rewrite to support multiple files 
 #	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
 #	show current release when entering new release number: this closes issue 1
 #	markit	2.01.20	2018-02-05_20:08:39_CST uadmin six-rpi3b.cptx86.com 1.03
@@ -15,174 +17,109 @@
 #
 #	I created this script because git fails me when it comes to including the
 #	version number and change description in each file being checked-in.
-#	Maybe it does, but I don't have anymore time to try and figure that out.  
-#	Git helps with team source code management challenge but omits this very
-#	basic function, which was first developed with SCCS and RCS (%W% %G% %U%).
+#	Maybe it does, but I don't have anymore time to read and figure that out.  
 #	Version control must place a version number in the text when code is checked in!
-#	Bite me!
+#	This is not a kernal.  Bite me!
+#
+#	I am sure some day I will think of a diferent way to create this tool.
+#	Git does alot more than I need or want today.
 ###
 display_help() {
 echo -e "\nAdd file name, version, date, programmer, and hostname as the second line"
-echo	"in a file.  Followed by a single line breif description about the changes"
-echo	"made to a file."
-echo	"This script uses two arguements;"
-echo	"   FILE_NAME - name of file to mark, no default, prompt if not arguement"
-echo    "   FILE_RELEASE - version number of file, no default, prompt if not arguement"
-echo -e "A Single-line comment character(s) to use in file $FILE_NAME\n\tis required when prompted (example: # // -- ;; )."
-echo    "A Single-line description is required when prompted."
+echo	"in the file(s).  Followed by a single line breif description about the changes"
+echo	"made to a file.  You will be prompted for a single-line comment character(s)"
+echo    "and a single-line description."
 echo -e "Documentation:https://github.com/BradleyA/markit\n"
-echo -e "Example:\t${0} sample.sh 3.02\n"
+echo -e "Example:\t${0}\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
 	exit 0
 fi
 ###
-FILE_NAME=$1
-FILE_RELEASE=$2
-#	The COMMENT_CHAR is the comment character(s) used in the FILE_NAME being edited.
-COMMENT_CHAR=""
-#	The FILE_MESSAGE is a one line breif description about the changes.
-FILE_MESSAGE=""
-#
+#	>>>	use cases
+#	>>>		all files are new and not on github
+#	>>>		no files need markit and commit with a push
+#	>>>		one file need markit
+#	>>>		several files need markit
+#	>>>		different types of files (x.sh, x.py, etc.) need makrit
+#	>>>		?	 objective: mark all file(s): untracked(??), new file that has been added (A), modified(M), staged
+#	>>>			I would say yes to all BUT untracked(??) because some time people want untracked files but
+#	>>>			they should put them in .gitignore file / right?	
+###
+CURRENT_RELEASE=`git tag | tail -1`
+BEGIN_COMMENT_CHAR=""
+END_COMMENT_CHAR=""
+FILE_LIST=`git status -s | awk '{print $2}'`
+NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
-#
-#		At a later time I need to add code to support multiple files
-#	$ git status -s
-#	 M markit
-#	?? test1.sh
-#	?? test2.sh
-#	
-#	look at parsing git log --name-only -n 1 HEAD~1..HEAD
-#			git log --name-status -n 1 HEAD~1..HEA
-#	for commited files
-#
-#	   $ git status
-#	On branch master
-#	Your branch is ahead of 'origin/master' by 1 commit.
-#	  (use "git push" to publish your local commits)
-#	Changes not staged for commit:
-#	  (use "git add <file>..." to update what will be committed)
-#	  (use "git checkout -- <file>..." to discard changes in working directory)
-#	
-#		modified:   markit
-#	
-#	Untracked files:
-#	  (use "git add <file>..." to include in what will be committed)
-#	
-#		test2.sh
-#	
-#	no changes added to commit (use "git add" and/or "git commit -a")
-#	052331 uadmin@six-rpi3b:~/github/BradleyA/markit
-#	   $ git log --name-status -n 1 HEAD~1..HEAD
-#	commit 78de3ca5e3fd28fc72afdb4a930c133c60b98576
-#	Author: BradleyA <allen.bradley@ymail.com>
-#	Date:   Mon Feb 5 23:05:43 2018 -0600
-#	
-#	    ting git commit
-#	
-#	M       markit
-#	A       test1.sh
-#	052338 uadmin@six-rpi3b:~/github/BradleyA/markit
-#	   $ git show --stat --oneline HEAD
-#	78de3ca ting git commit
-#	 markit   | 19 +++++++++++++------
-#	 test1.sh |  6 ++++++
-#	 2 files changed, 19 insertions(+), 6 deletions(-)
-#	052339 uadmin@six-rpi3b:~/github/BradleyA/markit
-#	   $ git show --stat --oneline HEAD^^..HEAD
-#	78de3ca ting git commit
-#	 markit   | 19 +++++++++++++------
-#	 test1.sh |  6 ++++++
-#	 2 files changed, 19 insertions(+), 6 deletions(-)
-#	fc475e2 show current release when entering new release number: this closes issue 1
-#	 markit | 14 +++++++++++---
-#	 1 file changed, 11 insertions(+), 3 deletions(-)
-###########################################################3
-#	https://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit
-#	git show --stat --oneline HEAD
-#	git show --stat --oneline b24f5fb
-#	git show --stat --oneline HEAD^^..HEAD
-#	
-#	If you do not like/want the addition/removal stats, you can replace --stat with --name-only
-#	
-#	git show --name-only --oneline HEAD
-#	git show --name-only --oneline b24f5fb
-#	git show --name-only --oneline HEAD^^..HEAD
-###########################################
-#	https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
-#	
-#	That command compares what is in your working directory with what is in your staging area. The result tells you the changes you’ve made that you haven’t yet staged.
-#	
-#	If you want to see what you’ve staged that will go into your next commit, you can use git diff --staged. This command compares your staged changes to your last commit:
-#	
-#	
-#
-if [ -z ${FILE_NAME} ] ; then
-	echo "Enter file_name to be marked with version and date:"
-	read FILE_NAME
-fi
-#
-if [ -z ${FILE_NAME} ] ; then
-	echo -e "${0} ${LINENO} [ERROR]:	File name is required.\n"	1>&2
+#	The FILE_MESSAGE is a one line breif description about the changes.
+FILE_MESSAGE=""
+FILE_RELEASE=""
+FILE_TEMP="TEMP_MARKIT_FILE"
+#	Check if ${FILE_LIST} is zero length
+if [ -z "${FILE_LIST}" ] ; then
+	echo -e "${0} ${LINENO} [ERROR]:	No file(s) found to mark and push to github.\n"	1>&2
+	git status
 	display_help
 	exit 1
 fi
-#
-if [ -a "./${FILE_NAME}" ] ; then
-#	Check if file has used markit before by checking second line 
-	TEST_FILE_NAME=`head -2 ${FILE_NAME} | awk '{print $2}'`
-	if [ ${FILE_NAME} == ${TEST_FILE_NAME} ] ; then
-		CURRENT_FILE_RELEASE=`head -2 ${FILE_NAME} | awk '{print $3}' | cut -f1,2 -d.`	
-		echo    "Current release number is "${CURRENT_FILE_RELEASE}
-	fi
-	if [ -z ${FILE_RELEASE} ] ; then
-		echo "Enter release number for ${FILE_NAME} to commit (example 3.01):"
-		read FILE_RELEASE
-	fi
-	if [ -z ${FILE_RELEASE} ] ; then
-		echo -e "${0} ${LINENO} [ERROR]:	Release number is required.\n"	1>&2
-		display_help
-		exit 1
-	fi
-	if [ -z ${COMMENT_CHAR} ] ; then
-		echo "Enter Single-line comment character(s) to use in ${FILE_NAME} (example: # // -- ;; ):"
-		read COMMENT_CHAR
-#			At a later time I need to add code to support comments that use 
-#			multiple line or opening with closing comment character(s) and code requiring to be compiled.
-#			Multiple line comments require an opening and closing comment mark.
-	fi
-	if [ -z $COMMENT_CHAR ] ; then
-		echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
-		display_help
-		exit 1
-	fi
-	echo "Enter a one line description about the changes:"
-	read FILE_MESSAGE
-	if [ -z "$FILE_MESSAGE" ] ; then
-		echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\n"       1>&2
-		display_help
-		exit 1
-	fi
-	touch $TEMP_FILE
-	head -1 $FILE_NAME >> $TEMP_FILE
-	echo "$COMMENT_CHAR	$FILE_NAME	$FILE_RELEASE.`git rev-list HEAD | wc -l`	$TIME_STAMP $USER `hostname -f` `git describe`" >> $TEMP_FILE
-	echo "$COMMENT_CHAR	$FILE_MESSAGE" >> $TEMP_FILE
-	tail -n `wc -l $FILE_NAME | awk '{print $1  - 1}'` $FILE_NAME >> $TEMP_FILE
-	cp $TEMP_FILE $FILE_NAME
-	rm $TEMP_FILE
+#	Prompt for release number
+echo -e "Files to be marked and pushed to github:\n${FILE_LIST}"
+echo    "Current release number: ${CURRENT_RELEASE} "
+echo -e "Enter release number to commit files to github (example 3.01).\n\tPress enter to use ${CURRENT_RELEASE} release number."
+read     FILE_RELEASE
+if [ -z ${FILE_RELEASE} ] ; then
+	FILE_RELEASE=${CURRENT_RELEASE}
+fi
+if [ -z ${FILE_RELEASE} ] ; then
+	echo -e "${0} ${LINENO} [ERROR]:	No release number to mark and push to github.\n"       1>&2
+	display_help
+	exit 1
+fi
+echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
+#	Prompt for single-line beginning comment character(s)
+echo -e "Enter single-line beginning comment character(s) to use\n (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
+read BEGIN_COMMENT_CHAR
+#	>>>	At a later time I need to add code to support comments that use 
+#	>>>	multiple line and/or opening and closing comment character(s) and code requiring to be compiled.
+#	>>>	Need a case statement with each comment char matching a file extension; example x.sh, x.py, etc
+#	>>>	https://en.wikipedia.org/wiki/Comment_(computer_programming)
+#	>>>	echo -e "Enter single-line ending comment character(s) to use\n (example: */ --> ---> -} */ --]] %} *) #> ):"
+#	>>>	read END_COMMENT_CHAR
+#	>>>	if [ -z ${END_COMMENT_CHAR} ] ; then ERROR message display_help, exit 1
+if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
+	echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
+	display_help
+	exit 1
+fi
+#	Prompt for single line change description
+#	>>>	think about how to add git commit -v
+#	>>>	git commit -m "$FILE_MESSAGE" $FILE_NAME
+echo "Enter a one line description about the changes:"
+read FILE_MESSAGE
+if [ -z "${FILE_MESSAGE}" ] ; then
+	echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\n"       1>&2
+	display_help
+	exit 1
+fi
+#	Mark each file
+for FILE_NAME in ${FILE_LIST} ; do
+	touch ${TEMP_FILE}
+	head -1 ${FILE_NAME} >> ${TEMP_FILE}
+	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+	echo "${BEGIN_COMMENT_CHAR}	${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
+	cp ${TEMP_FILE} ${FILE_NAME}
+	rm ${TEMP_FILE}
 #	Add file contents to the index
-	git add $FILE_NAME
-#	Record changes to the repository
-###		think about how to add git commit -v
-	git commit -m "$FILE_MESSAGE" $FILE_NAME
-#	Add tag reference
-	git tag -a $FILE_RELEASE -m "$FILE_MESSAGE"
-	exit 0
-else
-	echo -e "${0} ${LINENO} [ERROR]:	File $FILE_NAME NOT found.\n"	1>&2
-	display_help
-	exit 1
+	git add .
+done
+#	Check if release number is new then add tag reference with new release number
+if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
+	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 fi
+#	Push changes to github repository
+git push --follow-tags
 ###
