@@ -1,6 +1,7 @@
 # markit
 
-markit is a bash script that
+markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then it pushes those changed file(s) to GitHub.
+
  * Insert the file name, version, date, programmer, and hostname as the second line in the file.
  * Insert a one line breif description about the changes as a third line in the file.
 
