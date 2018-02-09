@@ -15,16 +15,31 @@ To install, change directory to the location you want to download the scripts. U
     markit 
 
 ## Output
-#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-      $ markit sample.sh
-    Enter release number for sample.sh (example 3.01):
-    2.02
-    Enter Single-line comment character(s) to use in sample.sh (example: # // -- ;; ):
+    $ markit
+    Files to be marked and pushed to GitHub:
+    sample.sh
+    Current release number: 3.1 
+    Enter release number to commit files to GitHub (example 3.01).
+	Press enter to use 3.1 release number.
+    
+    /usr/local/bin/markit 107 [INFO]:	Using release number: 3.1
+    Enter single-line beginning comment character(s) to use
+       (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):
     #	
-    Enter a one line description about the changes:
-    sample change description
-    [master f8b18d5] sample change description
-     1 file changed, 2 insertions(+)
+    Enter a one line description about the changes
+       (example: description of changes; closes #12, resolves #14, fixed #22):
+    create output for README #6
+    [master 874a7f5] create output for README #6
+     1 file changed, 1 insertion(+), 1 deletion(-)
+    Counting objects: 3, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 341 bytes | 0 bytes/s, done.
+    Total 3 (delta 2), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+    To https://github.com/BradleyA/markit
+       157c045..874a7f5  master -> master
+    /usr/local/bin/markit 196 [INFO]:	Done.
 
 ## Example File Modified
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
