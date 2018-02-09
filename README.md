@@ -15,6 +15,7 @@ To install, change directory to the location you want to download the scripts. U
     markit 
 
 ## Output
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
       $ markit sample.sh
     Enter release number for sample.sh (example 3.01):
     2.02
@@ -25,7 +26,9 @@ To install, change directory to the location you want to download the scripts. U
     [master f8b18d5] sample change description
      1 file changed, 2 insertions(+)
 
-## Example file
+## Example File Modified
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
     #!/bin/bash
     #       sample.sh       0.01.29 2018-02-05_20:51:50_CST uadmin six-rpi3b.cptx86.com 1.2-25-g0d6e47a
     #       Inital commit
