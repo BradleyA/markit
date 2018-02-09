@@ -6,15 +6,16 @@ markit is a bash script that
 
 ## Install
 
-To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/markit
     cd markit
 
 ## Usage
-    markit <FILE_NAME> <VERSION_NUMBER>
+    markit 
 
 ## Output
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
       $ markit sample.sh
     Enter release number for sample.sh (example 3.01):
     2.02
@@ -25,7 +26,9 @@ To install, change directory to the location you want to download the scripts. U
     [master f8b18d5] sample change description
      1 file changed, 2 insertions(+)
 
-## Example file
+## Example File Modified
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
     #!/bin/bash
     #       sample.sh       0.01.29 2018-02-05_20:51:50_CST uadmin six-rpi3b.cptx86.com 1.2-25-g0d6e47a
     #       Inital commit
