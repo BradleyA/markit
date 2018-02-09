@@ -55,7 +55,6 @@ Mark a tracked modified file, sample.sh, in your local Git repository and push t
     #	sample.sh	1.2.29	2018-02-05_20:51:50_CST uadmin six-rpi3b.cptx86.com 1.2-25-g0d6e47a 
     #	Inital commit
 
-
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
