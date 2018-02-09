@@ -1,8 +1,10 @@
 #!/bin/bash
+#	markit	3.1.54	2018-02-09_16:39:19_CST uadmin six-rpi3b.cptx86.com 3.1-11-g79c9b9a 
+#	updated  display_help and continue working on case statement #5 and other typos 
 #	markit	3.1.53	2018-02-08_13:52:12_CST uadmin six-rpi3b.cptx86.com 3.1-10-g656b65b 
 #	check argument $1 complete and tested, closes #3 
 #	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
-#	Closes #2 
+#	Add an argument $1 to support -u for untracked files, Closes #2 
 #	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
 #	Major rewrite to support multiple files 
 #	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
@@ -12,31 +14,34 @@
 #	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
 #	add logic for errors and display_help
 #	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
-#	add FQDN to version line to help understand the system code was tested on; add git commands
+#	add FQDN to version line to help understand the system code was tested on; add Git commands
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
 #	Testing added code to support one line description
 #
 #	set -x
 #	set -v
 #
-#	I created this script because git fails me when it comes to including the
+#	I created this script because Git fails me when it comes to including the
 #	version number and change description in each file being checked-in.
 #	Maybe it does, but I don't have anymore time to read and figure that out.  
 #	Version control must place a version number in text when code is checked in!
 #	This is not a kernal.  Bite me!
 ###
 display_help() {
-echo -e "\n${0} - Add two comment lines about file changes & push to github"
+echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
 echo -e "\nUSAGE:\n      ${0} [no | normal | all]"
 echo    "      ${0} [--help | -help | help | -h | h | -? | ?]"
-echo -e "\nDESCRIPTION:\nAdd two comment lines of information about file changes to tracked modified"
-echo    "files in your Git repository.  Then push those changed files to github."
-echo    "To change an untracked file to a tracked file enter, git add <file_name>."
-echo    "To prevent an untracked file from being tracked, add file to .gitignore file."
+echo -e "\nDESCRIPTION:\nAdd two comment lines of information about file changes to all tracked modified"
+echo    "files in your local Git repository.  Then push those changed file(s) to GitHub."
 echo    "The first comment line includes file name, version, date, programmer, and"
 echo    "hostname as the second line of the file(s).  Followed by a single comment"
-echo    "line including a brief description about changes made to the file.  There will"
-echo    "be prompts for comment character(s) and description."
+echo    "line including a brief description about changes made to the file(s)."
+echo -e "\nMarkit only modifies Git tracked files by default.  To change a Git"
+echo    "untracked file to a Git tracked file enter, git add <file_name>.  Markit will"
+echo    "modify all untracked and tracked files if normal or all is entered as an"
+echo    "arguement.  To prevent an untracked file from being tracked, add file(s) to"
+echo    ".gitignore file.  There will be prompts for comment character(s) when"
+echo    "needed and a description about the changes."
 echo    "This script uses one arguement;"
 echo    "   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "      no - no untracked files (default)"
@@ -52,15 +57,12 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 fi
 ###	test for
 #	>>>	use cases
-#	>>>		blank $1 & no, normal, all
-#	>>>		all files are new and not on github
+#	>>>	x	blank $1 & no, normal, all
+#	>>>		all files are new and not on GitHub test no and all
 #	>>>		no files need markit and commit with a push
-#	>>>		one file need markit
-#	>>>		several files need markit
+#	>>>	x	one file need markit
+#	>>>	x	several files need markit
 #	>>>		different types of files (x.sh, x.py, etc.) need makrit
-#	>>>		?	 objective: mark all file(s): untracked(??), new file that has been added (A), modified(M), staged
-#	>>>			I would say yes to all BUT untracked(??) because some time people want untracked files but
-#	>>>			they should put them in .gitignore file / right?	
 ###
 UNTRACKED_FILES=${1:-no}
 #
@@ -86,33 +88,71 @@ FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | awk '{print $2}'
 if [ -z "${FILE_LIST}" ] ; then
 	display_help
 	git status
-	echo -e "${0} ${LINENO} [ERROR]:	No file(s) found to mark and push to github.\n"	1>&2
+	echo -e "${0} ${LINENO} [ERROR]:	No file(s) found to mark and push to GitHub.\n"	1>&2
 	exit 1
 fi
 #	Prompt for release number
-echo -e "Files to be marked and pushed to github:\n${FILE_LIST}"
+echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
 echo    "Current release number: ${CURRENT_RELEASE} "
-echo -e "Enter release number to commit files to github (example 3.01).\n\tPress enter to use ${CURRENT_RELEASE} release number."
+echo -e "Enter release number to commit files to GitHub (example 3.01).\n\tPress enter to use ${CURRENT_RELEASE} release number."
 read     FILE_RELEASE
 if [ -z ${FILE_RELEASE} ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
 if [ -z ${FILE_RELEASE} ] ; then
 	display_help
-	echo -e "${0} ${LINENO} [ERROR]:	No release number to mark and push to github.\n"       1>&2
+	echo -e "${0} ${LINENO} [ERROR]:	No release number to mark and push to GitHub.\n"       1>&2
 	exit 1
 fi
 echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
 #	Prompt for single-line beginning comment character(s)
-echo -e "Enter single-line beginning comment character(s) to use\n (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
+echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
 read BEGIN_COMMENT_CHAR
-#	>>>	At a later time I need to add code to support comments that use 
-#	>>>	multiple line and/or opening and closing comment character(s) and code requiring to be compiled.
 #	>>>	Need a case statement with each comment char matching a file extension; example x.sh, x.py, etc
 #	>>>	https://en.wikipedia.org/wiki/Comment_(computer_programming)
+#	>>>	https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Comments
 #	>>>	echo -e "Enter single-line ending comment character(s) to use\n (example: */ --> ---> -} */ --]] %} *) #> ):"
 #	>>>	read END_COMMENT_CHAR
 #	>>>	if [ -z ${END_COMMENT_CHAR} ] ; then ERROR message display_help, exit 1
+#	ONLY SUPPORT single-line comments
+#
+#	>>>	Add support for dockerfile single-line beginning comment character '#'
+#
+#	>>>	This test code will need to be placed in the for loop so each file will use or prompt for the correct single-line beginning comment
+#	>>>	
+#	case $variable in
+#	   sh|pl|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml)
+#	      # UNIX shell (sh) perl(pl) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml)
+#	      BEGIN_COMMENT_CHAR="#	"
+#	      END_COMMENT_CHAR=""
+#	      ;;
+#	   c)
+#	      # c(c)
+#	      BEGIN_COMMENT_CHAR="/* "
+#	      END_COMMENT_CHAR=" */"
+#	      ;;
+#	   cc|cpp|c++|cxx)
+#	      # C++(cc|cpp|c++|cxx) C#, D, Go, Java, JavaScript, Kotlin, Object Pascal (Delphi), Objective-C, PHP, Rust, Scala, SASS, Swift, Xojo
+#	      BEGIN_COMMENT_CHAR="// "
+#	      END_COMMENT_CHAR=""
+#	      ;;
+#	   )	# HTML MTX ???
+#	      ;;
+#	   *)
+#	      Prompt for single-line beginning comment character(s)
+#	      echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
+#	      read BEGIN_COMMENT_CHAR
+#	      if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
+#	      	display_help
+#	      	echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
+#	        exit 1
+#	      fi
+#	      #		what to do if a file does not have a comment character entered 
+#				does the script skip the file, not push the file, not add the file, NOT SURE YET
+#			    commands (don't match any of the above)
+#	      ;;
+#	esac
+###
 if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 	display_help
 	echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
@@ -121,7 +161,7 @@ fi
 #	Prompt for single line change description
 #	>>>	think about how to add git commit -v
 #	>>>	git commit -m "$FILE_MESSAGE" $FILE_NAME
-echo "Enter a one line description about the changes:"
+echo "Enter a one line description about the changes\n   (example: description of changes; closes #12, resolves #14, fixed #22):"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
 	display_help
@@ -140,17 +180,17 @@ for FILE_NAME in ${FILE_LIST} ; do
 #	Add file contents to the index
 	git add ${FILE_NAME}
 done
-#	Commit staged file(s) for git push
+#	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
 #	Check if release number is new then add tag reference with new release number
-# >>>	   think about changing == to >= (are all release numbers? no A.01 ?)
-# >>>	        is v1.0 > v2.0 or v1.1 
+#	>>>	   think about changing == to >= (are all release numbers? no A.01 ?)
+#	>>>	        is v1.0 > v2.0 or v1.1 
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
-#	Push changes to github repository
+#	Push changes to GitHub repository
 	git push --follow-tags
 else
-#	Push changes to github repository
+#	Push changes to GitHub repository
 	git push
 fi
 echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
