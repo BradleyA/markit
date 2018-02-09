@@ -12,6 +12,9 @@ To install, change directory to the location you want to download the scripts. U
     cd markit
 
 ## Usage
+
+Mark a tracked modified file, sample.sh, in your local Git repository and push those changes to GitHub.
+
     markit 
 
 ## Output
