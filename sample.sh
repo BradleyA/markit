@@ -1,5 +1,5 @@
 #!/bin/bash
-#	sample.sh	3.1.55	2018-02-09_16:58:41_CST uadmin six-rpi3b.cptx86.com 3.1-12-g74fb4b0 
+#	sample.sh	3.1.60	2018-02-09_17:03:42_CST uadmin six-rpi3b.cptx86.com 3.1-17-g157c045 
 #	create output for README #6 
 #	sample.sh	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
 #	Add an argument $1 to support -u for untracked files, Closes #2 
