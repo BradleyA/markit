@@ -6,13 +6,13 @@ markit is a bash script that
 
 ## Install
 
-To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/markit
     cd markit
 
 ## Usage
-    markit <FILE_NAME> <VERSION_NUMBER>
+    markit 
 
 ## Output
       $ markit sample.sh
