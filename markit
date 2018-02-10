@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
+#	close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
 #	markit	3.1.54	2018-02-09_16:39:19_CST uadmin six-rpi3b.cptx86.com 3.1-11-g79c9b9a 
 #	updated  display_help and continue working on case statement #5 and other typos 
 #	markit	3.1.53	2018-02-08_13:52:12_CST uadmin six-rpi3b.cptx86.com 3.1-10-g656b65b 
@@ -29,9 +31,9 @@
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
-echo -e "\nUSAGE:\n      ${0} [no | normal | all]"
+echo -e "\nUSAGE\n      ${0} [no | normal | all]"
 echo    "      ${0} [--help | -help | help | -h | h | -? | ?]"
-echo -e "\nDESCRIPTION:\nAdd two comment lines of information about file changes to all tracked modified"
+echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to GitHub."
 echo    "The first comment line includes file name, version, date, programmer, and"
 echo    "hostname as the second line of the file(s).  Followed by a single comment"
@@ -42,14 +44,13 @@ echo    "modify all untracked and tracked files if normal or all is entered as a
 echo    "arguement.  To prevent an untracked file from being tracked, add file(s) to"
 echo    ".gitignore file.  There will be prompts for comment character(s) when"
 echo    "needed and a description about the changes."
-echo    "This script uses one arguement;"
-echo    "   UNTRACKED_FILES - used to specify the handling of untracked files"
-echo    "      no - no untracked files (default)"
-echo    "      normal - untracked files and directories"
-echo    "      all - Also individual files in untracked directories"
-echo -e "\nDOCUMENTATION:\n      https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES:\n      ${0}\n"
-echo -e "   Mark untracked files, directories, and files in untracked directories\n\n      ${0} all\n"
+echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
+echo    "   no       no untracked files (default)"
+echo    "   normal   untracked files and directories"
+echo    "   all      Also individual files in untracked directories"
+echo -e "\nDOCUMENTATION\n      https://github.com/BradleyA/markit"
+echo -e "\nEXAMPLES\n   Mark tracked file(s)\n      ${0}"
+echo -e "   Mark tracked and untracked files, directories, and files in untracked\n   directories\n      ${0} all\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
@@ -58,11 +59,10 @@ fi
 ###	test for
 #	>>>	use cases
 #	>>>	x	blank $1 & no, normal, all
-#	>>>		all files are new and not on GitHub test no and all
-#	>>>		no files need markit and commit with a push
+#	>>>		all files are new and not on GitHub(untracked) test no and all
+#	>>>		no files need markit
 #	>>>	x	one file need markit
-#	>>>	x	several files need markit
-#	>>>		different types of files (x.sh, x.py, etc.) need makrit
+#	>>>	 	several files need markit with different extensions
 ###
 UNTRACKED_FILES=${1:-no}
 #
@@ -105,71 +105,76 @@ if [ -z ${FILE_RELEASE} ] ; then
 	exit 1
 fi
 echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
+###	CUT HERE <<<<<<
 #	Prompt for single-line beginning comment character(s)
-echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
+echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! s !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
 read BEGIN_COMMENT_CHAR
-#	>>>	Need a case statement with each comment char matching a file extension; example x.sh, x.py, etc
-#	>>>	https://en.wikipedia.org/wiki/Comment_(computer_programming)
-#	>>>	https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Comments
-#	>>>	echo -e "Enter single-line ending comment character(s) to use\n (example: */ --> ---> -} */ --]] %} *) #> ):"
-#	>>>	read END_COMMENT_CHAR
-#	>>>	if [ -z ${END_COMMENT_CHAR} ] ; then ERROR message display_help, exit 1
-#	ONLY SUPPORT single-line comments
 #
-#	>>>	Add support for dockerfile single-line beginning comment character '#'
-#
-#	>>>	This test code will need to be placed in the for loop so each file will use or prompt for the correct single-line beginning comment
-#	>>>	
-#	case $variable in
-#	   sh|pl|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml)
-#	      # UNIX shell (sh) perl(pl) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml)
-#	      BEGIN_COMMENT_CHAR="#	"
-#	      END_COMMENT_CHAR=""
-#	      ;;
-#	   c)
-#	      # c(c)
-#	      BEGIN_COMMENT_CHAR="/* "
-#	      END_COMMENT_CHAR=" */"
-#	      ;;
-#	   cc|cpp|c++|cxx)
-#	      # C++(cc|cpp|c++|cxx) C#, D, Go, Java, JavaScript, Kotlin, Object Pascal (Delphi), Objective-C, PHP, Rust, Scala, SASS, Swift, Xojo
-#	      BEGIN_COMMENT_CHAR="// "
-#	      END_COMMENT_CHAR=""
-#	      ;;
-#	   )	# HTML MTX ???
-#	      ;;
-#	   *)
-#	      Prompt for single-line beginning comment character(s)
-#	      echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):"
-#	      read BEGIN_COMMENT_CHAR
-#	      if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
-#	      	display_help
-#	      	echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
-#	        exit 1
-#	      fi
-#	      #		what to do if a file does not have a comment character entered 
-#				does the script skip the file, not push the file, not add the file, NOT SURE YET
-#			    commands (don't match any of the above)
-#	      ;;
-#	esac
-###
 if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 	display_help
 	echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
 	exit 1
 fi
+###
+#	>>>	This test code will need to be placed in the for loop so each file will use or prompt for the correct single-line beginning comment
+#	>>>	create a case statement if other non-extension files like dockerfile need support
+#	>>>	Add support for dockerfile ('#') before prompt for single-line beginning comment character 
+#	if [ "${FILE_RELEASE}" == "dockerfile" ] ; then
+#	   BEGIN_COMMENT_CHAR="#	"
+#	   END_COMMENT_CHAR=""
+#	else
+### >>> insert case statement HERE <<<
+#	fi
+#		
+#	single-line comment character(s) matching file extension
+#	ONLY SUPPORT single-line comments NOT multiple line block comment
+#	case $variable in
+#	   sh|pl|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml)
+#	      # UNIX shell(sh) perl(pl) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml)
+#	      BEGIN_COMMENT_CHAR="#	"
+#	      END_COMMENT_CHAR=""
+#	      ;;
+#	   c|h|H|hpp|hxx|Hxx|HXX|)
+#	      # c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
+#	      BEGIN_COMMENT_CHAR="/* "
+#	      END_COMMENT_CHAR=" */"
+#	      ;;
+#	   cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
+#	      # C++(cc|cpp|c++|cxx) Go(g0) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
+#	      BEGIN_COMMENT_CHAR="// "
+#	      END_COMMENT_CHAR=""
+#	      ;;
+#	   xml|html|htm)
+#	      # XML(xml) HTML (html|htm) 
+#             BEGIN_COMMENT_CHAR="<!-- "
+#             END_COMMENT_CHAR=" -->"
+#	      ;;
+#	   *)
+#	      Prompt for single-line beginning comment character(s)
+#	      echo -e "Enter single-line beginning comment character(s) to use\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
+#	      read BEGIN_COMMENT_CHAR
+#	      if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
+#	       	display_help
+#		echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
+#	        exit 1
+#	      fi
+#	      echo -e "Enter single-line ending comment character(s) to use\n (example: */ --> ---> -} */ --]] %} *) #> )"
+#	      read END_COMMENT_CHAR
+#	      ;;
+#	esac
+###
+###	CUT HERE <<<<<<
 #	Prompt for single line change description
-#	>>>	think about how to add git commit -v
-#	>>>	git commit -m "$FILE_MESSAGE" $FILE_NAME
 echo -e "Enter a one line description about the changes\n   (example: description of changes; closes #12, resolves #14, fixed #22):"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
 	display_help
-	echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\n"       1>&2
+	echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\nTo display changes between commits, git diff <file_name>."       1>&2
 	exit 1
 fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
+###	INSERT HERE <<<<<< if then dockerfile else (case statement) fi
 	touch ${TEMP_FILE}
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
