@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.69	2018-02-10_19:38:56_CST uadmin six-rpi3b.cptx86.com 3.1-26-gdcc0a36 
+#	clean up formating 
 #	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
 #	close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
 #	markit	3.1.54	2018-02-09_16:39:19_CST uadmin six-rpi3b.cptx86.com 3.1-11-g79c9b9a 
@@ -31,8 +33,8 @@
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
-echo -e "\nUSAGE\n      ${0} [no | normal | all]"
-echo    "      ${0} [--help | -help | help | -h | h | -? | ?]"
+echo -e "\nUSAGE\n   ${0} [no | normal | all]"
+echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to GitHub."
 echo    "The first comment line includes file name, version, date, programmer, and"
@@ -48,7 +50,7 @@ echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untrack
 echo    "   no       no untracked files (default)"
 echo    "   normal   untracked files and directories"
 echo    "   all      Also individual files in untracked directories"
-echo -e "\nDOCUMENTATION\n      https://github.com/BradleyA/markit"
+echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   Mark tracked file(s)\n      ${0}"
 echo -e "   Mark tracked and untracked files, directories, and files in untracked\n   directories\n      ${0} all\n"
 }
@@ -200,3 +202,4 @@ else
 fi
 echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###
+
