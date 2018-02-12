@@ -1,9 +1,7 @@
 #!/bin/bash
+#	markit	3.2.82	2018-02-12_00:05:49_CST uadmin six-rpi3b.cptx86.com 3.2-1-g2dafdfa 
+#	testing x.c x.go x for #5 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
-#	start 3.2 beta release; major code rewrite for #5 
-#	markit	3.2.81	2018-02-11_23:58:37_CST uadmin six-rpi3b.cptx86.com 3.2 
-#	start 3.2 beta release; major code rewrite for #5 
-#	markit	3.2.80	2018-02-11_23:53:12_CST uadmin six-rpi3b.cptx86.com 1.6-38-g874ab44 
 #	start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
 #	testing failed login; cleanup debugging for #9, closes #8 
