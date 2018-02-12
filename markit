@@ -1,12 +1,8 @@
 #!/bin/bash
+#	markit	3.3.87	2018-02-12_14:41:13_CST uadmin six-rpi3b.cptx86.com 3.3-1-gafa94a3 
+#	beta 3.3 testing sample.go sample.c sample.xml sample.scala sample.htm sample.rb for #5 
 #	markit	3.3.85	2018-02-12_00:23:05_CST uadmin six-rpi3b.cptx86.com 3.2-4-g95418e1 
 #	testing x x.MK x.h x.sh for #5 
-#	markit	3.2.84	2018-02-12_00:18:10_CST uadmin six-rpi3b.cptx86.com 3.2-3-g270e96e 
-#	testing x x.MK x.h x.sh for #5 
-#	markit	3.2.83	2018-02-12_00:12:34_CST uadmin six-rpi3b.cptx86.com 3.2-2-g6d8266e 
-#	testing x x.MK x.h x.sh for #5 
-#	markit	3.2.82	2018-02-12_00:05:49_CST uadmin six-rpi3b.cptx86.com 3.2-1-g2dafdfa 
-#	testing x.c x.go x for #5 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
 #	start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
@@ -148,14 +144,13 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
-echo    "	=> 149	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
 echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
-# >>>	This does not work if the last character is '.'
+# >>>	This does not work if the last character is '.' but it does work if more than one "."
 	FILE_EXTENSION=${FILE_NAME##*\.}
 	echo "${FILE_NAME}	${FILE_EXTENSION}"
 #	Single-line comment character(s) matching file extension
@@ -203,9 +198,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME} 
 	rm ${TEMP_FILE}
 #	Add file contents to the index
 	git add ${FILE_NAME}
-echo    "	=> 204	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 done
-echo    "	=> 206	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
 #	>>> ????????????
