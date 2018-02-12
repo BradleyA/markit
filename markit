@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.94	2018-02-12_15:38:03_CST uadmin six-rpi3b.cptx86.com 3.3-8-g504facc 
+#	for ${FILE_NAME} 
 #	markit	3.3.93	2018-02-12_15:34:25_CST uadmin six-rpi3b.cptx86.com 3.3-7-g13f9e0c 
 #	beta 3.3 testing markit for #5 
 #	markit	3.3.92	2018-02-12_15:33:17_CST uadmin six-rpi3b.cptx86.com 3.3-6-g823a3f2 
@@ -137,7 +139,7 @@ if [ -z ${FILE_RELEASE} ] ; then
 fi
 echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
 #	Prompt for single line change description
-echo -e "\nEnter a one line description about the changes\n   (example: description of changes; closes #12, resolves #14, fixed #22):"
+echo -e "\nEnter a one line description about the changes\n   (example: Added logic for --help; closes #12, resolves #14):"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
 	display_help
@@ -187,7 +189,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME} 
 				echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
-			echo -e "\nEnter single-line ending comment character(s).  Press enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
+			echo -e "\nEnter single-line ending comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
 			read END_COMMENT_CHAR
 			;;
 	esac
