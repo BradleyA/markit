@@ -1,12 +1,6 @@
 #!/bin/bash
-#	markit	3.1.78	2018-02-11_22:05:55_CST uadmin six-rpi3b.cptx86.com 1.6-36-g5f83560 
-#	testing failed login; cleanup of debugging for #9 
-#	markit	3.1.77	2018-02-11_22:03:37_CST uadmin six-rpi3b.cptx86.com 1.6-35-gf58eb9f 
-#	testing failed login; cleanup of debugging for #9 
-#	markit	3.1.76	2018-02-11_22:00:47_CST uadmin six-rpi3b.cptx86.com 1.6-34-ga4915ea 
-#	testing failed login; cleanup of debugging for #9 
-#	markit	3.1.74	2018-02-11_21:35:56_CST uadmin six-rpi3b.cptx86.com 1.6-32-g232fc5f 
-#	Testing failed git push login 
+#	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
+#	testing failed login; cleanup debugging for #9, closes #8 
 #	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
 #	Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
@@ -217,7 +211,7 @@ done
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository
-	git push --follow-tags
+	git push --follow-tags  || { echo -e "${0} ${LINENO} [ERROR]:  GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push --follow-tags' to complete pushing marked file(s) to GitHub." ; exit 1; }
 else
 #	Push changes to GitHub repository
 	git push || { echo -e "${0} ${LINENO} [ERROR]:	GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
