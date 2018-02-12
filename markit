@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.2.83	2018-02-12_00:12:34_CST uadmin six-rpi3b.cptx86.com 3.2-2-g6d8266e 
+#	testing x x.MK x.h x.sh for #5 
 #	markit	3.2.82	2018-02-12_00:05:49_CST uadmin six-rpi3b.cptx86.com 3.2-1-g2dafdfa 
 #	testing x.c x.go x for #5 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
@@ -140,23 +142,18 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 	echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\nTo display changes between commits, git diff <file_name>."       1>&2
 	exit 1
 fi
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
 echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
-echo    "	=> 147	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 147	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
 # >>>	This does not work if the last character is '.'
-echo    "	=>  152	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	FILE_EXTENSION=${FILE_NAME##*\.}
-echo    "	=>  159	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
-	echo ${FILE_NAME} ${FILE_EXTENSION}
-echo    "	=>	Debugging ${LINENO}"
-####################3###
+	echo "${FILE_NAME}	${FILE_EXTENSION}"
 #	Single-line comment character(s) matching file extension
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
@@ -206,6 +203,7 @@ echo    "	=> 198	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	git add ${FILE_NAME}
 echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 done
+echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
 #	>>> ????????????

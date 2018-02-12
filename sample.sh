@@ -1,4 +1,9 @@
-#!/bin/bash
+###################################33
+#		sample.sh	3.2.83	2018-02-12_00:12:34_CST uadmin six-rpi3b.cptx86.com 3.2-2-g6d8266e 
+#		testing x x.MK x.h x.sh for #5 
+
+
+
 #	sample.sh	3.1.60	2018-02-09_17:03:42_CST uadmin six-rpi3b.cptx86.com 3.1-17-g157c045 
 #	create output for README #6 
 #	sample.sh	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
