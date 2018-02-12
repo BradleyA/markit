@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.76	2018-02-11_22:00:47_CST uadmin six-rpi3b.cptx86.com 1.6-34-ga4915ea 
+#	testing failed login; cleanup of debugging for #9 
 #	markit	3.1.74	2018-02-11_21:35:56_CST uadmin six-rpi3b.cptx86.com 1.6-32-g232fc5f 
 #	Testing failed git push login 
 #	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
@@ -74,7 +76,6 @@ fi
 #
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
-__gitdir
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
 	echo -e "${0} ${LINENO} [WARNING]:	`pwd` Check if you are in a Git repository\n\tand you have GIT access permission.\n"	1>&2
 	exit 0
@@ -192,7 +193,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 ###	INSERT HERE <<<<<< if then dockerfile else (case statement) fi -> when adding case statement
 #	Check if user has write permission
 	if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-		echo -e "${0} ${LINENO} [ERROR]:	User does not have write permission\n\tin local Git repository."	1>&2
+		echo -e "${0} ${LINENO} [ERROR]:	${USER} does NOT have write permission\n\tin local Git repository."	1>&2
 		exit 1
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
@@ -215,7 +216,7 @@ if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git push --follow-tags
 else
 #	Push changes to GitHub repository
-	git push || { echo "${0} ${LINENO} [ERROR]:	Wrong pass phrase for .private/ca-priv-key.pem: " ; exit 1; }
+	git push || { echo "${0} ${LINENO} [ERROR]:	Login fail,\n\tGitHub respoitory or GitHub password NOT correct.\n\tEnter; 'git push' complete push of marked file(s)." ; exit 1; }
 fi
 echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###
