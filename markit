@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit	3.3.87	2018-02-12_14:41:13_CST uadmin six-rpi3b.cptx86.com 3.3-1-gafa94a3 
-#	beta 3.3 testing sample.go sample.c sample.xml sample.scala sample.htm sample.rb for #5 
+#	markit	3.3.88	2018-02-12_14:56:52_CST uadmin six-rpi3b.cptx86.com 3.3-2-g71c8992 #>
+#	beta 3.3 testing sample.go sample.c for #5 #>
 #	markit	3.3.85	2018-02-12_00:23:05_CST uadmin six-rpi3b.cptx86.com 3.2-4-g95418e1 
 #	testing x x.MK x.h x.sh for #5 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
@@ -11,8 +11,6 @@
 #	Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
 #	Check if in Git repository; closes #7 
-#	markit	3.1.69	2018-02-10_19:38:56_CST uadmin six-rpi3b.cptx86.com 3.1-26-gdcc0a36 
-#	clean up formating 
 #	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
 #	close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
 #	markit	3.1.54	2018-02-09_16:39:19_CST uadmin six-rpi3b.cptx86.com 3.1-11-g79c9b9a 
@@ -25,10 +23,6 @@
 #	Major rewrite to support multiple files 
 #	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
 #	show current release when entering new release number: this closes issue 1
-#	markit	2.01.20	2018-02-05_20:08:39_CST uadmin six-rpi3b.cptx86.com 1.03
-#	corrected logic with line description string
-#	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
-#	add logic for errors and display_help
 #	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
 #	add FQDN to version line to help understand the system code was tested on; add Git commands
 #	markit	1.1	2017-12-18_19:09:50_CST uthree
@@ -210,5 +204,5 @@ else
 #	Push changes to GitHub repository
 	git push || { echo -e "${0} ${LINENO} [ERROR]:	GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
 fi
-echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
+echo -e "${0} ${LINENO} [INFO]:	List of untracked file(s).  Enter 'git add <file-name>' to track file.\n"`git status --untracked-file=all -s | grep "?? "`	1>&2
 ###
