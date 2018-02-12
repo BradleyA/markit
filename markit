@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.85	2018-02-12_00:23:05_CST uadmin six-rpi3b.cptx86.com 3.2-4-g95418e1 
+#	testing x x.MK x.h x.sh for #5 
 #	markit	3.2.84	2018-02-12_00:18:10_CST uadmin six-rpi3b.cptx86.com 3.2-3-g270e96e 
 #	testing x x.MK x.h x.sh for #5 
 #	markit	3.2.83	2018-02-12_00:12:34_CST uadmin six-rpi3b.cptx86.com 3.2-2-g6d8266e 
@@ -146,10 +148,10 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 149	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
-echo    "	=> 147	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
@@ -192,9 +194,7 @@ echo    "	=> 147	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME} 
 			read END_COMMENT_CHAR
 			;;
 	esac
-echo    "	=> 196	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	fi
-echo    "	=> 198	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}

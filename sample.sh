@@ -1,4 +1,9 @@
 ###################################33
+#		sample.sh	3.3.85	2018-02-12_00:23:05_CST uadmin six-rpi3b.cptx86.com 3.2-4-g95418e1 
+#		testing x x.MK x.h x.sh for #5 
+
+
+
 #		sample.sh	3.2.84	2018-02-12_00:18:10_CST uadmin six-rpi3b.cptx86.com 3.2-3-g270e96e 
 #		testing x x.MK x.h x.sh for #5 
 
