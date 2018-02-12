@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.74	2018-02-11_21:35:56_CST uadmin six-rpi3b.cptx86.com 1.6-32-g232fc5f 
+#	Testing failed git push login 
 #	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
 #	Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
@@ -213,8 +215,7 @@ if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git push --follow-tags
 else
 #	Push changes to GitHub repository
-	git push
+	git push || { echo "${0} ${LINENO} [ERROR]:	Wrong pass phrase for .private/ca-priv-key.pem: " ; exit 1; }
 fi
 echo -e "${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###
-
