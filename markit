@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
+#	Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
 #	Check if in Git repository; closes #7 
 #	markit	3.1.69	2018-02-10_19:38:56_CST uadmin six-rpi3b.cptx86.com 3.1-26-gdcc0a36 
@@ -70,6 +72,7 @@ fi
 #
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
+__gitdir
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
 	echo -e "${0} ${LINENO} [WARNING]:	`pwd` Check if you are in a Git repository\n\tand you have GIT access permission.\n"	1>&2
 	exit 0
@@ -98,7 +101,7 @@ FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | awk '{print $2}'
 if [ -z "${FILE_LIST}" ] ; then
 	display_help
 	git status
-	echo -e "${0} ${LINENO} [ERROR]:	No file(s) found to mark and push to GitHub.\n"	1>&2
+	echo -e "${0} ${LINENO} [WARNING]:	No file(s) found to mark and push to GitHub.\n"	1>&2
 	exit 1
 fi
 #	Prompt for release number
@@ -185,7 +188,11 @@ fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
 ###	INSERT HERE <<<<<< if then dockerfile else (case statement) fi -> when adding case statement
-	touch ${TEMP_FILE}
+#	Check if user has write permission
+	if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
+		echo -e "${0} ${LINENO} [ERROR]:	User does not have write permission\n\tin local Git repository."	1>&2
+		exit 1
+	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
