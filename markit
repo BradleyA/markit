@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.96	2018-02-12_15:45:08_CST uadmin six-rpi3b.cptx86.com 3.3-10-g98d404f 
+#	beta 3.3 testing markit #5 
 #	markit	3.3.95	2018-02-12_15:43:06_CST uadmin six-rpi3b.cptx86.com 3.3-9-gad9d812 
 #	beta 3.3 for #5 
 #	markit	3.3.94	2018-02-12_15:38:03_CST uadmin six-rpi3b.cptx86.com 3.3-8-g504facc 
@@ -219,6 +221,6 @@ fi
 if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 	echo -e "\nList of untracked file(s)."
 	git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-	echo -e "\nEnter 'git add <file-name>' to track file(s).\n"
+	echo -e "\nEnter 'git add <file-name>' to track untracked file(s).\n"
 fi
 ###
