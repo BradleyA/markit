@@ -1,4 +1,8 @@
 #!/bin/bash
+#	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
+#	start 3.2 beta release; major code rewrite for #5 
+#	markit	3.2.81	2018-02-11_23:58:37_CST uadmin six-rpi3b.cptx86.com 3.2 
+#	start 3.2 beta release; major code rewrite for #5 
 #	markit	3.2.80	2018-02-11_23:53:12_CST uadmin six-rpi3b.cptx86.com 1.6-38-g874ab44 
 #	start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
@@ -101,7 +105,6 @@ if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != ""
 	exit 0
 fi
 FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | awk '{print $2}'`
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
 	display_help
@@ -115,7 +118,6 @@ fi
 		exit 1
 	fi
 #	Prompt for release number
-echo    "	=>	Debugging ${LINENO}"
 echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
 echo    "Current release number: ${CURRENT_RELEASE} "
 echo -e "Enter release number to commit files to GitHub (example 3.01).\n\tPress enter to use ${CURRENT_RELEASE} release number."
@@ -131,7 +133,6 @@ if [ -z ${FILE_RELEASE} ] ; then
 	echo -e "${0} ${LINENO} [ERROR]:	No release number to mark and push to GitHub.\n"       1>&2
 	exit 1
 fi
-echo    "	=>	Debugging ${LINENO}"
 echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
 #	Prompt for single line change description
 echo -e "Enter a one line description about the changes\n   (example: description of changes; closes #12, resolves #14, fixed #22):"
@@ -147,18 +148,12 @@ for FILE_NAME in ${FILE_LIST} ; do
 echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 147	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	else
-echo    "	=>  153	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
-echo    "	=>  153	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 # >>>	This does not work if the last character is '.'
-echo    "	=>  153	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
-echo    "	=>  153	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
-#	echo ${FILE_NAME} ${FILE_EXTENSION}
-echo    "	=>  159	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=>  152	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	FILE_EXTENSION=${FILE_NAME##*\.}
 echo    "	=>  159	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	echo ${FILE_NAME} ${FILE_EXTENSION}
@@ -172,11 +167,11 @@ echo    "	=>	Debugging ${LINENO}"
 			BEGIN_COMMENT_CHAR="#	"
 			END_COMMENT_CHAR=""
 			;;
-#		c|h|H|hpp|hxx|Hxx|HXX|)
+		c|h|H|hpp|hxx|Hxx|HXX)
 #		c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
-#			BEGIN_COMMENT_CHAR="/* "
-#			END_COMMENT_CHAR=" */"
-#			;;
+			BEGIN_COMMENT_CHAR="/* "
+			END_COMMENT_CHAR=" */"
+			;;
 		cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
 #		C++(cc|cpp|c++|cxx) Go(g0) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
 			BEGIN_COMMENT_CHAR="// "
@@ -196,13 +191,13 @@ echo    "	=>	Debugging ${LINENO}"
 				echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
-			echo -e "Enter single-line ending comment character(s) to use\n (example: */ --> ---> -} */ --]] %} *) #> )"
+			echo -e "Enter single-line ending comment character(s).  Press enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
 			read END_COMMENT_CHAR
 			;;
 	esac
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 196	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	fi
-echo    "	=>	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+echo    "	=> 198	Debugging ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
