@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.95	2018-02-12_15:43:06_CST uadmin six-rpi3b.cptx86.com 3.3-9-gad9d812 
+#	beta 3.3 for #5 
 #	markit	3.3.94	2018-02-12_15:38:03_CST uadmin six-rpi3b.cptx86.com 3.3-8-g504facc 
 #	for ${FILE_NAME} 
 #	markit	3.3.93	2018-02-12_15:34:25_CST uadmin six-rpi3b.cptx86.com 3.3-7-g13f9e0c 
@@ -123,8 +125,8 @@ fi
 	fi
 #	Prompt for release number
 echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
-echo    "Current release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter release number to commit files to GitHub (example 3.01).\n\tPress enter to use ${CURRENT_RELEASE} release number."
+echo -e "\nCurrent release number: ${CURRENT_RELEASE} "
+echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or crtl-c to stop."
 read     FILE_RELEASE
 #	Check if release number is newer than add tag reference with new release number
 #	>>>	   think about changing == to >= (are all release numbers? no A.01 ?)
