@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.91	2018-02-12_15:30:30_CST uadmin six-rpi3b.cptx86.com 3.3-5-g8b12a7a 
+#	beta 3.3 testing markit for #5 
 #	markit	3.3.90	2018-02-12_15:23:42_CST uadmin six-rpi3b.cptx86.com 3.3-4-g7c8e576 
 #	beta 3.3 testing markit for #5 
 #	markit	3.3.88	2018-02-12_14:56:52_CST uadmin six-rpi3b.cptx86.com 3.3-2-g71c8992 #>
@@ -206,6 +208,9 @@ else
 #	Push changes to GitHub repository
 	git push || { echo -e "${0} ${LINENO} [ERROR]:	GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
 fi
-echo -e "${0} ${LINENO} [INFO]:	List of untracked file(s).  \nEnter 'git add <file-name>' to track file."	1>&2
-git status --untracked-file=all -s | grep '?? ' | sed 's/^?? //'
+if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
+	echo -e "List of untracked file(s)."
+	git status --untracked-file=all -s | grep '?? ' | sed 's/^?? //'
+	echo -e "Enter 'git add <file-name>' to track file."
+fi
 ###
