@@ -144,7 +144,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${TIME_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
 # >>>	                        x.o $Version: XXXX XXXX XXXX XXXX '$'
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
-# >>>	                        x.o $Version: XXXX '$'
+# >>>	                        x.o $Version_message: XXXX '$'
 #
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME##*\.}" == "Dockerfile" ] ; then
