@@ -139,6 +139,8 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
+# >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time 
+# >>>	   Use markit version from the source code and insert it during compiling; var BUILD_VERSION="${BUILD_VERSION}
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
 echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
