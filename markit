@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit	3.3.98	2018-02-12_21:20:33_CST uadmin six-rpi3b.cptx86.com 3.3-12-g26542fb 
-#	support comments that use file extension to determine what type of comment #5 
+#	markit	3.3.99	2018-02-12_21:22:57_CST uadmin six-rpi3b.cptx86.com 3.3-13-g9b4055b 
+#	support comments that use file extension to determine what type of comment, closes #5 
 #	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
 #	display a list of untracked files at end, closes #10 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
@@ -33,7 +33,6 @@
 #	version number and change description in each file being checked-in.
 #	Maybe it does, but I don't have anymore time to read and figure that out.  
 #	Version control must place a version number in text when code is checked in!
-#	This is not a kernal.  Bite me!
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
