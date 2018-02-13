@@ -37,6 +37,7 @@
 #	version number and change description in each file being checked-in.
 #	Maybe it does, but I don't have anymore time to read and figure that out.  
 #	Version control must place a version number in text when code is checked in!
+#       This is not a kernal.  Bite me!
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
