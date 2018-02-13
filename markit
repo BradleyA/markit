@@ -1,6 +1,4 @@
 #!/bin/bash
-#	markit	3.4.108	2018-02-13_10:42:28_CST uadmin six-rpi3b.cptx86.com 3.4-5-ga1543ee 
-#	   change two tabs to one tab in case statement using # 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
 #	> New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
@@ -135,14 +133,19 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
-# >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time 
+#
+# >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
 # >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
-# >>>	   Or use markit, opening comment 'var BUILD_VERSION="' and ending comment '"'
-# >>>	                  opening comment 'char BUILD_VERSION[] = "'; and ending comment '"'
+# >>>	   Or use markit; to create CHAR variable found in compiled code ?
+# >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
+# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${TIME_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
+# >>>	                        x.o $Version: XXXX XXXX XXXX XXXX '$'
+# >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
+# >>>	                        x.o $Version: XXXX '$'
 #
 # >>>	Create a case statement if other non-extension files like dockerfile need support
-	if [ "${FILE_NAME}" == "dockerfile" ] ; then
-echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+	if [ "${FILE_NAME##*\.}" == "Dockerfile" ] ; then
+echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
