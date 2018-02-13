@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.4.108	2018-02-13_10:42:28_CST uadmin six-rpi3b.cptx86.com 3.4-5-ga1543ee 
+#	   change two tabs to one tab in case statement using # 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
 #	> New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
@@ -152,7 +154,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME} 
 	case ${FILE_EXTENSION} in
 		sh|pl|PL|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK)
 #		UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK)
-			BEGIN_COMMENT_CHAR="#	"
+			BEGIN_COMMENT_CHAR="# "
 			END_COMMENT_CHAR=""
 			;;
 		c|h|H|hpp|hxx|Hxx|HXX)
