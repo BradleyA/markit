@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
+#	New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
 #	remove deleted file when creating file list, closes #11 
 #	markit	3.3.99	2018-02-12_21:22:57_CST uadmin six-rpi3b.cptx86.com 3.3-13-g9b4055b 
@@ -75,7 +77,6 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 ###
 UNTRACKED_FILES=${1:-no}
-#
 CURRENT_RELEASE=`git tag | tail -1`
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
@@ -85,7 +86,6 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
-FILE_TEMP="TEMP_MARKIT_FILE"
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
