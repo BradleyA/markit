@@ -1,22 +1,6 @@
 #!/bin/bash
-#	markit	3.3.96	2018-02-12_15:45:08_CST uadmin six-rpi3b.cptx86.com 3.3-10-g98d404f 
-#	beta 3.3 testing markit #5 
-#	markit	3.3.95	2018-02-12_15:43:06_CST uadmin six-rpi3b.cptx86.com 3.3-9-gad9d812 
-#	beta 3.3 for #5 
-#	markit	3.3.94	2018-02-12_15:38:03_CST uadmin six-rpi3b.cptx86.com 3.3-8-g504facc 
-#	for ${FILE_NAME} 
-#	markit	3.3.93	2018-02-12_15:34:25_CST uadmin six-rpi3b.cptx86.com 3.3-7-g13f9e0c 
-#	beta 3.3 testing markit for #5 
-#	markit	3.3.92	2018-02-12_15:33:17_CST uadmin six-rpi3b.cptx86.com 3.3-6-g823a3f2 
-#	beta 3.3 testing markit for #5 
-#	markit	3.3.91	2018-02-12_15:30:30_CST uadmin six-rpi3b.cptx86.com 3.3-5-g8b12a7a 
-#	beta 3.3 testing markit for #5 
-#	markit	3.3.90	2018-02-12_15:23:42_CST uadmin six-rpi3b.cptx86.com 3.3-4-g7c8e576 
-#	beta 3.3 testing markit for #5 
-#	markit	3.3.88	2018-02-12_14:56:52_CST uadmin six-rpi3b.cptx86.com 3.3-2-g71c8992 #>
-#	beta 3.3 testing sample.go sample.c for #5 #>
-#	markit	3.3.85	2018-02-12_00:23:05_CST uadmin six-rpi3b.cptx86.com 3.2-4-g95418e1 
-#	testing x x.MK x.h x.sh for #5 
+#	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
+#	display a list of untracked files at end, closes #10 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
 #	start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
@@ -27,8 +11,6 @@
 #	Check if in Git repository; closes #7 
 #	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
 #	close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
-#	markit	3.1.54	2018-02-09_16:39:19_CST uadmin six-rpi3b.cptx86.com 3.1-11-g79c9b9a 
-#	updated  display_help and continue working on case statement #5 and other typos 
 #	markit	3.1.53	2018-02-08_13:52:12_CST uadmin six-rpi3b.cptx86.com 3.1-10-g656b65b 
 #	check argument $1 complete and tested, closes #3 
 #	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
@@ -79,7 +61,6 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 	exit 0
 fi
 ###	Test for
-#	>>>	use cases
 #	>>>	x	blank $1 & no, normal, all
 #	>>>		all files are new and not on GitHub (untracked) test no and all
 #	>>>		no files need markit
@@ -112,12 +93,18 @@ if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != ""
 	echo -e "${0} ${LINENO} [ERROR]:	First arguement, ${1}, is NOT no, normal, all.\n"	1>&2
 	exit 0
 fi
-FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | awk '{print $2}'`
+#	Create FILE_LIST, remove deleted files from FILE_LIST
+FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v "^D  " | awk '{print $2}'`
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
 	display_help
-	git status
 	echo -e "${0} ${LINENO} [WARNING]:	No file(s) found to mark and push to GitHub.\n"	1>&2
+#	Display untracked file(s)
+	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
+		echo -e "\nList of untracked file(s)."
+		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
+		echo -e "\nEnter 'git add <file-name>' to track untracked file(s).\n"
+	fi
 	exit 1
 fi
 #	Check if user has write permission
@@ -217,10 +204,5 @@ if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 else
 #	Push changes to GitHub repository
 	git push || { echo -e "${0} ${LINENO} [ERROR]:	GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
-fi
-if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
-	echo -e "\nList of untracked file(s)."
-	git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-	echo -e "\nEnter 'git add <file-name>' to track untracked file(s).\n"
 fi
 ###
