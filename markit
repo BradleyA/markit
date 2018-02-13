@@ -1,18 +1,20 @@
 #!/bin/bash
+#	markit	3.4.112	2018-02-13_12:36:20_CST uadmin six-rpi3b.cptx86.com 3.4-9-gab83b55 
+#	   test change comment indent 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
-#	> New release, all issues closed and tested, ready for production 
+#	    New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
-#	> remove deleted file when creating file list, closes #11 
+#	    remove deleted file when creating file list, closes #11 
 #	markit	3.3.99	2018-02-12_21:22:57_CST uadmin six-rpi3b.cptx86.com 3.3-13-g9b4055b 
-#	> support comments that use file extension to determine what type of comment, closes #5 
+#	    support comments that use file extension to determine what type of comment, closes #5 
 #	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
-#	> display a list of untracked files at end, closes #10 
+#	    display a list of untracked files at end, closes #10 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
-#	> start 3.2 beta release; major code rewrite for #5 
+#	    start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
-#	> testing failed login; cleanup debugging for #9, closes #8 
+#	    testing failed login; cleanup debugging for #9, closes #8 
 #	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
-#	> Check if user has write permission; closes #9 
+#	    Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
 #	> Check if in Git repository; closes #7 
 #	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
