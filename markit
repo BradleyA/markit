@@ -135,6 +135,9 @@ fi
 for FILE_NAME in ${FILE_LIST} ; do
 #
 # >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
+# >>>	               This will change the extension case statement objective: move from comments to variables in compiled code
+# >>>	               move from comments in source code to variables in compiled code
+# >>>	               very different vision
 # >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
 # >>>	   Or use markit; to create CHAR variable found in compiled code ?
 # >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
