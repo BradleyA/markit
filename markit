@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.3.98	2018-02-12_21:20:33_CST uadmin six-rpi3b.cptx86.com 3.3-12-g26542fb 
+#	support comments that use file extension to determine what type of comment #5 
 #	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
 #	display a list of untracked files at end, closes #10 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
@@ -62,12 +64,8 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 fi
 ###	Test for
 #	>>>	x	blank $1 & no, normal, all
-#	>>>		all files are new and not on GitHub (untracked) test no and all
-#	>>>		no files need markit
 #	>>>		dockerfile
-#	>>>	x	one file need markit
-#	>>>	 	several files need markit with different extensions complete case statement first
-#
+###
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
