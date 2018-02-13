@@ -1,0 +1,62 @@
+
+# editor #
+**/*~
+**/*.bak
+**/*.sw[abcdefghijklmnop]
+**/*#
+# IDE #
+/.idea/workspace.xml
+/.idea/tasks.xml
+.classpath
+.project
+.settings
+.metadata
+*.iml
+*.ipr
+# thanks to octocat@github.com for some of these
+# Compile #
+**/*.dll
+**/*.exe
+**/*.o
+**/*.pyc
+**/*.pyo
+**/*.swf
+**/*.air
+**/*.ipa
+**/*.apk
+**/*.slo
+**/*.lo
+**/*.obj
+**/*.lai
+**/*.la
+**/*.a
+**/*.lib
+**/*.gch
+**/*.pch
+**/*.ilk
+**/*.map
+**/*.exp
+**/*.dylib
+# Executables #
+**/*.exe
+**/*.exe~
+**/*.out
+**/*.app
+# Packages #
+**/*.7z
+**/*.dmg
+**/*.gz
+**/*.iso
+**/*.jar
+**/*.rar
+**/*.tar
+**/*.zip
+# Logs and databases #
+**/*.log
+**/*.sql
+**/*.sqlite
+# Other #
+**/target/
+**/*.war
+**/*.ear
+###

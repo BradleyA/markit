@@ -1,43 +1,37 @@
 #!/bin/bash
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
-#	New release, all issues closed and tested, ready for production 
+#	> New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
-#	remove deleted file when creating file list, closes #11 
+#	> remove deleted file when creating file list, closes #11 
 #	markit	3.3.99	2018-02-12_21:22:57_CST uadmin six-rpi3b.cptx86.com 3.3-13-g9b4055b 
-#	support comments that use file extension to determine what type of comment, closes #5 
+#	> support comments that use file extension to determine what type of comment, closes #5 
 #	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
-#	display a list of untracked files at end, closes #10 
+#	> display a list of untracked files at end, closes #10 
 #	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
-#	start 3.2 beta release; major code rewrite for #5 
+#	> start 3.2 beta release; major code rewrite for #5 
 #	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
-#	testing failed login; cleanup debugging for #9, closes #8 
+#	> testing failed login; cleanup debugging for #9, closes #8 
 #	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
-#	Check if user has write permission; closes #9 
+#	> Check if user has write permission; closes #9 
 #	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
-#	Check if in Git repository; closes #7 
+#	> Check if in Git repository; closes #7 
 #	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
-#	close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
+#	  close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
 #	markit	3.1.53	2018-02-08_13:52:12_CST uadmin six-rpi3b.cptx86.com 3.1-10-g656b65b 
-#	check argument $1 complete and tested, closes #3 
+#	  check argument $1 complete and tested, closes #3 
 #	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
-#	Add an argument $1 to support -u for untracked files, Closes #2 
+#	  Add an argument $1 to support -u for untracked files, Closes #2 
 #	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
-#	Major rewrite to support multiple files 
-#	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
-#	show current release when entering new release number: this closes issue 1
-#	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
-#	add FQDN to version line to help understand the system code was tested on; add Git commands
-#	markit	1.1	2017-12-18_19:09:50_CST uthree
-#	Testing added code to support one line description
+#	  Major rewrite to support multiple files 
 #
 #	set -x
 #	set -v
 #
-#	I created this script because Git fails me when it comes to including the
-#	version number and change description in each file being checked-in.
-#	Maybe it does, but I don't have anymore time to read and figure that out.  
-#	Version control must place a version number in text when code is checked in!
-#       This is not a kernal.  Bite me!
+#	I created this script because Git fails me when it comes to including a
+#	version number and a change description in each file being checked-in.
+#	Maybe it does, but I don't have anymore time to read why you can't.
+#	Version control places a version number in text when code is checked in!
+#       This is not for your kernal.  Bite me!  and  Merge that!
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
@@ -192,7 +186,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME} 
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	echo "${BEGIN_COMMENT_CHAR}	${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
 	cp ${TEMP_FILE} ${FILE_NAME}
 	rm ${TEMP_FILE}
