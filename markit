@@ -140,7 +140,10 @@ fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
 # >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time 
-# >>>	   Use markit version from the source code and insert it during compiling; var BUILD_VERSION="${BUILD_VERSION}
+# >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
+# >>>	   Or use markit, opening comment 'var BUILD_VERSION="' and ending comment '"'
+# >>>	                  opening comment 'char BUILD_VERSION[] = "'; and ending comment '"'
+#
 # >>>	Create a case statement if other non-extension files like dockerfile need support
 	if [ "${FILE_NAME}" == "dockerfile" ] ; then
 echo    "	=> 152	Debugging dockerfile or Dockerfile ???? ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
