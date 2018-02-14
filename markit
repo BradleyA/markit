@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.4.115	2018-02-13_20:59:01_CST uadmin six-rpi3b.cptx86.com 3.4-12-g238584b 
+#	   before commit 3.4-12-g238584b 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
 #	   New release, all issues closed and tested, ready for production 
 #	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
@@ -36,7 +38,7 @@
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
-echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
+echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to GitHub."
 echo    "The first comment line includes file name, version, date, programmer, and"
@@ -58,6 +60,10 @@ echo -e "   Mark tracked and untracked files, directories, and files in untracke
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
+	exit 0
+fi
+if [ "$1" == "--version" ] || [ "$1" == "-v" ] ; then
+	head -2 ${0} | awk {'print$2"\t"$3'}
 	exit 0
 fi
 ###	Test for
