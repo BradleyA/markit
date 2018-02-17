@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.4.120	2018-02-17_17:25:15_CST uadmin six-rpi3b.cptx86.com 3.4-17-gf87b479 
+#	   completed testing -v --version closes #16 
 #	markit	3.4.119	2018-02-17_17:18:37_CST uadmin six-rpi3b.cptx86.com 3.4-16-gbb9e0d0 
 #	   remove TEMP_MARKIT_FILE file after write permission test closes #18 
 #	markit	3.4.115	2018-02-13_20:59:01_CST uadmin six-rpi3b.cptx86.com 3.4-12-g238584b 
@@ -189,20 +191,20 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory 
 			;;
 		*)
 #			Prompt for single-line beginning comment character(s)
-			echo -e "\nEnter single-line beginning comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
+			echo -e "\nEnter single-line  BEGINNING  comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
 			read BEGIN_COMMENT_CHAR
 			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 				display_help
 				echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
-			echo -e "\nEnter single-line ending comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
+			echo -e "\nEnter single-line  ENDING  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
 			read END_COMMENT_CHAR
 			;;
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) ()
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) (git pull tag-commit_number-hash)
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
