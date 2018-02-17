@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.4.119	2018-02-17_17:18:37_CST uadmin six-rpi3b.cptx86.com 3.4-16-gbb9e0d0 
+#	   remove TEMP_MARKIT_FILE file after write permission test closes #18 
 #	markit	3.4.115	2018-02-13_20:59:01_CST uadmin six-rpi3b.cptx86.com 3.4-12-g238584b 
 #	   before commit 3.4-12-g238584b 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
@@ -112,6 +114,7 @@ fi
 		echo -e "${0} ${LINENO} [ERROR]:	${USER} does NOT have write permission\n\tin local Git repository."	1>&2
 		exit 1
 	fi
+	rm -f ${TEMP_FILE}
 #	Prompt for release number
 echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
 echo -e "\nCurrent release number: ${CURRENT_RELEASE} "
@@ -199,6 +202,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory 
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) ()
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
