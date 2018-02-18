@@ -10,7 +10,7 @@ To install, change directory to the location you want to download the scripts. U
 
     git clone https://github.com/BradleyA/markit
     cd markit
-#### Warning:  work in progress.... changing install section ... download latest release ... not clone work branch
+#### Warning:  work in progress.... changing install section ... download latest release ... not clone master branch
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 ## Usage
