@@ -1,4 +1,8 @@
 #!/bin/bash
+#	markit	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
+#	   New release, all issues closed and tested, ready for production fix #12 
+#	markit	3.5.126	2018-02-18_21:23:15_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
+#	   New release, all issues closed and tested, ready for production 
 #	markit	3.4.120	2018-02-17_17:25:15_CST uadmin six-rpi3b.cptx86.com 3.4-17-gf87b479 
 #	   completed testing -v --version closes #16 
 #	markit	3.4.119	2018-02-17_17:18:37_CST uadmin six-rpi3b.cptx86.com 3.4-16-gbb9e0d0 
@@ -7,37 +11,23 @@
 #	   before commit 3.4-12-g238584b 
 #	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
 #	   New release, all issues closed and tested, ready for production 
-#	markit	3.3.100	2018-02-12_21:29:19_CST uadmin six-rpi3b.cptx86.com 3.3-14-g930a68c 
-#	   remove deleted file when creating file list, closes #11 
-#	markit	3.3.99	2018-02-12_21:22:57_CST uadmin six-rpi3b.cptx86.com 3.3-13-g9b4055b 
-#	   support comments that use file extension to determine what type of comment, closes #5 
-#	markit	3.3.97	2018-02-12_21:05:46_CST uadmin six-rpi3b.cptx86.com 3.3-11-g9b1f718 
-#	   display a list of untracked files at end, closes #10 
-#	markit	3.2.81	2018-02-12_00:01:51_CST uadmin six-rpi3b.cptx86.com 3.2 
-#	   start 3.2 beta release; major code rewrite for #5 
-#	markit	3.1.79	2018-02-11_22:09:26_CST uadmin six-rpi3b.cptx86.com 1.6-37-g738b05e 
-#	   testing failed login; cleanup debugging for #9, closes #8 
-#	markit	3.1.73	2018-02-11_21:28:53_CST uadmin six-rpi3b.cptx86.com 1.6-31-gbbb8b0e 
-#	   Check if user has write permission; closes #9 
-#	markit	3.1.72	2018-02-11_20:43:42_CST uadmin six-rpi3b.cptx86.com 1.6-30-gc580ec9 
-#	   Check if in Git repository; closes #7 
-#	markit	3.1.68	2018-02-09_23:06:55_CST uadmin six-rpi3b.cptx86.com 3.1-25-g85eaa6c 
-#	   close #4 add command usage, complete #5 ruff draft of comment file extension case statement 
-#	markit	3.1.53	2018-02-08_13:52:12_CST uadmin six-rpi3b.cptx86.com 3.1-10-g656b65b 
-#	   check argument $1 complete and tested, closes #3 
-#	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
-#	   Add an argument $1 to support -u for untracked files, Closes #2 
-#	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
-#	   Major rewrite to support multiple files 
 #
 #	set -x
 #	set -v
 #
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
-#	Maybe it does, but I don't have anymore time to read why you can't.
-#	Version control places a version number in text when code is checked in!
-#       This is not for your kernal.  Bite me!  and  Merge that!
+#
+#	I want to know what version a piece of code is on any system running
+#	it. The system may or may not be connected to any network. The system
+#	may or may not have Git installed. The system may or may not have the
+#	GitHub repository installed on it. I want the same solution for several
+#	types of code (.sh, .go, .yml, .xml, .mk, dockerfile, .txt, etc). I
+#	want any person without knowledge of Git or GitHub to be able to answer
+#	one question over the phone; What version are you running?
+#
+#	Released files need a version number in text when checked in!
+#       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
@@ -120,7 +110,7 @@ fi
 #	Prompt for release number
 echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
 echo -e "\nCurrent release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or crtl-c to stop."
+echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
 #	Check if release number is newer than add tag reference with new release number
 #	>>>	   think about changing == to >= (are all release numbers? no A.01 ?)
@@ -158,8 +148,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	                        x.o $Version_message: XXXX '$'
 #
 # >>>	Create a case statement if other non-extension files like dockerfile need support
-	if [ "${FILE_NAME##*\.}" == "Dockerfile" ] ; then
-echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
+	if [ "${FILE_NAME##*/}" == "Dockerfile" ] ; then
+echo    "	=> 152	Debugging Dockerfile  incident if in a directory ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
@@ -169,8 +159,8 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory 
 #	Single-line comment character(s) matching file extension
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
-		sh|pl|PL|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK)
-#		UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK)
+		sh|pl|PL|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
+#		UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt)
 			BEGIN_COMMENT_CHAR="# "
 			END_COMMENT_CHAR=""
 			;;
@@ -204,7 +194,7 @@ echo    "	=> 152	Debugging dockerfile or Dockerfile  incident if in a directory 
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) (git pull tag-commit_number-hash)
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) (git parent tag-commit_number-hash)
 	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}

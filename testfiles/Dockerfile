@@ -1,8 +1,7 @@
 ######################
-#	testfiles/dockerfile	3.4.108	2018-02-13_10:42:28_CST uadmin six-rpi3b.cptx86.com 3.4-5-ga1543ee 
-#	   change two tabs to one tab in case statement using # 
-#	dockerfile	3.3.101	2018-02-12_21:36:19_CST uadmin six-rpi3b.cptx86.com 3.3-15-g5487050 
-#	   Test for dockerfile, closes #12 
+#		testfiles/Dockerfile	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
+#		   New release, all issues closed and tested, ready for production fix #12 
+#
 FROM busybox:latest
 LABEL MAINTAINER Some One
 CMD ["echo 'Hello World'"]

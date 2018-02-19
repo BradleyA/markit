@@ -1,8 +1,8 @@
 version: "3"
-# 	sample.yaml	3.4.116	2018-02-15_11:19:56_CST uadmin six-rpi3b.cptx86.com 3.4-13-gd08587a 
-# 	   updated sample files 
-#	sample.yaml	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
-#	New release, all issues closed and tested, ready for production 
+# 	testfiles/sample.yaml	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
+# 	   New release, all issues closed and tested, ready for production fix #12 
+#
+#
 jobs:
 - name: hello-world
   plan:
