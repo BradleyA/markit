@@ -147,9 +147,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
 # >>>	                        x.o $Version_message: XXXX '$'
 #
-# >>>	Create a case statement if other non-extension files like dockerfile need support
+# >>>	Create a case statement if other non-extension files like Dockerfile need support
 	if [ "${FILE_NAME##*/}" == "Dockerfile" ] ; then
-echo    "	=> 152	Debugging Dockerfile  incident if in a directory ${LINENO} ${FILE_NAME}   ${FILE_LIST}"
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
