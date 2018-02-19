@@ -6,12 +6,20 @@ markit is a bash script that adds two comment lines of information about file ch
 
 ## Install
 
-To install, change directory to the location you want to download the scripts. Use git to pull or clone this script into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install the latest commit of markit, change to the directory you want to download the script.
+
+    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
+
+To download markit version 3.4, change to the directory you want to download the README, markit, and testfiles. 
+
+    curl -o markit-3.4.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.4
+
+## Clone
+
+To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/markit
     cd markit
-#### Warning:  work in progress.... changing install section ... download latest release ... not clone master branch
-    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 ## Usage
 
