@@ -1,8 +1,6 @@
 #!/bin/bash
 #	markit	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
 #	   New release, all issues closed and tested, ready for production fix #12 
-#	markit	3.5.126	2018-02-18_21:23:15_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
-#	   New release, all issues closed and tested, ready for production 
 #	markit	3.4.120	2018-02-17_17:25:15_CST uadmin six-rpi3b.cptx86.com 3.4-17-gf87b479 
 #	   completed testing -v --version closes #16 
 #	markit	3.4.119	2018-02-17_17:18:37_CST uadmin six-rpi3b.cptx86.com 3.4-16-gbb9e0d0 
