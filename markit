@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.6.129	2018-02-20_19:02:20_CST uadmin six-rpi3b.cptx86.com 3.5-2-g5a45829 
+#	   change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19 
 #	markit	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
 #	   New release, all issues closed and tested, ready for production fix #12 
 #	markit	3.4.120	2018-02-17_17:25:15_CST uadmin six-rpi3b.cptx86.com 3.4-17-gf87b479 
@@ -70,7 +72,9 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 ###
 UNTRACKED_FILES=${1:-no}
-CURRENT_RELEASE=`git tag | tail -1`
+#	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
+#	latest tagged commit across all branches
+CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
