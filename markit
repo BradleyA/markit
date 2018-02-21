@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.9.137	2018-02-21_10:38:00_CST uadmin six-rpi3b.cptx86.com 3.9 
+#	   comment typo 
 #	markit	3.9.136	2018-02-21_10:08:17_CST uadmin six-rpi3b.cptx86.com 3.8-2-ga09b0d7 
 #	   update comments with issue numbers 
 #	markit	3.7.130	2018-02-20_21:56:02_CST uadmin six-rpi3b.cptx86.com 3.6 
@@ -169,7 +171,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 			END_COMMENT_CHAR=" */"
 			;;
 		cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
-#		C++(cc|cpp|c++|cxx) Go(g0) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
+#		C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
 			BEGIN_COMMENT_CHAR="// "
 			END_COMMENT_CHAR=""
 			;;
