@@ -1,16 +1,10 @@
 #!/bin/bash
+#	markit	3.7.130	2018-02-20_21:56:02_CST uadmin six-rpi3b.cptx86.com 3.6 
+#	   markit fails if new code in new repository; closes #20 
 #	markit	3.6.129	2018-02-20_19:02:20_CST uadmin six-rpi3b.cptx86.com 3.5-2-g5a45829 
 #	   change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19 
 #	markit	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
 #	   New release, all issues closed and tested, ready for production fix #12 
-#	markit	3.4.120	2018-02-17_17:25:15_CST uadmin six-rpi3b.cptx86.com 3.4-17-gf87b479 
-#	   completed testing -v --version closes #16 
-#	markit	3.4.119	2018-02-17_17:18:37_CST uadmin six-rpi3b.cptx86.com 3.4-16-gbb9e0d0 
-#	   remove TEMP_MARKIT_FILE file after write permission test closes #18 
-#	markit	3.4.115	2018-02-13_20:59:01_CST uadmin six-rpi3b.cptx86.com 3.4-12-g238584b 
-#	   before commit 3.4-12-g238584b 
-#	markit	3.4.102	2018-02-12_21:42:38_CST uadmin six-rpi3b.cptx86.com 3.3-16-g60fe794 
-#	   New release, all issues closed and tested, ready for production 
 #
 #	set -x
 #	set -v
@@ -60,9 +54,6 @@ if [ "$1" == "--version" ] || [ "$1" == "-v" ] ; then
 	head -2 ${0} | awk {'print$2"\t"$3'}
 	exit 0
 fi
-###	Test for
-#	>>>	x	blank $1 & no, normal, all
-#	>>>		dockerfile
 ###
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
@@ -72,9 +63,6 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 ###
 UNTRACKED_FILES=${1:-no}
-#	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
-#	latest tagged commit across all branches
-CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
@@ -83,6 +71,14 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
+#	Check if no tag for file / first time git repository is being tagged
+if ! [ "$(git tag)" == "" ] ; then
+#	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
+#	latest tagged commit across all branches
+	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
+else
+	CURRENT_RELEASE="0.00"
+fi
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
