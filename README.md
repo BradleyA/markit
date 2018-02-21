@@ -1,8 +1,8 @@
 # markit
 
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then it pushes those changed file(s) to GitHub.  The comment lines include:
- * file name, version, date, programmer, and hostname as the second line in the file.
- * a one line breif description about the changes as a third line in the file.
+ * file_name, file_release.commits, date, developer, hostname, parent git-tag-commit_number-hash; as a second line in the file
+ * a one line breif description about the changes; as a third line in the file
 
 ## Install
 
@@ -23,7 +23,7 @@ To clone, change to the directory you want to download. Use git clone into the d
 
 ## Usage
 
-Mark a tracked modified file, sample.sh, in your local Git repository and push those changes to GitHub.
+Mark a **tracked modified file**, sample.sh, in your local Git repository and push those changes to GitHub.
 
     markit 
 
