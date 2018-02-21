@@ -10,9 +10,9 @@ To install the latest commit of markit, change to the directory you want to down
 
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
-To download markit version 3.7, change to the directory you want to download the tar file with the README, markit, and testfiles.  
+To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
 
-    curl -o markit-3.7.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.7
+    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
 
 ## Clone
 
@@ -30,29 +30,32 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
 ## Output
     $ markit
     Files to be marked and pushed to GitHub:
-    sample.sh
-    Current release number: 3.1 
-    Enter release number to commit files to GitHub (example 3.01).
-	Press enter to use 3.1 release number.
+    testfiles/sample.sh
     
-    /usr/local/bin/markit 107 [INFO]:	Using release number: 3.1
-    Enter single-line beginning comment character(s) to use
-       (example: # // -- ' ! C !* -- // % ;;   /* <!-- <!--- {- /** --[[ %{ (* <# ):
-    #	
+    Current release number: 3.7
+    
+    Enter release number to commit files to GitHub (example 3.01).
+    Press enter to use 3.7 release number or ctrl-c to stop.
+    3.8
+    /usr/local/bin/markit 124 [INFO]:	Using release number: 3.8
+    
     Enter a one line description about the changes
-       (example: description of changes; closes #12, resolves #14, fixed #22):
-    create output for README #6
-    [master 874a7f5] create output for README #6
-     1 file changed, 1 insertion(+), 1 deletion(-)
-    Counting objects: 3, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 341 bytes | 0 bytes/s, done.
-    Total 3 (delta 2), reused 0 (delta 0)
-    remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-    To https://github.com/BradleyA/markit
-       157c045..874a7f5  master -> master
-    /usr/local/bin/markit 196 [INFO]:	Done.
+       (example: Added logic for --help; closes #12, resolves #14):
+    typo in sample.sh test file
+    testfiles/sample.sh	sh
+    [master 8b48eee] typo in sample.sh test file
+     1 file changed, 3 insertions(+), 2 deletions(-)
+     Username for 'https://github.com': BradleyA
+     Password for 'https://BradleyA@github.com':
+     Counting objects: 5, done.
+     Delta compression using up to 4 threads.
+     Compressing objects: 100% (5/5), done.
+     Writing objects: 100% (5/5), 575 bytes | 0 bytes/s, done.
+     Total 5 (delta 3), reused 0 (delta 0)
+     remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+     To https://github.com/BradleyA/markit
+        3ac7e20..8b48eee  master -> master
+	 * [new tag]         3.8 -> 3.8
 
 ## Modified File Example
     #!/bin/bash
