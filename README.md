@@ -3,6 +3,10 @@
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then it pushes those changed file(s) to GitHub.  The comment lines include:
  * file_name, file_version.commits, date, developer, hostname, parent git-tag-commit_number-hash; as the second line
  * a one line breif description about the changes; as the third line
+ 
+Markit currently supports these file extensions: UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt) c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) C++(cc|cpp|c++|cxx) Go(g0) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc) XML(xml) HTML (html|htm)
+
+Markit currently supports these files without file extensions: Dockerfile
 
 ## Install
 
