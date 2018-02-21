@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit	3.9.136	2018-02-21_10:08:17_CST uadmin six-rpi3b.cptx86.com 3.8-2-ga09b0d7 
+#	   update comments with issue numbers 
 #	markit	3.7.130	2018-02-20_21:56:02_CST uadmin six-rpi3b.cptx86.com 3.6 
 #	   markit fails if new code in new repository; closes #20 
 #	markit	3.6.129	2018-02-20_19:02:20_CST uadmin six-rpi3b.cptx86.com 3.5-2-g5a45829 
@@ -77,7 +79,7 @@ if ! [ "$(git tag)" == "" ] ; then
 #	latest tagged commit across all branches
 	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
 else
-	CURRENT_RELEASE="0.00"
+	CURRENT_RELEASE="0.01"
 fi
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
@@ -110,9 +112,9 @@ echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
 echo -e "\nCurrent release number: ${CURRENT_RELEASE} "
 echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
-#	Check if release number is newer than add tag reference with new release number
-#	>>>	   think about changing == to >= (are all release numbers? no A.01 ?)
-#	>>>	        is v1.0 > v2.0 or < v1.1 
+# >>> #14	Check if release number is newer than add tag reference with new release number
+# >>>	think about changing == to >= (are all release numbers? no A.01 ?)
+# >>>	is v1.0 > v2.0 or < v1.1 
 if [ -z ${FILE_RELEASE} ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
@@ -133,10 +135,10 @@ fi
 #	Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
 #
-# >>>	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
-# >>>	               This will change the extension case statement objective: move from comments to variables in compiled code
-# >>>	               move from comments in source code to variables in compiled code
-# >>>	               very different vision
+# >>> #15	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
+# >>>	This will change the extension case statement objective: move from comments to variables in compiled code
+# >>>	move from comments in source code to variables in compiled code
+# >>>	very different vision / goal
 # >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
 # >>>	   Or use markit; to create CHAR variable found in compiled code ?
 # >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
@@ -145,7 +147,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
 # >>>	                        x.o $Version_message: XXXX '$'
 #
-# >>>	Create a case statement if other non-extension files like Dockerfile need support
+# >>> #21	Create a case statement if other non-extension files like Dockerfile need support
 	if [ "${FILE_NAME##*/}" == "Dockerfile" ] ; then
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
