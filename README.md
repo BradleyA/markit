@@ -1,8 +1,8 @@
 # markit
 
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then it pushes those changed file(s) to GitHub.  The comment lines include:
- * file_name, file_release.commits, date, developer, hostname, parent git-tag-commit_number-hash; as a second line in the file
- * a one line breif description about the changes; as a third line in the file
+ * file_name, file_release.commits, date, developer, hostname, parent git-tag-commit_number-hash; as the second line
+ * a one line breif description about the changes; as the third line
 
 ## Install
 
@@ -10,9 +10,9 @@ To install the latest commit of markit, change to the directory you want to down
 
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
-To download markit version 3.4, change to the directory you want to download the README, markit, and testfiles. 
+To download markit version 3.7, change to the directory you want to download the tar file with the README, markit, and testfiles.  
 
-    curl -o markit-3.4.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.4
+    curl -o markit-3.7.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.7
 
 ## Clone
 
