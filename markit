@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.11.145  2018-02-27_19:16:56_CST  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.10-2-g14d4668  
+#	   added version flag 
 #	markit  3.10.143  2018-02-27_19:02:24_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.10  
 #	   closes #22 
 #	markit  3.10.142  2018-02-27_19:00:09_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.9-5-g817206f  
@@ -54,7 +56,7 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 	display_help
 	exit 0
 fi
-if [ "$1" == "--version" ] || [ "$1" == "-v" ] ; then
+if [ "$1" == "--version" ] || [ "$1" == "-v" ] || [ "$1" == "version" ] ; then
 	head -2 ${0} | awk {'print$2"\t"$3'}
 	exit 0
 fi
