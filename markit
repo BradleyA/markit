@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.10.142  2018-02-27_19:00:09_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.9-5-g817206f  
+#	   added remote repository so i could determine where the code came from 
 #	markit	3.9.137	2018-02-21_10:38:00_CST uadmin six-rpi3b.cptx86.com 3.9 
 #	   comment typo 
 #	markit	3.9.136	2018-02-21_10:08:17_CST uadmin six-rpi3b.cptx86.com 3.8-2-ga09b0d7 
@@ -7,8 +9,6 @@
 #	   markit fails if new code in new repository; closes #20 
 #	markit	3.6.129	2018-02-20_19:02:20_CST uadmin six-rpi3b.cptx86.com 3.5-2-g5a45829 
 #	   change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19 
-#	markit	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
-#	   New release, all issues closed and tested, ready for production fix #12 
 #
 #	set -x
 #	set -v
@@ -70,6 +70,7 @@ UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
+REMOTE_REPOSITORY=`git ls-remote --get-url`
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
@@ -195,8 +196,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${USER} (hostname) (git parent tag-commit_number-hash)
-	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}	${FILE_RELEASE}.`git rev-list HEAD | wc -l`	${TIME_STAMP} ${USER} `hostname -f` `git describe` ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git parent tag-commit_number-hash)
+	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
 	cp ${TEMP_FILE} ${FILE_NAME}
