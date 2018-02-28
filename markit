@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.10.143  2018-02-27_19:02:24_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.10  
+#	   closes #22 
 #	markit  3.10.142  2018-02-27_19:00:09_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.9-5-g817206f  
 #	   added remote repository so i could determine where the code came from 
 #	markit	3.9.137	2018-02-21_10:38:00_CST uadmin six-rpi3b.cptx86.com 3.9 
@@ -7,8 +9,6 @@
 #	   update comments with issue numbers 
 #	markit	3.7.130	2018-02-20_21:56:02_CST uadmin six-rpi3b.cptx86.com 3.6 
 #	   markit fails if new code in new repository; closes #20 
-#	markit	3.6.129	2018-02-20_19:02:20_CST uadmin six-rpi3b.cptx86.com 3.5-2-g5a45829 
-#	   change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19 
 #
 #	set -x
 #	set -v
