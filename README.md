@@ -9,7 +9,7 @@ Markit currently supports these file extensions: UNIX shell(sh) perl(pl|PL) pyth
 Markit currently supports these files without file extensions: Dockerfile
 
 ### Goal
-I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have the GitHub repository installed on it. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub to be able to answer one question over the phone; What version are you running?
+I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have the GitHub repository installed on it. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub to be able to **answer one question over the phone; What version are you running?**
 
 ### Clone
 To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
