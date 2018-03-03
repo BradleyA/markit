@@ -8,6 +8,13 @@ Markit currently supports these file extensions: UNIX shell(sh) perl(pl|PL) pyth
 
 Markit currently supports these files without file extensions: Dockerfile
 
+## Clone
+
+To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
+    git clone https://github.com/BradleyA/markit
+    cd markit
+    
 ## Install
 
 To install the latest commit of markit, change to the directory you want to download the script.
@@ -17,13 +24,6 @@ To install the latest commit of markit, change to the directory you want to down
 To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
 
     curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
-
-## Clone
-
-To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
-
-    git clone https://github.com/BradleyA/markit
-    cd markit
 
 ## Usage
 
