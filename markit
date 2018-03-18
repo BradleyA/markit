@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.12.149  2018-03-18_13:30:07_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.11-3-gff555b8  
+#	   updated push error messages 
 #	markit  3.11.145  2018-02-27_19:16:56_CST  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.10-2-g14d4668  
 #	   added version flag 
 #	markit  3.10.143  2018-02-27_19:02:24_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.10  
@@ -213,9 +215,9 @@ done
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository
-	git push --follow-tags  || { echo -e "${0} ${LINENO} [ERROR]:  GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push --follow-tags' to complete pushing marked file(s) to GitHub." ; exit 1; }
+	git push --follow-tags  || { echo -e "\n${0} ${LINENO} [ERROR]:   GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; 'git push --follow-tags' to complete pushing marked file(s) to GitHub." ; exit 1; }
 else
 #	Push changes to GitHub repository
-	git push || { echo -e "${0} ${LINENO} [ERROR]:	GitHub login fail,\n\tRespoitory or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
+	git push || { echo -e "\n${0} ${LINENO} [ERROR]:   GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
 fi
 ###
