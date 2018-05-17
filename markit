@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.15.152  2018-05-17_17:58:57_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.14  
+#	   correct quoting incident 
 #	markit  3.14.151  2018-05-17_17:52:15_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.13  
 #	   fix fatal: No names found, cannot describe anything. closes #23 
 #	markit  3.13.150  2018-05-17_10:45:49_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.12  
@@ -195,7 +197,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	if ! [ "$(git tag)" == "" ] ; then
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	else
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` "No-parent-git-tag-found-in-repository"  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	fi
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
