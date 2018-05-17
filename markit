@@ -1,20 +1,8 @@
 #!/bin/bash
+#	markit  3.14.151  2018-05-17_17:52:15_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.13  
+#	   fix fatal: No names found, cannot describe anything. closes #23 
 #	markit  3.13.150  2018-05-17_10:45:49_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.12  
 #	   add -version 
-#	markit  3.12.149  2018-03-18_13:30:07_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.11-3-gff555b8  
-#	   updated push error messages 
-#	markit  3.11.145  2018-02-27_19:16:56_CST  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.10-2-g14d4668  
-#	   added version flag 
-#	markit  3.10.143  2018-02-27_19:02:24_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.10  
-#	   closes #22 
-#	markit  3.10.142  2018-02-27_19:00:09_CST  https://github.com/BradleyA/markit  uadmin  two-rpi3b.cptx86.com 3.9-5-g817206f  
-#	   added remote repository so i could determine where the code came from 
-#	markit	3.9.137	2018-02-21_10:38:00_CST uadmin six-rpi3b.cptx86.com 3.9 
-#	   comment typo 
-#	markit	3.9.136	2018-02-21_10:08:17_CST uadmin six-rpi3b.cptx86.com 3.8-2-ga09b0d7 
-#	   update comments with issue numbers 
-#	markit	3.7.130	2018-02-20_21:56:02_CST uadmin six-rpi3b.cptx86.com 3.6 
-#	   markit fails if new code in new repository; closes #20 
 #
 #	set -x
 #	set -v
@@ -118,7 +106,7 @@ fi
 	rm -f ${TEMP_FILE}
 #	Prompt for release number
 echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
-echo -e "\nCurrent release number: ${CURRENT_RELEASE} "
+echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
 echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
 # >>> #14	Check if release number is newer than add tag reference with new release number
@@ -203,7 +191,12 @@ for FILE_NAME in ${FILE_LIST} ; do
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git parent tag-commit_number-hash)
-	echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+#	Check if no tag for file / first time in git repository is being tagged
+	if ! [ "$(git tag)" == "" ] ; then
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+	else
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` "No-parent-git-tag-found-in-repository"  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+	fi
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
 	cp ${TEMP_FILE} ${FILE_NAME}
