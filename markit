@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.17.154  2018-05-18_09:41:54_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.16  
+#	   correct fat finger typo 
 #	markit  3.16.153  2018-05-18_09:39:19_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.15  
 #	   add comment to git push section 
 #	markit  3.15.152  2018-05-17_17:58:57_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.14  
@@ -75,7 +77,7 @@ TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 FILE_MESSAGE=""
 FILE_RELEASE=""
 #	Check if no tag for file / first time git repository is being tagged
-if ! [ "$(git tag)" =/= "" ] ; then
+if ! [ "$(git tag)" == "" ] ; then
 #	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
 #	latest tagged commit across all branches
 	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
