@@ -17,15 +17,6 @@ To clone, change to the directory you want to download. Use git clone into the d
 
     git clone https://github.com/BradleyA/markit
     cd markit
-    
-### Install
-To install the latest commit of markit, change to the directory you want to download the script.
-
-    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
-
-To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
-
-    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
 
 ### Usage
 Mark a **tracked modified file**, sample.sh, in your local Git repository and push those changes to GitHub.
@@ -66,6 +57,15 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     #!/bin/bash
     #	sample.sh  3.1.60  2018-02-09_17:03:42_CST  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com  3.1-17-g157c045 
     #	create output for README #6 
+        
+### Install
+To install the latest commit of markit, change to the directory you want to download the script.
+
+    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
+
+To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
+
+    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
 
 ### System OS script tested
  * Ubuntu 14.04.3 LTS
