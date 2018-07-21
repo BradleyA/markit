@@ -1,15 +1,7 @@
 #!/bin/bash
-#	markit  3.17.154  2018-05-18_09:41:54_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.16  
-#	   correct fat finger typo 
-#	markit  3.16.153  2018-05-18_09:39:19_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.15  
-#	   add comment to git push section 
-#	markit  3.15.152  2018-05-17_17:58:57_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.14  
-#	   correct quoting incident 
-#	markit  3.14.151  2018-05-17_17:52:15_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.13  
-#	   fix fatal: No names found, cannot describe anything. closes #23 
-#	markit  3.13.150  2018-05-17_10:45:49_CDT  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.12  
-#	   add -version 
-#
+#	markit  3.18.157  2018-07-21_18:53:58_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.17-2-g39c6ce5  
+#	   Add ${BOLD} & ${NORMAL} to messages for stdout 
+###
 #	set -x
 #	set -v
 #
@@ -59,23 +51,52 @@ if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||
 	exit 0
 fi
 ###
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
-	echo -e "${0} ${LINENO} [WARNING]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
 	exit 0
 fi
+######
+######
+#  >>>>	##### add issue for:
+#  >>>>	##### Need to test if any file has been added to NEW repository if not send error ; exit 1
+#	NUMBER_COMMITS=`git rev-list HEAD | wc -l`
+##
+#	fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+#	Use '--' to separate paths from revisions, like this:
+#	'git <command> [<revision>...] -- [<file>...]'
+#	fatal: No remote configured to list refs from.
+##
+#	create a new repository on the command line
+#	
+#	echo "# test-markit-new" >> README.md
+#	git init
+#	git add README.md
+#	git commit -m "first commit"
+#	git remote add origin https://github.com/BradleyA/test-markit-new.git
+#	git push -u origin master
+######
+######
 ###
 UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
+######
+######
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
 REMOTE_REPOSITORY=`git ls-remote --get-url`
+######
+######
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
+######
+######
 #	Check if no tag for file / first time git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
 #	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
@@ -84,55 +105,62 @@ if ! [ "$(git tag)" == "" ] ; then
 else
 	CURRENT_RELEASE="0.01"
 fi
+######
+######
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
-	echo -e "${0} ${LINENO} [ERROR]:	First arguement, ${1}, is NOT no, normal, all.\n"	1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	First arguement, ${1}, is NOT no, normal, all.\n"	1>&2
 	exit 0
 fi
 #	Create FILE_LIST, remove deleted files from FILE_LIST
 FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
-	display_help
-	echo -e "${0} ${LINENO} [WARNING]:	No file(s) found to mark and push to GitHub.\n"	1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	No file(s) found to mark and push to GitHub.\n"	1>&2
 #	Display untracked file(s)
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
-		echo -e "\nList of untracked file(s)."
+		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "\nEnter 'git add <file-name>' to track untracked file(s).\n"
+		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to track untracked file(s).\n"
 	fi
 	exit 1
 fi
 #	Check if user has write permission
 	if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-		echo -e "${0} ${LINENO} [ERROR]:	${USER} does NOT have write permission\n\tin local Git repository."	1>&2
+		echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	${USER} does NOT have write permission\n\tin local Git repository directory `pwd`"	1>&2
 		exit 1
 	fi
 	rm -f ${TEMP_FILE}
 #	Prompt for release number
-echo -e "Files to be marked and pushed to GitHub:\n${FILE_LIST}"
+echo -e "${NORMAL}Files to be marked and pushed to GitHub:\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter release number to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
+echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
+######
+######
 # >>> #14	Check if release number is newer than add tag reference with new release number
 # >>>	think about changing == to >= (are all release numbers? no A.01 ?)
 # >>>	is v1.0 > v2.0 or < v1.1 
 if [ -z ${FILE_RELEASE} ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
+
+######
+######
 if [ -z ${FILE_RELEASE} ] ; then
-	display_help
-	echo -e "${0} ${LINENO} [ERROR]:	No release number to mark and push to GitHub.\n"       1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	No release number to mark and push to GitHub.\n"       1>&2
 	exit 1
 fi
-echo -e "${0} ${LINENO} [INFO]:	Using release number: ${FILE_RELEASE}"	1>&2
+######
+######
+
+echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
 #	Prompt for single line change description
-echo -e "\nEnter a one line description about the changes\n   (example: Added logic for --help; closes #12, resolves #14):"
+echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes\n   (example: Added logic for --help; closes #12, resolves #14):"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
-	display_help
-	echo -e "${0} ${LINENO} [ERROR]:        Single-line description is required.\nTo display changes between commits, git diff <file_name>."       1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
 	exit 1
 fi
 #	Mark each file
@@ -183,26 +211,30 @@ for FILE_NAME in ${FILE_LIST} ; do
 			;;
 		*)
 #			Prompt for single-line beginning comment character(s)
-			echo -e "\nEnter single-line  BEGINNING  comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
+			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
 			read BEGIN_COMMENT_CHAR
 			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 				display_help
-				echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
+				echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
-			echo -e "\nEnter single-line  ENDING  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
+			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
 			read END_COMMENT_CHAR
 			;;
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git parent tag-commit_number-hash)
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
+######
+######
 #	Check if no tag for file / first time in git repository is being tagged
 	if ! [ "$(git tag)" == "" ] ; then
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	else
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	fi
+######
+######
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
 	cp ${TEMP_FILE} ${FILE_NAME}
@@ -216,9 +248,9 @@ done
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository
-	git push --follow-tags  || { echo -e "\n${0} ${LINENO} [ERROR]:   GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; 'git push --follow-tags' to complete pushing marked file(s) to GitHub." ; exit 1; }
+	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; '${BOLD}git push --follow-tags${NORMAL}' to complete pushing marked file(s) to GitHub." ; exit 1; }
 else
 #	Push changes to GitHub repository
-	git push || { echo -e "\n${0} ${LINENO} [ERROR]:   GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; 'git push' to complete pushing marked file(s) to GitHub." ; exit 1; }
+	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s) to GitHub." ; exit 1; }
 fi
 ###
