@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.22.161  2018-07-21_22:46:13_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.21  
+#	   modify text to use markit on GitLab close #26 
 #	markit  3.21.160  2018-07-21_21:15:11_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.20  
 #	   error & exit 1 if repository not setup or not git cloned from remote repository close #28 
 ###
@@ -10,30 +12,32 @@
 #
 #	I want to know what version a piece of code is on any system running
 #	it. The system may or may not be connected to any network. The system
-#	may or may not have Git installed. The system may or may not have the
-#	GitHub repository installed on it. I want the same solution for several
-#	types of code (.sh, .go, .yml, .xml, .mk, dockerfile, .txt, etc). I
-#	want any person without knowledge of Git or GitHub to be able to answer
-#	one question over the phone; What version are you running?
+#	may or may not have Git installed. The system may or may not have a
+#	GitHub repository or GitLab project installed on it. I want the same
+#	solution for several types of code (.sh, .go, .yml, .xml, .mk,
+#	dockerfile, .txt, etc). I want any person without knowledge of Git
+#	or GitHub or GitLab to be able to answer one question over the phone;
+#	What version are you running?
 #
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
 display_help() {
-echo -e "\n${0} - Add two comment lines about file changes & push to GitHub"
+echo -e "\n${0} - Add two comment lines about file changes & push to GitHub or GitLab"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
-echo    "files in your local Git repository.  Then push those changed file(s) to GitHub."
-echo    "The first comment line includes file name, version, date, programmer, and"
-echo    "hostname as the second line of the file(s).  Followed by a single comment"
-echo    "line including a brief description about changes made to the file(s)."
-echo -e "\nMarkit only modifies Git tracked files by default.  To change a Git"
-echo    "untracked file to a Git tracked file enter, git add <file_name>.  Markit will"
-echo    "modify all untracked and tracked files if normal or all is entered as an"
-echo    "arguement.  To prevent an untracked file from being tracked, add file(s) to"
-echo    ".gitignore file.  There will be prompts for comment character(s) when"
-echo    "needed and a description about the changes."
+echo    "files in your local Git repository.  Then push those changed file(s) to either"
+echo    "a GitHub repository or GitLab project.  The first comment line includes file"
+echo    "name, version, date, programmer, and hostname as the second line of the"
+echo    "file(s).  Followed by a single comment line including a brief description"
+echo    "about changes made to the file(s)."
+echo -e "\nMarkit only modifies Git tracked files by default.  To change a Git untracked"
+echo    "file to a Git tracked file enter, git add <file_name>.  Markit will modify all"
+echo    "untracked and tracked files if normal or all is entered as an arguement.  To"
+echo    "prevent an untracked file from being tracked, add file(s) to .gitignore file."
+echo -e "\nThere will be a prompt to add comment character(s) for unknown file names"
+echo    "when needed and a prompt to add a description about the changes."
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "   no       no untracked files (default)"
 echo    "   normal   untracked files and directories"
@@ -90,7 +94,7 @@ fi
 FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	No file(s) found to mark and push to GitHub.\n"	1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	No file(s) found to mark and push.\n"	1>&2
 #	Display untracked file(s)
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}"
@@ -106,9 +110,9 @@ fi
 	fi
 	rm -f ${TEMP_FILE}
 #	Prompt for release number
-echo -e "${NORMAL}Files to be marked and pushed to GitHub:\n${BOLD}${FILE_LIST}${NORMAL}"
+echo -e "${NORMAL}Files to be marked and pushed:\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
+echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
 # >>> #14	Check if release number is newer than add tag reference with new release number
 # >>>	think about changing == to >= (are all release numbers? no A.01 ?)
@@ -117,7 +121,7 @@ if [ -z ${FILE_RELEASE} ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
 if [ -z ${FILE_RELEASE} ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	No release number to mark and push to GitHub.\n"       1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	No release number to mark and push.\n"       1>&2
 	exit 1
 fi
 echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
@@ -208,10 +212,10 @@ done
 #	If new release number, include git tag before git push
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
-#	Push changes to GitHub repository
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; '${BOLD}git push --follow-tags${NORMAL}' to complete pushing marked file(s) to GitHub." ; exit 1; }
+#	Push changes to GitHub repository or GitLab project
+	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push --follow-tags${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
 else
-#	Push changes to GitHub repository
-	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	GitHub login fail, or\n\tRemote respoitory contains work or password NOT correct.\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s) to GitHub." ; exit 1; }
+#	Push changes to GitHub repository or GitLab project
+	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
 fi
 ###
