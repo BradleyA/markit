@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.19.158  2018-07-21_19:27:27_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.18  
-#	   Add ${BOLD} & ${NORMAL} to messages for stdout  close #27 
+#	markit  3.20.159  2018-07-21_20:19:42_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.19  
+#	   Begin testing #28 
 ###
 #	set -x
 #	set -v
@@ -61,7 +61,7 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 ######
 ######
-#  >>>>	##### add issue for:
+#  >>>>	##### add issue for: #28
 #  >>>>	##### Need to test if any file has been added to NEW repository if not send error ; exit 1
 #	NUMBER_COMMITS=`git rev-list HEAD | wc -l`
 ##
@@ -81,15 +81,14 @@ fi
 ######
 ######
 ###
+#	Check if remote git repository has been setup #28
+git rev-list HEAD  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
+#
 UNTRACKED_FILES=${1:-no}
-BEGIN_COMMENT_CHAR=""
-END_COMMENT_CHAR=""
-######
-######
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
 REMOTE_REPOSITORY=`git ls-remote --get-url`
-######
-######
+BEGIN_COMMENT_CHAR=""
+END_COMMENT_CHAR=""
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
