@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.18.157  2018-07-21_18:53:58_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.17-2-g39c6ce5  
-#	   Add ${BOLD} & ${NORMAL} to messages for stdout 
+#	markit  3.19.158  2018-07-21_19:27:27_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.18  
+#	   Add ${BOLD} & ${NORMAL} to messages for stdout  close #27 
 ###
 #	set -x
 #	set -v
