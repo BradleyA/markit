@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.20.159  2018-07-21_20:19:42_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.19  
-#	   Begin testing #28 
+#	markit  3.21.160  2018-07-21_21:15:11_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.20  
+#	   error & exit 1 if repository not setup or not git cloned from remote repository close #28 
 ###
 #	set -x
 #	set -v
@@ -59,44 +59,20 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
 	exit 0
 fi
-######
-######
-#  >>>>	##### add issue for: #28
-#  >>>>	##### Need to test if any file has been added to NEW repository if not send error ; exit 1
-#	NUMBER_COMMITS=`git rev-list HEAD | wc -l`
-##
-#	fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
-#	Use '--' to separate paths from revisions, like this:
-#	'git <command> [<revision>...] -- [<file>...]'
-#	fatal: No remote configured to list refs from.
-##
-#	create a new repository on the command line
-#	
-#	echo "# test-markit-new" >> README.md
-#	git init
-#	git add README.md
-#	git commit -m "first commit"
-#	git remote add origin https://github.com/BradleyA/test-markit-new.git
-#	git push -u origin master
-######
-######
-###
 #	Check if remote git repository has been setup #28
-git rev-list HEAD  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
+git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
 #
 UNTRACKED_FILES=${1:-no}
-NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
-REMOTE_REPOSITORY=`git ls-remote --get-url`
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
+NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
+REMOTE_REPOSITORY=`git ls-remote --get-url`
 TEMP_FILE="TEMP_MARKIT_FILE"
 TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
-######
-######
-#	Check if no tag for file / first time git repository is being tagged
+#	Check if no tag for file ; first time git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
 #	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
 #	latest tagged commit across all branches
@@ -104,8 +80,6 @@ if ! [ "$(git tag)" == "" ] ; then
 else
 	CURRENT_RELEASE="0.01"
 fi
-######
-######
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
@@ -136,24 +110,16 @@ echo -e "${NORMAL}Files to be marked and pushed to GitHub:\n${BOLD}${FILE_LIST}$
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
 echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files to GitHub (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
 read     FILE_RELEASE
-######
-######
 # >>> #14	Check if release number is newer than add tag reference with new release number
 # >>>	think about changing == to >= (are all release numbers? no A.01 ?)
 # >>>	is v1.0 > v2.0 or < v1.1 
 if [ -z ${FILE_RELEASE} ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
-
-######
-######
 if [ -z ${FILE_RELEASE} ] ; then
 	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	No release number to mark and push to GitHub.\n"       1>&2
 	exit 1
 fi
-######
-######
-
 echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
 #	Prompt for single line change description
 echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes\n   (example: Added logic for --help; closes #12, resolves #14):"
@@ -224,16 +190,12 @@ for FILE_NAME in ${FILE_LIST} ; do
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
-######
-######
 #	Check if no tag for file / first time in git repository is being tagged
 	if ! [ "$(git tag)" == "" ] ; then
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	else
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	fi
-######
-######
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
 	cp ${TEMP_FILE} ${FILE_NAME}
