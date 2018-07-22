@@ -1,10 +1,10 @@
 ## markit
 
 ### Goal
-I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have the GitHub repository installed on it. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub to be able to **answer one question over the phone; What version are you running?**
+I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have the GitHub repository or GitLab project installed on it. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub or GitLab to be able to **answer one question over the phone; What version are you running?**
 
 ### Description
-markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then it pushes those changed file(s) to GitHub.  The comment lines include:
+markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then push those changed file(s) to either a GitHub repository or GitLab project.  The comment lines include:
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash; as the second line
  * a one line breif description about the changes; as the third line
  
@@ -25,12 +25,12 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
 
 ### Output
     $ markit
-    Files to be marked and pushed to GitHub:
+    Files to be marked and pushed:
     testfiles/sample.sh
     
     Current release number: 3.7
     
-    Enter release number to commit files to GitHub (example 3.01).
+    Enter release number to commit files (example 3.01).
     Press enter to use 3.7 release number or ctrl-c to stop.
     3.8
     /usr/local/bin/markit 124 [INFO]:	Using release number: 3.8
