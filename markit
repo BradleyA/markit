@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c  
+#	   Issue WARNING if release number not greater than current release number close #14 
 #	markit  3.22.161  2018-07-21_22:46:13_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.21  
 #	   modify text to use markit on GitLab close #26 
 #	markit  3.21.160  2018-07-21_21:15:11_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.20  
@@ -78,8 +80,9 @@ FILE_MESSAGE=""
 FILE_RELEASE=""
 #	Check if no tag for file ; first time git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
-#	need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
-#	latest tagged commit across all branches
+#	read about this online: 
+#		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
+#		latest tagged commit across all branches
 	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
 else
 	CURRENT_RELEASE="0.01"
@@ -112,21 +115,19 @@ fi
 #	Prompt for release number
 echo -e "${NORMAL}Files to be marked and pushed:\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01).\nPress enter to use ${CURRENT_RELEASE} release number or ctrl-c to stop."
+echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop."
 read     FILE_RELEASE
-# >>> #14	Check if release number is newer than add tag reference with new release number
-# >>>	think about changing == to >= (are all release numbers? no A.01 ?)
-# >>>	is v1.0 > v2.0 or < v1.1 
-if [ -z ${FILE_RELEASE} ] ; then
+if [ -z "${FILE_RELEASE}" ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
-if [ -z ${FILE_RELEASE} ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	No release number to mark and push.\n"       1>&2
-	exit 1
+#	Warn user if release number is not great than ${CURRENT_RELEASE}
+#	Use case requires a WARNING not an ERROR ; see issue #14 for more information
+if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Release number is not greater than current release number.\n"       1>&2
 fi
 echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
 #	Prompt for single line change description
-echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes\n   (example: Added logic for --help; closes #12, resolves #14):"
+echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n   (example: Added logic for --help; closes #12, resolves #14):"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
 	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
