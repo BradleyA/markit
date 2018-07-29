@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.24.165  2018-07-29_17:53:19_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.23  
+#	   change formating of file names while processing those files 
 #	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c  
 #	   Issue WARNING if release number not greater than current release number close #14 
 #	markit  3.22.161  2018-07-21_22:46:13_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.21  
@@ -134,6 +136,7 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 	exit 1
 fi
 #	Mark each file
+echo ${BOLD}
 for FILE_NAME in ${FILE_LIST} ; do
 #
 # >>> #15	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
@@ -208,6 +211,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 #	Add file contents to the index
 	git add ${FILE_NAME}
 done
+echo ${NORMAL}
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
 #	If new release number, include git tag before git push
