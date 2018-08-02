@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.27.168  2018-08-02_15:22:11_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.26  
+#	   process command arguments #29 
 #	markcheck  3.26.167  2018-08-02_13:57:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.25  
 #	   found working directory of file 
 #	markcheck  3.25.166  2018-08-02_13:45:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.24  
@@ -36,6 +38,7 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 #	Check if remote git repository has been setup #28
 git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
+
 #
 ##################################
 #	notes:
@@ -53,12 +56,40 @@ git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}E
 #	
 #	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
 ##################################
+#       Check if argument 1 is blank
+if [ "${1}" == "" ] ; then
+	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	File not found on command line\n" 1>&2
+	display_help
+	exit 0
+fi
+	set -x
+#	if -f or --file is given then the path must be included because it may not be excutable and/or in PATH
+if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
+	#       Check if argument 2 is blank
+	if [ "${2}" == "" ] ; then
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	File not found on command line after --file or -f option\n" 1>&2
+		display_help
+		exit 0
+	fi
+	MARKIT_FILE = ${2}
+else
+	MARKIT_FILE = ${1}
+fi
+	
+	#       Check if MARKIT_FILE file exists and has a size greater than zero
+	if [ ! -e ${MARKIT_FILE} ] || [ ! -s ${MARKIT_FILE} ] ; then
+        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:     ${MARKIT_FILE} file not found\n" 1>&2
+		exit 1
+	fi
+###
 MARKIT_FILE=${1}
 
 echo ${PATH}
+#	this will work it the file is an excutable in the PATH
 whereis ${1}
 
 
+head -2 ${0} | awk {'print$2"\t"$3'}
 
 exit
 
