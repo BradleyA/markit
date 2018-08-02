@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.26.167  2018-08-02_13:57:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.25  
+#	   found working directory of file 
 #	markcheck  3.25.166  2018-08-02_13:45:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.24  
 #	   create new script to check if the current installed version is the latest version #29 
 ###
@@ -36,6 +38,30 @@ fi
 git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
 #
 ##################################
+#	notes:
+#	markcheck  3.25.166  2018-08-02_13:45:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.24  
+#	
+#	https://github.com/BradleyA/Search-docker-registry-v2-script.1.0.git
+#	https://github.com/BradleyA/markit.git
+#	
+#	https://github.com/BradleyA/docker-scripts.git
+#	curl -L https://api.github.com/repos/BradleyA/docker-scripts/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
+#	
+#	maybe down load the file with curl and grep the second line and compare line 2
+#	
+#	grep -m 1 -e markit -e git /usr/local/bin/markit
+#	
+#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
+##################################
+MARKIT_FILE=${1}
+
+echo ${PATH}
+whereis ${1}
+
+
+
+exit
+
 UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
