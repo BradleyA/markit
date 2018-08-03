@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.33.174  2018-08-03_13:56:48_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.32  
+#	   start working on curl statement #29 
 #	markcheck  3.32.173  2018-08-03_12:02:39_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.31  
 #	   clean up debugging #29 
 #	markcheck  3.31.172  2018-08-03_11:09:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.30  
@@ -56,8 +58,8 @@ git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}E
 #	
 #	https://github.com/BradleyA/Search-docker-registry-v2-script.1.0.git
 #	https://github.com/BradleyA/markit.git
-#	
 #	https://github.com/BradleyA/docker-scripts.git
+#
 #	curl -L https://api.github.com/repos/BradleyA/docker-scripts/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
 #	
 #	maybe down load the file with curl and grep the second line and compare line 2
@@ -108,11 +110,31 @@ fi
 
 echo  "${LINENO} MARKIT_FILE is found and is not empty ... is it readable ? = ${MARKIT_FILE}"
 
-head -2 ${0} | awk {'print$2"\t"$3'}
+head -2 ${MARKIT_FILE} | awk {'print$2"\t"$3"\t"$5'}
+head -2 ${MARKIT_FILE} | awk {'print$5'}
+echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
+echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
+echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+REPOSITORY_NAME="curl -L ${REPOSITORY_NAME}/tarball | tar -xzf - --wildcards */* "
+echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}"
 
 exit
 
 
+
+exit
+
+#	curl -L https://api.github.com/BradleyA/markit/tarball | tar -xzf - --wildcards *
+#	curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards *
+#	curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
+#	
+#	maybe down load the file with curl and grep the second line and compare line 2
+#	
+#	grep -m 1 -e markit -e git /usr/local/bin/markit
+#	
+#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
 
 
 
