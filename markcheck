@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.34.175  2018-08-03_14:17:47_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.33  
+#	   got curl to down load reposiroty #29 
 #	markcheck  3.33.174  2018-08-03_13:56:48_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.32  
 #	   start working on curl statement #29 
 #	markcheck  3.32.173  2018-08-03_12:02:39_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.31  
@@ -96,9 +98,7 @@ else
 fi
 
 echo  "${LINENO} Does it include the path for MARKIT_FILE = ${MARKIT_FILE}"
-
 ###
-
 echo  "${LINENO} MARKIT_FILE ... is it readable ? = ${MARKIT_FILE}"
 
 #       Check if MARKIT_FILE file exists and has a size greater than zero
@@ -117,10 +117,9 @@ REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
 REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
-REPOSITORY_NAME="curl -L ${REPOSITORY_NAME}/tarball | tar -xzf - --wildcards */* "
+REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar -xzf - "
 echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}"
-
-exit
+eval ${REPOSITORY_NAME}
 
 
 
