@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.31.172  2018-08-03_11:09:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.30  
+#	   updated display_help #29 
 #	markcheck  3.30.171  2018-08-03_10:37:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.29  
 #	   complete testing of --file -f #29 
 #	markcheck  3.29.170  2018-08-02_23:18:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.28  
@@ -17,7 +19,8 @@
 ###
 display_help() {
 echo -e "\n${0} - AFTER DESIGN NEED TO COMPLETE HELP SECTION"
-echo -e "\nUSAGE\n   ${0} [no | normal | all]"
+echo -e "\nUSAGE\n   ${0} [<file_name>]"
+echo    "   ${0} [--file <path>/<file_name> | -f <path>/<file_name>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nXXXX"
 echo -e "\nxxxxx"
@@ -72,7 +75,7 @@ if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
 	#       Check if argument 2 is blank
 	if [ "${2}" == "" ] ; then
 		display_help
-		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found after --file or -f option\n" 1>&2
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File name not found; --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
 		exit 0
 	fi
 	MARKIT_FILE = ${2}
