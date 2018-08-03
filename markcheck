@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.35.176  2018-08-03_14:32:18_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.34  
+#	   need to pull the FILE_NAME out of the command line earlier in the script #29 
 #	markcheck  3.34.175  2018-08-03_14:17:47_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.33  
 #	   got curl to down load reposiroty #29 
 #	markcheck  3.33.174  2018-08-03_13:56:48_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.32  
@@ -53,23 +55,6 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 fi
 #	Check if remote git repository has been setup #28
 git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
-#
-##################################
-#	notes:
-#	markcheck  3.25.166  2018-08-02_13:45:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.24  
-#	
-#	https://github.com/BradleyA/Search-docker-registry-v2-script.1.0.git
-#	https://github.com/BradleyA/markit.git
-#	https://github.com/BradleyA/docker-scripts.git
-#
-#	curl -L https://api.github.com/repos/BradleyA/docker-scripts/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
-#	
-#	maybe down load the file with curl and grep the second line and compare line 2
-#	
-#	grep -m 1 -e markit -e git /usr/local/bin/markit
-#	
-#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
-##################################
 #       Check if argument 1 is blank
 if [ "${1}" == "" ] ; then
 	display_help
@@ -110,8 +95,6 @@ fi
 
 echo  "${LINENO} MARKIT_FILE is found and is not empty ... is it readable ? = ${MARKIT_FILE}"
 
-head -2 ${MARKIT_FILE} | awk {'print$2"\t"$3"\t"$5'}
-head -2 ${MARKIT_FILE} | awk {'print$5'}
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
 REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
@@ -119,15 +102,22 @@ REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/rep
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
 REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar -xzf - "
 echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}"
+###
+#	STOP and change to /tmp then back to pwd location when done because user may not be able to write in current directory
+###
+mkdir markit-temp
+cd markit-temp
 eval ${REPOSITORY_NAME}
+cd ..
+###
+#	need to strip the file name out of ${MARKIT_FILE} to be used with the find below
+###
+#	find markit-temp -type f -name 
 
 
 
 exit
 
-#	curl -L https://api.github.com/BradleyA/markit/tarball | tar -xzf - --wildcards *
-#	curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards *
-#	curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
 #	
 #	maybe down load the file with curl and grep the second line and compare line 2
 #	
@@ -135,8 +125,7 @@ exit
 #	
 #	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
 
-
-
+#############################################
 UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
