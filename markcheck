@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.32.173  2018-08-03_12:02:39_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.31  
+#	   clean up debugging #29 
 #	markcheck  3.31.172  2018-08-03_11:09:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.30  
 #	   updated display_help #29 
 #	markcheck  3.30.171  2018-08-03_10:37:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.29  
@@ -66,8 +68,8 @@ git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}E
 ##################################
 #       Check if argument 1 is blank
 if [ "${1}" == "" ] ; then
-	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found on command line\n" 1>&2
 	display_help
+	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found on command line\n" 1>&2
 	exit 0
 fi
 #	Check if argument 1 is -f or --file the path is reqired to be included 
@@ -78,22 +80,25 @@ if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
 		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File name not found; --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
 		exit 0
 	fi
-	MARKIT_FILE = ${2}
+	MARKIT_FILE=${2}
 else
 	#	Locate file in the PATH
-	echo -e "${LINENO} argument 1 = ${1}"
 	TEMP=`whereis "${1}"`
-	echo  "${LINENO} temp = ${TEMP}"
 	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
-	echo  "${LINENO} MARKIT_FILE = ${MARKIT_FILE}"
-###	<><<>< needs more testing  >>>>>  #29
-	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} ) 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file not found in PATH\n${PATH}\n >>>> is it executable <<<<<< remove this later  <<<<< " ; exit 1; }
+	#       Check if TEMP is blank
+	if [ "${MARKIT_FILE}" == "" ] ; then
+		display_help
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${1} not found; consider using --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
+		exit 0
+	fi
 fi
 
-echo  "${LINENO} MARKIT_FILE = ${MARKIT_FILE}"
-exit
+echo  "${LINENO} Does it include the path for MARKIT_FILE = ${MARKIT_FILE}"
 
 ###
+
+echo  "${LINENO} MARKIT_FILE ... is it readable ? = ${MARKIT_FILE}"
+
 #       Check if MARKIT_FILE file exists and has a size greater than zero
 if [ ! -e ${MARKIT_FILE} ] || [ ! -s ${MARKIT_FILE} ] ; then
        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty\n" 1>&2
@@ -101,10 +106,15 @@ if [ ! -e ${MARKIT_FILE} ] || [ ! -s ${MARKIT_FILE} ] ; then
 fi
 ###
 
+echo  "${LINENO} MARKIT_FILE is found and is not empty ... is it readable ? = ${MARKIT_FILE}"
 
 head -2 ${0} | awk {'print$2"\t"$3'}
 
 exit
+
+
+
+
 
 UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
