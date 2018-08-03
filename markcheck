@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.36.177  2018-08-03_14:47:51_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.35  
+#	   move change to github to switch another system to work #29 
 #	markcheck  3.35.176  2018-08-03_14:32:18_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.34  
 #	   need to pull the FILE_NAME out of the command line earlier in the script #29 
 #	markcheck  3.34.175  2018-08-03_14:17:47_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.33  
@@ -81,6 +83,10 @@ else
 		exit 0
 	fi
 fi
+FILE_NAME=`echo ${MARKIT_FILE} | sed 's/.*\///'`
+echo  "${LINENO} MARKIT_FILE = ${MARKIT_FILE}    FILE_NAME = ${FILE_NAME}"
+#########
+
 
 echo  "${LINENO} Does it include the path for MARKIT_FILE = ${MARKIT_FILE}"
 ###
