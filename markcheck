@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.30.171  2018-08-03_10:37:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.29  
+#	   complete testing of --file -f #29 
 #	markcheck  3.29.170  2018-08-02_23:18:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.28  
 #	   need more work but close #29 
 #	markcheck  3.28.169  2018-08-02_23:08:58_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.27  
@@ -65,12 +67,12 @@ if [ "${1}" == "" ] ; then
 	display_help
 	exit 0
 fi
-#	if -f or --file is given then the path must be included because it may not be excutable and/or in PATH
+#	Check if argument 1 is -f or --file the path is reqired to be included 
 if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
 	#       Check if argument 2 is blank
 	if [ "${2}" == "" ] ; then
-		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found on command line after --file or -f option\n" 1>&2
 		display_help
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found after --file or -f option\n" 1>&2
 		exit 0
 	fi
 	MARKIT_FILE = ${2}
