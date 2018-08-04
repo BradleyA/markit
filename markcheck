@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.37.178  2018-08-04_13:08:38_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.36  
+#	   got currect release number #29 
 #	markcheck  3.36.177  2018-08-03_14:47:51_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.35  
 #	   move change to github to switch another system to work #29 
 #	markcheck  3.35.176  2018-08-03_14:32:18_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.34  
@@ -84,205 +86,41 @@ else
 	fi
 fi
 FILE_NAME=`echo ${MARKIT_FILE} | sed 's/.*\///'`
+###############################
 echo  "${LINENO} MARKIT_FILE = ${MARKIT_FILE}    FILE_NAME = ${FILE_NAME}"
-#########
-
-
 echo  "${LINENO} Does it include the path for MARKIT_FILE = ${MARKIT_FILE}"
-###
-echo  "${LINENO} MARKIT_FILE ... is it readable ? = ${MARKIT_FILE}"
-
-#       Check if MARKIT_FILE file exists and has a size greater than zero
-if [ ! -e ${MARKIT_FILE} ] || [ ! -s ${MARKIT_FILE} ] ; then
-       	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty\n" 1>&2
+###############################
+#       Check if file exists and has a size greater than zero || if file exists and is readable
+if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
+       	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
 	exit 1
 fi
+###############################
+echo  "${LINENO} MARKIT_FILE is found and is not empty and is it readable ? = ${MARKIT_FILE}"
+echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+###############################
+#	REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
+#	MARKIT_FILE_RELEASE=`head -2 ${MARKIT_FILE} | awk {'print$3'}`
+REPOSITORY_NAME=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
+MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
 ###
-
-echo  "${LINENO} MARKIT_FILE is found and is not empty ... is it readable ? = ${MARKIT_FILE}"
-
-echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
-REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
-echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+echo  "${LINENO} MARKIT_FILE_RELEASE >>${MARKIT_FILE_RELEASE}<<"
+echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
 REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
 echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
-REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar -xzf - "
+REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar --directory /tmp/markit-temp -xzf - "
 echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}"
 ###
-#	STOP and change to /tmp then back to pwd location when done because user may not be able to write in current directory
-###
-mkdir markit-temp
-cd markit-temp
+mkdir /tmp/markit-temp
 eval ${REPOSITORY_NAME}
-cd ..
 ###
 #	need to strip the file name out of ${MARKIT_FILE} to be used with the find below
 ###
-#	find markit-temp -type f -name 
-
-
-
-exit
-
-#	
-#	maybe down load the file with curl and grep the second line and compare line 2
-#	
-#	grep -m 1 -e markit -e git /usr/local/bin/markit
-#	
-#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c 
-
-#############################################
-UNTRACKED_FILES=${1:-no}
-BEGIN_COMMENT_CHAR=""
-END_COMMENT_CHAR=""
-NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
-REMOTE_REPOSITORY=`git ls-remote --get-url`
-TEMP_FILE="TEMP_MARKIT_FILE"
-TIME_STAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
-#	The FILE_MESSAGE is a one line breif description about the changes.
-FILE_MESSAGE=""
-FILE_RELEASE=""
-#	Check if no tag for file ; first time git repository is being tagged
-if ! [ "$(git tag)" == "" ] ; then
-#	read about this online: 
-#		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
-#		latest tagged commit across all branches
-	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
-else
-	CURRENT_RELEASE="0.01"
-fi
-#	Check arguement 1 for --untracked-files
-if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
-	display_help
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	First arguement, ${1}, is NOT no, normal, all.\n"	1>&2
-	exit 0
-fi
-#	Create FILE_LIST, remove deleted files from FILE_LIST
-FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
-#	Check if ${FILE_LIST} is zero length
-if [ -z "${FILE_LIST}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	No file(s) found to mark and push.\n"	1>&2
-#	Display untracked file(s)
-	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
-		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}"
-		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to track untracked file(s).\n"
-	fi
-	exit 1
-fi
-#	Check if user has write permission
-	if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-		echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	${USER} does NOT have write permission\n\tin local Git repository directory `pwd`"	1>&2
-		exit 1
-	fi
-	rm -f ${TEMP_FILE}
-#	Prompt for release number
-echo -e "${NORMAL}Files to be marked and pushed:\n${BOLD}${FILE_LIST}${NORMAL}"
-echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop."
-read     FILE_RELEASE
-if [ -z "${FILE_RELEASE}" ] ; then
-	FILE_RELEASE=${CURRENT_RELEASE}
-fi
-#	Warn user if release number is not great than ${CURRENT_RELEASE}
-#	Use case requires a WARNING not an ERROR ; see issue #14 for more information
-if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Release number is not greater than current release number.\n"       1>&2
-fi
-echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
-#	Prompt for single line change description
-echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n   (example: Added logic for --help; closes #12, resolves #14):"
-read FILE_MESSAGE
-if [ -z "${FILE_MESSAGE}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
-	exit 1
-fi
-#	Mark each file
-echo ${BOLD}
-for FILE_NAME in ${FILE_LIST} ; do
-#
-# >>> #15	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
-# >>>	This will change the extension case statement objective: move from comments to variables in compiled code
-# >>>	move from comments in source code to variables in compiled code
-# >>>	very different vision / goal
-# >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
-# >>>	   Or use markit; to create CHAR variable found in compiled code ?
-# >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
-# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${TIME_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
-# >>>	                        x.o $Version: XXXX XXXX XXXX XXXX '$'
-# >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
-# >>>	                        x.o $Version_message: XXXX '$'
-#
-# >>> #21	Create a case statement if other non-extension files like Dockerfile need support
-	if [ "${FILE_NAME##*/}" == "Dockerfile" ] ; then
-		BEGIN_COMMENT_CHAR="#	"
-		END_COMMENT_CHAR=""
-	else
-# >>>	This does not work if the last character is '.' but it does work if more than one "."
-	FILE_EXTENSION=${FILE_NAME##*\.}
-	echo "${FILE_NAME}	${FILE_EXTENSION}"
-#	Single-line comment character(s) matching file extension
-#	ONLY SUPPORT single-line comments NOT multiple line block comment
-	case ${FILE_EXTENSION} in
-		sh|pl|PL|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
-#		UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt)
-			BEGIN_COMMENT_CHAR="# "
-			END_COMMENT_CHAR=""
-			;;
-		c|h|H|hpp|hxx|Hxx|HXX)
-#		c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
-			BEGIN_COMMENT_CHAR="/* "
-			END_COMMENT_CHAR=" */"
-			;;
-		cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
-#		C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
-			BEGIN_COMMENT_CHAR="// "
-			END_COMMENT_CHAR=""
-			;;
-		xml|html|htm)
-#		XML(xml) HTML (html|htm) 
-			BEGIN_COMMENT_CHAR="<!-- "
-			END_COMMENT_CHAR=" -->"
-			;;
-		*)
-#			Prompt for single-line beginning comment character(s)
-			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
-			read BEGIN_COMMENT_CHAR
-			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
-				display_help
-				echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line comment character(s) is required.\n"       1>&2
-				exit 1
-			fi
-			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
-			read END_COMMENT_CHAR
-			;;
-	esac
-	fi
-	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
-#	Check if no tag for file / first time in git repository is being tagged
-	if ! [ "$(git tag)" == "" ] ; then
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	else
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	fi
-	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
-	cp ${TEMP_FILE} ${FILE_NAME}
-	rm ${TEMP_FILE}
-#	Add file contents to the index
-	git add ${FILE_NAME}
-done
-echo ${NORMAL}
-#	Commit staged file(s) for Git push
-	git commit -m "${FILE_MESSAGE}"
-#	If new release number, include git tag before git push
-if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
-	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
-#	Push changes to GitHub repository or GitLab project
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push --follow-tags${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
-else
-#	Push changes to GitHub repository or GitLab project
-	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
-fi
+FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
+echo ${FILE_NAME_LOCATION}
+MARKIT_FILE_CURRENT_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$3'}`
+#	MARKIT_FILE_CURRENT_RELEASE=`head -2 ${FILE_NAME_LOCATION} | awk {'print$3'}`
+echo  "${LINENO} MARKIT_FILE_CURRENT_RELEASE >>${MARKIT_FILE_CURRENT_RELEASE}<<"
+###
+rm -rf /tmp/markit-temp
 ###
