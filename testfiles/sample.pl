@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
-# 	testfiles/sample.pl	3.5.126	2018-02-18_21:33:53_CST uadmin six-rpi3b.cptx86.com 3.4-23-g1090ede 
-# 	   New release, all issues closed and tested, ready for production fix #12 
+# 	sample.pl  3.39.180  2018-08-04_13:27:21_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.38  
+# 	   New release not backward compatible with markchaeck because of formatting 
 #
 use strict;
 use warnings;
