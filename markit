@@ -1,10 +1,8 @@
 #!/bin/bash
+#	markit  3.41.182  2018-08-04_22:33:08_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.40  
+#	   clean up old release lines to test markcheck #29 
 #	markit  3.24.165  2018-07-29_17:53:19_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.23  
 #	   change formating of file names while processing those files 
-#	markit  3.23.164  2018-07-22_23:11:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.22-2-gac7de6c  
-#	   Issue WARNING if release number not greater than current release number close #14 
-#	markit  3.22.161  2018-07-21_22:46:13_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.21  
-#	   modify text to use markit on GitLab close #26 
 #	markit  3.21.160  2018-07-21_21:15:11_CDT  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.20  
 #	   error & exit 1 if repository not setup or not git cloned from remote repository close #28 
 ###
