@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.43.184  2018-08-04_23:25:33_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.42  
+#	   continue testing and edit display_help #29 
 #	markcheck  3.42.183  2018-08-04_23:07:05_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.41  
 #	   markcheck working, continue cleanup and testing #29 
 #	markcheck  3.40.181  2018-08-04_22:28:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.39  
@@ -14,12 +16,15 @@ echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nCheck the release of a file that was marked using markit with the GitHub"
 echo    "repository release.  Markcheck may require --file option to include the"
-echo    "relative or absolute path with the file name.  Markcheck only works on files"
-echo    "that were marked with markit release 3.10.142 or later releases."
+echo    "relative or absolute path with the file name."
+echo -e "\nMarkcheck only works on files that are marked with markit release 3.10.142"
+echo    "or later releases.  Markit release 3.10.142 added the repository information"
+echo    "to the second line in the file.  This repository information is required to"
+echo    "locate the file in a GitHub repository."
 echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_name>'"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n   markcheck -f testfiles/sample.c\n\n   Check file named sample.c release number in relative path testfile/ with\n   repository release number."
-echo -e "\n   markcheck markit\n\n   Check file named markit release number with repository release number.\n"
+echo -e "\nEXAMPLES\n   markcheck -f testfiles/sample.c\n\n   Check file named sample.c release in relative path testfile/ with\n   repository release."
+echo -e "\n   markcheck markit\n\n   Check file named markit release with repository release.\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
@@ -62,7 +67,7 @@ else
 	#       Check if TEMP is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
 		display_help
-		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${1} not found; consider using --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${1} not found; use --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
 		exit 0
 	fi
 fi
