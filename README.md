@@ -66,6 +66,25 @@ To install the latest commit of markit, change to the directory you want to down
 To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
 
     curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
+    
+ ### Usage
+Check a file release that was marked using markit with the file repository release.
+
+    check-markit markit 
+
+### Output
+        $ ./check-markit markit
+    
+    ./check-markit 78 [INFO]:  Checking GitHub for markit repository release information
+    
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100  8917  100  8917    0     0   6603      0  0:00:01  0:00:01 --:--:-- 29922
+    
+    ./check-markit 89 [INFO]:  /usr/local/bin/markit release 3.24.165
+    
+    ./check-markit 90 [INFO]:  markit repository release 3.41.182, commit date 2018-08-04_22:33:08_CDT
 
 ### System OS script tested
  * Ubuntu 14.04.3 LTS
