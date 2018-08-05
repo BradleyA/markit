@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.46.187  2018-08-05_10:40:49_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.45  
+#	   ready for pre-release testing #29 
 #	check-markit  3.45.186  2018-08-04_23:43:47_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.44  
 #	   check-markit 
 #	markcheck  3.43.184  2018-08-04_23:25:33_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.42  
@@ -79,17 +81,36 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
 	exit 1
 fi
-REPOSITORY_NAME=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
+REPOSITORY_COMMAND=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
 MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
+#	Check file to determine if it was marked before markit release 3.10.142
+if ! grep -q 'https' <<< ${REPOSITORY_COMMAND} ; then
+	echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File is not marked with markit or was marked with a release before markit 3.10.142\n" 1>&2
+	exit
+fi
 ###
-#	need to make sure that contact to GitHib can be made before using curl
+#	need to make sure that contact to GitHib or GitLab can be made before using curl
+#	add a test
 ###
-echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
-REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
-REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar --directory /tmp/markit-temp -xzf - "
+###	Determine name of repository
+if grep -q 'github' <<< ${REPOSITORY_COMMAND} ; then
+	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
+	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/github.com/api.github.com\/repos/'`
+	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
+elif grep -q 'gitlab' REPOSITORY_COMMAND ; then
+	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
+	echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2
+	echo ">>>> needs to be completed #31 <<<<<<<<<<<<"
+	exit
+else 
+	echo -e ">DEBUG ${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking _______ for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
+	echo ">>>> OTHER like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc   <<<<<"
+	echo ">>>> needs to be completed #31 <<<<<<<<<<<<"
+	exit
+fi
 ###
 mkdir /tmp/markit-temp
-eval ${REPOSITORY_NAME}
+eval ${REPOSITORY_COMMAND}
 FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
 MARKIT_FILE_CURRENT_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$3'}`
 MARKIT_FILE_DATE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$4'}`
