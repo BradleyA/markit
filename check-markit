@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.48.190  2018-08-05_13:57:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.47  
+#	   added DEBUG flag and DEBUG statements 
 #	check-markit  3.47.189  2018-08-05_11:00:13_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.46-1-gcf4b381  
 #	   ready to release close #29 
 #	check-markit  3.46.187  2018-08-05_10:40:49_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.45  
@@ -7,6 +9,10 @@
 #	set -x
 #	set -v
 ###
+DEBUG=0			# 0 = debug off, 1 = debug on
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+#
 display_help() {
 echo -e "\n${0} - check file release with repository release"
 echo -e "\nUSAGE\n   ${0} [<FILE_NAME>]"
@@ -33,16 +39,6 @@ if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||
 	exit 0
 fi
 ###
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
-#	Check if in Git repository
-source /usr/share/bash-completion/completions/git
-if ! $( __gitdir > /dev/null 2>&1 ) ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
-	exit 0
-fi
-#	Check if remote git repository has been setup #28
-git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
 #       Check if argument 1 is blank
 if [ "${1}" == "" ] ; then
 	display_help
@@ -62,6 +58,7 @@ else
 	#	Locate file in the PATH
 	TEMP=`whereis "${1}"`
 	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
+	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 	#       Check if TEMP is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
 		display_help
@@ -77,9 +74,10 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
 fi
 REPOSITORY_COMMAND=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
 MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
+if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 #	Check file to determine if it was marked before markit release 3.10.142
 if ! grep -q 'https' <<< ${REPOSITORY_COMMAND} ; then
-	echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File is not marked with markit or was marked with a release before markit 3.10.142\n" 1>&2
+	echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} is not marked with markit or was marked with a release before markit 3.10.142 or the --file option was not used\n" 1>&2
 	exit
 fi
 ###
@@ -93,15 +91,16 @@ if grep -q 'github' <<< ${REPOSITORY_COMMAND} ; then
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
 elif grep -q 'gitlab' REPOSITORY_COMMAND ; then
 	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
-	echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2
+	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 	echo ">>>> needs to be completed #31 <<<<<<<<<<<<"
 	exit
 else 
-	echo -e ">DEBUG ${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking _______ for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
+	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 	echo ">>>> OTHER like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc   <<<<<"
 	echo ">>>> needs to be completed #31 <<<<<<<<<<<<"
 	exit
 fi
+if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 ###
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_COMMAND}
