@@ -1,44 +1,23 @@
 #!/bin/bash
-#	markcheck  3.37.178  2018-08-04_13:08:38_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.36  
-#	   got currect release number #29 
-#	markcheck  3.36.177  2018-08-03_14:47:51_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.35  
-#	   move change to github to switch another system to work #29 
-#	markcheck  3.35.176  2018-08-03_14:32:18_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.34  
-#	   need to pull the FILE_NAME out of the command line earlier in the script #29 
-#	markcheck  3.34.175  2018-08-03_14:17:47_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.33  
-#	   got curl to down load reposiroty #29 
-#	markcheck  3.33.174  2018-08-03_13:56:48_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.32  
-#	   start working on curl statement #29 
-#	markcheck  3.32.173  2018-08-03_12:02:39_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.31  
-#	   clean up debugging #29 
-#	markcheck  3.31.172  2018-08-03_11:09:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.30  
-#	   updated display_help #29 
-#	markcheck  3.30.171  2018-08-03_10:37:26_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.29  
-#	   complete testing of --file -f #29 
-#	markcheck  3.29.170  2018-08-02_23:18:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.28  
-#	   need more work but close #29 
-#	markcheck  3.28.169  2018-08-02_23:08:58_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.27  
-#	   parsed MARKIT_FILE now put it into one line with error detction #29 
-#	markcheck  3.27.168  2018-08-02_15:22:11_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.26  
-#	   process command arguments #29 
-#	markcheck  3.26.167  2018-08-02_13:57:07_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.25  
-#	   found working directory of file 
-#	markcheck  3.25.166  2018-08-02_13:45:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.24  
-#	   create new script to check if the current installed version is the latest version #29 
+#	markcheck  3.40.181  2018-08-04_22:28:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.39  
+#	   ruffed out display_help section #29 
 ###
 #	set -x
 #	set -v
 ###
 display_help() {
-echo -e "\n${0} - AFTER DESIGN NEED TO COMPLETE HELP SECTION"
-echo -e "\nUSAGE\n   ${0} [<file_name>]"
-echo    "   ${0} [--file <path>/<file_name> | -f <path>/<file_name>]"
+echo -e "\n${0} - check file release with repository release"
+echo -e "\nUSAGE\n   ${0} [<FILE_NAME>]"
+echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
-echo -e "\nDESCRIPTION\nXXXX"
-echo -e "\nxxxxx"
-echo -e "\nOPTIONS\n   "
+echo -e "\nDESCRIPTION\nCheck the release of a file that was marked using markit with the GitHub"
+echo    "repository release.  Markcheck may require --file option to include the"
+echo    "relative or absolute path with the file name.  Markcheck only works on files"
+echo    "that were marked with markit release 3.10.142 or later releases."
+echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_name>'"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n  "
+echo -e "\nEXAMPLES\n   markcheck -f testfiles/sample.c\n\n   Check file named sample.c release number in relative path testfile/ with\n   repository release number."
+echo -e "\n   markcheck markit\n\n   Check file named markit release number with repository release number.\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
