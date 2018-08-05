@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markcheck  3.42.183  2018-08-04_23:07:05_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.41  
+#	   markcheck working, continue cleanup and testing #29 
 #	markcheck  3.40.181  2018-08-04_22:28:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.39  
 #	   ruffed out display_help section #29 
 ###
@@ -65,41 +67,27 @@ else
 	fi
 fi
 FILE_NAME=`echo ${MARKIT_FILE} | sed 's/.*\///'`
-###############################
-echo  "${LINENO} MARKIT_FILE = ${MARKIT_FILE}    FILE_NAME = ${FILE_NAME}"
-echo  "${LINENO} Does it include the path for MARKIT_FILE = ${MARKIT_FILE}"
-###############################
 #       Check if file exists and has a size greater than zero || if file exists and is readable
 if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
 	exit 1
 fi
-###############################
-echo  "${LINENO} MARKIT_FILE is found and is not empty and is it readable ? = ${MARKIT_FILE}"
-echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
-###############################
-#	REPOSITORY_NAME=`head -2 ${MARKIT_FILE} | awk {'print$5'}`
-#	MARKIT_FILE_RELEASE=`head -2 ${MARKIT_FILE} | awk {'print$3'}`
 REPOSITORY_NAME=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
 MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
 ###
-echo  "${LINENO} MARKIT_FILE_RELEASE >>${MARKIT_FILE_RELEASE}<<"
-echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
+#	need to make sure that contact to GitHib can be made before using curl
+###
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
 REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
-echo  ">>${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}<<"
 REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar --directory /tmp/markit-temp -xzf - "
-echo  "${LINENO} REPOSITORY_NAME >>${REPOSITORY_NAME}"
 ###
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_NAME}
-###
-#	need to strip the file name out of ${MARKIT_FILE} to be used with the find below
-###
 FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
-echo ${FILE_NAME_LOCATION}
 MARKIT_FILE_CURRENT_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$3'}`
-#	MARKIT_FILE_CURRENT_RELEASE=`head -2 ${FILE_NAME_LOCATION} | awk {'print$3'}`
-echo  "${LINENO} MARKIT_FILE_CURRENT_RELEASE >>${MARKIT_FILE_CURRENT_RELEASE}<<"
-###
+MARKIT_FILE_DATE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$4'}`
 rm -rf /tmp/markit-temp
+###
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}" 1>&2
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${MARKIT_FILE_CURRENT_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}\n" 1>&2
 ###
