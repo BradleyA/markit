@@ -1,0 +1,98 @@
+#!/bin/bash
+#	markcheck  3.43.184  2018-08-04_23:25:33_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.42  
+#	   continue testing and edit display_help #29 
+#	markcheck  3.42.183  2018-08-04_23:07:05_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.41  
+#	   markcheck working, continue cleanup and testing #29 
+#	markcheck  3.40.181  2018-08-04_22:28:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.39  
+#	   ruffed out display_help section #29 
+###
+#	set -x
+#	set -v
+###
+display_help() {
+echo -e "\n${0} - check file release with repository release"
+echo -e "\nUSAGE\n   ${0} [<FILE_NAME>]"
+echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
+echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
+echo -e "\nDESCRIPTION\nCheck the release of a file that was marked using markit with the GitHub"
+echo    "repository release.  Markcheck may require --file option to include the"
+echo    "relative or absolute path with the file name."
+echo -e "\nMarkcheck only works on files that are marked with markit release 3.10.142"
+echo    "or later releases.  Markit release 3.10.142 added the repository information"
+echo    "to the second line in the file.  This repository information is required to"
+echo    "locate the file in a GitHub repository."
+echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_name>'"
+echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
+echo -e "\nEXAMPLES\n   markcheck -f testfiles/sample.c\n\n   Check file named sample.c release in relative path testfile/ with\n   repository release."
+echo -e "\n   markcheck markit\n\n   Check file named markit release with repository release.\n"
+}
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
+	display_help
+	exit 0
+fi
+if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||  [ "$1" == "-v" ] ; then
+	head -2 ${0} | awk {'print$2"\t"$3'}
+	exit 0
+fi
+###
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+#	Check if in Git repository
+source /usr/share/bash-completion/completions/git
+if ! $( __gitdir > /dev/null 2>&1 ) ; then
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
+	exit 0
+fi
+#	Check if remote git repository has been setup #28
+git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
+#       Check if argument 1 is blank
+if [ "${1}" == "" ] ; then
+	display_help
+	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File not found on command line\n" 1>&2
+	exit 0
+fi
+#	Check if argument 1 is -f or --file the path is reqired to be included 
+if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
+	#       Check if argument 2 is blank
+	if [ "${2}" == "" ] ; then
+		display_help
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  File name not found; --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
+		exit 0
+	fi
+	MARKIT_FILE=${2}
+else
+	#	Locate file in the PATH
+	TEMP=`whereis "${1}"`
+	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
+	#       Check if TEMP is blank
+	if [ "${MARKIT_FILE}" == "" ] ; then
+		display_help
+		echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${1} not found; use --file <path>/<file_name> or -f <path>/<file_name> option\n" 1>&2
+		exit 0
+	fi
+fi
+FILE_NAME=`echo ${MARKIT_FILE} | sed 's/.*\///'`
+#       Check if file exists and has a size greater than zero || if file exists and is readable
+if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
+       	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
+	exit 1
+fi
+REPOSITORY_NAME=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
+MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
+###
+#	need to make sure that contact to GitHib can be made before using curl
+###
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
+REPOSITORY_NAME=`echo ${REPOSITORY_NAME} | sed 's/github.com/api.github.com\/repos/'`
+REPOSITORY_NAME="curl \-L ${REPOSITORY_NAME}/tarball | tar --directory /tmp/markit-temp -xzf - "
+###
+mkdir /tmp/markit-temp
+eval ${REPOSITORY_NAME}
+FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
+MARKIT_FILE_CURRENT_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$3'}`
+MARKIT_FILE_DATE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$4'}`
+rm -rf /tmp/markit-temp
+###
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}" 1>&2
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${MARKIT_FILE_CURRENT_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}\n" 1>&2
+###
