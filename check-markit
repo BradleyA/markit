@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.45.186  2018-08-04_23:43:47_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.44  
+#	   check-markit 
 #	markcheck  3.43.184  2018-08-04_23:25:33_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.42  
 #	   continue testing and edit display_help #29 
 #	markcheck  3.42.183  2018-08-04_23:07:05_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.41  
@@ -15,16 +17,16 @@ echo -e "\nUSAGE\n   ${0} [<FILE_NAME>]"
 echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nCheck the release of a file that was marked using markit with the GitHub"
-echo    "repository release.  Markcheck may require --file option to include the"
+echo    "repository release.  check-markit may require --file option to include the"
 echo    "relative or absolute path with the file name."
-echo -e "\nMarkcheck only works on files that are marked with markit release 3.10.142"
-echo    "or later releases.  Markit release 3.10.142 added the repository information"
-echo    "to the second line in the file.  This repository information is required to"
-echo    "locate the file in a GitHub repository."
+echo -e "\ncheck-markit only works on files that are marked with markit release 3.10.142"
+echo    "(dated 2018-02-27_19:00:09_CST) or later releases.  Markit release 3.10.142"
+echo    "added the repository information to the second line in a marker file.  This"
+echo    "repository information is required for check-markit to locate a file on GitHub."
 echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_name>'"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n   markcheck -f testfiles/sample.c\n\n   Check file named sample.c release in relative path testfile/ with\n   repository release."
-echo -e "\n   markcheck markit\n\n   Check file named markit release with repository release.\n"
+echo -e "\nEXAMPLES\n   check-markit -f testfiles/sample.c\n\n   Check file named sample.c release in relative path testfile/ with\n   repository release."
+echo -e "\n   check-markit markit\n\n   Check file named markit release with repository release.\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
