@@ -1,10 +1,6 @@
 #!/bin/bash
-#	check-markit  3.48.190  2018-08-05_13:57:32_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.47  
-#	   added DEBUG flag and DEBUG statements 
-#	check-markit  3.47.189  2018-08-05_11:00:13_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.46-1-gcf4b381  
-#	   ready to release close #29 
-#	check-markit  3.46.187  2018-08-05_10:40:49_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.45  
-#	   ready for pre-release testing #29 
+#	check-markit  3.49.192  2018-08-05_20:10:13_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.48-1-g36ae19b  
+#	   check-markit work on Gitlab #31 , need to continue testing 
 ###
 #	set -x
 #	set -v
@@ -76,24 +72,29 @@ REPOSITORY_COMMAND=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'prin
 MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
 if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 #	Check file to determine if it was marked before markit release 3.10.142
-if ! grep -q 'https' <<< ${REPOSITORY_COMMAND} ; then
-	echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} is not marked with markit or was marked with a release before markit 3.10.142 or the --file option was not used\n" 1>&2
+#	if !  `echo "${REPOSITORY_COMMAND}" | grep -q "https"`  ; then
+if ! grep -q "https" <<< ${REPOSITORY_COMMAND}  ; then
+	echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} is not marked with markit or the --file option was not used or git origin did not include https address (git remote -v) when marked or checked or was marked with a release before markit 3.10.142\n" 1>&2
 	exit
 fi
 ###
-#	need to make sure that contact to GitHib or GitLab can be made before using curl
+#	need to make sure that script is able to contact GitHib or GitLab before using curl
 #	add a test
 ###
 ###	Determine name of repository
-if grep -q 'github' <<< ${REPOSITORY_COMMAND} ; then
+if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
 	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
 	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/github.com/api.github.com\/repos/'`
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
-elif grep -q 'gitlab' REPOSITORY_COMMAND ; then
+elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
 	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
-	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 	echo ">>>> needs to be completed #31 <<<<<<<<<<<<"
-	exit
+	PROJECT_NAME=`echo ${REPOSITORY_COMMAND} | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//'`
+	echo ${PROJECT_NAME}
+	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/\.git$/\/-\/archive\/master\//'`
+	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
+	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 else 
 	if [ "${DEBUG}" == "1" ] ; then echo -e ">DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
 	echo ">>>> OTHER like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc   <<<<<"
