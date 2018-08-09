@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.65.211  2018-08-09_16:00:36_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.64  
+#	   cleanup comments 
 #	markit  3.64.210  2018-08-09_15:48:42_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.63-1-g7764ba9  
 #	   add DEBUG lines and LANG check asking for LANG help #17 
 #	markit  3.63.208  2018-08-09_11:12:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.62-2-ge916cf9  
@@ -83,9 +85,9 @@ FILE_MESSAGE=""
 FILE_RELEASE=""
 #	Check if no tag for file ; first time git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
-#	read about this online: 
-#		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
-#		latest tagged commit across all branches
+# >>> # ??	read about this online: 
+# >>>		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
+# >>>		latest tagged commit across all branches
 	CURRENT_RELEASE=`git describe --tags $(git rev-list --tags --max-count=1)`
 else
 	CURRENT_RELEASE="0.01"
@@ -158,7 +160,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
-# >>>	This does not work if the last character is '.' but it does work if more than one "."
+# >>> #??	This does not work if the last character is '.' but it does work if more than one "."
 	FILE_EXTENSION=${FILE_NAME##*\.}
 	echo "${FILE_NAME}	${FILE_EXTENSION}"
 #	Single-line comment character(s) matching file extension
