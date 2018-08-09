@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.58.201  2018-08-09_10:45:04_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.57  
+#	   testing failed login #30 
 #	markit  3.57.200  2018-08-09_10:43:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.56  
 #	   testing failed login #30 
 #	markit  3.56.199  2018-08-09_10:41:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.55  
@@ -13,10 +15,6 @@
 #	   testing failed login #30 
 #	markit  3.51.194  2018-08-09_10:13:46_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.50  
 #	   testing failed login 
-#	markit  3.41.182  2018-08-04_22:33:08_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.40  
-#	   clean up old release lines to test markcheck #29 
-#	markit  3.24.165  2018-07-29_17:53:19_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.23  
-#	   change formating of file names while processing those files 
 ###
 #	set -x
 #	set -v
