@@ -1,10 +1,10 @@
 #!/bin/bash
+#	check-markit  3.66.212  2018-08-09_16:08:45_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.65  
+#	   changes to DEBUG statements and LANG #17 
 #	check-markit  3.64.210  2018-08-09_15:48:42_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.63-1-g7764ba9  
 #	   add DEBUG lines and LANG check asking for LANG help #17 
 #	check-markit  3.50.193  2018-08-05_21:08:54_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.49  
 #	   needs more testing with GitLab close #31 
-#	check-markit  3.49.192  2018-08-05_20:10:13_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.48-1-g36ae19b  
-#	   check-markit work on Gitlab #31 , need to continue testing 
 ###
 #	set -x
 #	set -v
@@ -33,9 +33,8 @@ echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_n
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   check-markit -f testfiles/sample.c\n\n   Check file named sample.c release in relative path testfile/ with\n   repository release."
 echo -e "\n   check-markit markit\n\n   Check file named markit release with repository release.\n"
-LANG_TEMP=`echo ${LANG} | sed 's/\..*$//'`
-if ! [ "${LANG_TEMP}" == "en_US" ] ; then
-        echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:     Your language, ${LANG_TEMP}, is not supported.\n\tWould you like to help?\n"    1>&2
+if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
+        echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:     Your language, ${LANG}, is not supported.\n\tWould you like to help?\n" 1>&2
 fi
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
