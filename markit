@@ -1,10 +1,6 @@
 #!/bin/bash
-#	markit  3.62.205  2018-08-09_11:06:52_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.61  
-#	   testing failed login #30 
-#	markit  3.61.204  2018-08-09_11:04:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.60  
-#	   testing failed login #30 
-#	markit  3.60.203  2018-08-09_10:59:34_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.59  
-#	   testing failed login #30 
+#	markit  3.63.208  2018-08-09_11:12:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.62-2-ge916cf9  
+#	   completed text formating of help information about failed login close #30 
 ###
 #	set -x
 #	set -v
