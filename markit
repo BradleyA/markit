@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.57.200  2018-08-09_10:43:39_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.56  
+#	   testing failed login #30 
 #	markit  3.56.199  2018-08-09_10:41:20_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.55  
 #	   testing failed login #30 
 #	markit  3.55.198  2018-08-09_10:39:44_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.54  
@@ -226,7 +228,7 @@ echo ${NORMAL}
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository or GitLab project
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) to the repository;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf remote respoitory contains new work XXXX<><><><.\n\tEnter;  '${BOLD}git push --follow-tags${NORMAL}'  to complete pushing marked file(s)." ; exit 1; }
+	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf remote respoitory contains new work XXXX<><><><.\n\tEnter;  '${BOLD}git push --follow-tags${NORMAL}'  to complete pushing marked file(s)." ; exit 1; }
 else
 #	Push changes to GitHub repository or GitLab project
 	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password, enter  '${BOLD}git push${NORMAL}' to complete push.\n\t remote respoitory contains new work  XXXXX<><><><><\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
