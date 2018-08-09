@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.51.194  2018-08-09_10:13:46_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.50  
+#	   testing failed login 
 #	markit  3.41.182  2018-08-04_22:33:08_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.40  
 #	   clean up old release lines to test markcheck #29 
 #	markit  3.24.165  2018-07-29_17:53:19_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.23  
@@ -216,7 +218,7 @@ echo ${NORMAL}
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository or GitLab project
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push --follow-tags${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
+	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter;  '${BOLD}git push --follow-tags${NORMAL}'  to complete pushing marked file(s)." ; exit 1; }
 else
 #	Push changes to GitHub repository or GitLab project
 	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	login failed, or\n\tremote respoitory contains new work or password is NOT correct.\n\tEnter; '${BOLD}git push${NORMAL}' to complete pushing marked file(s)." ; exit 1; }
