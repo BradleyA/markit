@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.64.210  2018-08-09_15:48:42_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.63-1-g7764ba9  
+#	   add DEBUG lines and LANG check asking for LANG help #17 
 #	markit  3.63.208  2018-08-09_11:12:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.62-2-ge916cf9  
 #	   completed text formating of help information about failed login close #30 
 ###
@@ -19,6 +21,10 @@
 #
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
+###
+DEBUG=0                 # 0 = debug off, 1 = debug on
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
 ###
 display_help() {
 echo -e "\n${0} - Add two comment lines about file changes & push to GitHub or GitLab"
@@ -41,8 +47,11 @@ echo    "   no       no untracked files (default)"
 echo    "   normal   untracked files and directories"
 echo    "   all      Also individual files in untracked directories"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n   Mark tracked file(s)\n      ${0}"
-echo -e "   Mark tracked and untracked files, directories, and files in untracked\n   directories\n      ${0} all\n"
+echo -e "\nEXAMPLES\n   ${0}\n\n   Mark tracked file(s)\n"
+echo -e "   ${0} all\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
+if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Your language, ${LANG}, is not supported.\n\tWould you like to help?\n"	1>&2
+fi
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
 	display_help
@@ -53,8 +62,6 @@ if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||
 	exit 0
 fi
 ###
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
 #	Check if in Git repository
 source /usr/share/bash-completion/completions/git
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
@@ -83,6 +90,7 @@ if ! [ "$(git tag)" == "" ] ; then
 else
 	CURRENT_RELEASE="0.01"
 fi
+if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  >${0}<  >${1}<" 1>&2 ; fi
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
@@ -192,6 +200,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  >${FILE_NAME}< >${FILE_RELEASE}< >${TIME_STAMP}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
 #	Check if no tag for file / first time in git repository is being tagged
 	if ! [ "$(git tag)" == "" ] ; then
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
