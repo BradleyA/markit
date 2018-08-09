@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.62.205  2018-08-09_11:06:52_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.61  
+#	   testing failed login #30 
 #	markit  3.61.204  2018-08-09_11:04:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.60  
 #	   testing failed login #30 
 #	markit  3.60.203  2018-08-09_10:59:34_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.59  
@@ -214,9 +216,9 @@ echo ${NORMAL}
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 #	Push changes to GitHub repository or GitLab project
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s)\n\t\t'${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
+	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
 else
 #	Push changes to GitHub repository or GitLab project
-	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s)\n\t\t'${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
+	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
 fi
 ###
