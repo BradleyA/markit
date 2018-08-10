@@ -14,7 +14,7 @@ BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 #
 display_help() {
-echo -e "\n${0} - check file release with repository release"
+echo -e "\n${NORMAL}${0} - check file release with repository release"
 echo -e "\nUSAGE\n   ${0} [<FILE_NAME>]"
 echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
