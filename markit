@@ -29,7 +29,7 @@ BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 ###
 display_help() {
-echo -e "\n${0} - Add two comment lines about file changes & push to GitHub or GitLab"
+echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or GitLab"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
