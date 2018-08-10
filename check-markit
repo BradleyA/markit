@@ -1,15 +1,12 @@
 #!/bin/bash
+#	check-markit  3.67.215  2018-08-10_14:48:35_CDT  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.66-2-g4dd1ae5  
+#	   minor format change 
 #	check-markit  3.66.212  2018-08-09_16:08:45_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.65  
 #	   changes to DEBUG statements and LANG #17 
-#	check-markit  3.64.210  2018-08-09_15:48:42_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.63-1-g7764ba9  
-#	   add DEBUG lines and LANG check asking for LANG help #17 
-#	check-markit  3.50.193  2018-08-05_21:08:54_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.49  
-#	   needs more testing with GitLab close #31 
-###
-#	set -x
-#	set -v
 ###
 DEBUG=0			# 0 = debug off, 1 = debug on
+#	set -x
+#	set -v
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 #

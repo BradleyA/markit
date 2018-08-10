@@ -1,14 +1,7 @@
 #!/bin/bash
-#	markit  3.65.211  2018-08-09_16:00:36_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.64  
-#	   cleanup comments 
-#	markit  3.64.210  2018-08-09_15:48:42_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.63-1-g7764ba9  
-#	   add DEBUG lines and LANG check asking for LANG help #17 
-#	markit  3.63.208  2018-08-09_11:12:14_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.62-2-ge916cf9  
-#	   completed text formating of help information about failed login close #30 
+#	markit  3.67.215  2018-08-10_14:48:35_CDT  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.66-2-g4dd1ae5  
+#	   minor format change 
 ###
-#	set -x
-#	set -v
-#
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
 #
@@ -25,6 +18,8 @@
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
 DEBUG=0                 # 0 = debug off, 1 = debug on
+#	set -x
+#	set -v
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 ###
