@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.67.215  2018-08-10_14:48:35_CDT  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.66-2-g4dd1ae5  
-#	   minor format change 
+#	markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
+#	   sync to standard script design changes 
 ###
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
@@ -26,7 +26,8 @@ NORMAL=$(tput sgr0)
 display_help() {
 echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or GitLab"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
-echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
+echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
+echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to either"
 echo    "a GitHub repository or GitLab project.  The first comment line includes file"
@@ -54,7 +55,7 @@ if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" =
 	display_help
 	exit 0
 fi
-if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||  [ "$1" == "-v" ] ; then
+if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
 	head -2 ${0} | awk {'print$2"\t"$3'}
 	exit 0
 fi
