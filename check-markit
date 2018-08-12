@@ -63,7 +63,7 @@ else
 	#	Locate file in the PATH
 	TEMP=`whereis "${1}"`
 	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	#       Check if MARKIT_FILE is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
 		display_help
@@ -80,7 +80,7 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
 fi
 REPOSITORY_COMMAND=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
 MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
-if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 #	Check file to determine if it was marked before markit release 3.10.142
 #	if !  `echo "${REPOSITORY_COMMAND}" | grep -q "https"`  ; then
 if ! grep -q "https" <<< ${REPOSITORY_COMMAND}  ; then
@@ -100,17 +100,17 @@ elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
 	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
 	PROJECT_NAME=`echo ${REPOSITORY_COMMAND} | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//'`
 	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/\.git$/\/-\/archive\/master\//'`
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 else 
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	echo    ">>>> Repository using SSH URLs  <<<<<"
 	echo    ">>>> or other repository like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc   <<<<<"
 	exit
 fi
 ###
-if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE ${MARKIT_FILE}<< FILE_NAME ${FILE_NAME}<< REPOSITORY_COMMAND ${REPOSITORY_COMMAND}<< MARKIT_FILE_RELEASE ${MARKIT_FILE_RELEASE}<< " 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_COMMAND}
 FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
