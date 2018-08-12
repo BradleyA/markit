@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.70.219  2018-08-12_13:30:24_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.69  
+#	   add code to correct: mkdir: cannot create directory ‘/tmp/markit-temp’: File exists 
 #	check-markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
 #	   sync to standard script design changes 
 #	check-markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
@@ -113,6 +115,11 @@ else
 fi
 ###
 if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+#       Check if /tmp/markit-temp directory exists; remove it because of previous use of script failed
+if [ -d /tmp/markit-temp ] ; then
+	rm -rf /tmp/markit-temp
+fi
+#
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_COMMAND}
 FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
