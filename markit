@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
+#	   sync to standard script design changes 
 #	markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
 #	   sync to standard script design changes 
 ###
@@ -224,4 +226,6 @@ else
 #	Push changes to GitHub repository or GitLab project
 	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
 fi
+#
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
 ###

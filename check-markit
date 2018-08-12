@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
+#	   sync to standard script design changes 
 #	check-markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
 #	   sync to standard script design changes 
 #	check-markit  3.66.212  2018-08-09_16:08:45_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.65  
@@ -120,4 +122,6 @@ rm -rf /tmp/markit-temp
 ###
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}" 1>&2
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${MARKIT_FILE_CURRENT_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}\n" 1>&2
+#
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
 ###
