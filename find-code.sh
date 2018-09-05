@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	find-code.sh  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
+# 	   redirect stderr to /dev/null to stop permission denied close #34 
 # 	find-code.sh  3.71.220  2018-09-04_17:12:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.70  
 # 	   move find-code.sh from user-work-files to markit 
-# 	find-code.sh  1.7.28  2018-08-22_20:42:43_CDT  https://github.com/BradleyA/user-work-files.git  uadmin  six-rpi3b.cptx86.com 1.6  
-# 	   change find command 
 ###
 ###
 DEBUG=0                 # 0 = debug off, 1 = debug on
@@ -38,7 +38,7 @@ fi
 HOSTFILE=${1:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
 LOCALHOST=`hostname -f`
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
-REMOTECOMMAND="find ~/.. -type d -execdir test -d '.git' \; -print -prune"
+REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
 #
 if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  LOCALHOST >${LOCALHOST}<  HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
 #       Check for ${HOSTFILE} file

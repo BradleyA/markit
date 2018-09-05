@@ -1,6 +1,6 @@
 #!/bin/bash
-#	check-markit  3.73.222  2018-09-04_21:05:06_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.72  
-#	   found another change grep <string-one> && <string-two #22 
+#	check-markit  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
+#	   redirect stderr to /dev/null to stop permission denied close #34 
 #	check-markit  3.72.221  2018-09-04_20:35:54_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.71  
 #	   change grep <string-one> && <string-two close #32 
 #	check-markit  3.70.219  2018-08-12_13:30:24_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.69  
