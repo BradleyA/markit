@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.72.221  2018-09-04_20:35:54_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.71  
+#	   change grep <string-one> && <string-two close #32 
 #	check-markit  3.70.219  2018-08-12_13:30:24_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.69  
 #	   add code to correct: mkdir: cannot create directory ‘/tmp/markit-temp’: File exists 
 #	check-markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
@@ -8,7 +10,7 @@
 #	check-markit  3.66.212  2018-08-09_16:08:45_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.65  
 #	   changes to DEBUG statements and LANG #17 
 ###
-DEBUG=0			# 0 = debug off, 1 = debug on
+DEBUG=1			# 0 = debug off, 1 = debug on
 #	set -x
 #	set -v
 BOLD=$(tput bold)
@@ -82,8 +84,8 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
 	exit 1
 fi
-REPOSITORY_COMMAND=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$5'}`
-MARKIT_FILE_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${MARKIT_FILE} | awk {'print$3'}`
+REPOSITORY_COMMAND=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$5'}`
+MARKIT_FILE_RELEASE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
 if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 #	Check file to determine if it was marked before markit release 3.10.142
 #	if !  `echo "${REPOSITORY_COMMAND}" | grep -q "https"`  ; then
