@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.73.222  2018-09-04_21:05:06_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.72  
+#	   found another change grep <string-one> && <string-two #22 
 #	check-markit  3.72.221  2018-09-04_20:35:54_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.71  
 #	   change grep <string-one> && <string-two close #32 
 #	check-markit  3.70.219  2018-08-12_13:30:24_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.69  
@@ -6,8 +8,6 @@
 #	check-markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
 #	   sync to standard script design changes 
 #	check-markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
-#	   sync to standard script design changes 
-#	check-markit  3.66.212  2018-08-09_16:08:45_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.65  
 #	   changes to DEBUG statements and LANG #17 
 ###
 DEBUG=1			# 0 = debug off, 1 = debug on
@@ -125,8 +125,8 @@ fi
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_COMMAND}
 FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
-MARKIT_FILE_CURRENT_RELEASE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$3'}`
-MARKIT_FILE_DATE=`grep -m 1 -e ${FILE_NAME} -e git ${FILE_NAME_LOCATION} | awk {'print$4'}`
+MARKIT_FILE_CURRENT_RELEASE=`grep git ${FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
+MARKIT_FILE_DATE=`grep git ${FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
 rm -rf /tmp/markit-temp
 ###
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}" 1>&2
