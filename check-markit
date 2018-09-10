@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.75.224  2018-09-10_12:10:02_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.74  
+#	   print commit date of local command #35, ready to begin testing 
 #	check-markit  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
 #	   redirect stderr to /dev/null to stop permission denied close #34 
 #	check-markit  3.72.221  2018-09-04_20:35:54_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.71  
@@ -69,7 +71,7 @@ else
 	#	Locate file in the PATH
 	TEMP=`whereis "${1}"`
 	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< " 1>&2 ; fi
 	#       Check if MARKIT_FILE is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
 		display_help
@@ -86,6 +88,8 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
 fi
 REPOSITORY_COMMAND=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$5'}`
 MARKIT_FILE_RELEASE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
+MARKIT_FILE_DATE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
+
 if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 #	Check file to determine if it was marked before markit release 3.10.142
 #	if !  `echo "${REPOSITORY_COMMAND}" | grep -q "https"`  ; then
@@ -104,11 +108,10 @@ if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
 elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
 	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information\n" 1>&2
-	PROJECT_NAME=`echo ${REPOSITORY_COMMAND} | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//'`
+	REPOSITORY_PROJECT_NAME=`echo ${REPOSITORY_COMMAND} | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//'`
 	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/\.git$/\/-\/archive\/master\//'`
 	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
-	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
 else 
 	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	echo    ">>>> Repository using SSH URLs  <<<<<"
@@ -124,13 +127,13 @@ fi
 #
 mkdir /tmp/markit-temp
 eval ${REPOSITORY_COMMAND}
-FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
-MARKIT_FILE_CURRENT_RELEASE=`grep git ${FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
-MARKIT_FILE_DATE=`grep git ${FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
+REPOSITORY_FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
+REPOSITORY_MARKIT_FILE_RELEASE=`grep git ${REPOSITORY_FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
+REPOSITORY_MARKIT_FILE_DATE=`grep git ${REPOSITORY_FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
 rm -rf /tmp/markit-temp
 ###
-echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}" 1>&2
-echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${MARKIT_FILE_CURRENT_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}\n" 1>&2
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
 #
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
 ###
