@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.76.225  2018-09-10_13:56:21_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.75  
+#	   check-markit: print commit date of local command close #35 
 #	check-markit  3.75.224  2018-09-10_12:10:02_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.74  
 #	   print commit date of local command #35, ready to begin testing 
 #	check-markit  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
@@ -133,7 +135,7 @@ REPOSITORY_MARKIT_FILE_DATE=`grep git ${REPOSITORY_FILE_NAME_LOCATION} | grep -m
 rm -rf /tmp/markit-temp
 ###
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
-echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
+echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}" 1>&2
 #
 echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
 ###
