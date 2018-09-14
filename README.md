@@ -1,7 +1,7 @@
 ## markit
 
 ### Goal
-I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have the GitHub repository or GitLab project installed on it. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub or GitLab to be able to **answer one question over the phone; What version are you running?**
+I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have access to GitHub repository or GitLab project. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub or GitLab to be able to **answer one question over the phone; What version are you running?**
 
 ### Description
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then push those changed file(s) to either a GitHub repository or GitLab project.  The comment lines include:
