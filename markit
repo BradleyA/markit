@@ -1,8 +1,6 @@
 #!/bin/bash
-#	markit  3.69.218  2018-08-12_10:54:15_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.68-1-g9ffc747  
-#	   sync to standard script design changes 
-#	markit  3.68.216  2018-08-11_12:25:48_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.67  
-#	   sync to standard script design changes 
+#	markit  3.79.229  2018-09-25_16:39:31_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.78  
+#	   typo in Display_help 
 ###
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
@@ -38,7 +36,7 @@ echo    "file(s).  Followed by a single comment line including a brief descripti
 echo    "about changes made to the file(s)."
 echo -e "\nMarkit only modifies Git tracked files by default.  To change a Git untracked"
 echo    "file to a Git tracked file enter, git add <file_name>.  Markit will modify all"
-echo    "untracked and tracked files if normal or all is entered as an arguement.  To"
+echo    "untracked and tracked files if normal or all is entered as an argument.  To"
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore file."
 echo -e "\nThere will be a prompt to add comment character(s) for unknown file names"
 echo    "when needed and a prompt to add a description about the changes."
