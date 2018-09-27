@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.80.230  2018-09-27_06:06:08_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.79  
+#	   test  add code to check if /usr/share/bash-completion/completions/git #36 
 #	markit  3.79.229  2018-09-25_16:39:31_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.78  
 #	   typo in Display_help 
 ###
@@ -60,8 +62,13 @@ if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] ||
 	exit 0
 fi
 ###
+#       Check if bash-completion/completions/git file on system
+if [ -e /usr/share/bash-completion/completions/git ] ; then
+	source /usr/share/bash-completion/completions/git
+else
+	echo    "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  /usr/share/bash-completion/completions/git NOT found"  1>&2
+fi
 #	Check if in Git repository
-source /usr/share/bash-completion/completions/git
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
 	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
 	exit 0
