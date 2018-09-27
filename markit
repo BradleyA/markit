@@ -1,8 +1,6 @@
 #!/bin/bash
-#	markit  3.80.230  2018-09-27_06:06:08_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.79  
-#	   test  add code to check if /usr/share/bash-completion/completions/git #36 
-#	markit  3.79.229  2018-09-25_16:39:31_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.78  
-#	   typo in Display_help 
+#	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
+#	   add code to check if /usr/share/bash-completion/completions/git close #36 
 ###
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
