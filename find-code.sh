@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.86.236  2018-10-05_20:37:37_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.85  
+# 	   Change echo or print DEBUG INFO WARNING ERROR #42 
 # 	find-code.sh  3.85.235  2018-10-05_14:56:04_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.84  
 # 	   begin find-code.sh Change echo or print DEBUG INFO WARNING ERROR #42 
 # 	find-code.sh  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
@@ -68,14 +70,13 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 
 ###
 HOSTFILE=${1:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
-LOCALHOST=`hostname -f`
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
 REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
 #
-if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  LOCALHOST >${LOCALHOST}<  HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  LOCALHOST >${LOCALHOST}<  HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
 #       Check for ${HOSTFILE} file
 if [ ! -e ${HOSTFILE} ] ; then
-        echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} NOT found"   1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${HOSTFILE} NOT found" 1>&2
         exit 0
 fi
 REMOTEHOST=`grep -v "#" ${HOSTFILE}`
@@ -88,5 +89,5 @@ for NODE in ${REMOTEHOST} ; do
         fi
 done
 #
-echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
+get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
 ###
