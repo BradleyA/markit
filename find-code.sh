@@ -1,15 +1,9 @@
 #!/bin/bash
-# 	find-code.sh  3.86.236  2018-10-05_20:37:37_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.85  
-# 	   Change echo or print DEBUG INFO WARNING ERROR #42 
-# 	find-code.sh  3.85.235  2018-10-05_14:56:04_CDT  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.84  
-# 	   begin find-code.sh Change echo or print DEBUG INFO WARNING ERROR #42 
-# 	find-code.sh  3.74.223  2018-09-04_21:45:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.73  
-# 	   redirect stderr to /dev/null to stop permission denied close #34 
-# 	find-code.sh  3.71.220  2018-09-04_17:12:40_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.70  
-# 	   move find-code.sh from user-work-files to markit 
+# 	find-code.sh  3.87.237  2018-10-05_21:42:15_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.86  
+# 	   Change echo or print DEBUG INFO WARNING ERROR close #42 
 #
 ###	find-code.sh - Search systems from clones from repositories
-DEBUG=1                 # 0 = debug off, 1 = debug on
+DEBUG=0                 # 0 = debug off, 1 = debug on
 #	set -x
 #	set -v
 BOLD=$(tput bold)
