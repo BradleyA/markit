@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.92.242  2018-10-06T20:00:50-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.91  
+#	   check-markit add ISO 8601 for date #46 
 #	check-markit  3.78.228  2018-09-14_19:53:26_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.77  
 #	   close #33 because no incident after testing 
 #	check-markit  3.77.227  2018-09-14_19:48:36_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.76-1-g1d02c48  
@@ -84,7 +86,7 @@ if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
        	echo -e "${NORMAL}\n${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  ${MARKIT_FILE} file is not found or is empty or is not readable\n" 1>&2
 	exit 1
 fi
-REPOSITORY_COMMAND=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$5'} | sed 's/\.git$//'`
+REPOSITORY_COMMAND=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$6'} | sed 's/\.git$//'`
 MARKIT_FILE_RELEASE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
 MARKIT_FILE_DATE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
 #
