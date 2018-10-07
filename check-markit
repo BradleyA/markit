@@ -1,6 +1,6 @@
 #!/bin/bash
-#	check-markit  3.92.242  2018-10-06T20:00:50-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.91  
-#	   check-markit add ISO 8601 for date #46 
+#	check-markit  3.93.243  2018-10-06T20:09:21-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.92  
+#	   check-markit add ISO 8601 for date close #46 
 #	check-markit  3.78.228  2018-09-14_19:53:26_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.77  
 #	   close #33 because no incident after testing 
 #	check-markit  3.77.227  2018-09-14_19:48:36_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.76-1-g1d02c48  
@@ -43,7 +43,7 @@ if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:     Your language, ${LANG}, is not supported.\n\tWould you like to help?\n" 1>&2
 fi
 }
-if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
 	display_help
 	exit 0
 fi

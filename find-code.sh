@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.92.242  2018-10-06T20:00:50-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.91  
-# 	   check-markit add ISO 8601 for date #46 
+# 	find-code.sh  3.93.243  2018-10-06T20:09:21-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.92  
+# 	   check-markit add ISO 8601 for date close #46 
 # 	find-code.sh  3.88.238  2018-10-05_22:08:01_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.87  
 # 	   update for display_help #43 
 # 	find-code.sh  3.87.237  2018-10-05_21:42:15_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.86  

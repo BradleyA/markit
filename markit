@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.91.241  2018-10-06T19:53:00-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.90  
-#	   check-markit add ISO 8601 for date #46 
+#	markit  3.93.243  2018-10-06T20:09:21-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.92  
+#	   check-markit add ISO 8601 for date close #46 
 #	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
 #	   add code to check if /usr/share/bash-completion/completions/git close #36 
 ###
@@ -53,7 +53,7 @@ if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
 	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Your language, ${LANG}, is not supported.\n\tWould you like to help?\n"	1>&2
 fi
 }
-if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
 	display_help
 	exit 0
 fi
@@ -85,7 +85,6 @@ TEMP_FILE="TEMP_MARKIT_FILE"
 DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
 TEMP_ZONE=`date +%Z`
 DATE_STAMP=`echo "${DATE_STAMP} (${TEMP_ZONE})"`
-echo "${DATE_STAMP}"
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
