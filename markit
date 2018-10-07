@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.93.243  2018-10-06T20:09:21-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.92  
-#	   check-markit add ISO 8601 for date close #46 
+#	markit  3.97.250  2018-10-07T11:43:18-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.96-2-gf189c50  
+#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
 #	   add code to check if /usr/share/bash-completion/completions/git close #36 
 ###
@@ -19,7 +19,7 @@
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
-DEBUG=0                 # 0 = debug off, 1 = debug on
+DEBUG=1                 # 0 = debug off, 1 = debug on
 #	set -x
 #	set -v
 BOLD=$(tput bold)
@@ -49,32 +49,65 @@ echo    "   all      Also individual files in untracked directories"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   ${0}\n\n   Mark tracked file(s)\n"
 echo -e "   ${0} all\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
+#       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Your language, ${LANG}, is not supported.\n\tWould you like to help?\n"	1>&2
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported, Would you like to help translate?" 1>&2
+#       elif [ "${LANG}" == "fr_CA.UTF-8" ] ; then
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Display help in ${LANG}" 1>&2
+#       else
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported.\tWould you like to translate?" 1>&2
 fi
 }
+
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
+TEMP=`date +%Z`
+DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
+}
+
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=`hostname -f`
+
+#       Version
+SCRIPT_NAME=`head -2 ${0} | awk {'printf$2'}`
+SCRIPT_VERSION=`head -2 ${0} | awk {'printf$3'}`
+
+#       UID and GID
+USER_ID=`id -u`
+GROUP_ID=`id -g`
+
+#       Default help and version arguments
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
-	display_help
-	exit 0
+        display_help
+        exit 0
 fi
 if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
-	head -2 ${0} | awk {'print$2"\t"$3'}
-	exit 0
+        echo "${SCRIPT_NAME} ${SCRIPT_VERSION}"
+        exit 0
 fi
+
+#       INFO
+get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Begin" 1>&2
+
+#       DEBUG
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Name_of_command >${0}< Name_of_arg1 >${1}<" 1>&2 ; fi
+
 ###
 #       Check if bash-completion/completions/git file on system
 if [ -e /usr/share/bash-completion/completions/git ] ; then
 	source /usr/share/bash-completion/completions/git
 else
-	echo    "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  /usr/share/bash-completion/completions/git NOT found"  1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  /usr/share/bash-completion/completions/git NOT found" 1>&2
 fi
 #	Check if in Git repository
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	`pwd` Check if you are in a Git repository\n\tand you have GIT permission.\n"	1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  `pwd` Check if you are in a Git repository and you have GIT permission." 1>&2
 	exit 0
 fi
 #	Check if remote git repository has been setup #28
-git rev-list HEAD 1> /dev/null || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Remote repository has\n\tnot been setup or git cloned <remote-repository> was not used to pull\n\tremote repository before using markit." ; exit 1; }
+git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}   Remote repository has not been setup or git cloned <remote-repository> was not used to pull remote repository before using markit." 1>&2 ; exit 1; }
+
 #
 UNTRACKED_FILES=${1:-no}
 BEGIN_COMMENT_CHAR=""
@@ -82,12 +115,10 @@ END_COMMENT_CHAR=""
 NUMBER_COMMITS=`git rev-list HEAD | wc -l`	
 REMOTE_REPOSITORY=`git ls-remote --get-url`
 TEMP_FILE="TEMP_MARKIT_FILE"
-DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
-TEMP_ZONE=`date +%Z`
-DATE_STAMP=`echo "${DATE_STAMP} (${TEMP_ZONE})"`
 #	The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
+
 #	Check if no tag for file ; first time git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
 # >>> # ??	read about this online: 
@@ -97,18 +128,20 @@ if ! [ "$(git tag)" == "" ] ; then
 else
 	CURRENT_RELEASE="0.01"
 fi
-if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  >${0}<  >${1}<" 1>&2 ; fi
+
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	First arguement, ${1}, is NOT no, normal, all.\n"	1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  First arguement, ${1}, is NOT no, normal, all." 1>&2
 	exit 0
 fi
+
 #	Create FILE_LIST, remove deleted files from FILE_LIST
 FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
+
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	No file(s) found to mark and push.\n"	1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  No file(s) found to mark and push." 1>&2
 #	Display untracked file(s)
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}"
@@ -117,12 +150,14 @@ if [ -z "${FILE_LIST}" ] ; then
 	fi
 	exit 1
 fi
+
 #	Check if user has write permission
-	if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-		echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	${USER} does NOT have write permission\n\tin local Git repository directory `pwd`"	1>&2
-		exit 1
-	fi
-	rm -f ${TEMP_FILE}
+if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${USER} does NOT have write permission in local Git repository directory `pwd`" 1>&2
+	exit 1
+fi
+rm -f ${TEMP_FILE}
+
 #	Prompt for release number
 echo -e "${NORMAL}Files to be marked and pushed:\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
@@ -134,7 +169,7 @@ fi
 #	Warn user if release number is not great than ${CURRENT_RELEASE}
 #	Use case requires a WARNING not an ERROR ; see issue #14 for more information
 if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:	Release number is not greater than current release number.\n"       1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Release number is not greater than current release number." 1>&2
 fi
 echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
 #	Prompt for single line change description
