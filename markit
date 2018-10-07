@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.105.258  2018-10-07T13:17:57-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.104  
+#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.104.257  2018-10-07T13:12:22-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.103  
 #	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #
@@ -242,7 +244,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}   >${FILE_NAME}< >${FILE_RELEASE}< >${DATE_STAMP}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}   >${FILE_NAME}< >${FILE_RELEASE}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
 #	Check if no tag for file / first time in git repository is being tagged
 	get_date_stamp
 	if ! [ "$(git tag)" == "" ] ; then
