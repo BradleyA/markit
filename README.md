@@ -26,37 +26,41 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
 ### Output
     $ markit
     Files to be marked and pushed:
-    testfiles/sample.sh
-    
-    Current release number: 3.7
-    
-    Enter release number to commit files (example 3.01).
-    Press enter to use 3.7 release number or ctrl-c to stop.
-    3.8
-    /usr/local/bin/markit 124 [INFO]:	Using release number: 3.8
-    
-    Enter a one line description about the changes
+    sample.sh
+
+    Current git repository release number: 3.95 
+
+    Enter release number to commit files (example 3.01) or ctrl-c to stop.
+    3.96
+    /usr/local/bin/markit 139 [INFO]:	Using release number: 3.96
+
+    Enter a one line description about the changes or ctrl-c to stop.
        (example: Added logic for --help; closes #12, resolves #14):
-    typo in sample.sh test file
-    testfiles/sample.sh	sh
-    [master 8b48eee] typo in sample.sh test file
+    update comments
+
+    sample.sh	sh
+
+    [master 7a17705] update comments
      1 file changed, 3 insertions(+), 2 deletions(-)
-     Username for 'https://github.com': BradleyA
-     Password for 'https://BradleyA@github.com':
-     Counting objects: 5, done.
-     Delta compression using up to 4 threads.
-     Compressing objects: 100% (5/5), done.
-     Writing objects: 100% (5/5), 575 bytes | 0 bytes/s, done.
-     Total 5 (delta 3), reused 0 (delta 0)
-     remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-     To https://github.com/BradleyA/markit
-        3ac7e20..8b48eee  master -> master
-	 * [new tag]         3.8 -> 3.8
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (5/5), done.
+    Writing objects: 100% (5/5), 622 bytes | 0 bytes/s, done.
+    Total 5 (delta 2), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+    To https://github.com/BradleyA/markit
+       07806e2..7a17705  master -> master
+     * [new tag]         3.96 -> 3.96
+
+    /usr/local/bin/markit 237 [INFO]:	Done.
 
 ### Modified File Example
-    #!/bin/bash
-    #	sample.sh  3.1.60  2018-02-09_17:03:42_CST  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com  3.1-17-g157c045 
-    #	create output for README #6 
+    ##!/bin/bash
+    # 	sample.sh  3.96.247  2018-10-07T08:59:51-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.95-1-g07806e2  
+    # 	   update comments 
+    #
+    ###
+    echo "Hello World"
         
 ### Install
 To install the latest commit of markit, change to the directory you want to download the script.
