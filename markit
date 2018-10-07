@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.98.251  2018-10-07T11:47:33-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.97  
+#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.97.250  2018-10-07T11:43:18-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.96-2-gf189c50  
 #	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
@@ -166,6 +168,7 @@ read     FILE_RELEASE
 if [ -z "${FILE_RELEASE}" ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
 fi
+
 #	Warn user if release number is not great than ${CURRENT_RELEASE}
 #	Use case requires a WARNING not an ERROR ; see issue #14 for more information
 if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
