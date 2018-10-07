@@ -61,17 +61,8 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     #
     ###
     echo "Hello World"
-        
-### Install
-To install the latest commit of markit, change to the directory you want to download the script.
 
-    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
-
-To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
-
-    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
-    
- ### Usage
+### Usage
 Check a file release that was marked using markit with the file repository release.
 
     check-markit markit 
@@ -90,7 +81,16 @@ Check a file release that was marked using markit with the file repository relea
       markit repository release 3.93.243, commit date 2018-10-06T20:09:21-05:00
 
     2018-10-07T08:47:07-05:00 (CDT) /usr/local/bin/check-markit  163 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Done.
+        
+### Install
+To install the latest commit of markit, change to the directory you want to download the script.
 
+    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
+
+To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
+
+    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
+    
 ### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
