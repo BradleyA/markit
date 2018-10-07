@@ -75,16 +75,17 @@ Check a file release that was marked using markit with the file repository relea
 ### Output
         $ ./check-markit markit
     
-    ./check-markit 78 [INFO]:  Checking GitHub for markit repository release information
-    
+    2018-10-07T08:47:06-05:00 (CDT) /usr/local/bin/check-markit  70 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Begin
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100  8917  100  8917    0     0   6603      0  0:00:01  0:00:01 --:--:-- 29922
-    
-    ./check-markit 89 [INFO]:  /usr/local/bin/markit release 3.24.165
-    
-    ./check-markit 90 [INFO]:  markit repository release 3.41.182, commit date 2018-08-04_22:33:08_CDT
+    100 11690    0 11690    0     0   7956      0 --:--:--  0:00:01 --:--:-- 16013
+
+      /usr/local/bin/markit release 3.93.243, commit date 2018-10-06T20:09:21-05:00
+
+      markit repository release 3.93.243, commit date 2018-10-06T20:09:21-05:00
+
+    2018-10-07T08:47:07-05:00 (CDT) /usr/local/bin/check-markit  163 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Done.
 
 ### System OS script tested
  * Ubuntu 14.04.3 LTS
