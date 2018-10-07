@@ -1,5 +1,5 @@
 #!/bin/bash
-#	markit  3.101.254  2018-10-07T12:12:24-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.100  
+#	markit  3.102.255  2018-10-07T12:33:25-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.101  
 #	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
 #	   add code to check if /usr/share/bash-completion/completions/git close #36 
@@ -160,8 +160,8 @@ rm -f ${TEMP_FILE}
 
 #	Prompt for release number
 echo -e "${NORMAL}Files to be marked and pushed:\n\n${BOLD}${FILE_LIST}${NORMAL}"
-echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop.\n"
+echo -e "\nCurrent git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
+echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [ -z "${FILE_RELEASE}" ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
@@ -177,7 +177,7 @@ echo -e "Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
 echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
+	echo -e "${NORMAL}Single-line description is ${BOLD}required${NORMAL}.\nTo display your changes between commits,  ${BOLD}git diff <file_name>${NORMAL}." 1>&2
 	exit 1
 fi
 #	Mark each file
