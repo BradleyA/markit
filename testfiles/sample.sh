@@ -1,5 +1,6 @@
 #!/bin/bash
-# 	sample.sh  3.38.179  2018-08-04_13:18:57_CDT  https://github.com/BradleyA/markit  uadmin  three-rpi3b.cptx86.com 3.37  
-# 	   New release not backward compatible with markchaeck because of formatting 
+# 	sample.sh  3.96.247  2018-10-07T08:59:51-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.95-1-g07806e2  
+# 	   update comments 
+#
 ###
 echo "Hello World"
