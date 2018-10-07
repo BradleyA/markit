@@ -1,8 +1,6 @@
 #!/bin/bash
-#	markit  3.105.258  2018-10-07T13:17:57-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.104  
-#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
-#	markit  3.104.257  2018-10-07T13:12:22-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.103  
-#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
+#	markit  3.107.259  2018-10-07T13:24:44-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.105  
+#	   markit Change echo or print DEBUG INFO WARNING ERROR close #40 
 #
 ###
 #	I created this script because Git fails me when it comes to including a
@@ -20,7 +18,7 @@
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
-DEBUG=1                 # 0 = debug off, 1 = debug on
+DEBUG=0                 # 0 = debug off, 1 = debug on
 #	set -x
 #	set -v
 BOLD=$(tput bold)
