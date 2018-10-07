@@ -26,33 +26,34 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
 ### Output
     $ markit
     Files to be marked and pushed:
-    sample.sh
 
-    Current git repository release number: 3.95 
+    testfiles/sample.sh
 
+    Current git repository release number:  3.107
     Enter release number to commit files (example 3.01) or ctrl-c to stop.
-    3.96
-    /usr/local/bin/markit 139 [INFO]:	Using release number: 3.96
+
+    3.108
+    Using release number: 3.108
 
     Enter a one line description about the changes or ctrl-c to stop.
-       (example: Added logic for --help; closes #12, resolves #14):
-    update comments
+        (example: Added logic for --help; closes #12, resolves #14):
 
-    sample.sh	sh
+    test markit for sample.sh
 
-    [master 7a17705] update comments
-     1 file changed, 3 insertions(+), 2 deletions(-)
+    testfiles/sample.sh sh
+
+    [master e29c001] test markit for sample.sh
+     1 file changed, 2 insertions(+), 2 deletions(-)
     Counting objects: 5, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 622 bytes | 0 bytes/s, done.
+    Writing objects: 100% (5/5), 637 bytes | 0 bytes/s, done.
     Total 5 (delta 2), reused 0 (delta 0)
     remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
     To https://github.com/BradleyA/markit
-       07806e2..7a17705  master -> master
-     * [new tag]         3.96 -> 3.96
-
-    /usr/local/bin/markit 237 [INFO]:	Done.
+       5a8c2a9..e29c001  master -> master
+     * [new tag]         3.108 -> 3.108
+    2018-10-07T13:31:09-05:00 (CDT) /usr/local/bin/markit  271 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Done.
 
 ### Modified File Example
     ##!/bin/bash
