@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.99.252  2018-10-07T12:04:18-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.98  
+#	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.98.251  2018-10-07T11:47:33-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.97  
 #	   markit Change echo or print DEBUG INFO WARNING ERROR #40 
 #	markit  3.97.250  2018-10-07T11:43:18-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.96-2-gf189c50  
@@ -146,7 +148,7 @@ if [ -z "${FILE_LIST}" ] ; then
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  No file(s) found to mark and push." 1>&2
 #	Display untracked file(s)
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
-		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}"
+		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
 		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to track untracked file(s).\n"
 	fi
@@ -161,9 +163,9 @@ fi
 rm -f ${TEMP_FILE}
 
 #	Prompt for release number
-echo -e "${NORMAL}Files to be marked and pushed:\n${BOLD}${FILE_LIST}${NORMAL}"
+echo -e "${NORMAL}Files to be marked and pushed:\n\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number: ${CURRENT_RELEASE} "
-echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop."
+echo -e "\nEnter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [ -z "${FILE_RELEASE}" ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
@@ -174,12 +176,12 @@ fi
 if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Release number is not greater than current release number." 1>&2
 fi
-echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
+echo -e "${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:  Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"	1>&2
 #	Prompt for single line change description
-echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n   (example: Added logic for --help; closes #12, resolves #14):"
+echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
-	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
+	echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:  Single-line description is required.\nTo display changes between commits, ${BOLD}git diff <file_name>${NORMAL}."       1>&2
 	exit 1
 fi
 #	Mark each file
