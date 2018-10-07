@@ -1,7 +1,5 @@
 #!/bin/bash
-#	markit  3.90.240    https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.89  
-#	   check-markit add ISO 8601 for date #46 
-#	markit  3.89.239    https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.88  
+#	markit  3.91.241  2018-10-06T19:53:00-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.90  
 #	   check-markit add ISO 8601 for date #46 
 #	markit  3.81.231  2018-09-27_06:07:59_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.80  
 #	   add code to check if /usr/share/bash-completion/completions/git close #36 
@@ -158,7 +156,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
 # >>>	   Or use markit; to create CHAR variable found in compiled code ?
 # >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
-# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${TIME_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
+# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${DATE_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
 # >>>	                        x.o $Version: XXXX XXXX XXXX XXXX '$'
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
 # >>>	                        x.o $Version_message: XXXX '$'
@@ -209,13 +207,13 @@ for FILE_NAME in ${FILE_LIST} ; do
 	esac
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${TIME_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
-	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  >${FILE_NAME}< >${FILE_RELEASE}< >${TIME_STAMP}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
+	if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  >${FILE_NAME}< >${FILE_RELEASE}< >${DATE_STAMP}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
 #	Check if no tag for file / first time in git repository is being tagged
 	if ! [ "$(git tag)" == "" ] ; then
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	else
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${TIME_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	fi
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
