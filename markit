@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.107.259  2018-10-07T13:24:44-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.105  
-#	   markit Change echo or print DEBUG INFO WARNING ERROR close #40 
+#	markit  3.112.265  2018-10-11T11:00:26-05:00 (CDT)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.111  
+#	   typo in display_help 
 #
 ###
 #	I created this script because Git fails me when it comes to including a
@@ -27,7 +27,7 @@ NORMAL=$(tput sgr0)
 display_help() {
 echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or GitLab"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
-echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
+echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to either"
