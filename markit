@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.116.269  2018-10-18T13:56:09-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.115  
+#	   markit include directory with file name on line one item 2 testing #39 
 #	markit  3.112.265  2018-10-11T11:00:26-05:00 (CDT)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.111  
 #	   typo in display_help 
 #
@@ -133,6 +135,9 @@ if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != ""
 	exit 0
 fi
 
+# >>>	Change directory to top level directory #39
+cd $(git rev-parse --show-toplevel)
+
 #	Create FILE_LIST, remove deleted files from FILE_LIST
 FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
 
@@ -169,10 +174,10 @@ fi
 if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
 	echo -e "Release number may not be greater than current release number." 1>&2
 fi
-echo -e "Using release number: ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
+echo -e "\nUsing release number: ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
 
 #	Prompt for single line change description
-echo -e "\nEnter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
+echo -e "\n${NORMAL}Enter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
 read FILE_MESSAGE
 if [ -z "${FILE_MESSAGE}" ] ; then
 	echo -e "${NORMAL}Single-line description is ${BOLD}required${NORMAL}.\nTo display your changes between commits,  ${BOLD}git diff <file_name>${NORMAL}." 1>&2
@@ -180,7 +185,6 @@ if [ -z "${FILE_MESSAGE}" ] ; then
 fi
 
 #	Mark each file
-echo ${BOLD}
 for FILE_NAME in ${FILE_LIST} ; do
 #
 # >>> #15	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
@@ -202,7 +206,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	else
 # >>> #??	This does not work if the last character is '.' but it does work if more than one "."
 	FILE_EXTENSION=${FILE_NAME##*\.}
-	echo "${FILE_NAME}	${FILE_EXTENSION}"
+	echo -e "\n\t${BOLD}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
 #	Single-line comment character(s) matching file extension
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
@@ -228,14 +232,14 @@ for FILE_NAME in ${FILE_LIST} ; do
 			;;
 		*)
 #			Prompt for single-line beginning comment character(s)
-			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${FILE_NAME}\n\t(example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
+			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
 			read BEGIN_COMMENT_CHAR
 			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 				display_help
 				echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
-			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
+			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}.\nPress enter for none.\n\t(example: */ --> ---> -} */ --]] %} *) #> )"
 			read END_COMMENT_CHAR
 			;;
 	esac
