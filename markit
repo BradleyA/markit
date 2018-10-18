@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.119.272  2018-10-18T14:04:48-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.118  
-#	   markit include directory with file name on line one item 2 testing #39 
+#	markit  3.120.273  2018-10-18T14:36:15-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.119  
+#	   markit include directory with file name on line one item 2 close #39 
 #
 ###
 #	I created this script because Git fails me when it comes to including a
@@ -133,7 +133,9 @@ if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != ""
 	exit 0
 fi
 
-#	Change directory to top level git directory to include directory with ${FILE_NAME} on line one item 2  #39
+#	Change to top level git directory to include it with ${FILE_NAME} on line one item 2  #39
+#	By changing ${FILE_NAME} to include the directory, all the information
+#	is available to find ${FILE_NAME}'s location in GitHub or GitLab repository
 cd $(git rev-parse --show-toplevel)
 
 #	Create FILE_LIST, remove deleted files from FILE_LIST
@@ -260,17 +262,21 @@ for FILE_NAME in ${FILE_LIST} ; do
 	git add ${FILE_NAME}
 done
 echo ${NORMAL}
+
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
+
 #	If new release number, include git tag before git push
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
+
 #	Push changes to GitHub repository or GitLab project
 	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
 else
 #	Push changes to GitHub repository or GitLab project
 	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
 fi
+
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
 ###
