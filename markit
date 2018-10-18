@@ -1,10 +1,6 @@
 #!/bin/bash
-#	markit  3.117.270  2018-10-18T14:00:50-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.116  
-#	   # 
-#	markit  3.116.269  2018-10-18T13:56:09-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.115  
+#	markit  3.118.271  2018-10-18T14:02:24-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.117  
 #	   markit include directory with file name on line one item 2 testing #39 
-#	markit  3.112.265  2018-10-11T11:00:26-05:00 (CDT)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.111  
-#	   typo in display_help 
 #
 ###
 #	I created this script because Git fails me when it comes to including a
