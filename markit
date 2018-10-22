@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.121.274  2018-10-22T09:30:24.972398-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.120  
+#	   add nanoseconds to the 6 most significant digits 
 #	markit  3.120.273  2018-10-18T14:36:15-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.119  
 #	   markit include directory with file name on line one item 2 close #39 
 #
@@ -60,7 +62,7 @@ fi
 
 #       Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
+DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S.%6N%:z`
 TEMP=`date +%Z`
 DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
 }
