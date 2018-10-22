@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.122.275  2018-10-22T09:33:00.545073-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.121  
+#	   added nano seconds to the 6 most significant digits 
 #	check-markit  3.95.245  2018-10-07T08:38:30-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.94  
 #	   move name of repository to DEBUG 
 #
@@ -42,7 +44,7 @@ fi
 
 #       Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
+DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S.%6N%:z`
 TEMP=`date +%Z`
 DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
 }
