@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
+#	   added comment to about __gitdir 
 #	markit  3.121.274  2018-10-22T09:30:24.972398-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.120  
 #	   add nanoseconds to the 6 most significant digits 
 #	markit  3.120.273  2018-10-18T14:36:15-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.119  
@@ -94,6 +96,7 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 ###
 #       Check if bash-completion/completions/git file on system
 if [ -e /usr/share/bash-completion/completions/git ] ; then
+	#	This is to support __gitdir in the following section
 	source /usr/share/bash-completion/completions/git
 else
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  /usr/share/bash-completion/completions/git NOT found" 1>&2
