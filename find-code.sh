@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.128.284  2018-10-31T20:10:21.167866-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.127  
-# 	   find-code.sh complete display_help close #43 
-# 	find-code.sh  3.123.276  2018-10-22T09:34:27.452443-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.122  
-# 	   added nano seconds to the 6 most significant digits 
+# 	find-code.sh  3.129.285  2018-10-31T21:19:55.719763-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.128  
+# 	   find-code.sh support environment variables close #44 
 #
 ###	find-code.sh - Search systems from clones from repositories
 #       Order of precedence: environment variable (export DEBUG=1), default code
@@ -88,18 +86,29 @@ get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO
 #       DEBUG
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Name_of_command >${0}< Name_of_arg1 >${1}<" 1>&2 ; fi
 
+#       Order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  1 ]  ; then CLUSTER=${1} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
+#       order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  3 ]  ; then DATA_DIR=${2} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
+#       order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  5 ]  ; then SYSTEMS_FILE=${3} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
+
 ###
-HOSTFILE=${1:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
 REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
-#
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  LOCALHOST >${LOCALHOST}<  HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
-#       Check for ${HOSTFILE} file
-if [ ! -e ${HOSTFILE} ] ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${HOSTFILE} NOT found" 1>&2
-        exit 0
+
+#       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
+if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
+        echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        hostname -f > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
 fi
-REMOTEHOST=`grep -v "#" ${HOSTFILE}`
+
+#	Loop through hosts in ${SYSTEMS_FILE} file
+REMOTEHOST=`grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}`
 for NODE in ${REMOTEHOST} ; do
         echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}       ->${REMOTECOMMAND}<-" 
         if [ "${LOCALHOST}" != "${NODE}" ] ; then
@@ -108,6 +117,7 @@ for NODE in ${REMOTEHOST} ; do
                 eval ${REMOTECOMMAND}
         fi
 done
+
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
 ###
