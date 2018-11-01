@@ -1,15 +1,12 @@
 #!/bin/bash
+# 	find-code.sh  3.128.284  2018-10-31T20:10:21.167866-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.127  
+# 	   find-code.sh complete display_help close #43 
 # 	find-code.sh  3.123.276  2018-10-22T09:34:27.452443-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.122  
 # 	   added nano seconds to the 6 most significant digits 
-# 	find-code.sh  3.93.243  2018-10-06T20:09:21-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.92  
-# 	   check-markit add ISO 8601 for date close #46 
-# 	find-code.sh  3.88.238  2018-10-05_22:08:01_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.87  
-# 	   update for display_help #43 
-# 	find-code.sh  3.87.237  2018-10-05_21:42:15_CDT  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.86  
-# 	   Change echo or print DEBUG INFO WARNING ERROR close #42 
 #
 ###	find-code.sh - Search systems from clones from repositories
-DEBUG=0                 # 0 = debug off, 1 = debug on
+#       Order of precedence: environment variable (export DEBUG=1), default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi	# 0 = debug off, 1 = debug on, 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
 BOLD=$(tput bold)
@@ -17,12 +14,11 @@ NORMAL=$(tput sgr0)
 ###
 display_help() {
 echo -e "\n${NORMAL}${0} - Search systems for .git repositories"
-echo -e "\nUSAGE\n   ${0} [<path>/<HOSTFILE>]"
+echo -e "\nUSAGE\n   ${0}  [<CLUSTER>] [<DATA_DIR>] [SYSTEMS_FILE]"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
-echo -e "\nDESCRIPTION\nSearch systems for .git repositories."
-echo    "/usr/local/data/us-tx-cluster-1/SYSTEMS"
-
+echo -e "\nDESCRIPTION\nThis script searches each system found in SYSTEMS file for .git repositories"
+echo    "in ~/.. directories."
 echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts."
 echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
 echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
@@ -42,11 +38,12 @@ echo    "defining environment variables if you are using other shells."
 echo    "   CLUSTER       (default us-tx-cluster-1/)"
 echo    "   DATA_DIR      (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE  (default SYSTEMS)"
-
-echo -e "\nOPTIONS\n"
-echo    "   HOSTFILE   File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
-echo -e "\nDOCUMENTATION\nhttps://github.com/BradleyA/user-work-files"
-echo -e "\nEXAMPLES\n   ${0}\n\n   what does it do\n"
+echo -e "\nOPTIONS"
+echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
+echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
+echo    "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)"
+echo -e "\nDOCUMENTATION\nhttps://github.com/BradleyA/markit"
+echo -e "\nEXAMPLES\n   ${0}\n\n   Search systems for .git repositories using defaults\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported, Would you like to help translate?" 1>&2
