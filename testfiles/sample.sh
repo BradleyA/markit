@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	sample.sh  3.115.268  2018-10-11T18:54:42-05:00 (CDT)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.114  
-# 	   testing network at Linux meeting 
+# 	testfiles/sample.sh  3.130.286  2018-11-08T18:59:51.665183-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.129  
+# 	   test for meetup 
 # 	sample.sh  3.114.267  2018-10-11T11:24:19-05:00 (CDT)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.113  
 # 	   update example file after test 
 #
