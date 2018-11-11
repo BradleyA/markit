@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.132.288  2018-11-11T09:24:14.960279-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.131  
+#	   remove variable that is not set from DEBUG statement 
 #	check-markit  3.122.275  2018-10-22T09:33:00.545073-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.121  
 #	   added nano seconds to the 6 most significant digits 
 #	check-markit  3.95.245  2018-10-07T08:38:30-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.94  
@@ -97,7 +99,7 @@ else
 	#	Locate file in the PATH
 	TEMP=`whereis "${1}"`
 	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Locate file in the PATH... MARKIT_FILE >${MARKIT_FILE}<" 1>&2 ; fi
 	#       Check if MARKIT_FILE is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
 		display_help
