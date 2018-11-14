@@ -1,8 +1,8 @@
 #!/bin/bash
+#	markit  3.133.289  2018-11-14T12:02:17.185858-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.132  
+#	   Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 
 #	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
 #	   added comment to about __gitdir 
-#	markit  3.121.274  2018-10-22T09:30:24.972398-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.120  
-#	   add nanoseconds to the 6 most significant digits 
 #	markit  3.120.273  2018-10-18T14:36:15-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.119  
 #	   markit include directory with file name on line one item 2 close #39 
 #
@@ -21,8 +21,9 @@
 #
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
-###
-DEBUG=0                 # 0 = debug off, 1 = debug on
+### markit
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
 BOLD=$(tput bold)
