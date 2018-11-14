@@ -1,10 +1,10 @@
 #!/bin/bash
+#	markit  3.134.290  2018-11-14T17:18:53.064988-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.133  
+#	   update display_help to support more 
 #	markit  3.133.289  2018-11-14T12:02:17.185858-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.132  
 #	   Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 
 #	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
 #	   added comment to about __gitdir 
-#	markit  3.120.273  2018-10-18T14:36:15-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.119  
-#	   markit include directory with file name on line one item 2 close #39 
 #
 ###
 #	I created this script because Git fails me when it comes to including a
@@ -26,8 +26,8 @@
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
 ###
 display_help() {
 echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or GitLab"
@@ -46,6 +46,13 @@ echo    "untracked and tracked files if normal or all is entered as an argument.
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore file."
 echo -e "\nThere will be a prompt to add comment character(s) for unknown file names"
 echo    "when needed and a prompt to add a description about the changes."
+echo -e "\nEnvironment Variables"
+echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
+echo    "the DEBUG environment variable to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the DEBUG"
+echo    "environment variable.  You are on your own defining environment variables if"
+echo    "you are using other shells."
+echo    "   DEBUG       (default '0')"
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "   no       no untracked files (default)"
 echo    "   normal   untracked files and directories"
@@ -55,11 +62,11 @@ echo -e "\nEXAMPLES\n   ${0}\n\n   Mark tracked file(s)\n"
 echo -e "   ${0} all\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported, Would you like to help translate?" 1>&2
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
 #       elif [ "${LANG}" == "fr_CA.UTF-8" ] ; then
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Display help in ${LANG}" 1>&2
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Display help in ${LANG}" 1>&2
 #       else
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported.\tWould you like to translate?" 1>&2
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate?" 1>&2
 fi
 }
 
@@ -83,7 +90,7 @@ GROUP_ID=`id -g`
 
 #       Default help and version arguments
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
-        display_help
+        display_help | more
         exit 0
 fi
 if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
@@ -134,7 +141,7 @@ fi
 
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
-	display_help
+	display_help | more
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  First arguement, ${1}, is NOT no, normal, all." 1>&2
 	exit 0
 fi
@@ -241,7 +248,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
 			read BEGIN_COMMENT_CHAR
 			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
-				display_help
+				display_help | more
 				echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
