@@ -1,8 +1,6 @@
 #!/bin/bash
-#	markit  3.135.291  2018-11-15T17:17:23.880721-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.134  
+#	markit  3.136.292  2018-11-16T21:04:56.632014-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.135  
 #	   changes from standard template and shellcheck 
-#	markit  3.134.290  2018-11-14T17:18:53.064988-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.133  
-#	   update display_help to support more 
 #	markit  3.133.289  2018-11-14T12:02:17.185858-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.132  
 #	   Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 
 #	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
@@ -143,7 +141,7 @@ fi
 #	Check arguement 1 for --untracked-files
 if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
 	display_help | more
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  First arguement, ${1}, is NOT no, normal, all." 1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  First arguement, ${1}, is NOT no, normal, all." 1>&2
 	exit 0
 fi
 
@@ -169,7 +167,7 @@ fi
 
 #	Check if user has write permission
 if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${USER} does NOT have write permission in local Git repository directory `pwd`" 1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${USER} does NOT have write permission in local Git repository directory `pwd`" 1>&2
 	exit 1
 fi
 rm -f ${TEMP_FILE}
@@ -250,7 +248,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 			read BEGIN_COMMENT_CHAR
 			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
 				display_help | more
-				echo -e "${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:	Single-line comment character(s) is required.\n"       1>&2
+				get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Single-line comment character(s) is required.\n"       1>&2
 				exit 1
 			fi
 			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}.\nPress enter for none.\n\t(example: */ --> ---> -} */ --]] %} *) #> )"
@@ -260,7 +258,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	fi
 	head -1 ${FILE_NAME} >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}   >${FILE_NAME}< >${FILE_RELEASE}< >${REMOTE_REPOSITORY}< >${USER}<" 1>&2 ; fi
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}<" 1>&2 ; fi
 #	Check if no tag for file / first time in git repository is being tagged
 	get_date_stamp
 	if ! [ "$(git tag)" == "" ] ; then
@@ -285,12 +283,13 @@ if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 
 #	Push changes to GitHub repository or GitLab project
-	git push --follow-tags  || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
+	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
 else
 #	Push changes to GitHub repository or GitLab project
-	git push || { echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}ERROR${NORMAL}]:\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
+	git push || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
 fi
 
 #
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
+get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
+
 ###
