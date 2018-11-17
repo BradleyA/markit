@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.137.293  2018-11-16T21:34:55.254037-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.136  
-#	   testing changes from standard template and shellcheck #51 #49 
+#	markit  3.138.294  2018-11-16T21:37:32.891077-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.137  
+#	   markit run shellcheck to clean up future minor incidents close #51 
 #	markit  3.133.289  2018-11-14T12:02:17.185858-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.132  
 #	   Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 
 #	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
