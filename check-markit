@@ -1,13 +1,10 @@
 #!/bin/bash
-#	check-markit  3.132.288  2018-11-11T09:24:14.960279-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.131  
-#	   remove variable that is not set from DEBUG statement 
-#	check-markit  3.122.275  2018-10-22T09:33:00.545073-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.121  
-#	   added nano seconds to the 6 most significant digits 
-#	check-markit  3.95.245  2018-10-07T08:38:30-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.94  
-#	   move name of repository to DEBUG 
+#	check-markit  3.140.296  2018-11-16T22:11:04.531662-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.139  
+#	   check-markit Order of precedence: add support for environment variable (export DEBUG=1), default code close #53 
 #
-###	check-markit - check file release with repository release
-DEBUG=0			# 0 = debug off, 1 = debug on
+### check-markit - check file release with repository release
+#       Order of precedence: environment variable (export DEBUG=1), default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
 BOLD=$(tput bold)
@@ -30,6 +27,13 @@ echo    "or GitLab."
 echo -e "\nCheck-markit only works with markit files that used the https:// URLs for"
 echo    "GitHub and GitLab repositories.  Check-markit does not currently support files"
 echo    "with SSH URLs for GitHub and GitLab repositories."
+echo -e "\nEnvironment Variables"
+echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
+echo    "the DEBUG environment variable to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the DEBUG"
+echo    "environment variable.  You are on your own defining environment variables if"
+echo    "you are using other shells."
+echo    "   DEBUG       (default '0')"
 echo -e "\nOPTIONS\n   -f, --file\n      path and file on system '<path>/<file_name>'"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   Check file named sample.c release in relative path testfile/ with\n   repository release.\n\n   check-markit -f testfiles/sample.c"
