@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.136.292  2018-11-16T21:04:56.632014-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.135  
-#	   changes from standard template and shellcheck 
+#	markit  3.137.293  2018-11-16T21:34:55.254037-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.136  
+#	   testing changes from standard template and shellcheck #51 #49 
 #	markit  3.133.289  2018-11-14T12:02:17.185858-06:00 (CST)  https://github.com/BradleyA/markit  uthree  three.cptx86.com 3.132  
 #	   Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 
 #	markit  3.127.283  2018-10-29T20:02:06.194974-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.126  
@@ -151,7 +151,7 @@ fi
 cd $(git rev-parse --show-toplevel)
 
 #	Create FILE_LIST, remove deleted files from FILE_LIST
-FILE_LIST=`git status -s --untracked-files=${UNTRACKED_FILES} | grep -v '^D  ' | awk '{print $2}'`
+FILE_LIST=$(git status -s --untracked-files="${UNTRACKED_FILES}" | grep -v '^D  ' | awk '{print $2}')
 
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
@@ -167,7 +167,7 @@ fi
 
 #	Check if user has write permission
 if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${USER} does NOT have write permission in local Git repository directory `pwd`" 1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${USER} does NOT have write permission in local Git repository directory $(pwd)" 1>&2
 	exit 1
 fi
 rm -f ${TEMP_FILE}
@@ -206,7 +206,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	   Use markit in the source code & insert; var BUILD_VERSION="${FILE_RELEASE}.`git rev-list HEAD | wc -l`"
 # >>>	   Or use markit; to create CHAR variable found in compiled code ?
 # >>>	   	opening comment x.c 'var VERSION="' and ending comment '"'
-# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${DATE_STAMP} ${USER} `hostname -f` `git describe` and ending comment '$";'
+# >>>	        opening comment x.c 'char VERSION[] = "$Version: ' ${FILE_NAME}    ${FILE_RELEASE}.`git rev-list HEAD | wc -l`     ${DATE_STAMP} ${USER} ${LOCALHOST} `git describe` and ending comment '$";'
 # >>>	                        x.o $Version: XXXX XXXX XXXX XXXX '$'
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
 # >>>	                        x.o $Version_message: XXXX '$'
@@ -246,7 +246,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 #			Prompt for single-line beginning comment character(s)
 			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
 			read BEGIN_COMMENT_CHAR
-			if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
+			if [ -z "${BEGIN_COMMENT_CHAR}" ] ; then
 				display_help | more
 				get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Single-line comment character(s) is required.\n"       1>&2
 				exit 1
@@ -256,24 +256,24 @@ for FILE_NAME in ${FILE_LIST} ; do
 			;;
 	esac
 	fi
-	head -1 ${FILE_NAME} >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} (hostname) (git describe)
+	head -1 "${FILE_NAME}" >> ${TEMP_FILE}
+#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} ${LOCALHOST} (git describe)
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}<" 1>&2 ; fi
 #	Check if no tag for file / first time in git repository is being tagged
 	get_date_stamp
 	if ! [ "$(git tag)" == "" ] ; then
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` `git describe`  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} $(git describe)  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	else
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.`git rev-list HEAD | wc -l`  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  `hostname -f` 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
+		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
 	fi
 	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	tail -n `wc -l ${FILE_NAME} | awk '{print $1  - 1}'` ${FILE_NAME} >> ${TEMP_FILE}
-	cp ${TEMP_FILE} ${FILE_NAME}
-	rm ${TEMP_FILE}
+	tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> ${TEMP_FILE}
+	cp "${TEMP_FILE}" "${FILE_NAME}"
+	rm "${TEMP_FILE}"
 #	Add file contents to the index
-	git add ${FILE_NAME}
+	git add "${FILE_NAME}"
 done
-echo ${NORMAL}
+echo "${NORMAL}"
 
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
