@@ -1,14 +1,16 @@
 #!/bin/bash
+# 	find-code.sh  3.143.299  2018-11-16T23:03:01.457123-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.142  
+# 	   find-code.sh Order of precedence: add support for environment variable (export DEBUG=1), default code close #55:w 
 # 	find-code.sh  3.129.285  2018-10-31T21:19:55.719763-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.128  
 # 	   find-code.sh support environment variables close #44 
 #
-###	find-code.sh - Search systems from clones from repositories
-#       Order of precedence: environment variable (export DEBUG=1), default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi	# 0 = debug off, 1 = debug on, 'unset DEBUG' to unset environment variable (bash)
+### find-code.sh - Search systems from clones from repositories
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
 ###
 display_help() {
 echo -e "\n${NORMAL}${0} - Search systems for .git repositories"
@@ -36,6 +38,7 @@ echo    "defining environment variables if you are using other shells."
 echo    "   CLUSTER       (default us-tx-cluster-1/)"
 echo    "   DATA_DIR      (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE  (default SYSTEMS)"
+echo    "   DEBUG       (default '0')"
 echo -e "\nOPTIONS"
 echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
 echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
