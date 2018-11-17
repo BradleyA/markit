@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.145.301  2018-11-16T23:24:34.883320-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.144  
+# 	   find-code.sh run shellcheck to clean up future minor incidents close #57 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
 # 	   find-code.sh change log format and order close #56 
 # 	find-code.sh  3.143.299  2018-11-16T23:03:01.457123-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.142  
@@ -115,13 +117,13 @@ if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUST
 fi
 
 #	Loop through hosts in ${SYSTEMS_FILE} file
-REMOTEHOST=`grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}`
+REMOTEHOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
 for NODE in ${REMOTEHOST} ; do
         echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}       ->${REMOTECOMMAND}<-" 
         if [ "${LOCALHOST}" != "${NODE}" ] ; then
-                ssh -t ${USER}@${NODE} ${REMOTECOMMAND}
+                ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
         else
-                eval ${REMOTECOMMAND}
+                eval "${REMOTECOMMAND}"
         fi
 done
 
