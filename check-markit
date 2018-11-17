@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.142.298  2018-11-16T22:54:42.684623-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.141  
+#	   check-markit run shellcheck to clean up future minor incidents close #52 
 #	check-markit  3.141.297  2018-11-16T22:38:39.377007-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.140  
 #	   check-markit change log format and order close #54 
 #	check-markit  3.140.296  2018-11-16T22:11:04.531662-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.139  
@@ -103,8 +105,8 @@ if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
 	MARKIT_FILE=${2}
 else
 	#	Locate file in the PATH
-	TEMP=`whereis "${1}"`
-	MARKIT_FILE=$(echo ${TEMP} | awk {'print $2'} )
+	TEMP=$(whereis "${1}")
+	MARKIT_FILE=$(echo "${TEMP}" | awk {'print $2'} )
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Locate file in the PATH... MARKIT_FILE >${MARKIT_FILE}<" 1>&2 ; fi
 	#       Check if MARKIT_FILE is blank
 	if [ "${MARKIT_FILE}" == "" ] ; then
@@ -115,15 +117,15 @@ else
 fi
 
 #	Parse file name from MARKIT_FILE
-FILE_NAME=`echo ${MARKIT_FILE} | sed 's/.*\///'`
+FILE_NAME=$(echo "${MARKIT_FILE}" | sed 's/.*\///')
 #       Check if file exists and has a size greater than zero || if file exists and is readable
-if [ ! -s ${MARKIT_FILE} ] || [ ! -r ${MARKIT_FILE} ] ; then
+if [ ! -s "${MARKIT_FILE}" ] || [ ! -r "${MARKIT_FILE}" ] ; then
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${MARKIT_FILE} file is not found or is empty or is not readable" 1>&2
 	exit 1
 fi
-REPOSITORY_COMMAND=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$6'} | sed 's/\.git$//'`
-MARKIT_FILE_RELEASE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
-MARKIT_FILE_DATE=`grep git ${MARKIT_FILE} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
+REPOSITORY_COMMAND=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$6'} | sed 's/\.git$//')
+MARKIT_FILE_RELEASE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
+MARKIT_FILE_DATE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 
@@ -140,13 +142,13 @@ fi
 ###	Determine name of repository
 if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
-	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/github.com/api.github.com\/repos/'`
+	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/github.com/api.github.com\/repos/')
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
-	REPOSITORY_PROJECT_NAME=`echo ${REPOSITORY_COMMAND} | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//'`
-	REPOSITORY_COMMAND=`echo ${REPOSITORY_COMMAND} | sed 's/\.git$/\/-\/archive\/master\//'`
+	REPOSITORY_PROJECT_NAME=$(echo "${REPOSITORY_COMMAND}" | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//')
+	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\.git$/\/-\/archive\/master\//')
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
 else 
@@ -163,10 +165,10 @@ if [ -d /tmp/markit-temp ] ; then
 fi
 #
 mkdir /tmp/markit-temp
-eval ${REPOSITORY_COMMAND}
-REPOSITORY_FILE_NAME_LOCATION=`find /tmp/markit-temp -type f -name ${FILE_NAME} -print`
-REPOSITORY_MARKIT_FILE_RELEASE=`grep git ${REPOSITORY_FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$3'}`
-REPOSITORY_MARKIT_FILE_DATE=`grep git ${REPOSITORY_FILE_NAME_LOCATION} | grep -m 1 ${FILE_NAME} | awk {'print$4'}`
+eval "${REPOSITORY_COMMAND}"
+REPOSITORY_FILE_NAME_LOCATION=$(find /tmp/markit-temp -type f -name "${FILE_NAME}" -print)
+REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
+REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
 rm -rf /tmp/markit-temp
 ###
 echo -e "\n  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
