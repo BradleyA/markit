@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.146.305  2019-01-05T08:37:47.315985-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.145-3-g310d89c  
+# 	   updated display_help 
 # 	find-code.sh  3.145.301  2018-11-16T23:24:34.883320-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.144  
 # 	   find-code.sh run shellcheck to clean up future minor incidents close #57 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
@@ -27,8 +29,9 @@ echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for ho
 echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
 echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
 echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
-echo    "pi-display/create-message/create-message.sh, and other scripts.  A different"
-echo    "SYSTEMS file can be entered on the command line or environment variable."
+echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
+echo    "different SYSTEMS file can be entered on the command line or environment"
+echo    "variable."
 echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
 echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
 echo -e "\nEnvironment Variables"
