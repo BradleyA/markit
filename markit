@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.147.307  2019-01-19T11:48:30.211634-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.146-1-gc8f85c5  
+#	   markit considered adapting it to Bitbucket #38 
 #	markit  3.139.295  2018-11-16T21:38:57.485521-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.138  
 #	   markit change log format and order close #49 
 #
@@ -6,14 +8,15 @@
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
 #
-#	I want to know what version a piece of code is on any system running
-#	it. The system may or may not be connected to any network. The system
-#	may or may not have Git installed. The system may or may not have a
-#	GitHub repository or GitLab project installed on it. I want the same
-#	solution for several types of code (.sh, .go, .yml, .xml, .mk,
-#	dockerfile, .txt, etc). I want any person without knowledge of Git
-#	or GitHub or GitLab to be able to answer one question over the phone;
-#	What version are you running?
+#       I want to know what version a piece of code is on any system running
+#       it. The system may or may not be connected to any network. The system
+#       may or may not have Git installed. The system may or may not have a
+#       GitHub repository or Bitbucket repository or GitLab project installed
+#       on it. I want the same solution for several types of code (.sh, .go,
+#       .yml, .xml, .mk, dockerfile, .txt, etc). I want any person without
+#       knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer
+#       one question over the phone;
+#                       What version are you running?
 #
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
@@ -26,16 +29,16 @@ BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 ###
 display_help() {
-echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or GitLab"
+echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or Bitbucket or GitLab"
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nAdd two comment lines of information about file changes to all tracked modified"
 echo    "files in your local Git repository.  Then push those changed file(s) to either"
-echo    "a GitHub repository or GitLab project.  The first comment line includes file"
-echo    "name, version, date, programmer, and hostname as the second line of the"
-echo    "file(s).  Followed by a single comment line including a brief description"
-echo    "about changes made to the file(s)."
+echo    "a GitHub repository or Bitbucket repository or GitLab project.  The first"
+echo    "comment line includes file name, version, date, programmer, and hostname as the"
+echo    "second line of the file(s).  Followed by a single comment line including a brief"
+echo    "description about changes made to the file(s)."
 echo -e "\nMarkit only modifies Git tracked files by default.  To change a Git untracked"
 echo    "file to a Git tracked file enter, git add <file_name>.  Markit will modify all"
 echo    "untracked and tracked files if normal or all is entered as an argument.  To"
@@ -143,7 +146,7 @@ fi
 
 #	Change to top level git directory to include it with ${FILE_NAME} on line one item 2  #39
 #	By changing ${FILE_NAME} to include the directory, all the information
-#	is available to find ${FILE_NAME}'s location in GitHub or GitLab repository
+#	is available to find ${FILE_NAME}'s location in GitHub or Bitbucket repository or GitLab repository
 cd $(git rev-parse --show-toplevel)
 
 #	Create FILE_LIST, remove deleted files from FILE_LIST
@@ -278,10 +281,10 @@ echo "${NORMAL}"
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 
-#	Push changes to GitHub repository or GitLab project
+#	Push changes to GitHub repository or Bitbucket repository or GitLab project
 	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
 else
-#	Push changes to GitHub repository or GitLab project
+#	Push changes to GitHub repository or Bitbucket repository or GitLab project
 	git push || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
 fi
 
