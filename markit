@@ -1,8 +1,8 @@
 #!/bin/bash
+#	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
+#	   markit considered adapting it to Bitbucket close #38 
 #	markit  3.152.312  2019-01-19T23:26:45.803622-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
 #	   production standard 4 update display_help LANGUAGE close #58 
-#	markit  3.147.307  2019-01-19T11:48:30.211634-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.146-1-gc8f85c5  
-#	   markit considered adapting it to Bitbucket #38 
 #	markit  3.139.295  2018-11-16T21:38:57.485521-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.138  
 #	   markit change log format and order close #49 
 #
@@ -295,5 +295,4 @@ fi
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
-
 ###
