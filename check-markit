@@ -1,10 +1,6 @@
 #!/bin/bash
-#	check-markit  3.150.308  2019-01-19T22:59:56.225743-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.147  
-#	   add section for bitbucket check-markit include Bitbucket repository #37 
-#	check-markit  3.149.309  2019-01-19T16:24:09.018139-06:00 (CST)  https://cptx86@bitbucket.org/cptx86/markit.git  uadmin  one-rpi3b.cptx86.com 3.148  
-#	   add section for bitbucket check-markit include Bitbucket repository #37 
-#	check-markit  3.148.308  2019-01-19T11:59:11.472957-06:00 (CST)  https://cptx86@bitbucket.org/cptx86/markit.git  uadmin  one-rpi3b.cptx86.com 3.147  
-#	   update for Bitbucket check-markit include Bitbucket repository #37 
+#	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
+#	   add section for bitbucket check-markit include Bitbucket repository close #37 
 #	check-markit  3.142.298  2018-11-16T22:54:42.684623-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.141  
 #	   check-markit run shellcheck to clean up future minor incidents close #52 
 #	check-markit  3.141.297  2018-11-16T22:38:39.377007-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.140  
@@ -187,5 +183,4 @@ echo -e "\n  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_REL
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
-
 ###
