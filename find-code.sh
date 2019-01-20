@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.146.305  2019-01-05T08:37:47.315985-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.145-3-g310d89c  
-# 	   updated display_help 
+# 	find-code.sh  3.152.312  2019-01-19T23:26:41.498938-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
+# 	   production standard 4 update display_help LANGUAGE close #58 
 # 	find-code.sh  3.145.301  2018-11-16T23:24:34.883320-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.144  
 # 	   find-code.sh run shellcheck to clean up future minor incidents close #57 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
@@ -11,6 +11,7 @@
 # 	   find-code.sh support environment variables close #44 
 #
 ### find-code.sh - Search systems from clones from repositories
+#   production standard 4
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
@@ -23,7 +24,9 @@ echo -e "\n${NORMAL}${0} - Search systems for .git repositories"
 echo -e "\nUSAGE\n   ${0}  [<CLUSTER>] [<DATA_DIR>] [SYSTEMS_FILE]"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
-echo -e "\nDESCRIPTION\nThis script searches each system found in SYSTEMS file for .git repositories"
+echo -e "\nDESCRIPTION"
+#       Displaying help DESCRIPTION in English en_US.UTF-8
+echo    "This script searches each system found in SYSTEMS file for .git repositories"
 echo    "in ~/.. directories."
 echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts."
 echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
@@ -34,6 +37,14 @@ echo    "different SYSTEMS file can be entered on the command line or environmen
 echo    "variable."
 echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
 echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
+#       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
+if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
+        echo -e "\n--> ${LANG}"
+        echo    "<votre aide va ici>" # your help goes here
+        echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
+elif ! [ "${LANG}" == "en_US.UTF-8" ] ; then
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
+fi
 echo -e "\nEnvironment Variables"
 echo    "If using the bash shell, enter; export CLUSTER='us-west1' on the command"
 echo    "line to set the CLUSTER environment variable to 'us-west1'.  Use the command,"
@@ -52,14 +63,6 @@ echo    "   DATA_DIR      path to cluster data directory (default /usr/local/dat
 echo    "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)"
 echo -e "\nDOCUMENTATION\nhttps://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   ${0}\n\n   Search systems for .git repositories using defaults\n"
-#       After displaying help in english check for other languages
-if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
-#       elif [ "${LANG}" == "fr_CA.UTF-8" ] ; then
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Display help in ${LANG}" 1>&2
-#       else
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate?" 1>&2
-fi
 }
 
 #       Date and time function ISO 8601
@@ -132,5 +135,4 @@ done
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
-
 ###
