@@ -1,4 +1,10 @@
 #!/bin/bash
+#	check-markit  3.150.308  2019-01-19T22:59:56.225743-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.147  
+#	   add section for bitbucket check-markit include Bitbucket repository #37 
+#	check-markit  3.149.309  2019-01-19T16:24:09.018139-06:00 (CST)  https://cptx86@bitbucket.org/cptx86/markit.git  uadmin  one-rpi3b.cptx86.com 3.148  
+#	   add section for bitbucket check-markit include Bitbucket repository #37 
+#	check-markit  3.148.308  2019-01-19T11:59:11.472957-06:00 (CST)  https://cptx86@bitbucket.org/cptx86/markit.git  uadmin  one-rpi3b.cptx86.com 3.147  
+#	   update for Bitbucket check-markit include Bitbucket repository #37 
 #	check-markit  3.142.298  2018-11-16T22:54:42.684623-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.141  
 #	   check-markit run shellcheck to clean up future minor incidents close #52 
 #	check-markit  3.141.297  2018-11-16T22:38:39.377007-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.140  
@@ -21,16 +27,16 @@ echo    "   ${0} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nCheck the release of a file that was marked using markit with the GitHub"
-echo    "or GitLab repository release.  Check-markit may require --file option to"
-echo    "include the relative or absolute path with the file name."
+echo    "repository or Bitbucket repository or GitLab project release.  Check-markit may"
+echo    "require --file option to include the relative or absolute path with the file name."
 echo -e "\nCheck-markit only works on files that are marked with markit release 3.10.142"
 echo    "(dated 2018-02-27_19:00:09_CST) or later releases.  Markit release 3.10.142"
 echo    "added the repository information to the second line in a marked file.  This"
 echo    "repository information is required for check-markit to locate a file on GitHub"
-echo    "or GitLab."
+echo    "or Bitbucket or GitLab."
 echo -e "\nCheck-markit only works with markit files that used the https:// URLs for"
-echo    "GitHub and GitLab repositories.  Check-markit does not currently support files"
-echo    "with SSH URLs for GitHub and GitLab repositories."
+echo    "GitHub, Bitbucket, and GitLab repositories.  Check-markit does not currently"
+echo    "support files with SSH URLs for GitHub, Bitbucket, and GitLab repositories."
 echo -e "\nEnvironment Variables"
 echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
 echo    "the DEBUG environment variable to '1' (0 = debug off, 1 = debug on).  Use the"
@@ -136,7 +142,7 @@ if ! grep -q "https" <<< ${REPOSITORY_COMMAND}  ; then
 fi
 
 ###
-#	need to make sure that script is able to contact GitHib or GitLab before using curl
+#	need to make sure that script is able to contact GitHib or Bitbucket or GitLab before using curl
 #	add a test
 ###
 ###	Determine name of repository
@@ -151,6 +157,11 @@ elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
 	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\.git$/\/-\/archive\/master\//')
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
+elif grep -q "bitbucket" <<< ${REPOSITORY_COMMAND} ; then
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking Bitbucket for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
+	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\/\/.*@/\/\//')
+	REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o /tmp/markit-temp/master.zip ; unzip -qq /tmp/markit-temp/master.zip -d /tmp/markit-temp/")
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 else 
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 	echo    ">>>> Repository using SSH URLs  <<<<<"
