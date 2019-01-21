@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.154.314  2019-01-21T10:35:35.804952-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
+#	   production standard 5 include Copyright notice 
 #	check-markit  3.152.312  2019-01-19T23:26:41.427091-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
 #	   production standard 4 update display_help LANGUAGE close #58 
 #	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
@@ -11,7 +13,10 @@
 #	   check-markit Order of precedence: add support for environment variable (export DEBUG=1), default code close #53 
 #
 ### check-markit - check file release with repository release
-#   production standard 4
+#       Copyright (c) 2019 Bradley Allen
+#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+#   production standard 5
 #       Order of precedence: environment variable (export DEBUG=1), default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'unset DEBUG' to unset environment variable (bash)
 #	set -x

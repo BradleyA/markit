@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.154.314  2019-01-21T10:35:35.944657-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
+# 	   production standard 5 include Copyright notice 
 # 	find-code.sh  3.152.312  2019-01-19T23:26:41.498938-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
 # 	   production standard 4 update display_help LANGUAGE close #58 
 # 	find-code.sh  3.145.301  2018-11-16T23:24:34.883320-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.144  
@@ -11,7 +13,10 @@
 # 	   find-code.sh support environment variables close #44 
 #
 ### find-code.sh - Search systems from clones from repositories
-#   production standard 4
+#       Copyright (c) 2019 Bradley Allen
+#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+#   production standard 5
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x

@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
+#	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
 #	   markit considered adapting it to Bitbucket close #38 
 #	markit  3.152.312  2019-01-19T23:26:45.803622-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
@@ -6,7 +8,10 @@
 #	markit  3.139.295  2018-11-16T21:38:57.485521-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.138  
 #	   markit change log format and order close #49 
 #
-###
+### markit
+#	Copyright (c) 2019 Bradley Allen
+#	License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+#
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
 #
@@ -22,8 +27,8 @@
 #
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
-### markit
-#   production standard 4
+###
+#   production standard 5
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
