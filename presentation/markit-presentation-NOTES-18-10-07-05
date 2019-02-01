@@ -1,0 +1,40 @@
+
+#	presentation/markit-presentation-NOTES-18-10-07-05  3.155.318  2019-02-01T13:37:26.582928-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.154-3-gf172d1d  
+#	   add presentation and notes 
+
+
+markit-presentation-NOTES-18-10-07-05
+
+Demo
+    echo ${PATH} check to see if /usr/local/bin is include in ${PATH}
+    open github and login to your account : cptx86
+    search user:BradleyA
+    locate BradleyA/markit repository and select it and fork it
+    cd
+    mkdir -p ~/github/<git-username>
+    cd ~/github/<git-username> 
+    git clone https://github.com/<git-username>/markit
+    cd markit 
+    sudo cp -p ./markit /usr/local/bin 
+    sudo cp -p ./check-markit /usr/local/bin 
+    markit --help
+    (DEMO account) vi ~/.gitconfig ; uncomment user.name cptx86
+
+Demo 
+    head -3 /usr/local/bin/markit 
+    (Note: the following commands will need to be done in your GitLab repository, the following is an example)
+    cd testfiles 
+    vi foo.sh 
+    markit 
+    git add foo.sh 
+    markit
+    vi foobar.sh
+    markit
+    cat ./foo.sh
+
+Demo
+    check-markit --help
+    check-markit -f ./foo.sh 
+
+Demo
+    check-markit markit
