@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.158.323  2019-02-05T16:09:33.440191-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.157  
+#	   formating display_help 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 #	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
@@ -71,9 +73,9 @@ echo    "environment variable.  You are on your own defining environment variabl
 echo    "you are using other shells."
 echo    "   DEBUG       (default '0')"
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
-echo    "   no       no untracked files (default)"
-echo    "   normal   untracked files and directories"
-echo    "   all      Also individual files in untracked directories"
+echo    "      no       no untracked files (default)"
+echo    "      normal   untracked files and directories"
+echo    "      all      Also individual files in untracked directories"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   ${0}\n\n   Mark tracked file(s)\n"
 echo -e "   ${0} all\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
