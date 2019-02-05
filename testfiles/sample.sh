@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	testfiles/sample.sh  3.155.319  2019-02-05T13:02:22.031043-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.155  
+# 	   testing patch level Semantic Versioning 
 # 	testfiles/sample.sh  3.131.287  2018-11-08T20:12:02.249564-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.130  
 # 	   test 
 # 	testfiles/sample.sh  3.130.286  2018-11-08T18:59:51.665183-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.129  
@@ -8,5 +10,5 @@
 #
 ###
 echo "Hello World"
-#	test network
-# hello
+
+
