@@ -1,11 +1,5 @@
 #!/bin/bash
-# 	testfiles/sample.bash  3.165.330  2019-02-06T11:32:19.709405-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.164  
-# 	   add support for tcsh csh ksh etc #59 testing 
-# 	testfiles/sample.sh  3.161.326  2019-02-06T11:16:29.644324-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
-# 	   add support for tcsh csh ksh etc #59 testing 
-# 	testfiles/sample.sh  3.161.326  2019-02-06T11:15:57.951161-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
-# 	   add support for tcsh csh ksh etc #59 testing 
-# 	testfiles/sample.sh  3.161.326  2019-02-06T11:11:52.610122-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
+# 	testfiles/sample.bash  3.166.331  2019-02-06T11:34:02.684353-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.165  
 # 	   add support for tcsh csh ksh etc #59 testing 
 # 	testfiles/sample.sh  3.161.326  2019-02-06T11:08:27.868358-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
 # 	   add support for tcsh csh ksh etc close #59 
