@@ -1,6 +1,12 @@
 #!/bin/bash
-#	markit  3.158.323  2019-02-05T16:09:33.440191-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.157  
-#	   formating display_help 
+#	markit  3.161.326  2019-02-06T11:16:29.568253-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
+#	   add support for tcsh csh ksh etc #59 testing 
+#	markit  3.161.326  2019-02-06T11:15:57.874724-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
+#	   add support for tcsh csh ksh etc #59 testing 
+#	markit  3.161.326  2019-02-06T11:11:52.495924-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
+#	   add support for tcsh csh ksh etc #59 testing 
+#	markit  3.161.326  2019-02-06T11:08:27.789023-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.160  
+#	   add support for tcsh csh ksh etc close #59 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 #	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
@@ -233,8 +239,9 @@ for FILE_NAME in ${FILE_LIST} ; do
 #	Single-line comment character(s) matching file extension
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
+#		sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
 		sh|pl|PL|py|rb|ps1|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
-#		UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt)
+#		UNIX shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt)
 			BEGIN_COMMENT_CHAR="# "
 			END_COMMENT_CHAR=""
 			;;
