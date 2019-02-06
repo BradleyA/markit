@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.174.342  2019-02-06T16:41:17.981869-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.173  
+#	   update user help message for untracked files 
 #	markit  3.173.341  2019-02-06T16:35:10.525171-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.172  
 #	   update user help message for untracked files 
 #	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
@@ -168,12 +170,13 @@ FILE_LIST=$(git status -s --untracked-files="${UNTRACKED_FILES}" | grep -v '^D  
 
 #	Check if ${FILE_LIST} is zero length
 if [ -z "${FILE_LIST}" ] ; then
-	echo -e "No file(s) found to mark and push." 1>&2
+	echo -e "No tracked file(s) found to mark and push." 1>&2
 #	Display untracked file(s)
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to add untracked <file-name> to be tracked <file-name>. or to include untracked files and directories using markit, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'\n"
+		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to add untracked <file-name> to be tracked."
+		echo -e "Or to include all untracked files and directories using markit, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'\n"
 	fi
 	exit 1
 fi
