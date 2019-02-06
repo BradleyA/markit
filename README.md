@@ -8,7 +8,7 @@ markit is a bash script that adds two comment lines of information about file ch
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash; as the second line
  * a one line breif description about the changes; as the third line
  
-Markit currently supports these file extensions: UNIX shell(sh) perl(pl|PL) python(py) ruby(rb) PowerShell(ps1) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt) c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc) XML(xml) HTML (html|htm)
+Markit currently supports these file extensions: UNIX shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text (txt) c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc) XML(xml) HTML (html|htm)
 
 Markit currently supports these files without file extensions: Dockerfile
 
