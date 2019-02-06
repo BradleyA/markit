@@ -34,7 +34,7 @@ Markit currently supports these file extensions:
     XML(xml)
     YAML(yml|yaml)
 
-Markit currently supports these files without file extensions: Dockerfile
+Markit currently supports these files without file extensions: Dockerfile, Makefile
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 #### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
