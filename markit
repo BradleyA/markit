@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.177.345  2019-02-06T17:01:06.320313-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.176  
+#	   update user help message for untracked files 
 #	markit  3.176.344  2019-02-06T16:54:13.912001-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.175  
 #	   update user help message for untracked files 
 #	markit  3.175.343  2019-02-06T16:52:09.401833-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.174  
@@ -179,7 +181,7 @@ if [ -z "${FILE_LIST}" ] ; then
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}', to change a <file-name> from untracked file to a tracked file."
+		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}', to change <file-name> from an untracked file to a tracked file."
 		echo -e "\nOr to include all untracked files and directories, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'\n"
 	fi
 	exit 1
