@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	testfiles/sample.sh  3.159.324  2019-02-06T10:31:06.788637-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.158  
-# 	   add build comment to sample.go 
+# 	testfiles/sample.sh  3.160.325  2019-02-06T10:40:57.200368-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.159  
+# 	   added comment to run perl script 
 # 	testfiles/sample.sh  3.157.322  2019-02-05T16:07:30.573810-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.156-1-g49c4dff  
 # 	   completed testing of markit 
 # 	testfiles/sample.sh  3.156.321  2019-02-05T14:16:01.037344-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.156  
