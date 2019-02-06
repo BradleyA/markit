@@ -1,10 +1,6 @@
 #!/bin/bash
-#	markit  3.172.340  2019-02-06T16:30:49.260167-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.171  
+#	markit  3.173.341  2019-02-06T16:35:10.525171-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.172  
 #	   update user help message for untracked files 
-#	markit  3.171.339  2019-02-06T16:23:28.992852-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.170-1-g7a55286  
-#	   update untrack user help message 
-#	markit  3.170.337  2019-02-06T15:29:51.150306-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.169-2-ga54656e  
-#	   test Makefile 
 #	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
 #	   add support for tcsh csh ksh etc close #59 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
@@ -177,7 +173,7 @@ if [ -z "${FILE_LIST}" ] ; then
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to track untracked file(s) or to include untracked files and directories using markit, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'\n"
+		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}' to add untracked <file-name> to be tracked <file-name>. or to include untracked files and directories using markit, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'\n"
 	fi
 	exit 1
 fi
