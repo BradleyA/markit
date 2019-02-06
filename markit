@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.164.329  2019-02-06T11:30:35.877449-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.163  
-#	   add support for tcsh csh ksh etc #59 testing 
+#	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
+#	   add support for tcsh csh ksh etc close #59 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 #	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
