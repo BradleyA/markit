@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.170.337  2019-02-06T15:29:51.150306-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.169-2-ga54656e  
+#	   test Makefile 
 #	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
 #	   add support for tcsh csh ksh etc close #59 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
@@ -222,8 +224,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	        opening comment x.c 'char VERSION_MESSAGE[] = "$Version_message: ' ${FILE_MESSAGE} ` and ending comment '$";'
 # >>>	                        x.o $Version_message: XXXX '$'
 #
-# >>> #21	Create a case statement if other non-extension files like Dockerfile need support
-	if [ "${FILE_NAME##*/}" == "Dockerfile" ] ; then
+# >>> #21	Create a case statement if other non-extension files like Dockerfile or Makefile need support
+	if [ "${FILE_NAME##*/}" == "Dockerfile" ] || [ "${FILE_NAME##*/}" == "Makefile" ] ; then
 		BEGIN_COMMENT_CHAR="#	"
 		END_COMMENT_CHAR=""
 	else
@@ -234,7 +236,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
 		sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
-#		UNIX shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) makefile(mk|MK) text (txt)
+#		shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt)
 			BEGIN_COMMENT_CHAR="# "
 			END_COMMENT_CHAR=""
 			;;
@@ -244,7 +246,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 			END_COMMENT_CHAR=" */"
 			;;
 		cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
-#		C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
+#		C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal(p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
 			BEGIN_COMMENT_CHAR="// "
 			END_COMMENT_CHAR=""
 			;;
