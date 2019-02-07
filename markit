@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.183.352  2019-02-07T12:30:00.757114-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.182  
+#	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository 
 #	markit  3.182.351  2019-02-07T10:55:01.874044-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.181  
 #	   update user help message during failed git push 
 #	markit  3.181.350  2019-02-06T21:39:06.722591-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.180  
@@ -198,8 +200,18 @@ if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
 fi
 rm -f ${TEMP_FILE}
 
+#       Check if remote or local repository then notify user
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKITLOCAL >${MARKITLOCAL}<" 1>&2 ; fi
+if [ "${MARKITLOCAL}" == "0" ] ; then
+	echo -e "${NORMAL}Files to be marked and pushed to  ${BOLD}remote${NORMAL}  repository:"
+elif [ "${MARKITLOCAL}" == "1" ] ; then
+	echo -e "${NORMAL}Files to be marked for  ${BOLD}local${NORMAL}  repository and NOT pushed to remote repository:"
+else
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Environment Variables MARKITLOCAL is not set to 0 or 1.  Current setting for MARKITLOCAL >${MARKITLOCAL}<" 1>&2
+fi
+
 #	Prompt for release number
-echo -e "${NORMAL}Files to be marked and pushed:\n\n${BOLD}${FILE_LIST}${NORMAL}"
+echo -e "\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
 echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop.\n"
 read     FILE_RELEASE
@@ -212,7 +224,7 @@ fi
 if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
 	echo -e "Release number may not be greater than current release number." 1>&2
 fi
-echo -e "\nUsing release number: ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
+echo -e "\nUsing release number:  ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
 
 #	Prompt for single line change description
 echo -e "\n${NORMAL}Enter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
