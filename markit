@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.179.347  2019-02-06T20:31:59.414495-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.178  
+#	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 
 #	markit  3.177.345  2019-02-06T17:01:06.320313-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.176  
 #	   update user help message for untracked files 
 #	markit  3.176.344  2019-02-06T16:54:13.912001-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.175  
@@ -82,6 +84,10 @@ echo    "command, 'unset DEBUG' to remove the exported information from the DEBU
 echo    "environment variable.  You are on your own defining environment variables if"
 echo    "you are using other shells."
 echo    "   DEBUG       (default '0')"
+echo    "   MARKITLOCAL push to remote repository (default '0')"
+echo    "               if MARKITLOCAL=1 only use local repository, do not push to remote"
+echo    "               repository until system has network access to GitHub repository"
+echo    "               or Bitbucket repository or GitLab project."
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "      no       no untracked files (default)"
 echo    "      normal   untracked files and directories"
@@ -300,15 +306,24 @@ echo "${NORMAL}"
 #	Commit staged file(s) for Git push
 	git commit -m "${FILE_MESSAGE}"
 
-#	If new release number, include git tag before git push
-if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
-	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
+#	If MARKITLOCAL not set, git push to remote repository
+if [ "${MARKITLOCAL}" == "0" ] ; then
 
-#	Push changes to GitHub repository or Bitbucket repository or GitLab project
-	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
-else
-#	Push changes to GitHub repository or Bitbucket repository or GitLab project
-	git push || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
+#	If new release number, include git tag before git push
+	if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
+		git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
+
+#		Push changes to GitHub repository or Bitbucket repository or GitLab project
+		git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
+	else
+
+#		Push changes to GitHub repository or Bitbucket repository or GitLab project
+		git push || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push${NORMAL}'\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local clone.  Then enter the following\n\tcommands to pull the other changes and push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push${NORMAL}'" ; exit 1; }
+	fi
+
+#	If MARKITLOCAL AND new release number, git tag to local repository
+elif [ "${MARKITLOCAL}" == "1" ] && ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
+	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 fi
 
 #
