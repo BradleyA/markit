@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.180.348  2019-02-06T20:48:43.806266-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.179  
+#	   set MARKITLOCAL to 0 if not set 
 #	markit  3.179.347  2019-02-06T20:31:59.414495-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.178  
 #	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 
 #	markit  3.177.345  2019-02-06T17:01:06.320313-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.176  
@@ -142,8 +144,12 @@ if ! $( __gitdir > /dev/null 2>&1 ) ; then
 	echo -e "Check if you are in a Git repository and you have Git permission.  Current directory $(pwd)" 1>&2
 	exit 0
 fi
+
 #	Check if remote git repository has been setup #28
 git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote repository has not been setup or git clone <remote-repository> was not used to pull remote repository before using markit." 1>&2 ; exit 1; }
+
+#       Check if environment variable, default 0
+if [ "${MARKITLOCAL}" == "" ] ; then MARKITLOCAL="0" ; fi
 
 #
 UNTRACKED_FILES=${1:-no}
