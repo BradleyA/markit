@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.193.363  2019-02-08T15:01:25.387837-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.192  
+#	   update display_help 
 #	markit  3.192.362  2019-02-07T23:24:09.239582-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.191  
 #	   update display_help 
 #	markit  3.191.361  2019-02-07T20:52:52.322328-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.190  
@@ -70,15 +72,14 @@ echo -e "\nThere will be a prompt to add comment character(s) for unknown file n
 echo    "when needed and a prompt to add a description about the changes."
 echo -e "\nMarkit only modifies Git tracked file(s) by default.  To change a Git"
 echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  Markit"
-echo    "will modify all tracked and untracked file(s), if 'markit normal' or"
-echo    "'markit all'.  To prevent an untracked file from being tracked, add"
-echo    "file(s) to .gitignore file."
+echo    "will modify all tracked and untracked file(s) enter, 'markit all'.  To"
+echo    "prevent an untracked file from being tracked, add file(s) to .gitignore"
+echo    "file."
 echo -e "\nMarkit supports alphanumeric version and appends the number of repository"
-echo    "commits.  To create a version number like MAJOR.MINOR.PATCH, enter MAJOR.MINOR"
-echo    "version and the PATCH is generated from the number of repository commits."
-echo    "Or enter MAJOR.MINOR.PATCH version and the number of repository commits"
-echo    "will be appended.  Additional labels for pre-release (alpha-, beta-) and"
-echo    "build metadata are supported as extensions to the MAJOR.MINOR.PATCH format."
+echo    "commits to the version.  To create a version like MAJOR.MINOR.COMMIT, enter"
+echo    "MAJOR.MINOR version and the COMMIT is generated from the number of"
+echo    "repository commits.  Or enter MAJOR.MINOR.PATCH version and the number"
+echo    "of repository commits will be appended, MAJOR.MINOR.PATCH.COMMIT."
 #       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
         echo -e "\n--> ${LANG}"
@@ -206,7 +207,7 @@ if [ -z "${FILE_LIST}" ] ; then
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
 		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}', to change <file-name> from an untracked file to a tracked file."
-		echo -e "\nOr include all untracked files and directories, enter '${BOLD}markit normal${NORMAL}' or '${BOLD}markit all${NORMAL}'.\n"
+		echo -e "\nOr include all untracked files and directories, enter '${BOLD}markit all${NORMAL}'.\n"
 	fi
 	exit 1
 fi
