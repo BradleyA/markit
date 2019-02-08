@@ -1,10 +1,6 @@
 #!/bin/bash
-#	markit  3.189.359  2019-02-07T20:41:42.737336-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.188  
-#	   corrent incident fatal: tag 'V0.34' already exists only tag if different version 
-#	markit  3.186.356  2019-02-07T20:17:32.949243-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.186  
-#	   clean up test code #61 
-#	markit  3.184.353  2019-02-07T13:16:53.728076-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.183  
-#	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository 
+@	markit  3.190.360  2019-02-07T20:50:57.519544-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.189  
+@	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
 #	markit  3.182.351  2019-02-07T10:55:01.874044-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.181  
 #	   update user help message during failed git push 
 #	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
