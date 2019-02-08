@@ -1,6 +1,6 @@
 #!/bin/bash
-@	markit  3.190.360  2019-02-07T20:50:57.519544-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.189  
-@	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
+#	markit  3.191.361  2019-02-07T20:52:52.322328-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.190  
+#	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
 #	markit  3.182.351  2019-02-07T10:55:01.874044-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.181  
 #	   update user help message during failed git push 
 #	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
