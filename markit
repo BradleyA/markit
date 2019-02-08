@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.188.358  2019-02-07T20:39:36.361144-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.187  
+#	   corrent incident fatal: tag 'V0.34' already exists only tag if different version 
 #	markit  3.187.357  2019-02-07T20:36:15.656322-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.186-1-gbba8b32  
 #	   corrent incident fatal: tag 'V0.34' already exists only tag if different version 
 #	markit  3.186.356  2019-02-07T20:17:32.949243-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.186  
@@ -323,8 +325,6 @@ git commit -m "${FILE_MESSAGE}"
 if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 fi
-
-git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 
 #	If MARKITLOCAL not set, git push to remote repository
 if [ "${MARKITLOCAL}" == "0" ] ; then
