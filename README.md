@@ -51,35 +51,40 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
 
 ### Output
     $ markit
-    Files to be marked and pushed:
+    Files to be marked and pushed to  remote  repository:
 
     testfiles/sample.sh
 
-    Current git repository release number:  3.107
-    Enter release number to commit files (example 3.01) or ctrl-c to stop.
+    Current git repository release number:  3.196
+    Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
 
-    3.108
-    Using release number: 3.108
+    3.197
+
+    Using release number:  3.197
 
     Enter a one line description about the changes or ctrl-c to stop.
         (example: Added logic for --help; closes #12, resolves #14):
 
     test markit for sample.sh
 
-    testfiles/sample.sh sh
+        testfiles/sample.sh     sh
 
-    [master e29c001] test markit for sample.sh
-     1 file changed, 2 insertions(+), 2 deletions(-)
+    [master 7cfa702] test markit for sample.sh
+     1 file changed, 7 insertions(+), 19 deletions(-)
+     rewrite testfiles/sample.sh (91%)
     Counting objects: 5, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 637 bytes | 0 bytes/s, done.
+    Writing objects: 100% (5/5), 658 bytes | 0 bytes/s, done.
     Total 5 (delta 2), reused 0 (delta 0)
     remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
     To https://github.com/BradleyA/markit
-       5a8c2a9..e29c001  master -> master
-     * [new tag]         3.108 -> 3.108
-    2018-10-07T13:31:09-05:00 (CDT) /usr/local/bin/markit  271 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Done.
+       46f4c0d..7cfa702  master -> master
+     * [new tag]         3.197 -> 3.197
+
+    Files marked and stored in  remote  repository.
+    View commits example:  'git log --graph --decorate --oneline --color --stat'
+    2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.
 
 ### Modified File Example
     ##!/bin/bash
