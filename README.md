@@ -37,7 +37,6 @@ Markit currently supports these file extensions:
 Markit currently supports these files without file extensions: Dockerfile, Makefile
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
-#### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
 
 ### Clone
 To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
