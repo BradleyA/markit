@@ -1,12 +1,6 @@
 #!/bin/bash
-#	markit  3.195.365  2019-02-08T18:58:24.654154-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.194  
-#	   update display_help 
-#	markit  3.194.364  2019-02-08T18:14:43.505201-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.193  
-#	   edit display_help 
-#	markit  3.193.363  2019-02-08T15:01:25.387837-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.192  
-#	   update display_help 
-#	markit  3.192.362  2019-02-07T23:24:09.239582-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.191  
-#	   update display_help 
+#	markit  3.196.366  2019-02-08T20:04:48.891593-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.195  
+#	   update display_help #61 
 #	markit  3.191.361  2019-02-07T20:52:52.322328-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.190  
 #	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
 #	markit  3.182.351  2019-02-07T10:55:01.874044-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.181  
@@ -68,19 +62,20 @@ echo    "to enter the next version.  Markit includes the number of commits with"
 echo    "the version in the file(s).  I find this helpful when commiting several"
 echo    "different changes while working on the same PATCH."
 echo -e "\nMarkit adds two comment lines with information about file changes to all"
-echo    "modified tracked file(s) in your local Git repository.  If MARKITLOCAL is"
-echo    "not set to 1, markit then pushes those modified file(s) to either a GitHub"
-echo    "repository or Bitbucket repository or GitLab project.  If MARKITLOCAL is"
-echo    "set to 1, markit adds two comment lines, commits modified tracked file(s)"
-echo    "in your local Git repository, but does not push to remote repository."
-echo    "The first comment line includes file name, version.commit, date, time,"
+echo    "modified tracked file(s) in your local Git repository.  Then pushes those"
+echo    "modified file(s) to either a GitHub repository or Bitbucket repository or"
+echo    "GitLab project.  If environment variable MARKITLOCAL is set to 1, markit"
+echo    "adds two comment lines, commits modified tracked file(s) in your local"
+echo    "Git repository, but does not push to remote Git repository.  I find this"
+echo    "helpful when working without network access to a remote Git repository."
+echo -e "\nThe first comment line includes file name, version.commit, date, time,"
 echo    "user, hostname, and previous version. The second comment line includes"
 echo    "a brief description about changes made to the file(s)."
 echo -e "\nThere will be a prompt to add comment character(s) for unknown file names"
 echo    "when needed and a prompt to add a description about the changes."
 echo -e "\nMarkit only modifies Git tracked file(s) by default.  To change a Git"
-echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  Markit"
-echo    "will modify all tracked and untracked file(s) enter, 'markit all'.  To"
+echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  To"
+echo    "include all tracked and untracked file(s) enter, 'markit all'.  To"
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore"
 echo    "file."
 #       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -99,19 +94,18 @@ echo    "environment variable.  You are on your own defining environment variabl
 echo    "you are using other shells."
 echo    "   DEBUG       (default '0')"
 echo    "   MARKITLOCAL push to remote repository (default '0')"
-echo    "               if MARKITLOCAL=1 only commit to local repository, do not push"
-echo    "               to remote repository until system has network access to GitHub"
-echo    "               repository or Bitbucket repository or GitLab project and"
-echo    "               MARKITLOCAL is set to 0."
+echo    "               export MARKITLOCAL=1 only commit to local repository, do not"
+echo    "               push to remote Git repository"
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "      no       no untracked files (default)"
 echo    "      normal   untracked files and directories"
 echo    "      all      Also individual files in untracked directories"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n   ${0}\n\n   Mark tracked file(s) and push to remote repository\n"
-echo -e "   ${0} all\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
-echo -e "   export MARKITLOCAL=1"
-echo -e "   ${0}\n"
+echo -e "\nEXAMPLES"
+echo -e "   ${BOLD}${0}${NORMAL}\n\n   Mark tracked file(s) and push to remote repository\n"
+echo -e "   ${BOLD}${0} all${NORMAL}\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
+echo -e "   ${BOLD}export MARKITLOCAL=1"
+echo -e "   ${0}${NORMAL}\n"
 echo -e "   Mark tracked file(s) but don't push to remote repository, only update\n   local repository\n"
 }
 
