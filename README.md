@@ -87,10 +87,11 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.
 
 ### Modified File Example
-    ##!/bin/bash
-    # 	sample.sh  3.96.247  2018-10-07T08:59:51-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.95-1-g07806e2  
-    # 	   update comments 
+    #!/bin/bash
+    #   testfiles/sample.sh  3.197.368  2019-02-08T20:33:53.600661-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.196-1-g46f4c0d  
+    #      test markit for sample.sh 
     #
+    #   ./sample.sh
     ###
     echo "Hello World"
 
@@ -100,19 +101,18 @@ Check a file release that was marked using markit with the file repository relea
     check-markit markit 
 
 ### Output
-        $ ./check-markit markit
-    
-    2018-10-07T08:47:06-05:00 (CDT) /usr/local/bin/check-markit  70 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Begin
+    $ check-markit markit
+    2019-02-08T20:48:42.953908-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 96 uadmin 10000:10000 [INFO]  Started...
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 11690    0 11690    0     0   7956      0 --:--:--  0:00:01 --:--:-- 16013
+    100 2265k    0 2265k    0     0  1035k      0 --:--:--  0:00:02 --:--:-- 2946k
 
-      /usr/local/bin/markit release 3.93.243, commit date 2018-10-06T20:09:21-05:00
+      /usr/local/bin/markit release 3.196.366, commit date 2019-02-08T20:04:48.891593-06:00
 
-      markit repository release 3.93.243, commit date 2018-10-06T20:09:21-05:00
+      markit repository release 3.196.366, commit date 2019-02-08T20:04:48.891593-06:00
 
-    2018-10-07T08:47:07-05:00 (CDT) /usr/local/bin/check-markit  163 [INFO]  six-rpi3b.cptx86.com  uadmin  10000 10000  Done.
+    2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
         
 ### Install
 To install the latest commit of markit, change to the directory you want to download the script.
