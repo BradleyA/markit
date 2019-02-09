@@ -115,7 +115,7 @@ Check a file release that was marked using markit with the file repository relea
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
 
 ## Getting Started
-Fork BradleyA/markit repository so you can modify the testfiles while learning how simle it is to work with markit.  On your system clone a copy of the markit fork. In the clone make a change to testfiles/sample.sh
+Fork BradleyA/markit repository so you can modify the testfiles while learning how simle it is to work with markit.  On your system clone a copy of the markit fork.  In the clone on your system make a change to testfiles/sample.sh.  Run ./markit to commit the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh. That is it!  Markit takes that information and updates testfiles/sample.sh, tags testfiles/sample.sh, commits testfiles/sample.sh, and pushes testfiles/sample.sh changes to your remote repository.
 
     * cd markit
     * edit testfiles/sample.sh
