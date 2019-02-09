@@ -115,11 +115,25 @@ Check a file release that was marked using markit with the file repository relea
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
 
 ## Getting Started
-Fork https://github.com/BradleyA/markit repository so you can modify the testfiles while learning how simple it is to work with markit.  On your system, git clone the forked copy of markit from your repository.  Change into clone directory on your system.  Make a change to testfiles/sample.sh.  Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh. That is it!  Markit takes that information and updates testfiles/sample.sh, tags testfiles/sample.sh, commits testfiles/sample.sh, and pushes testfiles/sample.sh changes to your remote repository.
+Fork https://github.com/BradleyA/markit repository so you can modify the testfiles while learning how simple it is to work with markit.  
 
-    * cd markit
-    * edit testfiles/sample.sh
-    * ./markit
+On your system, git clone the forked copy of markit from your repository.  
+
+    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
+
+Change into clone directory on your system.
+
+    cd markit
+
+Make a change to testfiles/sample.sh.
+
+    edit testfiles/sample.sh
+    
+Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.  **That is it!**
+
+    ./markit
+    
+Markit takes that information and updates testfiles/sample.sh, tags testfiles/sample.sh, commits testfiles/sample.sh, and pushes testfiles/sample.sh changes to your remote repository.
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
