@@ -6,8 +6,8 @@ I wanted any person to **answer one question over the phone; What version are yo
 ## Description
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then markit pushes those changed file(s) to either a GitHub repository or Bitbucket repository or GitLab project.  This metadata allows any person to answer; What version are you running?  The comment lines include:
 
- * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash; as the second line
- * a one line breif description about the changes; as the third line
+ * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash
+ * a one line breif description about the changes
  
 Markit currently supports these file extensions:
 
@@ -135,15 +135,7 @@ Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your 
 Check if your local version of testfiles/sample.sh is the same version that is on your remote GitHub repository.
 
     ./check-markit -f ./markit
-    
-## Objectives
-* Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to one answer; 
-  **What version are you running?**
-* Only update modified files by adding comments with metadata
-* Don't create any requirements for markit other than those required by Git
-* Same solution for several types of code
-* Able to use markit on local Git repository without network access (without 'git push')
-* 
+
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
@@ -151,7 +143,16 @@ To install the latest commit of markit, change to the directory you want to down
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
-    
+     
+#### Objectives
+* Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
+  **What version are you running?**
+* Only update modified files by adding comments with metadata
+* Insert two lines of metadata after the first line in files
+* Don't create any requirements for markit other than those required by Git
+* Same solution for several types of code
+* Able to use markit on local Git repository without network access (without 'git push')
+
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
