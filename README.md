@@ -151,6 +151,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 * Insert two lines of metadata after the first line in files
 * Don't create any requirements for markit other than those required by Git
 * Same solution for several types of code
+* Support GitHub, Bitbucket, or GitLab
 * Able to use markit on local Git repository without network access (without 'git push')
 
 #### System OS script tested
