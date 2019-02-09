@@ -135,9 +135,14 @@ Check if your local version of testfiles/sample.sh is the same version that is o
 
     ./check-markit -f ./markit
     
-## Use Cases
-* Any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer; What version are you running?
-* To use markit on local repository (without 'git push')
+## Objectives
+* Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to one answer; 
+  **What version are you running?**
+* Only update modified files by adding comments with metadata
+* Don't create any requirements for markit other than those required by Git
+* Same solution for several types of code
+* Able to use markit on local Git repository without network access (without 'git push')
+* 
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
