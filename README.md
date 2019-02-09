@@ -136,6 +136,10 @@ Check if your local version of testfiles/sample.sh is the same version that is o
 
     ./check-markit -f ./markit
 
+On GitHub open an issue on your markit repository.
+XXXXX>>>
+XXXX
+# stop here
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
