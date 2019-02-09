@@ -115,13 +115,11 @@ Check a file release that was marked using markit with the file repository relea
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
         
 ### Install
-To install the latest commit of markit, change to the directory you want to download the script.
+To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
 
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
-To download markit version 3.8, change to the directory you want to download the tar file with the README, markit, and testfiles.  
-
-    curl -o markit-3.8.tar -L https://api.github.com/repos/BradleyA/markit/tarball/3.8
+To install the latest commit of check-markit, change markit to check-markit in the above command.
     
 ### System OS script tested
  * Ubuntu 14.04.3 LTS
