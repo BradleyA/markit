@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.194.364  2019-02-08T18:14:43.505201-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.193  
+#	   edit display_help 
 #	markit  3.193.363  2019-02-08T15:01:25.387837-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.192  
 #	   update display_help 
 #	markit  3.192.362  2019-02-07T23:24:09.239582-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.191  
@@ -58,16 +60,21 @@ echo    "files while being pushed to GitHub, Bitbucket, or GitLab (Supported fil
 echo    "Shell(sh|bash|csh|tcsh|ksh), Go, Dockerfile, YAML, Makefile, Scala,"
 echo    "Python, Java, PHP, C, C++, JavaScript, Perl, Ruby, PowerShell, Ri,"
 echo    "C header, C++ header, HTML, Kotlin, Pascal, R, Rust, Text, XML . . . ."
+echo -e "\nMarkit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric"
+echo    "versioning.  Markit will display the current version before prompting you"
+echo    "to enter the next version.  Markit will append the number of repository"
+echo    "commits to the verion only when adding it to the file(s).  I find this"
+echo    "helpful when commiting several different changes while working on the"
+echo    "same PATCH."
 echo -e "\nMarkit adds two comment lines with information about file changes to all"
 echo    "modified tracked file(s) in your local Git repository.  If MARKITLOCAL is"
 echo    "not set to 1, markit then pushes those modified file(s) to either a GitHub"
 echo    "repository or Bitbucket repository or GitLab project.  If MARKITLOCAL is"
 echo    "set to 1, markit adds two comment lines, commits modified tracked file(s)"
 echo    "in your local Git repository, but does not push to remote repository."
-echo    "The first comment line includes file name, version, date, time, programmer,"
-echo    "hostname, and previous version as the second line of the file(s).  Followed"
-echo    "by a single comment line including a brief description about changes made"
-echo    "to the file(s)."
+echo    "The first comment line includes file name, version.commit, date, time,"
+echo    "user, hostname, and previous version. The second comment line includes"
+echo    "a brief description about changes made to the file(s)."
 echo -e "\nThere will be a prompt to add comment character(s) for unknown file names"
 echo    "when needed and a prompt to add a description about the changes."
 echo -e "\nMarkit only modifies Git tracked file(s) by default.  To change a Git"
@@ -75,11 +82,6 @@ echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  Mar
 echo    "will modify all tracked and untracked file(s) enter, 'markit all'.  To"
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore"
 echo    "file."
-echo -e "\nMarkit supports alphanumeric version and appends the number of repository"
-echo    "commits to the version.  To create a version like MAJOR.MINOR.COMMIT, enter"
-echo    "MAJOR.MINOR version and the COMMIT is generated from the number of"
-echo    "repository commits.  Or enter MAJOR.MINOR.PATCH version and the number"
-echo    "of repository commits will be appended, MAJOR.MINOR.PATCH.COMMIT."
 #       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
         echo -e "\n--> ${LANG}"
@@ -181,7 +183,7 @@ if ! [ "$(git tag)" == "" ] ; then
 # >>>		latest tagged commit across all branches
 	CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
 else
-	CURRENT_RELEASE="0.1"
+	CURRENT_RELEASE="0.1.1"
 fi
 
 #	Check arguement 1 for --untracked-files
@@ -233,7 +235,7 @@ fi
 #	Prompt for release number
 echo -e "\n${BOLD}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
-echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.01) or ctrl-c to stop.\n"
+echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.41.7) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [ -z "${FILE_RELEASE}" ] ; then
 	FILE_RELEASE=${CURRENT_RELEASE}
