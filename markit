@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.195.365  2019-02-08T18:58:24.654154-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.194  
+#	   update display_help 
 #	markit  3.194.364  2019-02-08T18:14:43.505201-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.193  
 #	   edit display_help 
 #	markit  3.193.363  2019-02-08T15:01:25.387837-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.192  
@@ -49,7 +51,7 @@ BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 ###
 display_help() {
-echo -e "\n${NORMAL}${0} - Add two comment lines about file changes & push to GitHub or Bitbucket or GitLab"
+echo -e "\n${NORMAL}${0} - add Git verion control information, push to GitHub or Bitbucket or GitLab" 
 echo -e "\nUSAGE\n   ${0} [no | normal | all]"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
@@ -62,10 +64,9 @@ echo    "Python, Java, PHP, C, C++, JavaScript, Perl, Ruby, PowerShell, Ri,"
 echo    "C header, C++ header, HTML, Kotlin, Pascal, R, Rust, Text, XML . . . ."
 echo -e "\nMarkit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric"
 echo    "versioning.  Markit will display the current version before prompting you"
-echo    "to enter the next version.  Markit will append the number of repository"
-echo    "commits to the verion only when adding it to the file(s).  I find this"
-echo    "helpful when commiting several different changes while working on the"
-echo    "same PATCH."
+echo    "to enter the next version.  Markit includes the number of commits with"
+echo    "the version in the file(s).  I find this helpful when commiting several"
+echo    "different changes while working on the same PATCH."
 echo -e "\nMarkit adds two comment lines with information about file changes to all"
 echo    "modified tracked file(s) in your local Git repository.  If MARKITLOCAL is"
 echo    "not set to 1, markit then pushes those modified file(s) to either a GitHub"
