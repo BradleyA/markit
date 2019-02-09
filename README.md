@@ -131,9 +131,13 @@ Make a change to testfiles/sample.sh.
     
 Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.  **That is it!**
 
-    ./markit
+Check if your local version of testfiles/sample.sh is the same version that is on your remote GitHub repository.
+
+    ./check-markit -f ./markit
     
-Markit takes that information and updates testfiles/sample.sh, tags testfiles/sample.sh, commits testfiles/sample.sh, and pushes testfiles/sample.sh changes to your remote repository.
+## Use Cases
+    * Any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer; What version are you running?
+    * To use markit on local repository (without 'git push') 
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
