@@ -136,7 +136,8 @@ Check if your local version of testfiles/sample.sh is the same version that is o
     ./check-markit -f ./markit
     
 ## Use Cases
-    * Any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer; What version are you running?
+    * Any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer; 
+      What version are you running?
     * To use markit on local repository (without 'git push') 
 
 ## Install
