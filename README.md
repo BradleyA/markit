@@ -1,9 +1,9 @@
 ## markit
 
-### Goal
+## Goal
 I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have access to GitHub repository or Bitbucket repository or GitLab project. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to **answer one question over the phone; What version are you running?**
 
-### Description
+## Description
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then push those changed file(s) to either a GitHub repository or Bitbucket repository or GitLab project.  The comment lines include:
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash; as the second line
  * a one line breif description about the changes; as the third line
@@ -38,18 +38,18 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
-### Clone
+## Clone
 To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/markit
     cd markit
 
-### Usage
+## Usage
 Mark a **tracked modified file**, sample.sh, in your local Git repository and push those changes to GitHub.
 
     markit 
 
-### Output
+## Output
     $ markit
     Files to be marked and pushed to  remote  repository:
 
@@ -86,7 +86,7 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     View commits example:  'git log --graph --decorate --oneline --color --stat'
     2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.
 
-### Modified File Example
+## Modified File Example
     #!/bin/bash
     #   testfiles/sample.sh  3.197.368  2019-02-08T20:33:53.600661-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.196-1-g46f4c0d  
     #      test markit for sample.sh 
@@ -95,12 +95,12 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     ###
     echo "Hello World"
 
-### Usage
+## Usage
 Check a file release that was marked using markit with the file repository release.
 
     check-markit markit 
 
-### Output
+## Output
     $ check-markit markit
     2019-02-08T20:48:42.953908-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 96 uadmin 10000:10000 [INFO]  Started...
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -113,20 +113,27 @@ Check a file release that was marked using markit with the file repository relea
       markit repository release 3.196.366, commit date 2019-02-08T20:04:48.891593-06:00
 
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
-        
-### Install
+
+## Getting Started
+Fork BradleyA/markit repository so you can modify the testfiles while learning how simle it is to work with markit.  On your system clone a copy of the markit fork. In the clone make a change to testfiles/sample.sh
+
+    * cd markit
+    * edit testfiles/sample.sh
+    * ./markit
+
+## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
 
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
     
-### System OS script tested
+#### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
  * Ubuntu 16.04.5 LTS (armv7l)
 
-### Design Principles
+#### Design Principles
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root
  * Be easy to install and configure
