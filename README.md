@@ -1,7 +1,7 @@
 ## markit
 
 ## Goal
-I wanted to know what version a piece of code was on any system running it. The system may or may not be connected to any network. The system may or may not have Git installed. The system may or may not have access to GitHub repository or Bitbucket repository or GitLab project. I wanted the same solution for several types of code (.sh, .go, .yml, .xml, .mk, dockerfile, etc). I wanted any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to **answer one question over the phone; What version are you running?**
+I wanted any person to **answer one question over the phone; What version are you running?**  The system may or may not be connected to any network, have Git installed, have access to GitHub, Bitbucket,or GitLab. I wanted the same solution for several types of code. 
 
 ## Description
 markit is a bash script that adds two comment lines of information about file changes to all tracked modified files in your local Git repository.  Then push those changed file(s) to either a GitHub repository or Bitbucket repository or GitLab project.  The comment lines include:
@@ -137,7 +137,7 @@ Check if your local version of testfiles/sample.sh is the same version that is o
     
 ## Use Cases
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab to be able to answer; What version are you running?
-* To use markit on local repository (without 'git push') 
+* To use markit on local repository (without 'git push')
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
