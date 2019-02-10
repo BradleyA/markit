@@ -36,7 +36,7 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
     Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
 
     3.197
-
+    
     Using release number:  3.197
 
     Enter a one line description about the changes or ctrl-c to stop.
