@@ -22,7 +22,7 @@ To clone, change to the directory you want to download. Use git clone into the d
     cd markit
 
 ## Usage
-Mark a **tracked modified file**, sample.sh, in your local Git repository and push those changes to GitHub.
+Mark a **tracked modified file**, in your local Git repository and push those changes to GitHub.
 
     markit 
 
