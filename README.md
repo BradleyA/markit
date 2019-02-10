@@ -1,4 +1,4 @@
-## markit
+# markit
 
 ## Goal
 I wanted any person to **answer one question over the phone; What version are you running?**  Even if the system is not connected to any network, have Git installed, have access to GitHub, Bitbucket, or GitLab.
@@ -22,7 +22,7 @@ To clone, change to the directory you want to download. Use git clone into the d
     cd markit
 
 ## Usage
-Mark a **tracked modified file**, sample.sh, in your local Git repository and push those changes to GitHub.
+Mark a **tracked modified file**, in your local Git repository and push those changes to GitHub.
 
     markit 
 
@@ -36,7 +36,7 @@ Mark a **tracked modified file**, sample.sh, in your local Git repository and pu
     Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
 
     3.197
-
+    
     Using release number:  3.197
 
     Enter a one line description about the changes or ctrl-c to stop.
