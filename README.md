@@ -118,7 +118,7 @@ Fork https://github.com/BradleyA/markit repository so you can modify the test fi
 
 On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
 
-    git clone https://github.com/\<YOUR-REPOSITORY\>/markit.git
+    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
 
 Change into clone directory on your system.
 
