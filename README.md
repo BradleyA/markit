@@ -116,9 +116,9 @@ Check a file release that was marked using markit with the file repository relea
 ## Getting Started
 Fork https://github.com/BradleyA/markit repository so you can modify the test files while learning how simple it is to work with markit.  
 
-On your system, git clone the forked copy of markit from <YOUR-REPOSITORY>.  
+On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
 
-    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
+    git clone https://github.com/\<YOUR-REPOSITORY\>/markit.git
 
 Change into clone directory on your system.
 
