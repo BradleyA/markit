@@ -171,7 +171,6 @@ To install the latest commit of check-markit, change markit to check-markit in t
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
- * Ubuntu 16.04.3 LTS (armv7l)
  * Ubuntu 16.04.5 LTS (armv7l)
 
 #### Design Principles
