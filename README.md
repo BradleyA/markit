@@ -146,7 +146,7 @@ Run ./markit.  Enter the next version number when prompted and this brief descri
 
     ./markit
     
-The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been closed.
+The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
 
 Continue testing with the other test files to help you integrate markit with your deveopment solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number so GitHub will update the issue with the changes.
 
