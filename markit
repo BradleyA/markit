@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.200.405  2019-02-09T20:47:52.382189-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.199  
+#	   close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think 
 #	markit  3.199.404  2019-02-09T20:37:19.804963-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.198-4-g9715d41  
 #	   testing #28 
 #	markit  3.198.399  2019-02-09T20:19:33.752338-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.197-30-gc54bce2  
@@ -163,7 +165,7 @@ fi
 if [ "${MARKITLOCAL}" == "" ] ; then MARKITLOCAL="0" ; fi
 
 #	Check if remote git repository has been setup #28
-git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote repository has not been setup or git clone <remote-repository> was not used to pull remote repository before using markit.  ${BOLD}A remote repository is required before markit will work with loca or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
+git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote repository has not been setup or git clone <remote-repository> was not used to pull remote repository before using markit.  ${BOLD}A remote repository is required before markit will work with local or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
 
 #
 UNTRACKED_FILES=${1:-no}
