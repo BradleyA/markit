@@ -37,8 +37,6 @@ Markit currently supports these file extensions:
 
 Markit currently supports these files without file extensions: Dockerfile, Makefile
 
-#### If you like this repository, select in the upper-right corner, star, thank you.
-
 ## Clone
 To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
@@ -116,9 +114,9 @@ Check a file release that was marked using markit with the file repository relea
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
 
 ## Getting Started
-Fork https://github.com/BradleyA/markit repository so you can modify the testfiles while learning how simple it is to work with markit.  
+Fork https://github.com/BradleyA/markit repository so you can modify the test files while learning how simple it is to work with markit.  
 
-On your system, git clone the forked copy of markit from your repository.  
+On your system, git clone the forked copy of markit from <YOUR-REPOSITORY>.  
 
     git clone https://github.com/<YOUR-REPOSITORY>/markit.git
 
@@ -132,14 +130,27 @@ Make a change to testfiles/sample.sh.
     
 Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.  **That is it!**
 
+    ./markit
+
 Check if your local version of testfiles/sample.sh is the same version that is on your remote GitHub repository.
 
     ./check-markit -f ./markit
 
-On GitHub open an issue on your markit repository.
-XXXXX>>>
-XXXX
-# stop here
+On GitHub open the first issue on your markit repository, but first go to settings page and check the box next to issues.
+
+Make a change to testfiles/sample.sh
+
+    edit testfiles/sample.sh
+
+Run ./markit.  Enter the next version number when prompted and this brief description 'testing markit issue changes close #1'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.
+
+    ./markit
+    
+The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been closed.
+
+Continue testing with the other test files to help you integrate markit with your deveopment solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number so GitHub will update the issue with the changes.
+
+#### If you like this repository, select in the upper-right corner, star, thank you.
 
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to and enter the follow command.
