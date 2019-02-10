@@ -142,7 +142,7 @@ Make a change to testfiles/sample.sh
 
     edit testfiles/sample.sh
 
-Run ./markit.  Enter the next version number when prompted and this brief description 'testing markit issue changes close #1'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.
+Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.
 
     ./markit
     
