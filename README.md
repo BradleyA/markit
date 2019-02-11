@@ -151,6 +151,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 * Don't create any requirements for markit other than those required by Git
 * Same solution for several types of code
 * Support Bitbucket or GitLab
+* Include metadata to locate file on a remote repository
 * Able to use markit on local Git repository without network access (without 'git push')
 * Need to test with [git-secrets](https://github.com/awslabs/git-secrets), should work
 
