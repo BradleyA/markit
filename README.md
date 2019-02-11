@@ -152,6 +152,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 * Same solution for several types of code
 * Support Bitbucket or GitLab
 * Able to use markit on local Git repository without network access (without 'git push')
+* [git-secrets](https://github.com/awslabs/git-secrets)
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
