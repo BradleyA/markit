@@ -9,7 +9,7 @@ markit is a bash script that adds two comment lines of metadata about file chang
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash
  * a one line breif description about the changes
  
-Markit currently supports these file extensions:
+Markit currently inserts two commented lines of metadata to these file extensions:
 
 c(c), C++(cc|cpp|c++|cxx), C header(h|H|hpp), C++ header(hxx|Hxx|HXX), Go(go), HTML(html|htm), Java(java|class|jar), JavaScript(js), Kotlin(kt|kts), Makefile(mk|MK), Pascal(p|pp|paa), Perl(pl|PL|psh), PHP(php|php3|php4|ph3|ph4), PowerShell(ps1|msh), Python(py), R(R), Ruby(rb), Rust(rs|rlib), Scala(scala|sc), Shell(sh|bash|csh|tcsh|ksh), Text(txt), XML(xml), YAML(yml|yaml)
 
