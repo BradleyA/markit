@@ -1,7 +1,7 @@
 # markit
 
 ## Goal
-I wanted any person to **answer one question over the phone; What version are you running?**  Even if the system is not connected to any network, have Git installed, have access to GitHub, Bitbucket, or GitLab.
+**Answer one question over the phone; What version are you running?**  Even if the system is not connected to any network, have Git installed, have access to GitHub, Bitbucket, or GitLab.
 
 ## Description
 markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit pushes those changed file(s) to either a GitHub repository or Bitbucket repository or GitLab project.  This metadata allows any person to answer; What version are you running?  The comment lines include:
