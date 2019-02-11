@@ -140,7 +140,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 #### Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
-* Only update modified files by inserting two comments with metadata
+* Only update modified files by inserting two comment lines with metadata
 * Insert the lines of metadata after the first line in files
 * Support GitHub
 * Use git commit message as part of metadata
