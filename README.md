@@ -144,7 +144,7 @@ Run ./markit.  Enter the next version number when prompted and this brief descri
     
 The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
 
-View ./markit help pages.
+View ./markit help pages to learn more about how markit works with tracked and untracked files and without network access to Git remote repository. 
 
     ./markit --help
 
