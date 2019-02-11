@@ -15,7 +15,7 @@ c(c), C++(cc|cpp|c++|cxx), C header(h|H|hpp), C++ header(hxx|Hxx|HXX), Go(go), H
 
 Markit currently supports these files without file extensions: Dockerfile, Makefile.  There will be a prompt to add comment character(s) for unknown file names when needed and a prompt to add a description about the changes.
      
-#### Objectives
+## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
 * Only update modified files by inserting two comment lines with metadata
@@ -143,6 +143,10 @@ Run ./markit.  Enter the next version number when prompted and this brief descri
     ./markit
     
 The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
+
+View ./markit help pages.
+
+    ./markit --help
 
 Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number so GitHub will update the issue with the changes.
 
