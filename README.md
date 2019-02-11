@@ -112,7 +112,7 @@ Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your 
 
 Check if your local version of testfiles/sample.sh is the same version that is on your remote GitHub repository.
 
-    ./check-markit -f ./markit
+    ./check-markit -f ./testfiles/sample.sh
 
 On GitHub open the first issue on your markit repository, but first go to settings page and check the box next to issues.
 
