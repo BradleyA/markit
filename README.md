@@ -14,6 +14,24 @@ Markit currently supports these file extensions:
 c(c), C++(cc|cpp|c++|cxx), C header(h|H|hpp), C++ header(hxx|Hxx|HXX), Go(go), HTML(html|htm), Java(java|class|jar), JavaScript(js), Kotlin(kt|kts), Makefile(mk|MK), Pascal(p|pp|paa), Perl(pl|PL|psh), PHP(php|php3|php4|ph3|ph4), PowerShell(ps1|msh), Python(py), R(R), Ruby(rb), Rust(rs|rlib), Scala(scala|sc), Shell(sh|bash|csh|tcsh|ksh), Text(txt), XML(xml), YAML(yml|yaml)
 
 Markit currently supports these files without file extensions: Dockerfile, Makefile
+     
+#### Objectives
+* Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
+  **What version are you running?**
+* Only update modified files by inserting two comment lines with metadata
+* Insert the lines of metadata after the first line in files
+* Support GitHub
+* Use git commit message as part of metadata
+* Use git tag as part of metadata
+* Include date and remote repository as part of metadata
+* Include path with file in remote repository as part of metadata
+* Include git commit number as part of metadata
+* Don't create any requirements for markit other than those required by Git
+* Same solution for several types of code
+* Support Bitbucket or GitLab
+* Include metadata to locate file on a remote repository
+* Able to use markit on local Git repository without network access (without 'git push')
+* Need to test with [git-secrets](https://github.com/awslabs/git-secrets), should work
 
 ## Clone
 To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -136,24 +154,6 @@ To install the latest commit of markit, change to the directory you want to down
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
-     
-#### Objectives
-* Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
-  **What version are you running?**
-* Only update modified files by inserting two comment lines with metadata
-* Insert the lines of metadata after the first line in files
-* Support GitHub
-* Use git commit message as part of metadata
-* Use git tag as part of metadata
-* Include date and remote repository as part of metadata
-* Include path with file in remote repository as part of metadata
-* Include git commit number as part of metadata
-* Don't create any requirements for markit other than those required by Git
-* Same solution for several types of code
-* Support Bitbucket or GitLab
-* Include metadata to locate file on a remote repository
-* Able to use markit on local Git repository without network access (without 'git push')
-* Need to test with [git-secrets](https://github.com/awslabs/git-secrets), should work
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
