@@ -54,16 +54,16 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
     markit 
 
 ## Output
-```
-$ markit
-Files to be marked and pushed to  remote  repository:
 
-testfiles/sample.sh
+    $ markit
+    Files to be marked and pushed to  remote  repository:
 
-Current git repository release number:  3.196
-Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
+    testfiles/sample.sh
 
-``3.197``
+    Current git repository release number:  3.196
+    Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
+
+    3.197
     
     Using release number:  3.197
 
