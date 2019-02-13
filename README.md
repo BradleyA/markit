@@ -4,7 +4,13 @@
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
 ## Description
-markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit automates Git adding, commiting, tagging, and pushing those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?  The comment lines include:
+markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit automates Git adding, commiting, tagging, and pushing those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?
+
+Markit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric versioning.  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
+
+If environment variable MARKITLOCAL is set to 1 (export MARKITLOCAL=1), markit adds two comment lines, commits modified tracked file(s) in your local Git repository, but does not push to remote Git repository.  I find this helpful when working without network access to a remote Git repository.
+
+The comment lines include:
 
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash
  * a one line breif description about the changes
@@ -18,6 +24,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 ## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
+* Supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric versioning
 * Only update modified files by inserting two comment lines with metadata
 * Insert the lines of metadata after the first line in files
 * Support GitHub
