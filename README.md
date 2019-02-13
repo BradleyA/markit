@@ -4,7 +4,7 @@
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
 ## Description
-Markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit automates Git adding, commiting, tagging, and pushing those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?
+Markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your ``local Git repository``.  Then markit automates Git adding, commiting, tagging, and pushing those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?
 
 Markit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric versioning.  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
 
