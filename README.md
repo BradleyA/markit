@@ -41,7 +41,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Need to test with [git-secrets](https://github.com/awslabs/git-secrets), should work
 
 ## Clone
-To clone, change to the directory you want to download. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To clone, change to the directory you want to download into. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/markit
     cd markit
