@@ -69,8 +69,8 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
 
     Enter a one line description about the changes or ctrl-c to stop.
         (example: Added logic for --help; closes #12, resolves #14):
-
-   test markit for sample.sh
+ 
+    test markit for sample.sh
 
         testfiles/sample.sh     sh
 
