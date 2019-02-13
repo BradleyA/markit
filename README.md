@@ -54,7 +54,8 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
     markit 
 
 ## Output
-    $ markit
+```
+$ markit
     Files to be marked and pushed to  remote  repository:
 
     testfiles/sample.sh
@@ -62,7 +63,7 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
     Current git repository release number:  3.196
     Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
 
-   3.197
+    **3.197**
     
     Using release number:  3.197
 
@@ -88,7 +89,7 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
 
     Files marked and stored in  remote  repository.
     View commits example:  'git log --graph --decorate --oneline --color --stat'
-    2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.
+    2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.```
 
 ## Modified File Example
     #!/bin/bash
