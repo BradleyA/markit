@@ -1,10 +1,10 @@
 # markit
 
 ## Goal
-**Answer one question over the phone; What version are you running?**  Even if the system is not connected to any network, have Git installed, have access to GitHub, Bitbucket, or GitLab.
+Answer one question over the phone by looking at the code; ***What version are you running?**
 
 ## Description
-markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit pushes those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?  The comment lines include:
+markit is a bash script that adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  Then markit automates adding, commiting, tagging, and pushing those changed file(s) to either a **GitHub repository** or **Bitbucket repository** or **GitLab project**.  This metadata allows any person to answer; What version are you running?  The comment lines include:
 
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash
  * a one line breif description about the changes
