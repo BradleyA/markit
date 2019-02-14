@@ -9,7 +9,16 @@
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
+[![Twitter](https://github.com/BradleyA/markit/tree/master/images/twitter.png)](https://twitter.com/bradleyaustintx/)
+
+[![Twitter](https://github.BradleyA.com/markit/images/twitter.png)](https://twitter.com/bradleyaustintx/)
+
+[![Twitter](<img id="image_respberry_setup" src="images/twitter.png" width="50" >)](https://twitter.com/bradleyaustintx/)
+
 [![Twitter](https://github.frapsoft.com/social/twitter.png)](https://twitter.com/bradleyaustintx/)
+
+<img id="image_respberry_setup" src="images/twitter.png" width="50" >
+<img id="pi-display architecture" src="images/pi-display-architecture.png" width="900" >
 
 [![Github](https://github.frapsoft.com/social/github.png)](https://github.com/BradleyA/)
 
