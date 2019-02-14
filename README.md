@@ -9,13 +9,10 @@
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
-
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
 ](https://twitter.com/bradleyaustintx/)
 
-<img id="image_respberry_setup" src="images/twitter.png" width="70" a="twitter.com/bradleyaustintx/">
-
-[![Github](https://github.frapsoft.com/social/github.png)](https://github.com/BradleyA/)
+<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">  <img id="image_respberry_setup" src="images/github.png" width="50" a="https://github.com/BradleyA/">
 
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
