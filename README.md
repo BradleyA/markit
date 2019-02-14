@@ -13,12 +13,11 @@
 
 [![Twitter](https://github.BradleyA.com/markit/images/twitter.png)](https://twitter.com/bradleyaustintx/)
 
-[![Twitter](<img id="image_respberry_setup" src="images/twitter.png" width="50" >)](https://twitter.com/bradleyaustintx/)
+[![Twitter](<img id="twitter" src="images/twitter.png" width="50" >)](https://twitter.com/bradleyaustintx/)
 
 [![Twitter](https://github.frapsoft.com/social/twitter.png)](https://twitter.com/bradleyaustintx/)
 
-<img id="image_respberry_setup" src="images/twitter.png" width="50" >
-<img id="pi-display architecture" src="images/pi-display-architecture.png" width="900" >
+<img id="image_respberry_setup" src="images/twitter.png" width="30" a="twitter.com/bradleyaustintx/">
 
 [![Github](https://github.frapsoft.com/social/github.png)](https://github.com/BradleyA/)
 
