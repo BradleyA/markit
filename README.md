@@ -6,7 +6,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 ## Description
 Markit is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push –follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer; What version are you running? 
 
-Markit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric versioning.  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
+Markit supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning.  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
 
 If environment variable MARKITLOCAL is set to 1, markit automates this git commit process, but does not push to GitHub repository or Bitbucket repository or GitLab project.  I find this helpful when working without network access to a remote Git repository.  If using the bash shell, enter; 'export MARKITLOCAL=1' on the command line to set the MARKITLOCAL environment variable to '1'.  Use the command, 'unset MARKITLOCAL' to remove the exported information from the MARKITLOCAL environment variable.  You are on your own defining environment variables if you are using other shells.
 
@@ -24,7 +24,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 ## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
-* Supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric versioning
+* Supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning
 * Only update modified files by inserting two comment lines with metadata
 * Insert the lines of metadata after the first line in files
 * Support GitHub
