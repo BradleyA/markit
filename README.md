@@ -1,5 +1,7 @@
 # markit
 **GitHub Release** | [![GitHub release][gh-rel-badge]][gh-rel]
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
