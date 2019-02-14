@@ -1,5 +1,5 @@
 # markit
-|                    **GitHub Release** | [![GitHub release][gh-rel-badge]][gh-rel] |                      -                    |
+**GitHub Release** | [![GitHub release][gh-rel-badge]][gh-rel]
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
