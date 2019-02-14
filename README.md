@@ -1,11 +1,5 @@
-# markit
-[![GitHub release](https://img.shields.io/badge/Release-v1.197-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
+# markit    [![GitHub release](https://img.shields.io/badge/Release-v1.197-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
 
-hello dad
-
-https://github.com/BradleyA/markit/releases/tag/3.197
-
-hello mom
 
 [![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
 
