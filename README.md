@@ -1,8 +1,5 @@
 # markit    [![GitHub release](https://img.shields.io/badge/Release-v1.197-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
 
-
-[![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
-
 [![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://GitHub.com/Naereen/StrapDown.js/commit/)
 
 
