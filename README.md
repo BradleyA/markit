@@ -10,14 +10,10 @@
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
 
-[![Twitter](https://github.frapsoft.com/social/twitter.png)](https://twitter.com/bradleyaustintx/)
-
-[<img id="twitter" src="images/twitter.png" width="100" a="twitter.com/bradleyaustintx/">
+[<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
 ](https://twitter.com/bradleyaustintx/)
 
-[Twitter](https://twitter.com/bradleyaustintx/)
-
-<img id="image_respberry_setup" src="images/twitter.png" width="300" a="twitter.com/bradleyaustintx/">
+<img id="image_respberry_setup" src="images/twitter.png" width="70" a="twitter.com/bradleyaustintx/">
 
 [![Github](https://github.frapsoft.com/social/github.png)](https://github.com/BradleyA/)
 
