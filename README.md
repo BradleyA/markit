@@ -172,7 +172,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 #### Author
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
 ](https://twitter.com/bradleyaustintx/)   [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">
-](https://github.com/BradleyA/)   [Bradley Allen <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x25.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
+](https://github.com/BradleyA/)   [<img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x25.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
