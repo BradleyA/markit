@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.201.482  2019-02-15T14:39:14.900863-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.200-76-g1459624  
+#	   update comments 
 #	markit  3.200.405  2019-02-09T20:47:52.382189-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.199  
 #	   close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think 
 #	markit  3.199.404  2019-02-09T20:37:19.804963-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.198-4-g9715d41  
@@ -99,8 +101,8 @@ echo    "command, 'unset DEBUG' to remove the exported information from the DEBU
 echo    "environment variable.  You are on your own defining environment variables if"
 echo    "you are using other shells."
 echo    "   DEBUG       (default '0')"
-echo    "   MARKITLOCAL push to remote repository (default '0')"
-echo    "               export MARKITLOCAL=1 only commit to local repository, do not"
+echo    "   MARKITLOCAL push to remote Git repository (default '0')"
+echo    "               export MARKITLOCAL=1 only commit to local Git repository, do not"
 echo    "               push to remote Git repository"
 echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
 echo    "      no       no untracked files (default)"
@@ -108,11 +110,11 @@ echo    "      normal   untracked files and directories"
 echo    "      all      Also individual files in untracked directories"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES"
-echo -e "   ${BOLD}${0}${NORMAL}\n\n   Mark tracked file(s) and push to remote repository\n"
+echo -e "   ${BOLD}${0}${NORMAL}\n\n   Mark tracked file(s) and push to remote Git repository\n"
 echo -e "   ${BOLD}${0} all${NORMAL}\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
 echo -e "   ${BOLD}export MARKITLOCAL=1"
 echo -e "   ${0}${NORMAL}\n"
-echo -e "   Mark tracked file(s) but don't push to remote repository, only update\n   local repository\n"
+echo -e "   Mark tracked file(s) but don't push to remote Git repository, only update\n   local repository\n"
 }
 
 #       Date and time function ISO 8601
@@ -164,8 +166,8 @@ fi
 #       Check if environment variable, default 0
 if [ "${MARKITLOCAL}" == "" ] ; then MARKITLOCAL="0" ; fi
 
-#	Check if remote git repository has been setup #28
-git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote repository has not been setup or git clone <remote-repository> was not used to pull remote repository before using markit.  ${BOLD}A remote repository is required before markit will work with local or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
+#	Check if remote Git repository has been setup #28
+git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote Git repository has not been setup or git clone <remote-repository> was not used to pull remote Git repository before using markit.  ${BOLD}A remote Git repository is required before markit will work with local or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
 
 #
 UNTRACKED_FILES=${1:-no}
@@ -177,7 +179,7 @@ TEMP_FILE="TEMP_MARKIT_FILE"
 FILE_MESSAGE=""
 FILE_RELEASE=""
 
-#	Check if no tag for file ; first time git repository is being tagged
+#	Check if no tag for file ; first time Git repository is being tagged
 if ! [ "$(git tag)" == "" ] ; then
 # >>> # ??	read about this online: 
 # >>>		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
@@ -222,12 +224,12 @@ if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
 fi
 rm -f ${TEMP_FILE}
 
-#       Check if remote or local repository then notify user
+#       Check if remote or local Git repository then notify user
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKITLOCAL >${MARKITLOCAL}<" 1>&2 ; fi
 if [ "${MARKITLOCAL}" == "0" ] ; then
-	echo -e "${NORMAL}Files to be marked and pushed to  ${BOLD}remote${NORMAL}  repository:"
+	echo -e "${NORMAL}Files to be marked and pushed to ${BOLD}remote${NORMAL} Git repository:"
 elif [ "${MARKITLOCAL}" == "1" ] ; then
-	echo -e "${NORMAL}Files to be marked for  ${BOLD}local${NORMAL}  repository and NOT pushed to remote repository:"
+	echo -e "${NORMAL}Files to be marked for ${BOLD}local${NORMAL} Git repository and NOT pushed to remote Git repository:"
 else
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Environment Variables MARKITLOCAL is not set to 0 or 1.  Current setting for MARKITLOCAL >${MARKITLOCAL}<" 1>&2
 	exit
@@ -235,7 +237,7 @@ fi
 
 #	Prompt for release number
 echo -e "\n${BOLD}${FILE_LIST}${NORMAL}"
-echo -e "\nCurrent git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
+echo -e "\nCurrent Git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
 echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.41.7) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [ -z "${FILE_RELEASE}" ] ; then
@@ -320,7 +322,7 @@ for FILE_NAME in ${FILE_LIST} ; do
 	head -1 "${FILE_NAME}" >> ${TEMP_FILE}
 #	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} ${LOCALHOST} (git describe)
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}<" 1>&2 ; fi
-#	Check if no tag for file / first time in git repository is being tagged
+#	Check if no tag for file / first time in Git repository is being tagged
 	get_date_stamp
 	if ! [ "$(git tag)" == "" ] ; then
 		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} $(git describe)  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
@@ -344,17 +346,17 @@ if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
 	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
 fi
 
-#	If MARKITLOCAL not set, git push to remote repository
+#	If MARKITLOCAL not set, git push to remote Git repository
 if [ "${MARKITLOCAL}" == "0" ] ; then
 #	Push changes to GitHub repository or Bitbucket repository or GitLab project
 	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
-#	Notify user how to view remote repository
-	echo -e "\nFiles marked and stored in  ${BOLD}remote${NORMAL}  repository."
+#	Notify user how to view remote Git repository
+	echo -e "\nFiles marked and stored in ${BOLD}remote${NORMAL} Git repository."
 	echo    "View commits example:  '${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}'"
 
 #	If MARKITLOCAL, notify user how to view local commits
 elif [ "${MARKITLOCAL}" == "1" ] ; then
-	echo -e "\nFiles marked and stored in  ${BOLD}local${NORMAL}  repository."
+	echo -e "\nFiles marked and stored in ${BOLD}local${NORMAL} Git repository."
 	echo    "View local commits example:  '${BOLD}git log --graph --decorate --oneline --color --stat origin..HEAD${NORMAL}'"
 fi
 
