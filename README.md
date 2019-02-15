@@ -1,11 +1,4 @@
-# markit    [![Stable Release](https://img.shields.io/badge/Release-v1.197-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)
-
-[![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://GitHub.com/Naereen/StrapDown.js/commit/)
-
-
-[<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
-](https://twitter.com/bradleyaustintx/)   [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">
-](https://github.com/BradleyA/)
+# markit    [![Stable Release](https://img.shields.io/badge/Release-3.197-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.197)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.197.svg)](https://github.com/BradleyA/markit/commits/)
 
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
@@ -175,6 +168,10 @@ To install the latest commit of markit, change to the directory you want to down
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
+
+[<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
