@@ -36,8 +36,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Don't create any requirements for markit other than those required by Git
 * Support several file extensions for comment character
 * Support Bitbucket or GitLab
-* Include metadata to locate file on a remote repository
-* Able to use markit on local Git repository without network access (without 'git push')
+* Support markit on local Git repository without network access (without 'git push')
 * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a git repository), should work
 
 ## Clone
