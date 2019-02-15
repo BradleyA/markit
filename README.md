@@ -31,13 +31,13 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Support GitHub
 * Use git commit message as part of metadata
 * Use git tag as part of metadata
-* Include date and remote repository as part of metadata
-* Include path with file in remote repository as part of metadata
+* Include date and remote Git repository as part of metadata
+* Include path with file in remote Git repository as part of metadata
 * Don't create any requirements for markit other than those required by Git
 * Support several file extensions for comment character
 * Support Bitbucket or GitLab
 * Support markit on local Git repository without network access (without 'git push')
-* Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a git repository), should work
+* Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work
 
 ## Clone
 To clone, change to the directory you want to download into. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory include in your PATH (/usr/local/bin, ~/bin).
@@ -55,11 +55,11 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
 ## Output
 
     $ markit
-    Files to be marked and pushed to  remote  repository:
+    Files to be marked and pushed to remote Git repository:
 
     testfiles/sample.sh
 
-    Current git repository release number:  3.196
+    Current Git repository release number:  3.196
     Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
 
     3.197
@@ -86,7 +86,7 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
        46f4c0d..7cfa702  master -> master
      * [new tag]         3.197 -> 3.197
 
-    Files marked and stored in  remote  repository.
+    Files marked and stored in remote Git repository.
     View commits example:  'git log --graph --decorate --oneline --color --stat'
     2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.```
 
@@ -133,7 +133,7 @@ Make a change to testfiles/sample.sh.
 
     edit testfiles/sample.sh
     
-Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.  **That is it!**
+Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
 
     ./markit
 
@@ -147,13 +147,13 @@ Make a change to testfiles/sample.sh
 
     edit testfiles/sample.sh
 
-Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote repository.
+Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.
 
     ./markit
     
 The file testfiles/sample.sh has been updated with metabeta, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
 
-View ./markit help pages to learn more about how markit works with tracked and untracked files and without network access to Git remote repository. 
+View ./markit help pages to learn more about how markit works with tracked and untracked files and without network access to remote Git repository. 
 
     ./markit --help
 
