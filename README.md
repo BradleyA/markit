@@ -24,7 +24,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 ## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
-* Supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning
+* Supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning (v0.1.64-alpha)
 * Only update modified files by inserting two comment lines with metadata
 * Insert the lines of metadata after the first line in files
 * Support GitHub
@@ -186,6 +186,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 MIT License
 
 Copyright (c) 2019  [Bradley Allen](https://www.linkedin.com/in/bradleyhallen)
+ [Bradley Allen <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x25.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
