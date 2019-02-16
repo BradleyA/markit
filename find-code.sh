@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.205.487  2019-02-16T15:34:20.132506-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.204  
+# 	   typo in display_help 
 # 	find-code.sh  3.154.314  2019-01-21T10:35:35.944657-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 # 	   production standard 5 include Copyright notice 
 # 	find-code.sh  3.152.312  2019-01-19T23:26:41.498938-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
@@ -61,7 +63,7 @@ echo    "defining environment variables if you are using other shells."
 echo    "   CLUSTER       (default us-tx-cluster-1/)"
 echo    "   DATA_DIR      (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE  (default SYSTEMS)"
-echo    "   DEBUG       (default '0')"
+echo    "   DEBUG         (default '0')"
 echo -e "\nOPTIONS"
 echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
 echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
