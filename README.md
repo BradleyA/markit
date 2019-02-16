@@ -100,7 +100,7 @@ Mark a **tracked modified file**, in your local Git repository and push those ch
     echo "Hello World"
 
 ## Usage
-Check a file release that was marked using markit with the file repository release.
+Check the file version of markit, with the remote Git repository file version.  
 
     check-markit markit 
 
