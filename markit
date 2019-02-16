@@ -1,20 +1,10 @@
 #!/bin/bash
-#	markit  3.201.482  2019-02-15T14:39:14.900863-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.200-76-g1459624  
-#	   update comments 
+#	markit  3.204.486  2019-02-16T14:33:13.230013-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.201-3-g6e0dc34  
+#	   markit from bitbucket includes github URL not Bitbucket URL on line 2 close #62 
 #	markit  3.200.405  2019-02-09T20:47:52.382189-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.199  
 #	   close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think 
-#	markit  3.199.404  2019-02-09T20:37:19.804963-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.198-4-g9715d41  
-#	   testing #28 
-#	markit  3.198.399  2019-02-09T20:19:33.752338-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.197-30-gc54bce2  
-#	   testing #28 again with Environment Variables MARKITLOCAL 
-#	markit  3.196.366  2019-02-08T20:04:48.891593-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.195  
-#	   update display_help #61 
 #	markit  3.191.361  2019-02-07T20:52:52.322328-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.190  
 #	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
-#	markit  3.182.351  2019-02-07T10:55:01.874044-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.181  
-#	   update user help message during failed git push 
-#	markit  3.169.334  2019-02-06T11:40:17.471516-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.168  
-#	   add support for tcsh csh ksh etc close #59 
 #	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 #	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
