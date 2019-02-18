@@ -162,7 +162,7 @@ Continue testing with the other test files to help you integrate markit with you
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
 ## Install
-To install the latest commit of markit, change to the directory you want to download the script to (usr/local/bin) and enter the follow command.
+To install the latest commit of markit, change to the directory you want to download the script to (/usr/local/bin) and enter the follow command.
 
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
