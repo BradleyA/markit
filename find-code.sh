@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.205.487  2019-02-16T15:34:20.132506-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.204  
-# 	   typo in display_help 
+# 	find-code.sh  3.206.494  2019-02-20T15:41:14.388035-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.205-6-gc359d9f  
+# 	   change find so one line for each local repository is printed 
 # 	find-code.sh  3.154.314  2019-01-21T10:35:35.944657-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
 # 	   production standard 5 include Copyright notice 
 # 	find-code.sh  3.152.312  2019-01-19T23:26:41.498938-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
@@ -116,7 +116,8 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 
 ###
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
-REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
+#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
+REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
 
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
