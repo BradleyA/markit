@@ -120,7 +120,7 @@ Check the file version of markit, with the remote Git repository file version.
     2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
 
 ## Getting Started
-*Fork https://github.com/BradleyA/markit* repository so you can modify the test files while learning how simple it is to work with markit.  
+**Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
 
 On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
 
