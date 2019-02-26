@@ -39,7 +39,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Support Bitbucket or GitLab
 * Support Git local repository without network access (without 'git push')
 * Support push to multiple Git remote repositories at once (edit .git/config)
-* Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog] (https://github.com/dxa4481/truffleHog)
+* Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog)
 
 ## Clone
 To clone, change to the directory you want to download into. Use git clone into the directory. If you do not have Git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory include in your PATH (/usr/local/bin, ~/bin).
