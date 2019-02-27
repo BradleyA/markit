@@ -50,7 +50,7 @@ To clone, change to the directory you want to download into. Use git clone into 
     cd <local Git repository>
 
 ## Usage
-Mark a **tracked modified file**, in your local Git repository and push those changes to GitHub.
+Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
 
     markit 
 
@@ -135,11 +135,11 @@ Make a change to testfiles/sample.sh.
 
     edit testfiles/sample.sh
     
-Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your repository.  Enter the next version number when prompted and a brief description of the change to testfiles/sample.sh.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
+Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
 
     ./markit
 
-Check if your local version of testfiles/sample.sh is the same version that is on your remote GitHub repository.
+Check if your local version of testfiles/sample.sh is the same version that is on your remote Git repository.
 
     ./check-markit -f ./testfiles/sample.sh
 
@@ -159,7 +159,7 @@ View ./markit help pages to learn more about how markit works with tracked and u
 
     ./markit --help
 
-Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number so GitHub will update the issue with the changes.
+Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number and GitHub will update the issue.
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
