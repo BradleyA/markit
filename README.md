@@ -1,6 +1,6 @@
 # markit  [![Stable Release](https://img.shields.io/badge/Release-3.206-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.206)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.206.svg)](https://github.com/BradleyA/markit/commits/)
 
-Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, or GitLab.
+Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
 
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
