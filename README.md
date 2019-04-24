@@ -34,7 +34,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Use git tag as part of metadata
 * Include date and remote Git repository as part of metadata
 * Include path with filename in remote Git repository as part of metadata
-* Don't create any requirements for markit other than those required by Git
+* Don't create any requirements for markit other than the version and those required by Git
 * Support several file extensions for comment character
 * Support Bitbucket or GitLab
 * Support Git local repository without network access (without 'git push')
