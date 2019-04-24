@@ -12,7 +12,7 @@ Markit supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) a
 
 If environment variable MARKITLOCAL is set to 1, markit automates this git commit process, but does not push to GitHub repository or Bitbucket repository or GitLab project.  I find this helpful when working without network access to a remote Git repository.  If using the bash shell, enter; 'export MARKITLOCAL=1' on the command line to set the MARKITLOCAL environment variable to '1'.  Use the command, 'unset MARKITLOCAL' to remove the exported information from the MARKITLOCAL environment variable.  You are on your own defining environment variables if you are using other shells.
 
-The comment lines include:
+The two comment lines of metadata include:
 
  * file_name, file_version.commits, date, remote_repository, developer, hostname, parent git-tag-commit_number-hash
  * a one line breif description about the changes
