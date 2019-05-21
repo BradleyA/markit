@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.210.512  2019-05-21T13:32:34.729227-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.209-9-g3b1367c  
+#	   markit - add file types for terraform close #64 
 #	markit  3.204.486  2019-02-16T14:33:13.230013-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.201-3-g6e0dc34  
 #	   markit from bitbucket includes github URL not Bitbucket URL on line 2 close #62 
 #	markit  3.200.405  2019-02-09T20:47:52.382189-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.199  
@@ -13,7 +15,6 @@
 #	   production standard 4 update display_help LANGUAGE close #58 
 #	markit  3.139.295  2018-11-16T21:38:57.485521-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.138  
 #	   markit change log format and order close #49 
-#
 ### markit
 #	Copyright (c) 2019 Bradley Allen
 #	License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
@@ -52,8 +53,8 @@ echo -e "\nDESCRIPTION"
 echo    "Markit is a simple bash script that adds Git verion control information to"
 echo    "files while being pushed to GitHub, Bitbucket, or GitLab (Supported files:"
 echo    "Shell(sh|bash|csh|tcsh|ksh), Go, Dockerfile, YAML, Makefile, Scala,"
-echo    "Python, Java, PHP, C, C++, JavaScript, Perl, Ruby, PowerShell, Ri,"
-echo    "C header, C++ header, HTML, Kotlin, Pascal, R, Rust, Text, XML . . . ."
+echo    "Terraform, Python, Java, PHP, C, C++, JavaScript, Perl, Ruby, PowerShell,"
+echo    " Ri, C header, C++ header, HTML, Kotlin, Pascal, R, Rust, Text, XML . . ."
 echo -e "\nMarkit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric"
 echo    "versioning.  Markit will display the current version before prompting you"
 echo    "to enter the next version.  Markit includes the number of commits with"
@@ -275,8 +276,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 #	Single-line comment character(s) matching file extension
 #	ONLY SUPPORT single-line comments NOT multiple line block comment
 	case ${FILE_EXTENSION} in
-		sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt)
-#		shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt)
+		sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt|tf|tfstate)
+#		shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt) Terraform(tf|tfstate)
 			BEGIN_COMMENT_CHAR="# "
 			END_COMMENT_CHAR=""
 			;;
