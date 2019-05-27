@@ -1,6 +1,6 @@
 #!/bin/bash
-#	check-markit  3.154.314  2019-01-21T10:35:35.804952-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
-#	   production standard 5 include Copyright notice 
+#	check-markit  3.211.515  2019-05-27T11:57:34.776493-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.210-2-g89c73a8  
+#	   check-markit - change output to include date vers version close #66 
 #	check-markit  3.152.312  2019-01-19T23:26:41.427091-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
 #	   production standard 4 update display_help LANGUAGE close #58 
 #	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
@@ -35,11 +35,7 @@ echo -e "\nDESCRIPTION"
 echo    "Check the release of a file that was marked using markit with the GitHub"
 echo    "repository or Bitbucket repository or GitLab project release.  Check-markit may"
 echo    "require --file option to include the relative or absolute path with the file name."
-echo -e "\nCheck-markit only works on files that are marked with markit release 3.10.142"
-echo    "(dated 2018-02-27_19:00:09_CST) or later releases.  Markit release 3.10.142"
-echo    "added the repository information to the second line in a marked file.  This"
-echo    "repository information is required for check-markit to locate a file on GitHub"
-echo    "or Bitbucket or GitLab."
+echo -e "\nCheck-markit only works on files that are marked after 2018-02-27."
 echo -e "\nCheck-markit only works with markit files that used the https:// URLs for"
 echo    "GitHub, Bitbucket, and GitLab repositories.  Check-markit does not currently"
 echo    "support files with SSH URLs for GitHub, Bitbucket, and GitLab repositories."
@@ -141,9 +137,9 @@ MARKIT_FILE_DATE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 
-#	Check file to determine if it was marked before markit release 3.10.142
+#	Check file to determine if it was marked before markit release 3.10.142 2018-02-27.
 if ! grep -q "https" <<< ${REPOSITORY_COMMAND}  ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${MARKIT_FILE} is not marked with markit or the --file option was not used or git origin did not include https address (git remote -v) when marked or file was marked with a release before markit 3.10.142" 1>&2
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${MARKIT_FILE} is not marked with markit or the --file option was not used or git origin did not include https address (git remote -v) when marked or file was marked after 2018-02-27." 1>&2
 	exit
 fi
 
