@@ -1,6 +1,6 @@
 #!/bin/bash
-#	check-markit  3.211.515  2019-05-27T11:57:34.776493-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.210-2-g89c73a8  
-#	   check-markit - change output to include date vers version close #66 
+#	check-markit  3.212.517  2019-05-27T17:06:49.252530-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.211-1-gb4a50e6  
+#	   create new release 
 #	check-markit  3.152.312  2019-01-19T23:26:41.427091-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
 #	   production standard 4 update display_help LANGUAGE close #58 
 #	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
