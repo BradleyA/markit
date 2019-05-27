@@ -1,4 +1,4 @@
-# markit  [![Stable Release](https://img.shields.io/badge/Release-3.210-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.210)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.210.svg)](https://github.com/BradleyA/markit/commits/)
+# markit  [![Stable Release](https://img.shields.io/badge/Release-3.212-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.212)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.212.svg)](https://github.com/BradleyA/markit/commits/)
 
 Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
 
