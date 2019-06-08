@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.213.519  2019-06-07T20:00:24.218494-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.212-1-ge62c860  
+#	   markit - remove quotes from [ERROR] about requiring a git pull first close #67 
 #	markit  3.210.512  2019-05-21T13:32:34.729227-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.209-9-g3b1367c  
 #	   markit - add file types for terraform close #64 
 #	markit  3.204.486  2019-02-16T14:33:13.230013-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.201-3-g6e0dc34  
@@ -202,8 +204,8 @@ if [ -z "${FILE_LIST}" ] ; then
 	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
 		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
 		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter '${BOLD}git add <file-name>${NORMAL}', to change <file-name> from an untracked file to a tracked file."
-		echo -e "\nOr include all untracked files and directories, enter '${BOLD}markit all${NORMAL}'.\n"
+		echo -e "${NORMAL}\nEnter ${BOLD}git add <file-name>${NORMAL} to change <file-name> from an untracked file to a tracked file."
+		echo -e "\nOr include all untracked files and directories, enter ${BOLD}markit all${NORMAL}\n"
 	fi
 	exit 1
 fi
@@ -340,15 +342,15 @@ fi
 #	If MARKITLOCAL not set, git push to remote Git repository
 if [ "${MARKITLOCAL}" == "0" ] ; then
 #	Push changes to GitHub repository or Bitbucket repository or GitLab project
-	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t'${BOLD}git push --follow-tags${NORMAL}'\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked file(s);\n\t\t${BOLD}'git pull'\n\t\t'git push --follow-tags${NORMAL}'" ; exit 1; }
+	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t${BOLD}git push --follow-tags${NORMAL}\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked file(s);\n\t\t${BOLD}git pull\n\t\tgit push --follow-tags${NORMAL}" ; exit 1; }
 #	Notify user how to view remote Git repository
 	echo -e "\nFiles marked and stored in ${BOLD}remote${NORMAL} Git repository."
-	echo    "View commits example:  '${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}'"
+	echo    "View commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}"
 
 #	If MARKITLOCAL, notify user how to view local commits
 elif [ "${MARKITLOCAL}" == "1" ] ; then
 	echo -e "\nFiles marked and stored in ${BOLD}local${NORMAL} Git repository."
-	echo    "View local commits example:  '${BOLD}git log --graph --decorate --oneline --color --stat origin..HEAD${NORMAL}'"
+	echo    "View local commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat origin..HEAD${NORMAL}"
 fi
 
 #
