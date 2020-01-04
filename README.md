@@ -181,7 +181,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 ](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
- * Ubuntu 14.04.3 LTS
+ * Ubuntu 14.04.3 LTS (amd64,armv7l)
  * Ubuntu 16.04.5 LTS (armv7l)
 
 #### Design Principles
