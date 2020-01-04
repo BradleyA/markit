@@ -1,4 +1,9 @@
 #!/bin/bash
+#	markit  3.223.537    https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.213-17-gdbee2cc  
+#	   markit  testing 
+#	   markit   Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable 
+#	markit  3.214.537    https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.213-17-gdbee2cc  
+#	   markit   Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable 
 #	markit  3.213.519  2019-06-07T20:00:24.218494-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.212-1-ge62c860  
 #	   markit - remove quotes from [ERROR] about requiring a git pull first close #67 
 #	markit  3.210.512  2019-05-21T13:32:34.729227-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.209-9-g3b1367c  
@@ -7,20 +12,11 @@
 #	   markit from bitbucket includes github URL not Bitbucket URL on line 2 close #62 
 #	markit  3.200.405  2019-02-09T20:47:52.382189-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.199  
 #	   close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think 
-#	markit  3.191.361  2019-02-07T20:52:52.322328-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.190  
-#	   markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote 
-#	markit  3.154.314  2019-01-21T10:35:41.134829-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
-#	   production standard 5 include Copyright notice 
 #	markit  3.153.313  2019-01-19T23:29:23.264621-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.152  
 #	   markit considered adapting it to Bitbucket close #38 
-#	markit  3.152.312  2019-01-19T23:26:45.803622-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
-#	   production standard 4 update display_help LANGUAGE close #58 
 #	markit  3.139.295  2018-11-16T21:38:57.485521-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.138  
 #	   markit change log format and order close #49 
-### markit
-#	Copyright (c) 2019 Bradley Allen
-#	License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-#
+#86# markit
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
 #
@@ -37,21 +33,43 @@
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
-#   production standard 5
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
-#	set -x
-#	set -v
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+#    Copyright (c) 2020 Bradley Allen                                                       # 3.550
+#    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
+#
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-###
+RED=$(tput    setaf 1)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput   setaf 6)
+WHITE=$(tput  setaf 7)
+
+###  Production standard 7.0 Default variable value
+
+###  Production standard 8.3.541 --usage
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
+display_usage() {
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   add Git verion control information, push to GitHub or Bitbucket or GitLab"
+echo -e "\n${BOLD}USAGE${NORMAL}"
+echo -e "   ${COMMAND_NAME} [no | normal | all]\n"
+echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
+echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
+echo    "   ${COMMAND_NAME} [--version | -version | -v]"
+}
+
+###  Production standard 0.3.550 --help                                                     # 3.550
 display_help() {
-echo -e "\n${NORMAL}${0} - add Git verion control information, push to GitHub or Bitbucket or GitLab" 
-echo -e "\nUSAGE\n   ${0} [no | normal | all]"
-echo    "   ${0} [--help | -help | help | -h | h | -?]"
-echo    "   ${0} [--version | -version | -v]"
-echo -e "\nDESCRIPTION"
-#       Displaying help DESCRIPTION in English en_US.UTF-8
+display_usage
+#    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
+echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo    "Markit is a simple bash script that adds Git verion control information to"
 echo    "files while being pushed to GitHub, Bitbucket, or GitLab (Supported files:"
 echo    "Shell(sh|bash|csh|tcsh|ksh), Go, Dockerfile, YAML, Makefile, Scala,"
@@ -79,88 +97,135 @@ echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  To"
 echo    "include all tracked and untracked file(s) enter, 'markit all'.  To"
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore"
 echo    "file."
-#       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
-if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
-        echo -e "\n--> ${LANG}"
-        echo    "<votre aide va ici>" # your help goes here
-        echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
-elif ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
+
+###  Production standard 4.3.550 Documentation Language                                     # 3.550
+#    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
+if [[ "${LANG}" == "fr_CA.UTF-8" ]] || [[ "${LANG}" == "fr_FR.UTF-8" ]] || [[ "${LANG}" == "fr_CH.UTF-8" ]] ; then
+  echo -e "\n--> ${LANG}"
+  echo    "<votre aide va ici>" # your help goes here
+  echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
+elif ! [[ "${LANG}" == "en_US.UTF-8" ||  "${LANG}" == "en.UTF-8" || "${LANG}" == "C.UTF-8" ]] ; then  # 3.550
+  new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
-echo -e "\nEnvironment Variables"
+
+echo -e "\n${BOLD}ENVIRONMENT VARIABLES${NORMAL}"
 echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
-echo    "the DEBUG environment variable to '1' (0 = debug off, 1 = debug on).  Use the"
-echo    "command, 'unset DEBUG' to remove the exported information from the DEBUG"
-echo    "environment variable.  You are on your own defining environment variables if"
+echo    "the environment variable DEBUG to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the environment"
+echo    "variable DEBUG.  You are on your own defining environment variables if"
 echo    "you are using other shells."
-echo    "   DEBUG       (default '0')"
-echo    "   MARKITLOCAL push to remote Git repository (default '0')"
-echo    "               export MARKITLOCAL=1 only commit to local Git repository, do not"
-echo    "               push to remote Git repository"
-echo -e "\nOPTIONS\n   UNTRACKED_FILES - used to specify the handling of untracked files"
-echo    "      no       no untracked files (default)"
-echo    "      normal   untracked files and directories"
-echo    "      all      Also individual files in untracked directories"
-echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES"
-echo -e "   ${BOLD}${0}${NORMAL}\n\n   Mark tracked file(s) and push to remote Git repository\n"
-echo -e "   ${BOLD}${0} all${NORMAL}\n\n   Mark tracked and untracked files, directories, and files in untracked\n   directories\n"
-echo -e "   ${BOLD}export MARKITLOCAL=1"
-echo -e "   ${0}${NORMAL}\n"
-echo -e "   Mark tracked file(s) but don't push to remote Git repository, only update\n   local repository\n"
+
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 3.550
+echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 3.550
+echo    "                   all DEBUG messages during execution of this script.  The"       # 3.550
+echo    "                   setting 1 will print all DEBUG messages during execution."      # 3.550
+echo    "                   Setting 2 (set -x) will print a trace of simple commands"       # 3.550
+echo    "                   before they are executed.  Setting 3 (set -v) will print"       # 3.550
+echo    "                   shell input lines as they are read.  Setting 4 (set -e) will"   # 3.550
+echo    "                   exit immediately if non-zero exit status is recieved with"      # 3.550
+echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
+echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
+echo    "                   more information about the set options, see man bash."          # 3.550
+
+echo    "   MARKITLOCAL     push to remote Git repository (default '0')"
+echo    "                   export MARKITLOCAL=1 only commit to local Git repository, do not"
+echo    "                   push to remote Git repository"
+
+echo -e "\n${BOLD}OPTIONS${NORMAL}"
+echo -e "   UNTRACKED_FILES - used to specify the handling of untracked files"
+echo    "      no           no untracked files (default)"
+echo    "      normal       untracked files and directories"
+echo    "      all          Also individual files in untracked directories"
+
+echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
+echo    "   https://github.com/BradleyA/markit/blob/master/README.md"
+
+echo -e "\n${BOLD}EXAMPLES${NORMAL}"
+echo -e "   Mark tracked file(s) and push to remote Git repository\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" #  3.550
+echo -e "   Mark tracked and untracked files, directories, and files in untracked\n  directories\n\t${BOLD}${COMMAND_NAME} all${NORMAL}\n"  # 3.550
+echo -e "   Mark tracked file(s) but don't push to remote Git repository, only update\n   local repository\n\t${BOLD}export MARKITLOCAL=1 ; ${COMMAND_NAME}${NORMAL}\n"  # 3.550
+
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   check-markit (https://github.com/BradleyA/markit/blob/master/README.md)"        # 3.550
+
+echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
+echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
+
+echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
+echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/markit/issues/new/choose"  # 3.550
+
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
+echo    "   Copyright (c) 2020 Bradley Allen"                                               # 3.550
+echo    "   MIT License https://github.com/BradleyA/user-files/blob/master/LICENSE"         # 3.550
 }
 
-#       Date and time function ISO 8601
+#    Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-TEMP=$(date +%Z)
-DATE_STAMP="${DATE_STAMP} (${TEMP})"
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
 }
 
-#       Fully qualified domain name FQDN hostname
+#    Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
 
-#       Version
-SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
-SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+#    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used any where in script (for dev, test teams)
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 
-#       UID and GID
-USER_ID=$(id -u)
+#    GID
 GROUP_ID=$(id -g)
 
-#       Default help and version arguments
-if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
-        display_help | more
-        exit 0
-fi
-if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
-        echo "${SCRIPT_NAME} ${SCRIPT_VERSION}"
-        exit 0
-fi
+###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+}
 
-#       DEBUG
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Name_of_command >${0}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    DEBUG
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+
+###  Production standard 9.3.513 Parse CLI options and arguments
+while [[ "${#}" -gt 0 ]] ; do
+  case "${1}" in
+    --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
+    --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
+    --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
+    *) break ;;
+  esac
+done
 
 ###
-#       Check if bash-completion/completions/git file on system
-if [ -e /usr/share/bash-completion/completions/git ] ; then
-	#	This is to support __gitdir in the following section
-	source /usr/share/bash-completion/completions/git
+
+#    Check if bash-completion/completions/git file on system
+if [[ -e /usr/share/bash-completion/completions/git ]] ; then
+  #  This is to support __gitdir in the following section
+  source /usr/share/bash-completion/completions/git
 else
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  /usr/share/bash-completion/completions/git NOT found" 1>&2
+   new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  /usr/share/bash-completion/completions/git NOT found" 1>&2
 fi
 
-#	Check if in Git repository
+#    Check if in Git repository
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
-	echo -e "Check if you are in a Git repository and you have Git permission.  Current directory $(pwd)" 1>&2
-	exit 0
+   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Check if you are in a Git repository and you have Git permission.  Current directory $(pwd)" 1>&2
+  exit 1
 fi
 
-#       Check if environment variable, default 0
-if [ "${MARKITLOCAL}" == "" ] ; then MARKITLOCAL="0" ; fi
+#    Check if environment variable, default 0
+if [[ "${MARKITLOCAL}" == "" ]] ; then MARKITLOCAL="0" ; fi
 
-#	Check if remote Git repository has been setup #28
-git rev-list HEAD 1> /dev/null || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Remote Git repository has not been setup or git clone <remote-repository> was not used to pull remote Git repository before using markit.  ${BOLD}A remote Git repository is required before markit will work with local or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
+#    Check if remote Git repository has been setup #28
+git rev-list HEAD 1> /dev/null || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Remote Git repository has not been setup or git clone <remote-repository> was not used to pull remote Git repository before using markit.  ${BOLD}${YELLOW}A remote Git repository is required before markit will work with local or remote repositories.${NORMAL}" 1>&2 ; exit 1; }
 
 #
 UNTRACKED_FILES=${1:-no}
@@ -168,92 +233,91 @@ BEGIN_COMMENT_CHAR=""
 END_COMMENT_CHAR=""
 REMOTE_REPOSITORY=$(git ls-remote --get-url)
 TEMP_FILE="TEMP_MARKIT_FILE"
-#	The FILE_MESSAGE is a one line breif description about the changes.
+#    The FILE_MESSAGE is a one line breif description about the changes.
 FILE_MESSAGE=""
 FILE_RELEASE=""
 
-#	Check if no tag for file ; first time Git repository is being tagged
-if ! [ "$(git tag)" == "" ] ; then
+#    Check if no tag for file ; first time Git repository is being tagged
+if ! [[ "$(git tag)" == "" ]] ; then
 # >>> # ??	read about this online: 
 # >>>		need to check this out later: git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1
 # >>>		latest tagged commit across all branches
-	CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
+  CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
 else
-	CURRENT_RELEASE="0.1.1"
+  CURRENT_RELEASE="0.1.1"
 fi
 
-#	Check arguement 1 for --untracked-files
-if [ "$1" != "no" ] && [ "$1" != "normal" ] && [ "$1" != "all" ] && [ "$1" != "" ] ; then
-	display_help | more
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  First arguement, ${1}, is NOT no, normal, all." 1>&2
-	exit 0
+#    Check arguement 1 for --untracked-files
+if [[ "$1" != "no" ]] && [[ "$1" != "normal" ]] && [[ "$1" != "all" ]] && [[ "$1" != "" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  First arguement, ${1}, is NOT no, normal, all." 1>&2
+  exit 1
 fi
 
-#	Change to top level git directory to include it with ${FILE_NAME} on line one item 2  #39
-#	By changing ${FILE_NAME} to include the directory, all the information
-#	is available to find ${FILE_NAME}'s location in GitHub or Bitbucket repository or GitLab repository
+#    Change to top level git directory to include it with ${FILE_NAME} on line one item 2  #39
+#    By changing ${FILE_NAME} to include the directory, all the information
+#    is available to find ${FILE_NAME}'s location in GitHub or Bitbucket repository or GitLab repository
 cd $(git rev-parse --show-toplevel)
 
-#	Create FILE_LIST, remove deleted files from FILE_LIST
+#    Create FILE_LIST, remove deleted files from FILE_LIST
 FILE_LIST=$(git status -s --untracked-files="${UNTRACKED_FILES}" | grep -v '^D  ' | awk '{print $2}')
 
-#	Check if ${FILE_LIST} is zero length
-if [ -z "${FILE_LIST}" ] ; then
-	echo -e "No tracked file(s) found to mark and push." 1>&2
-#	Display untracked file(s)
-	if [ $(git status --untracked-file=all -s | wc -l) ] ; then 
-		echo -e "${NORMAL}\nList of untracked file(s).${BOLD}\n"
-		git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
-		echo -e "${NORMAL}\nEnter ${BOLD}git add <file-name>${NORMAL} to change <file-name> from an untracked file to a tracked file."
-		echo -e "\nOr include all untracked files and directories, enter ${BOLD}markit all${NORMAL}\n"
-	fi
-	exit 1
+#    Check if ${FILE_LIST} is zero length
+if [[ -z "${FILE_LIST}" ]] ; then
+  echo -e "No tracked file(s) found to mark and push." 1>&2
+#    Display untracked file(s)
+  if [[ $(git status --untracked-file=all -s | wc -l) ]] ; then 
+    echo -e "${NORMAL}\nList of untracked file(s).${BOLD}${CYAN}\n"
+    git status --untracked-file=all -s | grep '?? ' | sed 's/^??//'
+    echo -e "${NORMAL}\nEnter ${BOLD}${YELLOW}git add <file-name>${NORMAL} to change <file-name> from an untracked file to a tracked file."
+    echo -e "\nOr include all untracked files and directories, enter ${BOLD}${YELLOW}markit all${NORMAL}\n"
+  fi
+  exit 1
 fi
 
-#	Check if user has write permission
-if ! $(touch ${TEMP_FILE} > /dev/null 2>&1 ) ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${USER} does NOT have write permission in local Git repository directory $(pwd)" 1>&2
-	exit 1
+#    Check if user has write permission
+if ! $(touch "${TEMP_FILE}" > /dev/null 2>&1 ) ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${USER} does NOT have write permission in local Git repository directory $(pwd)" 1>&2
+  exit 1
 fi
-rm -f ${TEMP_FILE}
+rm -f "${TEMP_FILE}"
 
-#       Check if remote or local Git repository then notify user
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKITLOCAL >${MARKITLOCAL}<" 1>&2 ; fi
-if [ "${MARKITLOCAL}" == "0" ] ; then
-	echo -e "${NORMAL}Files to be marked and pushed to ${BOLD}remote${NORMAL} Git repository:"
-elif [ "${MARKITLOCAL}" == "1" ] ; then
-	echo -e "${NORMAL}Files to be marked for ${BOLD}local${NORMAL} Git repository and NOT pushed to remote Git repository:"
+#    Check if remote or local Git repository then notify user
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKITLOCAL >${MARKITLOCAL}<" 1>&2 ; fi
+if [[ "${MARKITLOCAL}" == "0" ]] ; then
+  echo -e "${NORMAL}Files to be marked and pushed to ${BOLD}remote${NORMAL} Git repository:"
+elif [[ "${MARKITLOCAL}" == "1" ]] ; then
+  echo -e "${NORMAL}Files to be marked for ${BOLD}local${NORMAL} Git repository and NOT pushed to remote Git repository:"
 else
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Environment Variables MARKITLOCAL is not set to 0 or 1.  Current setting for MARKITLOCAL >${MARKITLOCAL}<" 1>&2
-	exit
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Environment Variables MARKITLOCAL is not set to 0 or 1.  Current setting for MARKITLOCAL >${MARKITLOCAL}<" 1>&2
+  exit 1
 fi
 
-#	Prompt for release number
-echo -e "\n${BOLD}${FILE_LIST}${NORMAL}"
-echo -e "\nCurrent Git repository release number:  ${BOLD}${CURRENT_RELEASE}${NORMAL}"
+#    Prompt for release number
+echo -e "\n${BOLD}${CYAN}${FILE_LIST}${NORMAL}"
+echo -e "\nCurrent Git repository release number:  ${BOLD}${YELLOW}${CURRENT_RELEASE}${NORMAL}"
 echo -e "Enter ${BOLD}release number${NORMAL} to commit files (example 3.41.7) or ctrl-c to stop.\n"
 read     FILE_RELEASE
-if [ -z "${FILE_RELEASE}" ] ; then
-	FILE_RELEASE=${CURRENT_RELEASE}
+if [[ -z "${FILE_RELEASE}" ]] ; then
+  FILE_RELEASE="${CURRENT_RELEASE}"
 fi
 
-#	Warn user if release number is not great than ${CURRENT_RELEASE}
-#	Use case requires a WARNING not an ERROR ; see issue #14 for more information
-if [ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ] || [ "${CURRENT_RELEASE}" \> "${FILE_RELEASE}" ] ; then
-	echo -e "Release number may not be greater than current release number." 1>&2
+#    Warn user if release number is not great than ${CURRENT_RELEASE}
+#    Use case requires a WARNING not an ERROR ; see issue #14 for more information
+if [[ "${CURRENT_RELEASE}" == "${FILE_RELEASE}" ]] || [[ "${CURRENT_RELEASE}" > "${FILE_RELEASE}" ]] ; then
+  echo -e "${BOLD}${YELLOW}Release number may not be greater than current release number.${NORMAL}" 1>&2
 fi
-echo -e "\nUsing release number:  ${BOLD}${FILE_RELEASE}${NORMAL}"  1>&2
+echo -e "\nUsing release number:  ${BOLD}${YELLOW}${FILE_RELEASE}${NORMAL}"  1>&2
 
-#	Prompt for single line change description
-echo -e "\n${NORMAL}Enter a ${BOLD}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
+#    Prompt for single line change description
+echo -e "\n${NORMAL}Enter a ${BOLD}${YELLOW}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
 read FILE_MESSAGE
-if [ -z "${FILE_MESSAGE}" ] ; then
-	echo -e "${NORMAL}Single-line description is ${BOLD}required${NORMAL}.\nTo display your changes between commits,  ${BOLD}git diff <file_name>${NORMAL}." 1>&2
-	exit 1
+if [[ -z "${FILE_MESSAGE}" ]] ; then
+  echo -e "${NORMAL}Single-line description is ${BOLD}${YELLOW}required${NORMAL}.\nTo display your changes between commits,  ${BOLD}${YELLOW}git diff <file_name>${NORMAL}." 1>&2
+  exit 1
 fi
 
 #	Mark each file
-for FILE_NAME in ${FILE_LIST} ; do
+for FILE_NAME in "${FILE_LIST}" ; do
 #
 # >>> #15	In the future, Use markit solution for source code and create a wrapper during compile/build time ?
 # >>>	This will change the extension case statement objective: move from comments to variables in compiled code
@@ -268,91 +332,90 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>>	                        x.o $Version_message: XXXX '$'
 #
 # >>> #21	Create a case statement if other non-extension files like Dockerfile or Makefile need support
-	if [ "${FILE_NAME##*/}" == "Dockerfile" ] || [ "${FILE_NAME##*/}" == "Makefile" ] ; then
-		BEGIN_COMMENT_CHAR="#	"
-		END_COMMENT_CHAR=""
-	else
+  if [[ "${FILE_NAME##*/}" == "Dockerfile" ]] || [[ "${FILE_NAME##*/}" == "Makefile" ]] ; then
+    BEGIN_COMMENT_CHAR="#	"
+    END_COMMENT_CHAR=""
+  else
 # >>> #??	This does not work if the last character is '.' but it does work if more than one "."
-	FILE_EXTENSION=${FILE_NAME##*\.}
-	echo -e "\n\t${BOLD}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
-#	Single-line comment character(s) matching file extension
-#	ONLY SUPPORT single-line comments NOT multiple line block comment
-	case ${FILE_EXTENSION} in
-		sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt|tf|tfstate)
-#		shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt) Terraform(tf|tfstate)
-			BEGIN_COMMENT_CHAR="# "
-			END_COMMENT_CHAR=""
-			;;
-		c|h|H|hpp|hxx|Hxx|HXX)
-#		c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
-			BEGIN_COMMENT_CHAR="/* "
-			END_COMMENT_CHAR=" */"
-			;;
-		cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
-#		C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal(p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
-			BEGIN_COMMENT_CHAR="// "
-			END_COMMENT_CHAR=""
-			;;
-		xml|html|htm)
-#		XML(xml) HTML (html|htm) 
-			BEGIN_COMMENT_CHAR="<!-- "
-			END_COMMENT_CHAR=" -->"
-			;;
-		*)
-#			Prompt for single-line beginning comment character(s)
-			echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
-			read BEGIN_COMMENT_CHAR
-			if [ -z "${BEGIN_COMMENT_CHAR}" ] ; then
-				display_help | more
-				get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Single-line comment character(s) is required.\n"       1>&2
-				exit 1
-			fi
-			echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}.\nPress enter for none.\n\t(example: */ --> ---> -} */ --]] %} *) #> )"
-			read END_COMMENT_CHAR
-			;;
-	esac
-	fi
-	head -1 "${FILE_NAME}" >> ${TEMP_FILE}
-#	${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} ${LOCALHOST} (git describe)
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}<" 1>&2 ; fi
-#	Check if no tag for file / first time in Git repository is being tagged
-	get_date_stamp
-	if ! [ "$(git tag)" == "" ] ; then
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} $(git describe)  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	else
-		echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	fi
-	echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> ${TEMP_FILE}
-	tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> ${TEMP_FILE}
-	cp "${TEMP_FILE}" "${FILE_NAME}"
-	rm "${TEMP_FILE}"
-#	Add file contents to the index
-	git add "${FILE_NAME}"
+    FILE_EXTENSION=${FILE_NAME##*\.}
+    echo -e "\n\t${BOLD}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
+#    Single-line comment character(s) matching file extension
+#    ONLY SUPPORT single-line comments NOT multiple line block comment
+    case "${FILE_EXTENSION}" in
+      sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt|tf|tfstate)
+#     shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt) Terraform(tf|tfstate)
+        BEGIN_COMMENT_CHAR="# "
+        END_COMMENT_CHAR=""
+        ;;
+      c|h|H|hpp|hxx|Hxx|HXX)
+#     c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
+        BEGIN_COMMENT_CHAR="/* "
+        END_COMMENT_CHAR=" */"
+        ;;
+      cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
+#     C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal(p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
+        BEGIN_COMMENT_CHAR="// "
+        END_COMMENT_CHAR=""
+        ;;
+      xml|html|htm)
+#     XML(xml) HTML (html|htm) 
+        BEGIN_COMMENT_CHAR="<!-- "
+        END_COMMENT_CHAR=" -->"
+        ;;
+      *)
+#     Prompt for single-line beginning comment character(s)
+        echo -e "\nEnter single-line  ${BOLD}BEGINNING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
+        read BEGIN_COMMENT_CHAR
+        if [ -z "${BEGIN_COMMENT_CHAR}" ] ; then
+          display_help | more
+          new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Single-line comment character(s) is required.\n"  1>&2
+          exit 1
+        fi
+        echo -e "\nEnter single-line  ${BOLD}ENDING${NORMAL}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}.\nPress enter for none.\n\t(example: */ --> ---> -} */ --]] %} *) #> )"
+        read END_COMMENT_CHAR
+        ;;
+    esac
+  fi
+  head -1 "${FILE_NAME}" >> "${TEMP_FILE}"
+#    ${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${USER} ${LOCALHOST} (git describe)
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}<" 1>&2 ; fi
+#    Check if no tag for file / first time in Git repository is being tagged
+  if ! [[ "$(git tag)" == "" ]] ; then
+    echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} $(git describe)  ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
+  else
+    echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${USER}  ${LOCALHOST} 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
+  fi
+  echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
+  tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> "${TEMP_FILE}"
+  cp "${TEMP_FILE}" "${FILE_NAME}"
+# >>>  rm "${TEMP_FILE}"
+#    Add file contents to the index
+  git add "${FILE_NAME}"
 done
 echo "${NORMAL}"
 
-#	Commit file(s)
+#    Commit file(s)
 git commit -m "${FILE_MESSAGE}"
 
-#	If new release number, Tag file(s)
-if ! [ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ] ; then
-	git tag -a ${FILE_RELEASE} -m "${FILE_MESSAGE}"
+#    If new release number, Tag file(s)
+if ! [[ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ]] ; then
+  git tag -a "${FILE_RELEASE}" -m "${FILE_MESSAGE}"
 fi
 
-#	If MARKITLOCAL not set, git push to remote Git repository
-if [ "${MARKITLOCAL}" == "0" ] ; then
-#	Push changes to GitHub repository or Bitbucket repository or GitLab project
-	git push --follow-tags  || { get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}\n\tIf invalid username or password message then enter the following\n\tcommand to complete pushing marked file(s) with the correcet password;\n\t\t${BOLD}git push --follow-tags${NORMAL}\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked file(s);\n\t\t${BOLD}git pull\n\t\tgit push --follow-tags${NORMAL}" ; exit 1; }
-#	Notify user how to view remote Git repository
-	echo -e "\nFiles marked and stored in ${BOLD}remote${NORMAL} Git repository."
-	echo    "View commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}"
+#     If MARKITLOCAL not set, git push to remote Git repository
+if [[ "${MARKITLOCAL}" == "0" ]] ; then
+#    Push changes to GitHub repository or Bitbucket repository or GitLab project
+  git push --follow-tags  || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  If invalid username or password message then enter the following\n\tcommand to complete pushing marked files with the correcet password;\n\t\t${BOLD}git push --follow-tags${NORMAL}\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked files;\n\t\t${BOLD}git pull\n\t\tgit push --follow-tags${NORMAL}" ; exit 1; }
+#    Notify user how to view remote Git repository
+  echo -e "\n${YELLOW}Files marked and stored in ${BOLD}remote${NORMAL}${YELLOW} Git repository."
+  echo    "View commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}"
 
-#	If MARKITLOCAL, notify user how to view local commits
-elif [ "${MARKITLOCAL}" == "1" ] ; then
-	echo -e "\nFiles marked and stored in ${BOLD}local${NORMAL} Git repository."
-	echo    "View local commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat origin..HEAD${NORMAL}"
+#    If MARKITLOCAL, notify user how to view local commits
+elif [[ "${MARKITLOCAL}" == "1" ]] ; then
+  echo -e "\n${YELLOW}Files marked and stored in ${BOLD}local${NORMAL}${YELLOW} Git repository."
+  echo    "View local commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat origin..HEAD${NORMAL}"
 fi
 
 #
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
 ###
