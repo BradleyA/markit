@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.240.556  2020-01-06T13:01:45.344169-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.239  
+#	   markit   testing changes 
 #	markit  3.239.555  2020-01-06T12:32:12.197450-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.238-2-g815326c  
 #	   markit   added ligic 
 #	markit  3.238.552  2020-01-06T12:22:59.362570-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.237  
@@ -296,7 +298,7 @@ fi
 #    Prompt for release number
 echo -e "\n${BOLD}${CYAN}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent Git repository release number:  ${BOLD}${YELLOW}${CURRENT_RELEASE}${NORMAL}"
-echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples 3.41.7   v0.1.64-alpha) or ctrl-c to stop.\n"
+echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples:  3.217  3.41.7  v0.1.64-alpha) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [[ -z "${FILE_RELEASE}" ]] ; then
   FILE_RELEASE="${CURRENT_RELEASE}"
@@ -310,9 +312,9 @@ fi
 echo -e "\nUsing release number:  ${BOLD}${YELLOW}${FILE_RELEASE}${NORMAL}"  1>&2
 
 #    Prompt for single line change description
-FIRST_FILE=$(echo ${FILE_LIST} | head -n1)
-echo ">${FIRST_FILE}<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-echo -e "\n${NORMAL}Enter a ${BOLD}${YELLOW}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example: Added logic for --help; closes #12, resolves #14):\n"
+FIRST_FILE=$(echo ${FILE_LIST} | head -n1 | cut -d ' ' -f1)
+echo ">${FILE_LIST}<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo -e "\n${NORMAL}Enter a ${BOLD}${YELLOW}one line description${NORMAL} about the changes or ctrl-c to stop.\n\t(example:  ${FIRST_FILE}   Added logic for --help; closes #12, resolves #14):\n"
 read FILE_MESSAGE
 if [[ -z "${FILE_MESSAGE}" ]] ; then
   echo -e "${NORMAL}Single-line description is ${BOLD}${YELLOW}required${NORMAL}.\nTo display your changes between commits,  ${BOLD}${YELLOW}git diff <file_name>${NORMAL}." 1>&2
