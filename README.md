@@ -50,7 +50,8 @@ To clone, change to the directory you want to download into. Use git clone into 
     git clone https://github.com/BradleyA/markit
     cd markit
     cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
-    cd <local Git repository>
+    cd ..
+    rm -r ./markit
 
 ## Usage
 Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
