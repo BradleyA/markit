@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.248.570  2020-01-06T21:51:43.386473-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.247  
+#	   check-markit   update 
 #	check-markit  3.247.569  2020-01-06T21:10:05.325870-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.246  
 #	   check-markit   update 
 #	check-markit  3.246.568  2020-01-06T20:48:37.248071-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.245  
@@ -30,6 +32,7 @@ CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
+MARKIT_FILE=""
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -142,42 +145,49 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
 
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
+#    Added following code because USER is not defined in crobtab jobs
+if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${USER}<  LOGNAME >${LOGNAME}<" 1>&2 ; fi
 
+#    DEBUG
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
 
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Started..." 1>&2
-
-#       DEBUG
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Name_of_command >${0}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+###  Production standard 9.3.513 Parse CLI options and arguments
+while [[ "${#}" -gt 0 ]] ; do
+  case "${1}" in
+    --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
+    --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
+    --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
+    -f|--file)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${BOLD}${YELLOW}${1}${NORMAL} is not found on command line" 1>&2 ; exit 1 ; fi ; FILE_NAME=${2} ; shift 2 ;;
+    *) break ;;
+  esac
+done
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... ADMUSER >${ADMUSER}< CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< FILE_NAME >${FILE_NAME}< SSH_USER >${SSH_USER}< USER_HOME >${USER_HOME}<" 1>&2 ; fi
 
 ###
-#       Check if argument 1 is blank
-if [ "${1}" == "" ] ; then
-	display_help | more
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  File not found on command line" 1>&2
-	exit 0
+
+#    Check if argument 1 is blank
+if [[ "${1}" == "" ]] ; then
+  display_usage
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File not found on command line" 1>&2
+  exit 1
 fi
 
-#	Check if argument 1 is -f or --file
-if [ "${1}" == "--file" ] || [ "${1}" == "-f" ] ; then
-	#       Check if argument 2 is blank
-	if [ "${2}" == "" ] ; then
-		display_help | more
-		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  File name not found; --file <path>/<file_name> or -f <path>/<file_name> option" 1>&2
-		exit 0
-	fi
-	MARKIT_FILE=${2}
-else
-	#	Locate file in the PATH
-	TEMP=$(whereis "${1}")
-	MARKIT_FILE=$(echo "${TEMP}" | awk {'print $2'} )
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Locate file in the PATH... MARKIT_FILE >${MARKIT_FILE}<" 1>&2 ; fi
-	#       Check if MARKIT_FILE is blank
-	if [ "${MARKIT_FILE}" == "" ] ; then
-		display_help | more
-		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${1} not found; use --file <path>/<file_name> or -f <path>/<file_name> option" 1>&2
-		exit 0
-	fi
+#    Check if argument 1 is -f or --file
+if [[ "${MARKIT_FILE}" == "" ]] ; then
+#    Locate file in the PATH
+  TEMP=$(whereis "${1}")
+  MARKIT_FILE=$(echo "${TEMP}" | awk {'print $2'} )
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Locate file in the PATH... MARKIT_FILE >${MARKIT_FILE}<" 1>&2 ; fi
+#    Check if MARKIT_FILE is blank
+  if [[ "${MARKIT_FILE}" == "" ]] ; then
+    display_usage
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${1} not found; use --file <path>/<file_name> or -f <path>/<file_name> option" 1>&2
+    exit 1
+  fi
 fi
 
 #	Parse file name from MARKIT_FILE
