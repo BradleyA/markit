@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.251.573  2020-01-06T22:28:25.839029-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.250  
+#	   check-markit   update 
 #	check-markit  3.250.572  2020-01-06T22:12:05.695446-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.249  
 #	   check-markit  update 
 #	check-markit  3.249.571  2020-01-06T21:56:06.241542-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.248  
@@ -219,26 +221,25 @@ fi
 ### >>>
 ###	Determine name of repository
 if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
-	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/github.com/api.github.com\/repos/')
-	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
+  REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/github.com/api.github.com\/repos/')
+  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory /tmp/markit-temp -xzf - "
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
-	REPOSITORY_PROJECT_NAME=$(echo "${REPOSITORY_COMMAND}" | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//')
-	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\.git$/\/-\/archive\/master\//')
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
-	REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
+  REPOSITORY_PROJECT_NAME=$(echo "${REPOSITORY_COMMAND}" | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//')
+  REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\.git$/\/-\/archive\/master\//')
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory /tmp/markit-temp -xzf - "
 elif grep -q "bitbucket" <<< ${REPOSITORY_COMMAND} ; then
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking Bitbucket for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
-	REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\/\/.*@/\/\//')
-	REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o /tmp/markit-temp/master.zip ; unzip -qq /tmp/markit-temp/master.zip -d /tmp/markit-temp/")
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking Bitbucket for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
+  REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\/\/.*@/\/\//')
+  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o /tmp/markit-temp/master.zip ; unzip -qq /tmp/markit-temp/master.zip -d /tmp/markit-temp/")
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 else 
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
-	echo    ">>>> Repository using SSH URLs  <<<<<"
-	echo    ">>>> or other repository like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc   <<<<<"
-	exit
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Repository using SSH URLs or other repository like bitbucket, Codebase, Assembla, Fog Creek Kiln, etc." 1>&2
+  exit 1
 fi
 ###
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
