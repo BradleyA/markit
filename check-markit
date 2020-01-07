@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.249.571  2020-01-06T21:56:06.241542-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.248  
+#	   check-markit   update 
 #	check-markit  3.248.570  2020-01-06T21:51:43.386473-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.247  
 #	   check-markit   update 
 #	check-markit  3.247.569  2020-01-06T21:10:05.325870-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.246  
@@ -190,12 +192,12 @@ if [[ "${MARKIT_FILE}" == "" ]] ; then
   fi
 fi
 
-#	Parse file name from MARKIT_FILE
+#    Parse file name from MARKIT_FILE
 FILE_NAME=$(echo "${MARKIT_FILE}" | sed 's/.*\///')
-#       Check if file exists and has a size greater than zero || if file exists and is readable
-if [ ! -s "${MARKIT_FILE}" ] || [ ! -r "${MARKIT_FILE}" ] ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${MARKIT_FILE} file is not found or is empty or is not readable" 1>&2
-	exit 1
+#    Check if file exists and has a size greater than zero || if file exists and is readable
+if [[ ! -s "${MARKIT_FILE}" ]] || [[ ! -r "${MARKIT_FILE}" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${MARKIT_FILE} file is not found or is empty or is not readable" 1>&2
+  exit 1
 fi
 REPOSITORY_COMMAND=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$6'} | sed 's/\.git$//')
 MARKIT_FILE_RELEASE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
