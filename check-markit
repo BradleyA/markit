@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.243.559  2020-01-06T18:53:14.188899-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.242  
+#	   check-markit   lost all changes, restart making changed but commit every 15 minutes 
 #	check-markit  3.212.517  2019-05-27T17:06:49.252530-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.211-1-gb4a50e6  
 #	   create new release 
 #	check-markit  3.152.312  2019-01-19T23:26:41.427091-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
@@ -182,6 +184,7 @@ eval "${REPOSITORY_COMMAND}"
 REPOSITORY_FILE_NAME_LOCATION=$(find /tmp/markit-temp -type f -name "${FILE_NAME}" -print)
 REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
 REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
+cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
 rm -rf /tmp/markit-temp
 ###
 echo -e "\n  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
