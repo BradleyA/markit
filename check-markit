@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.246.568  2020-01-06T20:48:37.248071-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.245  
+#	   check-markit   update 
 #	check-markit  3.245.567  2020-01-06T20:24:43.194717-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.244  
 #	   check-markit   more changes 
 #	check-markit  3.244.566  2020-01-06T18:59:31.463098-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.243-6-ga5de56f  
@@ -94,6 +96,21 @@ echo -e "   Check file named sample.c release in relative path testfile/ with\n 
 echo -e "\t${BOLD}${COMMAND_NAME} -f testfiles/sample.c${NORMAL}\n"
 echo -e "   Check file named markit release with repository release."
 echo -e "\t${BOLD}${COMMAND_NAME} markit${NORMAL}\n"
+
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   markit (https://github.com/BradleyA/markit/blob/master/README.md)"  # 3.550
+
+echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
+echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
+
+echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
+echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/markit/issues/new/choose"  # 3.550
+
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
+echo    "   Copyright (c) 2020 Bradley Allen"                                               # 3.550
+echo    "   MIT License https://github.com/BradleyA/user-files/blob/master/LICENSE"         # 3.550
+}
 
 
 
