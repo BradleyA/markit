@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.250.572  2020-01-06T22:12:05.695446-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.249  
+#	   check-markit  update 
 #	check-markit  3.249.571  2020-01-06T21:56:06.241542-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.248  
 #	   check-markit   update 
 #	check-markit  3.248.570  2020-01-06T21:51:43.386473-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.247  
@@ -203,18 +205,18 @@ REPOSITORY_COMMAND=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk 
 MARKIT_FILE_RELEASE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
 MARKIT_FILE_DATE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
 #
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 
-#	Check file to determine if it was marked before markit release 3.10.142 2018-02-27.
+#    Check file to determine if it was marked before markit release 3.10.142 2018-02-27.
 if ! grep -q "https" <<< ${REPOSITORY_COMMAND}  ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  ${MARKIT_FILE} is not marked with markit or the --file option was not used or git origin did not include https address (git remote -v) when marked or file was marked after 2018-02-27." 1>&2
-	exit
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${MARKIT_FILE} is not marked with markit or the --file option was not used or git origin did not include https address (git remote -v) when marked or file was marked after 2018-02-27." 1>&2
+  exit 1
 fi
 
-###
+### >>>
 #	need to make sure that script is able to contact GitHib or Bitbucket or GitLab before using curl
 #	add a test
-###
+### >>>
 ###	Determine name of repository
 if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
