@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.252.574  2020-01-06T22:35:19.978163-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.251  
+#	   check-markit    update 
 #	check-markit  3.251.573  2020-01-06T22:28:25.839029-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.250  
 #	   check-markit   update 
 #	check-markit  3.250.572  2020-01-06T22:12:05.695446-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.249  
@@ -242,9 +244,9 @@ else
   exit 1
 fi
 ###
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
-#       Check if /tmp/markit-temp directory exists; remove it because of previous use of script failed
-if [ -d /tmp/markit-temp ] ; then
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
+#    Check if /tmp/markit-temp directory exists; remove it because of previous use of script failed
+if [[ -d /tmp/markit-temp ]] ; then
 	rm -rf /tmp/markit-temp
 fi
 #
@@ -253,13 +255,13 @@ eval "${REPOSITORY_COMMAND}"
 REPOSITORY_FILE_NAME_LOCATION=$(find /tmp/markit-temp -type f -name "${FILE_NAME}" -print)
 REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
 REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
-
 cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
 rm -rf /tmp/markit-temp
 ###
 echo -e "\n  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
 echo -e "\n  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
+echo    "Repository copy in /tmp/${FILE_NAME}"
 
 #
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
 ###
