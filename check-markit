@@ -1,30 +1,44 @@
 #!/bin/bash
-#	check-markit  3.243.559  2020-01-06T18:53:14.188899-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.242  
-#	   check-markit   lost all changes, restart making changed but commit every 15 minutes 
-#	check-markit  3.212.517  2019-05-27T17:06:49.252530-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.211-1-gb4a50e6  
-#	   create new release 
-#	check-markit  3.152.312  2019-01-19T23:26:41.427091-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
-#	   production standard 4 update display_help LANGUAGE close #58 
+#	check-markit  3.244.566  2020-01-06T18:59:31.463098-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.243-6-ga5de56f  
+#	   check-markit   fisrt sections out dated to display_usage 
 #	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
 #	   add section for bitbucket check-markit include Bitbucket repository close #37 
-#	check-markit  3.142.298  2018-11-16T22:54:42.684623-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.141  
-#	   check-markit run shellcheck to clean up future minor incidents close #52 
-#	check-markit  3.141.297  2018-11-16T22:38:39.377007-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.140  
-#	   check-markit change log format and order close #54 
-#	check-markit  3.140.296  2018-11-16T22:11:04.531662-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.139  
-#	   check-markit Order of precedence: add support for environment variable (export DEBUG=1), default code close #53 
+#86# check-markit - check file release with repository release
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+#    Copyright (c) 2020 Bradley Allen                                                       # 3.550
+#    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
-### check-markit - check file release with repository release
-#       Copyright (c) 2019 Bradley Allen
-#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###
-#   production standard 5
-#       Order of precedence: environment variable (export DEBUG=1), default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'unset DEBUG' to unset environment variable (bash)
-#	set -x
-#	set -v
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput   setaf 6)
+WHITE=$(tput  setaf 7)
+
+###  Production standard 7.0 Default variable value
+
+###  Production standard 8.3.541 --usage
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
+display_usage() {
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   check file release with repository release"
+echo -e "\n${BOLD}USAGE${NORMAL}"
+echo -e "   ${COMMAND_NAME} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]\n"
+echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
+echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
+echo    "   ${COMMAND_NAME} [--version | -version | -v]"
+}
+
+
+
+
 #
 display_help() {
 echo -e "\n${NORMAL}${0} - check file release with repository release"
@@ -184,6 +198,7 @@ eval "${REPOSITORY_COMMAND}"
 REPOSITORY_FILE_NAME_LOCATION=$(find /tmp/markit-temp -type f -name "${FILE_NAME}" -print)
 REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
 REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
+
 cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
 rm -rf /tmp/markit-temp
 ###
