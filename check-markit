@@ -1,22 +1,6 @@
 #!/bin/bash
-#	check-markit  3.252.574  2020-01-06T22:35:19.978163-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.251  
-#	   check-markit    update 
-#	check-markit  3.251.573  2020-01-06T22:28:25.839029-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.250  
-#	   check-markit   update 
-#	check-markit  3.250.572  2020-01-06T22:12:05.695446-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.249  
-#	   check-markit  update 
-#	check-markit  3.249.571  2020-01-06T21:56:06.241542-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.248  
-#	   check-markit   update 
-#	check-markit  3.248.570  2020-01-06T21:51:43.386473-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.247  
-#	   check-markit   update 
-#	check-markit  3.247.569  2020-01-06T21:10:05.325870-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.246  
-#	   check-markit   update 
-#	check-markit  3.246.568  2020-01-06T20:48:37.248071-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.245  
-#	   check-markit   update 
-#	check-markit  3.245.567  2020-01-06T20:24:43.194717-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.244  
-#	   check-markit   more changes 
-#	check-markit  3.244.566  2020-01-06T18:59:31.463098-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.243-6-ga5de56f  
-#	   check-markit   fisrt sections out dated to display_usage 
+#	check-markit  3.253.575  2020-01-06T22:43:13.245181-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.252  
+#	   check-markit   updated 
 #	check-markit  3.151.311  2019-01-19T23:06:27.618171-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.150-2-gc8d1aa7  
 #	   add section for bitbucket check-markit include Bitbucket repository close #37 
 #86# check-markit - check file release with repository release
@@ -258,9 +242,9 @@ REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep
 cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
 rm -rf /tmp/markit-temp
 ###
-echo -e "\n  ${MARKIT_FILE} release ${BOLD}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
-echo -e "\n  ${FILE_NAME} repository release ${BOLD}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
-echo    "Repository copy in /tmp/${FILE_NAME}"
+echo -e "\n  ${BOLD}${CYAN}${MARKIT_FILE}${NORMAL} release ${BOLD}${YELLOW}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
+echo -e "\n  ${BOLD}${CYAN}${FILE_NAME}${NORMAL} repository release ${BOLD}${YELLOW}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
+echo    "Repository copy placed /tmp/${FILE_NAME}"
 
 #
 new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
