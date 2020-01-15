@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.260.588  2020-01-15T16:18:01.211974-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.259-6-gc368b2f  
-#	   markit   added test cases #73 
+#	markit  3.263.591  2020-01-15T16:34:10.634606-06:00 (CST)  https://github.com/BradleyA/markit  dev#73  uadmin  five-rpi3b.cptx86.com 3.262  
+#	   markit check-markit   close #73  add test cases #73 
 #	markit  3.257.579  2020-01-13T13:20:23.968437-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.256
 #	   markit   close #69   add branch to line 1  #69 
 #	markit  3.214.537  date-missing (CST)  https://github.com/BradleyA/markit  uadmin  five-rpi3b.cptx86.com 3.213-17-gdbee2cc  
@@ -295,7 +295,7 @@ fi
 #    Prompt for release number
 echo -e "\n${BOLD}${CYAN}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent Git repository release number:  ${BOLD}${YELLOW}${CURRENT_RELEASE}${NORMAL}"
-echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples:  3.217  3.41.7  v0.1.64-alpha) or ctrl-c to stop.\n"
+echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples:  3.217  3.1.231  v0.1.64-alpha) or ctrl-c to stop.\n"
 read     FILE_RELEASE
 if [[ -z "${FILE_RELEASE}" ]] ; then
   FILE_RELEASE="${CURRENT_RELEASE}"
