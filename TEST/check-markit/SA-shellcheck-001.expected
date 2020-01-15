@@ -1,0 +1,41 @@
+
+In SA-shellcheck-001 line 166:
+  MARKIT_FILE=$(echo "${TEMP}" | awk {'print $2'} )
+                                     ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 183:
+REPOSITORY_COMMAND=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$6'} | sed 's/\.git$//')
+                                                                                ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                                                          ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 184:
+MARKIT_FILE_RELEASE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
+                                                                                 ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                                                           ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 185:
+MARKIT_FILE_DATE=$(grep git "${MARKIT_FILE}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
+                                                                              ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                                                        ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 214:
+  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o /tmp/markit-temp/master.zip ; unzip -qq /tmp/markit-temp/master.zip -d /tmp/markit-temp/")
+                     ^-- SC2116: Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.
+
+
+In SA-shellcheck-001 line 231:
+REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$3'})
+                                                                                                              ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                                                                                        ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 232:
+REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk {'print$4'})
+                                                                                                           ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                                                                                     ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
