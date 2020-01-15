@@ -1,30 +1,31 @@
 #!/bin/bash
-# 	find-code.sh  3.206.494  2019-02-20T15:41:14.388035-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.205-6-gc359d9f  
-# 	   change find so one line for each local repository is printed 
-# 	find-code.sh  3.154.314  2019-01-21T10:35:35.944657-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.153  
-# 	   production standard 5 include Copyright notice 
-# 	find-code.sh  3.152.312  2019-01-19T23:26:41.498938-06:00 (CST)  https://github.com/BradleyA/markit.git  uadmin  six-rpi3b.cptx86.com 3.151  
-# 	   production standard 4 update display_help LANGUAGE close #58 
-# 	find-code.sh  3.145.301  2018-11-16T23:24:34.883320-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.144  
-# 	   find-code.sh run shellcheck to clean up future minor incidents close #57 
+# 	find-code.sh  3.264.593  2020-01-15T16:55:24.503397-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.263-1-g61e5b03  
+# 	   find-code.sh   begin change for #74 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
 # 	   find-code.sh change log format and order close #56 
-# 	find-code.sh  3.143.299  2018-11-16T23:03:01.457123-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.142  
-# 	   find-code.sh Order of precedence: add support for environment variable (export DEBUG=1), default code close #55
-# 	find-code.sh  3.129.285  2018-10-31T21:19:55.719763-05:00 (CDT)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.128  
-# 	   find-code.sh support environment variables close #44 
+#86# find-code.sh - Search systems from clones from repositories
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+#    Copyright (c) 2020 Bradley Allen                                                       # 3.550
+#    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
-### find-code.sh - Search systems from clones from repositories
-#       Copyright (c) 2019 Bradley Allen
-#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###
-#   production standard 5
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
-#	set -x
-#	set -v
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput   setaf 6)
+WHITE=$(tput  setaf 7)
+
+###  Production standard 7.0 Default variable value
+
 ###
 display_help() {
 echo -e "\n${NORMAL}${0} - Search systems for .git repositories"
