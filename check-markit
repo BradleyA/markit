@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  3.259.581  2020-01-14T21:57:06.292319-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.258  
+#	   check-markit   correct display-usage 
 #	check-markit  3.258.580  2020-01-14T11:52:17.238547-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.257  
 #	   check-markit   testing changes to markit add branch to line 1  #69 
 #	check-markit  3.254.576  2020-01-06T22:58:07.389540-06:00 (CST)  https://github.com/BradleyA/markit  bradley  zero.cptx86.com 3.253  
@@ -34,6 +36,7 @@ COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                   
 display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   check file release with repository release"
 echo -e "\n${BOLD}USAGE${NORMAL}"
+echo    "   ${COMMAND_NAME} <FILE_NAME>"
 echo -e "   ${COMMAND_NAME} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
