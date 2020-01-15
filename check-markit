@@ -1,5 +1,7 @@
 #!/bin/bash
-#	check-markit  3.259.581  2020-01-14T21:57:06.292319-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.258  
+#	check-markit  3.262.590  2020-01-15T16:30:55.441617-06:00 (CST)  https://github.com/BradleyA/markit  dev#73  uadmin  five-rpi3b.cptx86.com 3.261  
+#	   check-markit   added test cases #73 
+#	check-markit  3.259.581  2020-01-14T21:57:06.292319-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.258
 #	   check-markit   correct display-usage 
 #	check-markit  3.258.580  2020-01-14T11:52:17.238547-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.257  
 #	   check-markit   testing changes to markit add branch to line 1  #69 
