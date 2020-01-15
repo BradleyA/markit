@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.265.595  2020-01-15T17:21:01.330286-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.264-1-g64e80aa  
+# 	   find-code.sh   changes for #74 
 # 	find-code.sh  3.264.593  2020-01-15T16:55:24.503397-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.263-1-g61e5b03  
 # 	   find-code.sh   begin change for #74 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
@@ -25,18 +27,30 @@ CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
+DEFAULT_CLUSTER="us-tx-cluster-1/"
+DEFAULT_DATA_DIR="/usr/local/data/"
+DEFAULT_SYSTEMS_FILE="SYSTEMS"
 
-###
+###  Production standard 8.3.541 --usage
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
+display_usage() {
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   Search systems for .git repositories"
+echo -e "\n${BOLD}USAGE${NORMAL}"
+echo    "   ${YELLOW}Positional Arguments${NORMAL}"
+echo -e "   ${COMMAND_NAME} [<CLUSTER>] [<DATA_DIR>] [<SYSTEMS_FILE>]\n"
+echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
+echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
+echo    "   ${COMMAND_NAME} [--version | -version | -v]"
+}
+
+###  Production standard 0.3.550 --help                                                     # 3.550
 display_help() {
-echo -e "\n${NORMAL}${0} - Search systems for .git repositories"
-echo -e "\nUSAGE\n   ${0}  [<CLUSTER>] [<DATA_DIR>] [SYSTEMS_FILE]"
-echo    "   ${0} [--help | -help | help | -h | h | -?]"
-echo    "   ${0} [--version | -version | -v]"
-echo -e "\nDESCRIPTION"
-#       Displaying help DESCRIPTION in English en_US.UTF-8
+display_usage
+#    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
+echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo    "This script searches each system found in SYSTEMS file for .git repositories"
 echo    "in ~/.. directories."
-echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts."
+echo -e "\nThis script reads <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> file for hosts."
 echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
 echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
 echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
@@ -45,30 +59,52 @@ echo    "different SYSTEMS file can be entered on the command line or environmen
 echo    "variable."
 echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
 echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
-#       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
-if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
-        echo -e "\n--> ${LANG}"
-        echo    "<votre aide va ici>" # your help goes here
-        echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
-elif ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
+
+###  Production standard 4.3.550 Documentation Language                                     # 3.550
+#    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
+if [[ "${LANG}" == "fr_CA.UTF-8" ]] || [[ "${LANG}" == "fr_FR.UTF-8" ]] || [[ "${LANG}" == "fr_CH.UTF-8" ]] ; then
+  echo -e "\n--> ${LANG}"
+  echo    "<votre aide va ici>" # your help goes here
+  echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
+elif ! [[ "${LANG}" == "en_US.UTF-8" ||  "${LANG}" == "en.UTF-8" || "${LANG}" == "C.UTF-8" ]] ; then  # 3.550
+  new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
-echo -e "\nEnvironment Variables"
-echo    "If using the bash shell, enter; export CLUSTER='us-west1' on the command"
-echo    "line to set the CLUSTER environment variable to 'us-west1'.  Use the command,"
-echo    "unset CLUSTER to remove the exported information from the CLUSTER environment"
-echo    "variable.  To set an environment variable to be defined at login, add it to"
-echo    "~/.bashrc file or you can modify this script with your default location for"
-echo    "CLUSTER, DATA_DIR, MESSAGE_FILE, and SYSTEMS_FILE.  You are on your own"
-echo    "defining environment variables if you are using other shells."
-echo    "   CLUSTER       (default us-tx-cluster-1/)"
-echo    "   DATA_DIR      (default /usr/local/data/)"
-echo    "   SYSTEMS_FILE  (default SYSTEMS)"
-echo    "   DEBUG         (default '0')"
-echo -e "\nOPTIONS"
-echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
-echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
-echo    "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)"
+
+echo -e "\n${BOLD}ENVIRONMENT VARIABLES${NORMAL}"
+echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
+echo    "the environment variable DEBUG to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the environment"
+echo    "variable DEBUG.  You are on your own defining environment variables if"
+echo    "you are using other shells."
+
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 3.550
+echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 3.550
+echo    "                   all DEBUG messages during execution of this script.  The"       # 3.550
+echo    "                   setting 1 will print all DEBUG messages during execution."      # 3.550
+echo    "                   Setting 2 (set -x) will print a trace of simple commands"       # 3.550
+echo    "                   before they are executed.  Setting 3 (set -v) will print"       # 3.550
+echo    "                   shell input lines as they are read.  Setting 4 (set -e) will"   # 3.550
+echo    "                   exit immediately if non-zero exit status is recieved with"      # 3.550
+echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
+echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
+echo    "                   more information about the set options, see man bash."          # 3.550
+
+echo    "   CLUSTER         (default ${DEFAULT_CLUSTER})"
+echo    "   DATA_DIR        (default ${DEFAULT_DATA_DIR})"
+echo    "   SYSTEMS_FILE    (default ${DEFAULT_SYSTEMS_FILE})"
+echo    "   DEBUG           (default '0')"
+
+echo -e "\n${BOLD}OPTIONS${NORMAL}"
+echo -e "Order of precedence: CLI options, environment variable, default code.\n"
+echo    "   <CLUSTER>"
+echo -e "\tCluster directory name (default '${DEFAULT_CLUSTER}')\n"
+echo    "   <DATA_DIR>"
+echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
+echo    "   <SYSTEMS_FILE>"
+echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})\n"
+
+
 echo -e "\nDOCUMENTATION\nhttps://github.com/BradleyA/markit"
 echo -e "\nEXAMPLES\n   ${0}\n\n   Search systems for .git repositories using defaults\n"
 }
