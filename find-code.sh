@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.266.599  2020-01-15T21:59:43.232915-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.265-3-gd1113c7  
-# 	   find-code.sh   changes for #74, next Parse CLI 
-# 	find-code.sh  3.265.595  2020-01-15T17:21:01.330286-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.264-1-g64e80aa  
-# 	   find-code.sh   changes for #74 
-# 	find-code.sh  3.264.593  2020-01-15T16:55:24.503397-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.263-1-g61e5b03  
-# 	   find-code.sh   begin change for #74 
+# 	find-code.sh  3.267.600  2020-01-15T22:51:24.506857-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.266  
+# 	   find-code.sh   first draft of #74 ready for test 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
 # 	   find-code.sh change log format and order close #56 
 #86# find-code.sh - Search systems from clones from repositories
@@ -39,7 +35,7 @@ display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   Search systems for .git repositories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${YELLOW}Positional Arguments${NORMAL}"
-echo -e "   ${COMMAND_NAME} [<CLUSTER>] [<DATA_DIR>] [<SYSTEMS_FILE>]\n"
+echo -e "   ${COMMAND_NAME} [-c <CLUSTER>] [-d <DATA_DIR>] [-s <SYSTEMS_FILE>]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -99,11 +95,11 @@ echo    "   DEBUG           (default '0')"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default code.\n"
-echo    "   <CLUSTER>"
+echo    "   -c, --cluster, -c=, --cluster=<CLUSTER>"
 echo -e "\tCluster directory name (default '${DEFAULT_CLUSTER}')\n"
-echo    "   <DATA_DIR>"
+echo    "   -d, --datadir, -d=, --datadir=<DATA_DIR>"
 echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
-echo    "   <SYSTEMS_FILE>"
+echo    "   -s, --systems, -s=, --systems=<SYSTEMS_FILE>"
 echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})\n"
 
 ###  Production standard 6.3.547  Architecture tree
@@ -117,7 +113,7 @@ echo    "   https://github.com/BradleyA/markit/blob/master/README.md"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" # 3.550
-echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} australia-southeast1 ${NORMAL}\n" # 3.550
+echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} -c australia-southeast1 ${NORMAL}\n" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   markit (https://github.com/BradleyA/markit/blob/master/README.md#markit------)" # 3.550
@@ -173,43 +169,58 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USE
 #    DEBUG
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
 
-
-
-#       Order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  1 ]  ; then CLUSTER=${1} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
-#       order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  3 ]  ; then DATA_DIR=${2} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
-#       order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  5 ]  ; then SYSTEMS_FILE=${3} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
+###  Production standard 9.3.513 Parse CLI options and arguments
+while [[ "${#}" -gt 0 ]] ; do
+  case "${1}" in
+    --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
+    --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
+    --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
+    -c|--cluster)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${BOLD}${YELLOW}${1}${NORMAL} is not found on command line" 1>&2 ; exit 1 ; fi ; CLUSTER=${2} ; shift 2 ;;
+    -c=*|--cluster=*)  CLUSTER=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
+    -d|--datadir)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${BOLD}${YELLOW}${1}${NORMAL} is not found on command line" 1>&2 ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2 ;;
+    -d=*|--datadir=*)  DATA_DIR=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
+    -s|--systems)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${BOLD}${YELLOW}${1}${NORMAL} is not found on command line" 1>&2 ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2 ;;
+    -s=*|--systems=*)  SYSTEMS_FILE=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
+    *)  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${BOLD}${YELLOW}${1}${NORMAL}, entered on the command line is not supported." 1>&2 ; display_usage ; exit 1 ; ;;
+# OR
+#    *) break ;;
+  esac
+done
 
 ###
+
+###  Production standard 7.0 Default variable value
+#    Order of precedence: CLI argument, environment variable, default code
+if [[ "${CLUSTER}" == "" ]] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
+if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
+if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
+
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
 #	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
 REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
 
-#       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
-if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
-
-
-        echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        echo    "${LOCALHOST}" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+#    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
+if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
+  new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  ${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
+  echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+  echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+  echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+  echo    "${LOCALHOST}" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
 fi
 
-#	Loop through hosts in ${SYSTEMS_FILE} file
-REMOTEHOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
+#    Loop through hosts in ${SYSTEMS_FILE} file
+REMOTEHOST=$(grep -v "#" "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}")
 for NODE in ${REMOTEHOST} ; do
-        echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}       ->${REMOTECOMMAND}<-" 
-        if [ "${LOCALHOST}" != "${NODE}" ] ; then
-                ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
-        else
-                eval "${REMOTECOMMAND}"
-        fi
+  echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}       ->${REMOTECOMMAND}<-" 
+  if [ "${LOCALHOST}" != "${NODE}" ] ; then
+    ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
+  else
+    eval "${REMOTECOMMAND}"
+  fi
 done
 
 #
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
+
 ###
