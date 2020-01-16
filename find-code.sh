@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  3.266.599  2020-01-15T21:59:43.232915-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.265-3-gd1113c7  
+# 	   find-code.sh   changes for #74, next Parse CLI 
 # 	find-code.sh  3.265.595  2020-01-15T17:21:01.330286-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.264-1-g64e80aa  
 # 	   find-code.sh   changes for #74 
 # 	find-code.sh  3.264.593  2020-01-15T16:55:24.503397-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.263-1-g61e5b03  
@@ -104,44 +106,74 @@ echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
 echo    "   <SYSTEMS_FILE>"
 echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})\n"
 
+###  Production standard 6.3.547  Architecture tree
+echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
+echo    "/usr/local/data/                           <-- <DATA_DIR>"
+echo    "└── <CLUSTER>/                             <-- <CLUSTER>"
+echo    "    └── SYSTEMS                            <-- List of hosts in cluster"
 
-echo -e "\nDOCUMENTATION\nhttps://github.com/BradleyA/markit"
-echo -e "\nEXAMPLES\n   ${0}\n\n   Search systems for .git repositories using defaults\n"
+echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
+echo    "   https://github.com/BradleyA/markit/blob/master/README.md"
+
+echo -e "\n${BOLD}EXAMPLES${NORMAL}"
+echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" # 3.550
+echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} australia-southeast1 ${NORMAL}\n" # 3.550
+
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   markit (https://github.com/BradleyA/markit/blob/master/README.md#markit------)" # 3.550
+echo    "   check-markit  (https://github.com/BradleyA/markit/blob/master/README.md#usage-check-markit)" # 3.550
+
+echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
+echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
+
+echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
+echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/markit/issues/new/choose"  # 3.550
+
+###  Production standard 5.3.550 Copyright                                                  # 3.550
+echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
+echo    "   Copyright (c) 2020 Bradley Allen"                                               # 3.550
+echo    "   MIT License https://github.com/BradleyA/markit/blob/master/LICENSE"             # 3.550
 }
 
-#       Date and time function ISO 8601
+#    Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-TEMP=$(date +%Z)
-DATE_STAMP="${DATE_STAMP} (${TEMP})"
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
 }
 
-#       Fully qualified domain name FQDN hostname
+#    Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
 
-#       Version
-SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
-SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+#    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used any where in script (for dev, test teams)
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 
-#       UID and GID
-USER_ID=$(id -u)
+#    GID
 GROUP_ID=$(id -g)
 
-#       Default help and version arguments
-if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
-        display_help | more
-        exit 0
-fi
-if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
-        echo "${SCRIPT_NAME} ${SCRIPT_VERSION}"
-        exit 0
-fi
+###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+}
 
-#       INFO
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Started..." 1>&2
+#    INFO
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2
 
-#       DEBUG
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Name_of_command >${0}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+#    Added following code because USER is not defined in crobtab jobs
+if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${USER}<  LOGNAME >${LOGNAME}<" 1>&2 ; fi
+
+#    DEBUG
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+
+
 
 #       Order of precedence: CLI argument, environment variable, default code
 if [ $# -ge  1 ]  ; then CLUSTER=${1} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
