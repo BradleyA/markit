@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  3.267.600  2020-01-15T22:51:24.506857-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.266  
-# 	   find-code.sh   first draft of #74 ready for test 
+# 	find-code.sh  3.268.602  2020-01-15T23:30:30.354903-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.267-1-g7b06ed5  
+# 	   find-code.sh   close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable #74 
 # 	find-code.sh  3.144.300  2018-11-16T23:16:34.591093-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  one-rpi3b.cptx86.com 3.143  
 # 	   find-code.sh change log format and order close #56 
 #86# find-code.sh - Search systems from clones from repositories
@@ -88,10 +88,9 @@ echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) wil
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
 
-echo    "   CLUSTER         (default ${DEFAULT_CLUSTER})"
-echo    "   DATA_DIR        (default ${DEFAULT_DATA_DIR})"
-echo    "   SYSTEMS_FILE    (default ${DEFAULT_SYSTEMS_FILE})"
-echo    "   DEBUG           (default '0')"
+echo    "   CLUSTER         Cluster directory name (default ${DEFAULT_CLUSTER})"
+echo    "   DATA_DIR        Path to cluster data directory (default ${DEFAULT_DATA_DIR})"
+echo    "   SYSTEMS_FILE    Name of systems file (default ${DEFAULT_SYSTEMS_FILE})"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default code.\n"
@@ -100,7 +99,7 @@ echo -e "\tCluster directory name (default '${DEFAULT_CLUSTER}')\n"
 echo    "   -d, --datadir, -d=, --datadir=<DATA_DIR>"
 echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
 echo    "   -s, --systems, -s=, --systems=<SYSTEMS_FILE>"
-echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})\n"
+echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})"
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
@@ -114,6 +113,7 @@ echo    "   https://github.com/BradleyA/markit/blob/master/README.md"
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" # 3.550
 echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} -c australia-southeast1 ${NORMAL}\n" # 3.550
+echo -e "   Search systems for .git repositories using a different <SYSTEMS_FILE>.\n\t${BOLD}${COMMAND_NAME} -s SYSTEMS-RASPBERRY ${NORMAL}" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   markit (https://github.com/BradleyA/markit/blob/master/README.md#markit------)" # 3.550
