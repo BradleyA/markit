@@ -53,12 +53,12 @@ To clone, change to the directory you want to download into. Use git clone into 
     cd ..
     rm -r ./markit
 
-## Usage
+## Usage: markit
 Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
 
     markit 
 
-## Output
+## Output: markit
 
     $ markit
     Files to be marked and pushed to remote Git repository:
@@ -105,12 +105,12 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     ###
     echo "Hello World"
 
-## Usage
+## Usage: check-markit
 Check the file version of markit, with the remote Git repository file version.  
 
     check-markit markit 
 
-## Output
+## Output: check-markit
     $ check-markit markit
     2019-02-08T20:48:42.953908-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 96 uadmin 10000:10000 [INFO]  Started...
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
