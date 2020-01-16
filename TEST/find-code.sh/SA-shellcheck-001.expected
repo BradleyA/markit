@@ -1,0 +1,32 @@
+
+In SA-shellcheck-001 line 10:
+RED=$(tput    setaf 1)
+^-- SC2034: RED appears unused. Verify it or export it.
+
+
+In SA-shellcheck-001 line 11:
+GREEN=$(tput  setaf 2)
+^-- SC2034: GREEN appears unused. Verify it or export it.
+
+
+In SA-shellcheck-001 line 13:
+CYAN=$(tput   setaf 6)
+^-- SC2034: CYAN appears unused. Verify it or export it.
+
+
+In SA-shellcheck-001 line 110:
+SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
+                                   ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                               ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 111:
+SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+                                      ^-- SC1083: This { is literal. Check expression (missing ;/\n?) or quote it.
+                                                  ^-- SC1083: This } is literal. Check expression (missing ;/\n?) or quote it.
+
+
+In SA-shellcheck-001 line 162:
+                ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
+                                            ^-- SC2029: Note that, unescaped, this expands on the client side.
+
