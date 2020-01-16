@@ -53,12 +53,12 @@ To clone, change to the directory you want to download into. Use git clone into 
     cd ..
     rm -r ./markit
 
-## Usage
+## Usage: markit
 Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
 
     markit 
 
-## Output
+## Output: markit
 
     $ markit
     Files to be marked and pushed to remote Git repository:
