@@ -1,1 +1,0 @@
-../../hooks/EXAMPLES/FVT-cleanup.sh
