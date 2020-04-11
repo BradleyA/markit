@@ -1,6 +1,8 @@
 # markit  
 [![Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.213.svg)](https://github.com/BradleyA/markit/commits/)
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
+[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=49&color=blue">](images/clone.table.md)
+[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=185&color=blue">](images/view.table.md)
 
 Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
 
@@ -173,11 +175,6 @@ To install the latest commit of markit, change to the directory you want to down
     curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
-
-#### Traffic
-
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=49&color=blue">  [Clones Table](images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=185&color=blue">  [Views Table](images/view.table.md)
 
 #### Author
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
