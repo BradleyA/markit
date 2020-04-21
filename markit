@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.269.624  2020-04-20T21:27:53.693429-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.268-21-g91400e5  #
+#      markit -->   begin testing - automate adding file name(s) to beginning of message #75  #
 #	markit  3.263.591  2020-01-15T16:34:10.634606-06:00 (CST)  https://github.com/BradleyA/markit  dev#73  uadmin  five-rpi3b.cptx86.com 3.262  
 #	   markit check-markit   close #73  add test cases #73 
 #	markit  3.257.579  2020-01-13T13:20:23.968437-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.256
@@ -321,7 +323,7 @@ fi
 #    Current git branch
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-#	Mark each file
+#    Mark each file
 for FILE_NAME in ${FILE_LIST} ; do
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
 #
@@ -345,8 +347,8 @@ for FILE_NAME in ${FILE_LIST} ; do
 # >>> #??	This does not work if the last character is '.' but it does work if more than one "."
     FILE_EXTENSION=${FILE_NAME##*\.}
     echo -e "\n\t${BOLD}${CYAN}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
-#    Single-line comment character(s) matching file extension
-#    ONLY SUPPORT single-line comments NOT multiple line block comment
+    #    Single-line comment character(s) matching file extension
+    #    ONLY SUPPORT single-line comments NOT multiple line block comment
     case "${FILE_EXTENSION}" in
       sh|bash|csh|tcsh|ksh|pl|PL|psh|py|rb|ps1|msh|php|php3|php4|ph3|ph4|R|yml|yaml|mk|MK|txt|tf|tfstate)
 #     shell(sh|bash|csh|tcsh|ksh) perl(pl|PL|psh) Python(py) ruby(rb) PowerShell(ps1|msh) PHP(php|php3|php4|ph3|ph4) R(R) YAML(yml|yaml) Makefile(mk|MK) text(txt) Terraform(tf|tfstate)
@@ -369,7 +371,7 @@ for FILE_NAME in ${FILE_LIST} ; do
         END_COMMENT_CHAR=" -->"
         ;;
       *)
-#     Prompt for single-line beginning comment character(s)
+        #    Prompt for single-line beginning comment character(s)
         echo -e "\nEnter single-line  ${BOLD}${YELLOW}BEGINNING${NORMAL}${YELLOW}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
         read BEGIN_COMMENT_CHAR
         if [ -z "${BEGIN_COMMENT_CHAR}" ] ; then
@@ -384,36 +386,39 @@ for FILE_NAME in ${FILE_LIST} ; do
   fi
   get_date_stamp
   head -1 "${FILE_NAME}" >> "${TEMP_FILE}"
-#    ${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${BRANCH} ${USER} ${LOCALHOST} (git describe)
+
+  #    ${FILE_NAME}  ${FILE_RELEASE}.(# of commits) ${DATE_STAMP} ${REMOTE_REPOSITORY} ${BRANCH} ${USER} ${LOCALHOST} (git describe)
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  FILE_NAME >${FILE_NAME}< FILE_RELEASE >${FILE_RELEASE}< REMOTE_REPOSITORY >${REMOTE_REPOSITORY}< BRANCH >${BRANCH}<" 1>&2 ; fi
-#    Check if no tag for file / first time in Git repository is being tagged
+  #    Check if no tag for file / first time in Git repository is being tagged
   if ! [[ "$(git tag)" == "" ]] ; then
     echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${BRANCH}  ${USER}  ${LOCALHOST} $(git describe)  ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
   else
     echo "${BEGIN_COMMENT_CHAR}	${FILE_NAME}  ${FILE_RELEASE}.$(git rev-list HEAD | wc -l)  ${DATE_STAMP}  ${REMOTE_REPOSITORY}  ${BRANCH}  ${USER}  ${LOCALHOST} 'No-parent-git-tag-found-in-repository'  ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
   fi
-  echo "${BEGIN_COMMENT_CHAR}	   ${FILE_MESSAGE} ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
+
+  #    ${FILE_LIST} -->   ${FILE_MESSAGE}
+  echo "${BEGIN_COMMENT_CHAR}      ${FILE_LIST//$'\n'/ } -->   ${FILE_MESSAGE}  ${END_COMMENT_CHAR}" >> "${TEMP_FILE}"
   tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> "${TEMP_FILE}"
   cp "${TEMP_FILE}" "${FILE_NAME}"
   rm "${TEMP_FILE}"
-#    Add file contents to the index
+  #    Add file contents to the index
   git add "${FILE_NAME}"
 done
 echo "${NORMAL}"
 
 #    Commit file(s)
-git commit -m "${FILE_MESSAGE}"
+git commit -m "${FILE_LIST} -->   ${FILE_MESSAGE}"
 
 #    If new release number, Tag file(s)
 if ! [[ "${FILE_RELEASE}" == "${CURRENT_RELEASE}" ]] ; then
-  git tag -a "${FILE_RELEASE}" -m "${FILE_MESSAGE}"
+  git tag -a "${FILE_RELEASE}" -m "${FILE_LIST} -->   ${FILE_MESSAGE}"
 fi
 
-#     If MARKITLOCAL not set, git push to remote Git repository
+#    If MARKITLOCAL not set, git push to remote Git repository
 if [[ "${MARKITLOCAL}" == "0" ]] ; then
-#    Push changes to GitHub repository or Bitbucket repository or GitLab project
+  #    Push changes to GitHub repository or Bitbucket repository or GitLab project
   git push --follow-tags  || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  If invalid username or password message then enter the following\n\tcommand to complete pushing marked files with the correcet password;\n\t\t${BOLD}git push --follow-tags${NORMAL}\n\n\tIf markit failed to push because the repository contains other work\n\tthat is not in your local Git repository.  Then enter the following\n\tcommands to pull the other changes then push your marked files;\n\t\t${BOLD}git pull\n\t\tgit push --follow-tags${NORMAL}" ; exit 1; }
-#    Notify user how to view remote Git repository
+  #    Notify user how to view remote Git repository
   echo -e "\n${YELLOW}Files marked and stored in ${BOLD}remote${NORMAL}${YELLOW} Git repository."
   echo    "View commits example:  ${BOLD}git log --graph --decorate --oneline --color --stat${NORMAL}"
 
