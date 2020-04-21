@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  3.271.626  2020-04-20T21:36:59.650794-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.270  
-#	   markit -->   begin testing - automate adding file name(s) to beginning of message #75  
+#	markit  3.272.627  2020-04-20T21:51:23.928268-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.271  
+#	   markit -->   close #75   automate adding file name(s) to beginning of message #75  
 #	markit  3.263.591  2020-01-15T16:34:10.634606-06:00 (CST)  https://github.com/BradleyA/markit  dev#73  uadmin  five-rpi3b.cptx86.com 3.262  
 #	   markit check-markit   close #73  add test cases #73 
 #	markit  3.257.579  2020-01-13T13:20:23.968437-06:00 (CST)  https://github.com/BradleyA/markit  dev  uadmin  five-rpi3b.cptx86.com 3.256
