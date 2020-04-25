@@ -1,6 +1,6 @@
 # Security Policy
 
-WARNING: This information below is incomplete. Consider it as notes quickly drafted on a napkin rather than proper Security Policy! I need to get this to be completed then some cleanup before it is shareable  . . .
+#### WARNING: This information below is incomplete. Consider it as notes quickly drafted on a napkin rather than proper Security Policy! I need to get this to be completed then some cleanup before it is shareable  . . . 
 
 Words go here :-)  This is a test
 
