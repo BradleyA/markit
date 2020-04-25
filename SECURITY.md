@@ -2,6 +2,7 @@
 
 #### WARNING: This information below is incomplete. Consider it as notes quickly drafted on a napkin rather than proper Security Policy! I need to get this to be completed then some cleanup before it is shareable  . . . 
 
+#### Find more information here https://help.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
 Words go here :-)  This is a test
 
 ## Supported Versions
