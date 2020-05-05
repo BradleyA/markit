@@ -7,6 +7,6 @@ Unique   clones:  |       1       |       2       |       1       |       2     
 Total clones: 49
 ###### Updated: 2019-12-30
 
-[Return to README](https://github.com/BradleyA/markit#traffic)
+[Return to README](https://github.com/BradleyA/markit#markit)
 
 **Note**  Data collection stopped between 10/14 & 12/9
