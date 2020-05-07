@@ -14,7 +14,7 @@ Date:    |        07-15   |       07-22   |       07-29   |       08-05   |     
 Clones:  |        1       |       2       |       1       |       2       |       2       |       1       |       2       |       1       |       1       |  1      |  2      |  1      |  7      |  12     |  1      |  2      |  2      |  8 | 9 
 Unique   clones:  |       1       |       2       |       1       |       2       |       2       |       1       |       2       |       1       |       1  |      1  |      2  |      1  |      3  |      5  |      1  |      1  |      2  |      6 | 6
 
-Total clones: 49
+Total clones: 58
 ###### Updated: 2020-01-04
 **Note**  Data collection stopped between 10/14/2019 & 12/9/2019
 
