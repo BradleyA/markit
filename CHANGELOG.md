@@ -55,7 +55,7 @@ example:  ->
 
 
 ## EXAMPLE: Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-# EXAMPLE: Latest Release -->  Version  3.2.0
+# EXAMPLE: Latest Release -->  Version  X.X.????
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
 - x
