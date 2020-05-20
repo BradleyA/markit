@@ -1,6 +1,7 @@
 **Notes:** Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 
 ## Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
