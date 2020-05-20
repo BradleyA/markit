@@ -6,8 +6,8 @@
 ## Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
-
-Brief description
+- x
+  - Brief description
 
 ### Features Added
 ### Features Changes
@@ -16,13 +16,12 @@ Brief description
 ### Misc
 
 
-# Latest Release -->  Version  3.2.0# Changelog
-
+# Latest Release -->  Version  3.2.0
 ## Version  {Next Version 3.2.?????}  
 #### Release Name  Beta-4
 #### Release Date ?????????????
-
-Brief description
+- x
+  - Brief description
 
 ### Features Added
 example: ->
@@ -46,20 +45,21 @@ example: ->
 ### Features Deprecations
 ### Issues
 example:  ->
-* #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
-* #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
-* #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
-* #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
-* #44 hooks/post-commit - if test case not found error message
+* close #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
+* close #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
+* close #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
+* close #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
+* close #44 hooks/post-commit - if test case not found error message
 
 ### Misc
 
 
-## Version  {Next Version  X.X.????}  
+## EXAMPLE: Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+# EXAMPLE: Latest Release -->  Version  3.2.0
 #### Release Name  {unreleased alpha beta prerelease latest}
-#### Release Date ?????????????
-
-Brief description
+#### Release Date  ????????????
+- x
+  - Brief description
 
 ### Features Added
 ### Features Changes
