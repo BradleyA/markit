@@ -7,7 +7,7 @@
 ## Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
-- x
+- Command/directory
   - Brief description
 
 ### Features Added
@@ -59,11 +59,19 @@ example:  ->
 # EXAMPLE: Latest Release -->  Version  X.X.????
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
-- x
-  - Brief description
+* Command/directory
+  * Brief description
 
 ### Features Added
+* Update Feature/file
+* Command/directory
+  * directory/command   git commit message close #XX
+  
 ### Features Changes
 ### Features Deprecations
 ### Issues
+Command/directory
+* close #X  hooks/EXAMPLES/SA-permission-txt-001 - add test case
+* close #XX hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
+
 ### Misc
