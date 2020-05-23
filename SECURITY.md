@@ -1,26 +1,35 @@
-# Security Policy
+## Security Policy
 
-#### WARNING: This information below is incomplete. Consider it as notes quickly drafted on a napkin rather than proper Security Policy! I need to get this to be completed then some cleanup before it is shareable  . . . 
-
-#### Find more information here https://help.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
-Words go here :-)  This is a test
-
-## Supported Versions
-
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+This security policy applies to any vulnerabilities.  Thank you for taking the time and effort to report security vulnerabilities. There is no monetary rewards for vulnerability disclosures in this repository.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you believe you have found a security vulnerability, please submit your report to: allen.bradley@ymail.com
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+In your report please include:
+
+ * A brief description of the type of vulnerability.
+
+ * Steps to reproduce. These should be a benign, non-destructive, proof of concept. This helps to ensure that the report can be triaged quickly and accurately.
+
+## What to expect
+
+After you have submitted your report, we will aim to triage your report within 10 working days.
+
+Priority for remediation is assessed by looking at the impact, severity and exploit complexity. Vulnerability reports might take some time to triage or address. You are welcome to enquire on the status but should avoid doing so more than once every 14 days. This allows our teams to focus on the remediation.  You may be invited to confirm that the solution covers the vulnerability adequately.
+
+## General Guidance
+
+You must NOT:
+
+ * Break any applicable law or regulations.
+
+ * Attempt or report any form of denial of service, e.g. overwhelming a service with a high volume of requests.
+
+ * Submit reports detailing non-exploitable vulnerabilities, or reports indicating that the services do not fully align with your best practices.
+
+ * Communicate any vulnerabilities or associated details other than by means described in this policy.
+
+ * Perform social engineering or phishing attacks.
+
+ * Demand financial compensation in order to disclose any vulnerabilities.
