@@ -1,0 +1,700 @@
+*   [31mfb70514[m -[33m (HEAD -> master, origin/master, origin/HEAD)[m Merge pull request #81 from BradleyA/BradleyA-patch-1 [32m(11 hours ago) [1;34m<Bradley Allen>[m
+#	release-notes-1  3.274.664  2020-07-01T22:51:50.791592-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.273-30-gfb70514  
+#	   release-notes-1 -->   test push to another repository  
+|\  
+| * [31m0b9beba[m -[33m (origin/BradleyA-patch-1)[m Updated SECURITY.md [32m(12 hours ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m595f306[m -[33m[m Create SECURITY.md [32m(12 hours ago) [1;34m<Bradley Allen>[m
+* [31m9157b3e[m -[33m[m remove SECURITY.md [32m(12 hours ago) [1;34m<Bradley Allen>[m
+* [31mafa9ad6[m -[33m[m updated [32m(12 hours ago) [1;34m<Bradley Allen>[m
+* [31m437cf9b[m -[33m[m added construction-icon.gif [32m(3 days ago) [1;34m<Bradley Allen>[m
+* [31md8d3629[m -[33m[m Update comment.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31mbdf22c7[m -[33m[m Update incident_report.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31m12d7a09[m -[33m[m Update feature_request.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31mbc3c7b3[m -[33m[m Update comment.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31m6095334[m -[33m[m Update README.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31m66fe72d[m -[33m[m Update clone.table.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31m8441234[m -[33m[m Update README.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31md142b5d[m -[33m[m Update view.table.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31mbca4d58[m -[33m[m Update README.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31mca9240d[m -[33m[m Update clone.table.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31m10405de[m -[33m[m Update clone.table.md [32m(2 weeks ago) [1;34m<Bradley Allen>[m
+* [31me036978[m -[33m[m deleted:    TEST/markit/SA-shellcheck-001.expected [32m(3 weeks ago) [1;34m<Bradley Allen>[m
+* [31m88cae04[m -[33m[m initial commit [32m(3 weeks ago) [1;34m<Bradley Allen>[m
+*   [31mecf2081[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(3 weeks ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m186ca51[m -[33m (tag: 3.273)[m markit -->   close #76   upgrade Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments [32m(4 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m1ff34ae[m -[33m[m Update SECURITY.md [32m(4 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m8cb79a8[m -[33m[m Update SECURITY.md [32m(4 weeks ago) [1;34m<Bradley Allen>[m
+| * [31md5ecc6e[m -[33m[m Update SECURITY.md [32m(4 weeks ago) [1;34m<Bradley Allen>[m
+| * [31mc832d9d[m -[33m[m Update SECURITY.md [32m(4 weeks ago) [1;34m<Bradley Allen>[m
+| * [31mdd91124[m -[33m (tag: 3.272)[m markit -->   close #75   automate adding file name(s) to beginning of message #75 [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31mc407d04[m -[33m (tag: 3.271)[m markit -->   begin testing - automate adding file name(s) to beginning of message #75 [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m87af462[m -[33m (tag: 3.270)[m markit -->   begin testing - automate adding file name(s) to beginning of message #75 [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m606a76f[m -[33m (tag: 3.269)[m markit -->   begin testing - automate adding file name(s) to beginning of message #75 [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m91400e5[m -[33m[m Update SECURITY.md [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m0f7d737[m -[33m[m Create SECURITY.md [32m(5 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m8a05b96[m -[33m[m Update and rename other.md to comment.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m8f590b7[m -[33m[m Update feature_request.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m9243da5[m -[33m[m Update and rename incident-report.md to incident_report.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m640e54b[m -[33m[m Update other.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m007d160[m -[33m[m Update incident-report.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m4bec611[m -[33m[m Update feature_request.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31meb9e75d[m -[33m[m Update view.table.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m910c584[m -[33m[m Update clone.table.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m9fcb762[m -[33m[m Update README.md [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+| * [31m8128c42[m -[33m[m markit/README.md  - add MIT License shields [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+* |   [31m5652f8e[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(6 weeks ago) [1;34m<Bradley Allen>[m
+|\ \  
+| |/  
+| * [31m52a48e9[m -[33m[m Update README.md [32m(4 months ago) [1;34m<Bradley Allen>[m
+* | [31m3d30f82[m -[33m[m remove git-TEST-commit-automation  hooks recursively [32m(4 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m01b9cd2[m -[33m[m  remove hooks/ [32m(4 months ago) [1;34m<Bradley Allen>[m
+*   [31m0ee26a4[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(4 months ago) [1;34m<Bradley Allen>[m
+|\  
+| *   [31m3a6fd0d[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(4 months ago) [1;34m<Bradley Allen>[m
+| |\  
+| | * [31mf3d47a5[m -[33m[m Update README.md [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31m5680579[m -[33m[m Update README.md [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * |   [31m685fa42[m -[33m[m Merge branch 'dev' [32m(4 months ago) [1;34m<Bradley Allen>[m
+| |\ \  
+| | |/  
+| |/|   
+| | * [31md1bf970[m -[33m (tag: 3.268, origin/dev)[m find-code.sh   close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable #74 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31m7b06ed5[m -[33m[m updated output [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31mc08dde4[m -[33m (tag: 3.267)[m find-code.sh   first draft of #74 ready for test [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31mcce83e1[m -[33m (tag: 3.266)[m find-code.sh   changes for #74, next Parse CLI [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31md1113c7[m -[33m[m update test cases [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31m255f671[m -[33m[m delete file [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31mb4a5746[m -[33m[m update output [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31mfc77765[m -[33m (tag: 3.265)[m find-code.sh   changes for #74 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31m64e80aa[m -[33m[m initial commit [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31maf19fd6[m -[33m (tag: 3.264)[m find-code.sh   begin change for #74 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| |/  
+| *   [31m61e5b03[m -[33m[m Merge branch 'dev#73' [32m(4 months ago) [1;34m<Bradley Allen>[m
+| |\  
+| | * [31m04003a9[m -[33m (tag: 3.263, origin/dev#73)[m markit check-markit   close #73  add test cases #73 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31mcc54c24[m -[33m (tag: 3.262)[m check-markit   added test cases #73 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| | * [31ma9e9003[m -[33m (tag: 3.261)[m markit   added test cases #73 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| |/  
+| * [31mb884ddb[m -[33m (tag: 3.260)[m markit   added test cases #73 [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31mc368b2f[m -[33m[m added test cases [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31m66933c9[m -[33m[m updated output [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31me67da79[m -[33m[m updated output [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31m3d2769d[m -[33m[m initial commit [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31mc71ee43[m -[33m[m initial commit [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31m7a9342b[m -[33m[m missing date [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31m1839e66[m -[33m (tag: 3.259)[m check-markit   correct display-usage [32m(4 months ago) [1;34m<Bradley Allen>[m
+| * [31m559cb2d[m -[33m (tag: 3.258)[m check-markit   testing changes to markit add branch to line 1  #69 [32m(4 months ago) [1;34m<Bradley Allen>[m
+* | [31m5972cd8[m -[33m[m remove git-TEST-commit-automation  hooks recursively [32m(4 months ago) [1;34m<Bradley Allen>[m
+* | [31md57dc71[m -[33m[m initial commit [32m(4 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m57d5ab1[m -[33m (tag: 3.257)[m markit   close #69   add branch to line 1  #69 [32m(4 months ago) [1;34m<Bradley Allen>[m
+* [31m7779597[m -[33m (tag: 3.256)[m markit   test using ${BRANCH} in line 1  #69 [32m(4 months ago) [1;34m<Bradley Allen>[m
+* [31mc183b93[m -[33m (tag: 3.255)[m markit   test using ${BRANCH} in line 1  #69 [32m(4 months ago) [1;34m<Bradley Allen>[m
+* [31mb595153[m -[33m (tag: 3.254)[m check-markit    Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m626d8fb[m -[33m (tag: 3.253)[m check-markit   updated [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31mf23f7ab[m -[33m (tag: 3.252)[m check-markit    update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m388c5b0[m -[33m (tag: 3.251)[m check-markit   update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m194d3dc[m -[33m (tag: 3.250)[m check-markit  update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m277c0a0[m -[33m (tag: 3.249)[m check-markit   update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m1ff8b3a[m -[33m (tag: 3.248)[m check-markit   update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m8977f9e[m -[33m (tag: 3.247)[m check-markit   update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m0403f79[m -[33m (tag: 3.246)[m check-markit   update [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m9ac391d[m -[33m (tag: 3.245)[m check-markit   more changes [32m(5 months ago) [1;34m<Bradley>[m
+* [31m86bdbcc[m -[33m (tag: 3.244)[m check-markit   fisrt sections out dated to display_usage [32m(5 months ago) [1;34m<Bradley Allen>[m
+*   [31ma5de56f[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(5 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31mae642d7[m -[33m[m Update feature_request.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+| * [31me698f45[m -[33m[m Update feature_request.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+| * [31md4de7f8[m -[33m[m Update feature_request.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+| * [31mb92506c[m -[33m[m Update feature_request.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+| * [31mff554c3[m -[33m[m Update feature_request.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* | [31me1c5091[m -[33m (tag: 3.243)[m check-markit   lost all changes, restart making changed but commit every 15 minutes [32m(5 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31mec029c5[m -[33m (tag: 3.242)[m markit   testing output formating [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31mbc86f54[m -[33m (tag: 3.241)[m testfiles/sample.sh   testing changes to markit [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m09fecb4[m -[33m (tag: 3.240)[m markit   testing changes [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m05ce313[m -[33m (tag: 3.239)[m markit   added ligic [32m(5 months ago) [1;34m<Bradley Allen>[m
+*   [31m815326c[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(5 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m466a519[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* | [31ma6ebb41[m -[33m (tag: 3.238)[m markit   testing changes [32m(5 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m89b0c49[m -[33m (tag: 3.237)[m markit   testing latest changes with color formating output [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31mda81c16[m -[33m (tag: 3.236)[m testfiles/sample.sh   testing markit with sample.sh [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m0cf654b[m -[33m (tag: 3.235)[m testing markit with sample.sh [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m1d38bd4[m -[33m (tag: 3.234)[m test g [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m4421e01[m -[33m (tag: 3.233, tag: 3.232, tag: 3.231, tag: 3.228, tag: 3.227)[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31ma5880dd[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31ma495645[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m1c308e3[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m63d1470[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m6bafab1[m -[33m (tag: 3.226)[m testfiles/sample.sh   testing markit changes [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m4726206[m -[33m (tag: 3.225)[m markit   testing markit [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31mf3c406e[m -[33m (tag: 3.224)[m markit   testing [32m(5 months ago) [1;34m<Bradley Allen>[m
+*   [31mfb22115[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(5 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31mae37d0d[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* | [31m6f61c19[m -[33m (tag: 3.223)[m markit  testing [32m(5 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31mdbee2cc[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m90d4930[m -[33m[m Update view.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31mb149a02[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m0dc6818[m -[33m[m Update clone.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m0ad5952[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m9c4e58a[m -[33m[m Update view.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m9c76ef3[m -[33m[m Update view.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m3e242cb[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m3e5b4ce[m -[33m[m Update clone.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m7134120[m -[33m[m Update clone.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m8b04d3d[m -[33m[m Update clone.table.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m40d8707[m -[33m[m Update README.md [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m0228589[m -[33m[m Update issue templates [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m016c516[m -[33m[m Update issue templates [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31me348359[m -[33m[m Update issue templates [32m(5 months ago) [1;34m<Bradley Allen>[m
+* [31m5e4215a[m -[33m[m Create view.table.md [32m(10 months ago) [1;34m<Bradley Allen>[m
+* [31md70fde5[m -[33m[m Create clone.table.md [32m(10 months ago) [1;34m<Bradley Allen>[m
+* [31mcadb309[m -[33m (tag: 3.213)[m markit - remove quotes from [ERROR] about requiring a git pull first close #67 [32m(12 months ago) [1;34m<Bradley Allen>[m
+* [31me62c860[m -[33m[m 3.213.svg [32m(12 months ago) [1;34m<Bradley Allen>[m
+* [31mc4e27e2[m -[33m (tag: 3.212)[m create new release [32m(12 months ago) [1;34m<Bradley Allen>[m
+* [31mb4a50e6[m -[33m[m Update README.md [32m(12 months ago) [1;34m<Bradley Allen>[m
+* [31mfd1b274[m -[33m (tag: 3.211)[m check-markit - change output to include date vers version close #66 [32m(12 months ago) [1;34m<Bradley Allen>[m
+* [31m89c73a8[m -[33m[m Update README.md [32m(1 year ago) [1;34m<Bradley Allen>[m
+* [31m47a1d1a[m -[33m[m Update README.md [32m(1 year ago) [1;34m<Bradley Allen>[m
+* [31m0213963[m -[33m (tag: 3.210)[m markit - add file types for terraform close #64 [32m(1 year ago) [1;34m<Bradley Allen>[m
+* [31m3b1367c[m -[33m[m Update README.md [32m(1 year, 1 month ago) [1;34m<Bradley Allen>[m
+* [31mfe8dd5e[m -[33m[m Update README.md [32m(1 year, 1 month ago) [1;34m<Bradley Allen>[m
+* [31m579385d[m -[33m[m Update README.md [32m(1 year, 1 month ago) [1;34m<Bradley Allen>[m
+* [31m3c7c6d0[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7e17ff1[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7cb81a9[m -[33m[m missing text in objectives [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m239f29b[m -[33m[m typo in objectives [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31ma384830[m -[33m[m update objectives in README [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m20443fe[m -[33m[m update objectives [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mad68926[m -[33m (tag: 3.209)[m test git push using markit to github, gitlab, and bitbucket close #63 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m334d4ff[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7abe87d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0045334[m -[33m (tag: 3.208)[m again modified .git/config to push to github, gitlab, and bitbucket [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf540742[m -[33m (tag: 3.207)[m modified .git/config to push to github, gitlab, and bitbucket [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m31765fb[m -[33m[m push to bitbucket and github [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m44eaed5[m -[33m[m push-two-repository-test [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m97b27c3[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3cb0357[m -[33m (tag: 3.206)[m change find so one line for each local repository is printed [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mc359d9f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me4897e6[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf4e3595[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m71acc8f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+*   [31m36b2dd7[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m9e606f0[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31m2618a2c[m -[33m (tag: 3.205)[m typo in display_help [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31mc5dc4be[m -[33m (tag: 3.204)[m markit from bitbucket includes github URL not Bitbucket URL on line 2 close #62 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6e0dc34[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31md304dd9[m -[33m[m linkedin [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mc8cf791[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m95fff59[m -[33m (tag: 3.201)[m update comments [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1459624[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mcfcbe52[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0b9e697[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1483c44[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5a8d507[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3131703[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m233d057[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mdafe586[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf68c012[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31md79a5c0[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me62f36a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m73ab65d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5703b92[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m032e112[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m22eea2d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m4cd1be9[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31madc306d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3edceae[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6b441e0[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m38a5231[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6faea8a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m362ac63[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mfac94af[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+*   [31mdbc0741[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m5f50102[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31m39fed4f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31mf01b257[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31m4cbe799[m -[33m[m github [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m665bdc1[m -[33m[m twitter [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0ed01b5[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me52f815[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0e278cc[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8525ad1[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m30a6cd6[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mfbe13a4[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf239f60[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3eb3843[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m943c2ac[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mca544a9[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7b88d97[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbf0999f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m9d08961[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3be4a35[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m4410c10[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me3e5847[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m17e632f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6640c0d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbfc4d42[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mfdd9dcf[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mb50456a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mcd24e26[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mb69956a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbc5e32d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8936d56[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me340348[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31ma18627e[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf00c482[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7dec39a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m82be2ad[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m32487c2[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbd134a2[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0ef730f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mce075cc[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m47dda7a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m2ccb968[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf887ffe[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m55d9508[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m94e819f[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf9d1b61[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mcdccabe[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8409fec[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8fcc8f1[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m09bc855[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m48f549e[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31ma774cbb[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0ce5bfb[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mdc81f9f[m -[33m (tag: 3.200)[m close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m26fea01[m -[33m (tag: 3.199)[m testing #28 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+*   [31m9715d41[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31md06aeba[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31m1f5b40c[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31m9dd0b96[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31m1c92f16[m -[33m (tag: 3.198)[m testing #28 again with Environment Variables MARKITLOCAL [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31mc54bce2[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5d6b973[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mb2d10e1[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31md9854cc[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m789e504[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mfc41274[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7f8279e[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbea64d8[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7da4f35[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mde187c5[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3461c10[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1c5c8ad[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m401a7c4[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5704a40[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m408c42a[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m26e1156[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mc8949f7[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0121dd0[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6deea5d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mde0f0c9[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mda18e1e[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31madb008e[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m08db1f4[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m4e889b6[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7256826[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m2a963c3[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7ad3c04[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mab1cf1c[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31ma8d2e36[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mc83c1ff[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m7cfa702[m -[33m (tag: 3.197)[m test markit for sample.sh [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m46f4c0d[m -[33m[m Update README.md [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8be0bf7[m -[33m (tag: 3.196)[m update display_help #61 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3d956eb[m -[33m (tag: 3.195)[m update display_help [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m0f7bfdd[m -[33m (tag: 3.194)[m edit display_help [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m3650418[m -[33m (tag: 3.193)[m update display_help [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m569517b[m -[33m (tag: 3.192)[m update display_help [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31me23273f[m -[33m (tag: 3.191)[m markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m9857f38[m -[33m (tag: 3.190)[m markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m72521bb[m -[33m (tag: 3.189)[m corrent incident fatal: tag 'V0.34' already exists only tag if different version [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m157cb02[m -[33m (tag: 3.188)[m corrent incident fatal: tag 'V0.34' already exists only tag if different version [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m87f4d03[m -[33m (tag: 3.187)[m corrent incident fatal: tag 'V0.34' already exists only tag if different version [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbba8b32[m -[33m[m clean up test code #61 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m6a7e045[m -[33m (tag: 3.186)[m clean up test code #61 [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m59c7c80[m -[33m (tag: 3.185)[m test local tag ever commit test [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31ma8ec89e[m -[33m (tag: 3.184)[m markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mf8eecf9[m -[33m (tag: 3.183)[m markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5a321d3[m -[33m (tag: 3.182)[m update user help message during failed git push [32m(1 year, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1327dc4[m -[33m (tag: 3.181)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m58f8d1c[m -[33m (tag: 3.180)[m markit add Environment Variables MARKITLOCAL to support markit on local system close #61 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m2dd3a94[m -[33m[m set MARKITLOCAL to 0 if not set [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m4600439[m -[33m (tag: 3.179)[m markit add Environment Variables MARKITLOCAL to support markit on local system #61 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mfeefe44[m -[33m (tag: 3.178)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mb97cffe[m -[33m (tag: 3.177)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m27be3d0[m -[33m (tag: 3.176)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m9675a62[m -[33m (tag: 3.175)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m8287841[m -[33m (tag: 3.174)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31md17ffae[m -[33m (tag: 3.173)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m283f876[m -[33m (tag: 3.172)[m update user help message for untracked files [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m61983a5[m -[33m (tag: 3.171)[m update untrack user help message [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m7a55286[m -[33m[m Update README.md [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m69b599e[m -[33m (tag: 3.170)[m test Makefile [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31ma54656e[m -[33m[m Update README.md [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m04ccf1a[m -[33m[m Update README.md [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m09a127d[m -[33m (tag: 3.169)[m add support for tcsh csh ksh etc close #59 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mae10bc8[m -[33m (tag: 3.168)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mdbbb23f[m -[33m (tag: 3.167)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m01ceef1[m -[33m (tag: 3.166)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m6b87879[m -[33m (tag: 3.165)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31md602ab3[m -[33m (tag: 3.164)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mda7068c[m -[33m (tag: 3.163)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mbfbab72[m -[33m (tag: 3.162)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m1638d80[m -[33m (tag: 3.161)[m add support for tcsh csh ksh etc #59 testing [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m5340690[m -[33m (tag: 3.160)[m added comment to run perl script [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m28b8b93[m -[33m (tag: 3.159)[m add build comment to sample.go [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mbc2427a[m -[33m (tag: 3.158)[m formating display_help [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mc4ab030[m -[33m (tag: 3.157)[m completed testing of markit [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m49c4dff[m -[33m[m test with no change to version number [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m8fd93ec[m -[33m (tag: 3.156)[m testing gitlog output from this test [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mbe2f1f3[m -[33m[m testing patch level Semantic Versioning [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m867e674[m -[33m (tag: 3.155)[m add presentation and notes [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mf172d1d[m -[33m[m presentation [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31ma2a0c78[m -[33m[m Update README.md [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31ma968056[m -[33m[m Update README.md [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m07fc9b6[m -[33m (tag: 3.154)[m production standard 5 include Copyright notice [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m30c703f[m -[33m (tag: 3.153)[m markit considered adapting it to Bitbucket close #38 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m83e3feb[m -[33m (tag: 3.152)[m production standard 4 update display_help LANGUAGE close #58 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mf31b906[m -[33m (tag: 3.151)[m add section for bitbucket check-markit include Bitbucket repository close #37 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+*   [31mc8d1aa7[m -[33m[m Hope it is README   Merge branch 'master' of https://github.com/BradleyA/markit [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m1572ec6[m -[33m[m markit considered adapting it to Bitbucket #38 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* | [31mc437903[m -[33m (tag: 3.150)[m add section for bitbucket check-markit include Bitbucket repository #37 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31m6971c29[m -[33m (tag: 3.147)[m markit considered adapting it to Bitbucket #38 [32m(1 year, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mc8f85c5[m -[33m[m Update README.md [32m(1 year, 5 months ago) [1;34m<Bradley Allen>[m
+* [31m36bbbd3[m -[33m (tag: 3.146)[m updated display_help [32m(1 year, 5 months ago) [1;34m<Bradley Allen>[m
+* [31m310d89c[m -[33m[m Update README.md [32m(1 year, 5 months ago) [1;34m<Bradley Allen>[m
+* [31mac56e81[m -[33m[m Add LICENSE file [32m(1 year, 5 months ago) [1;34m<Bradley Allen>[m
+* [31mda3aac0[m -[33m[m Update License with MIT License notice 1/2019 [32m(1 year, 5 months ago) [1;34m<Bradley Allen>[m
+* [31m2edafb5[m -[33m (tag: 3.145)[m find-code.sh run shellcheck to clean up future minor incidents close #57 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31md1d119e[m -[33m (tag: 3.144)[m find-code.sh change log format and order close #56 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31mac036c1[m -[33m (tag: 3.143)[m find-code.sh Order of precedence: add support for environment variable (export DEBUG=1), default code close #55:w [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31mc3e9218[m -[33m (tag: 3.142)[m check-markit run shellcheck to clean up future minor incidents close #52 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m71745d2[m -[33m (tag: 3.141)[m check-markit change log format and order close #54 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m65280ae[m -[33m (tag: 3.140)[m check-markit Order of precedence: add support for environment variable (export DEBUG=1), default code close #53 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31mc84cdba[m -[33m (tag: 3.139)[m markit change log format and order close #49 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31md830d50[m -[33m (tag: 3.138)[m markit run shellcheck to clean up future minor incidents close #51 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m931318c[m -[33m (tag: 3.137)[m testing changes from standard template and shellcheck #51 #49 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31mfeebac4[m -[33m (tag: 3.136)[m changes from standard template and shellcheck [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m4d0f308[m -[33m (tag: 3.135)[m changes from standard template and shellcheck [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31mdc4a773[m -[33m (tag: 3.134)[m update display_help to support more [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m2ce0045[m -[33m (tag: 3.133)[m Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m9b81b7f[m -[33m (tag: 3.132)[m remove variable that is not set from DEBUG statement [32m(1 year, 6 months ago) [1;34m<cptx86>[m
+* [31m265e0b9[m -[33m (tag: 3.131)[m test [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m6151070[m -[33m (tag: 3.130)[m test for meetup [32m(1 year, 6 months ago) [1;34m<Bradley Allen>[m
+* [31m3f32bca[m -[33m (tag: 3.129)[m find-code.sh support environment variables close #44 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m5fc33f0[m -[33m (tag: 3.128)[m find-code.sh complete display_help close #43 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31me7e9819[m -[33m (tag: 3.127)[m added comment to about __gitdir [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m0acac1e[m -[33m (tag: 3.126)[m added comment on how to run sample code for c ruby scala go [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31mb772e50[m -[33m[m updated comments about how to run a.out [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31meb6e839[m -[33m[m added example on how to run go program [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31md88d3c5[m -[33m (tag: 3.125)[m this is a py and sh test [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31mfb07ea8[m -[33m[m this is a test [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31mcf6cfeb[m -[33m (tag: 3.124)[m this is a test for markit [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31mf502588[m -[33m (tag: 3.123)[m added nano seconds to the 6 most significant digits [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m7d91fdf[m -[33m (tag: 3.122)[m added nano seconds to the 6 most significant digits [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m19859fc[m -[33m (tag: 3.121)[m add nanoseconds to the 6 most significant digits [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m89a5bed[m -[33m (tag: 3.120)[m markit include directory with file name on line one item 2 close #39 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m1569246[m -[33m (tag: 3.119)[m markit include directory with file name on line one item 2 testing #39 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m5c72220[m -[33m (tag: 3.118)[m markit include directory with file name on line one item 2 testing #39 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m1dac7c3[m -[33m (tag: 3.117)[m # [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31md5d67b3[m -[33m (tag: 3.116)[m markit include directory with file name on line one item 2 testing #39 [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m9367494[m -[33m (tag: 3.115)[m testing network at Linux meeting [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m014deee[m -[33m (tag: 3.114)[m update example file after test [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31md939057[m -[33m (tag: 3.113)[m update file [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m7206940[m -[33m (tag: 3.112)[m typo in display_help [32m(1 year, 7 months ago) [1;34m<Bradley Allen>[m
+* [31m2e733c2[m -[33m (tag: 3.111)[m test three and data file [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mb4df7b3[m -[33m (tag: 3.110)[m second test [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m36f4097[m -[33m (tag: 3.109)[m this is a test [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31ma09d833[m -[33m[m update markit output for sample.sh [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31me29c001[m -[33m (tag: 3.108)[m test markit for sample.sh [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m5a8c2a9[m -[33m (tag: 3.107)[m markit Change echo or print DEBUG INFO WARNING ERROR close #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m8dd6ca5[m -[33m (tag: 3.105)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m4688d04[m -[33m (tag: 3.104)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m0295bf9[m -[33m (tag: 3.103)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m3298887[m -[33m (tag: 3.102)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m78a006d[m -[33m (tag: 3.101)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m320126b[m -[33m (tag: 3.100)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m7aa18aa[m -[33m (tag: 3.99)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mab08c9f[m -[33m (tag: 3.98)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mda3c544[m -[33m (tag: 3.97)[m markit Change echo or print DEBUG INFO WARNING ERROR #40 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mf189c50[m -[33m[m Update README.md [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m58efa33[m -[33m[m update markit output [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m7a17705[m -[33m (tag: 3.96)[m update comments [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m07806e2[m -[33m[m update out of check-markit markit [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31md009226[m -[33m (tag: 3.95)[m move name of repository to DEBUG [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31me95d1a0[m -[33m (tag: 3.94)[m check-markit Change echo or print DEBUG INFO WARNING ERROR close #41 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m52ec976[m -[33m (tag: 3.93)[m check-markit add ISO 8601 for date close #46 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m17cee5f[m -[33m (tag: 3.92)[m check-markit add ISO 8601 for date #46 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31md5b2de0[m -[33m (tag: 3.91)[m check-markit add ISO 8601 for date #46 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mda6b446[m -[33m (tag: 3.90)[m check-markit add ISO 8601 for date #46 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31ma19bab4[m -[33m (tag: 3.89)[m check-markit add ISO 8601 for date #46 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mbf30680[m -[33m (tag: 3.88)[m update for display_help #43 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m7b034c8[m -[33m (tag: 3.87)[m Change echo or print DEBUG INFO WARNING ERROR close #42 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31md1791a6[m -[33m (tag: 3.86)[m Change echo or print DEBUG INFO WARNING ERROR #42 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31meeb4232[m -[33m (tag: 3.85)[m begin find-code.sh Change echo or print DEBUG INFO WARNING ERROR #42 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m44c2c47[m -[33m (tag: 3.84)[m test three [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m0719395[m -[33m (tag: 3.83)[m second test [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mfa66dfc[m -[33m (tag: 3.82)[m this is a test [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m7409452[m -[33m (tag: 3.81)[m add code to check if /usr/share/bash-completion/completions/git close #36 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m6c589fc[m -[33m (tag: 3.80)[m test  add code to check if /usr/share/bash-completion/completions/git #36 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mb28dc6e[m -[33m (tag: 3.79)[m typo in Display_help [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mcbf2b20[m -[33m (tag: 3.78)[m close #33 because no incident after testing [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mabf3492[m -[33m (tag: 3.77)[m think the incident #33 is because .git was on the end of repository on github [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m1d02c48[m -[33m[m Update README.md [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mfd74420[m -[33m (tag: 3.76)[m check-markit: print commit date of local command close #35 [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31mb4266e8[m -[33m (tag: 3.75)[m print commit date of local command #35, ready to begin testing [32m(1 year, 8 months ago) [1;34m<Bradley Allen>[m
+* [31m48b5529[m -[33m (tag: 3.74)[m redirect stderr to /dev/null to stop permission denied close #34 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31md885f25[m -[33m (tag: 3.73)[m found another change grep <string-one> && <string-two #22 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m9826706[m -[33m (tag: 3.72)[m change grep <string-one> && <string-two close #32 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m4e1461c[m -[33m (tag: 3.71)[m move find-code.sh from user-work-files to markit [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m71fe213[m -[33m (tag: 3.70)[m add code to correct: mkdir: cannot create directory ‘/tmp/markit-temp’: File exists [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m8d5f408[m -[33m (tag: 3.69)[m sync to standard script design changes [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m9ffc747[m -[33m[m Update check-markit [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31mbcffc66[m -[33m (tag: 3.68)[m sync to standard script design changes [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31mb37513b[m -[33m (tag: 3.67)[m minor format change [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m4dd1ae5[m -[33m[m Update markit [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m94e698c[m -[33m[m Update check-markit [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31ma7d08dc[m -[33m (tag: 3.66)[m changes to DEBUG statements and LANG #17 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m66099d9[m -[33m (tag: 3.65)[m cleanup comments [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31mf5025da[m -[33m (tag: 3.64)[m add DEBUG lines and LANG check asking for LANG help #17 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m7764ba9[m -[33m[m delete test file [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* [31m1fde8e6[m -[33m (tag: 3.63)[m completed text formating of help information about failed login close #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+*   [31me916cf9[m -[33m[m pull test file Merge branch 'master' of https://github.com/BradleyA/markit [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+|\  
+| * [31m1b3138c[m -[33m[m Create testfile [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31mcb5d29e[m -[33m (tag: 3.62)[m testing failed login #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* | [31m443e609[m -[33m (tag: 3.61)[m testing failed login #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* | [31m3c095e8[m -[33m (tag: 3.60)[m testing failed login #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* | [31m5f9f6f8[m -[33m (tag: 3.59)[m testing failed login #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* | [31m438f83f[m -[33m (tag: 3.58)[m testing failed login #30 [32m(1 year, 9 months ago) [1;34m<Bradley Allen>[m
+* | [31m27a31d5[m -[33m (tag: 3.57)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31ma6860ea[m -[33m (tag: 3.56)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31m01649c3[m -[33m (tag: 3.55)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31m0ba718e[m -[33m (tag: 3.54)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31m7312823[m -[33m (tag: 3.53)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31m3bfe3c2[m -[33m (tag: 3.52)[m testing failed login #30 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* | [31md450827[m -[33m (tag: 3.51)[m testing failed login [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+|/  
+* [31me954537[m -[33m (tag: 3.50)[m needs more testing with GitLab close #31 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31md06bcec[m -[33m (tag: 3.49)[m check-markit work on Gitlab #31 , need to continue testing [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m36ae19b[m -[33m[m remove old command [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m07205e5[m -[33m (tag: 3.48)[m added DEBUG flag and DEBUG statements [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m085a985[m -[33m (tag: 3.47)[m ready to release close #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mcf4b381[m -[33m[m Add check-markit [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m533b178[m -[33m (tag: 3.46)[m ready for pre-release testing #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mad13f38[m -[33m (tag: 3.45)[m check-markit [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m78477b9[m -[33m (tag: 3.44)[m change script name from markcheck to check-markit #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mee71f3b[m -[33m (tag: 3.43)[m continue testing and edit display_help #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m08fb43b[m -[33m (tag: 3.42)[m markcheck working, continue cleanup and testing #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m4af020b[m -[33m (tag: 3.41)[m clean up old release lines to test markcheck #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m59a8f46[m -[33m (tag: 3.40)[m ruffed out display_help section #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m7bb0e40[m -[33m (tag: 3.39)[m New release not backward compatible with markchaeck because of formatting [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mdc78d3e[m -[33m (tag: 3.38)[m New release not backward compatible with markchaeck because of formatting [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m1cbd6fa[m -[33m (tag: 3.37)[m got currect release number #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m8bf9315[m -[33m (tag: 3.36)[m move change to github to switch another system to work #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31me7d62e9[m -[33m (tag: 3.35)[m need to pull the FILE_NAME out of the command line earlier in the script #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m29bb212[m -[33m (tag: 3.34)[m got curl to down load reposiroty #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m530d143[m -[33m (tag: 3.33)[m start working on curl statement #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m211248e[m -[33m (tag: 3.32)[m clean up debugging #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m900cd4c[m -[33m (tag: 3.31)[m updated display_help #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m5a9521c[m -[33m (tag: 3.30)[m complete testing of --file -f #29 [32m(1 year, 10 months ago) [1;34m<Bradley>[m
+* [31mf4f72ed[m -[33m (tag: 3.29)[m need more work but close #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mb1d74b5[m -[33m (tag: 3.28)[m parsed MARKIT_FILE now put it into one line with error detction #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m706f84d[m -[33m (tag: 3.27)[m process command arguments #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m8d85f35[m -[33m (tag: 3.26)[m found working directory of file [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mf3ef1d2[m -[33m (tag: 3.25)[m create new script to check if the current installed version is the latest version #29 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31ma8012ee[m -[33m (tag: 3.24)[m change formating of file names while processing those files [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mc414471[m -[33m (tag: 3.23)[m Issue WARNING if release number not greater than current release number close #14 [32m(1 year, 10 months ago) [1;34m<BradleyA>[m
+* [31mac7de6c[m -[33m[m Update README.md [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m540e258[m -[33m[m change README to include GitLab information with GitHub information [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m3f44e2a[m -[33m (tag: 3.22)[m modify text to use markit on GitLab close #26 [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31mbcee861[m -[33m (tag: 3.21)[m error & exit 1 if repository not setup or not git cloned from remote repository close #28 [32m(1 year, 10 months ago) [1;34m<BradleyA>[m
+* [31m4489c33[m -[33m (tag: 3.20)[m Begin testing #28 [32m(1 year, 10 months ago) [1;34m<BradleyA>[m
+* [31m3f1a133[m -[33m (tag: 3.19)[m Add ${BOLD} & ${NORMAL} to messages for stdout  close #27 [32m(1 year, 10 months ago) [1;34m<BradleyA>[m
+* [31m34b0945[m -[33m (tag: 3.18)[m Add ${BOLD} & ${NORMAL} to messages for stdout [32m(1 year, 10 months ago) [1;34m<uadmin>[m
+* [31m39c6ce5[m -[33m[m Update README.md [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m93f7192[m -[33m[m Update README.md [32m(1 year, 10 months ago) [1;34m<Bradley Allen>[m
+* [31m0b63a34[m -[33m (tag: 3.17)[m correct fat finger typo [32m(2 years ago) [1;34m<BradleyA>[m
+* [31ma23a028[m -[33m (tag: 3.16)[m add comment to git push section [32m(2 years ago) [1;34m<BradleyA>[m
+* [31m62fa785[m -[33m (tag: 3.15)[m correct quoting incident [32m(2 years ago) [1;34m<BradleyA>[m
+* [31m6844c6e[m -[33m (tag: 3.14)[m fix fatal: No names found, cannot describe anything. closes #23 [32m(2 years ago) [1;34m<BradleyA>[m
+* [31mce387ce[m -[33m (tag: 3.13)[m add -version [32m(2 years ago) [1;34m<BradleyA>[m
+* [31m0ea04c3[m -[33m (tag: 3.12)[m updated push error messages [32m(2 years, 2 months ago) [1;34m<BradleyA>[m
+* [31mff555b8[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1558e1a[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m902b65d[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m9270f16[m -[33m (tag: 3.11)[m added version flag [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m14d4668[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m03fc4e1[m -[33m[m closes #22 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m6c65111[m -[33m (tag: 3.10)[m added remote repository so i could determine where the code came from [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m817206f[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m17646ac[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+*   [31m036314a[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit pull READDME [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31m3d36308[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31mda3bc5d[m -[33m[m comment typo [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|/  
+* [31m0916021[m -[33m (tag: 3.9)[m update comments with issue numbers [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31ma09b0d7[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m041360a[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8b48eee[m -[33m (tag: 3.8)[m typo in sample.sh test file [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m3ac7e20[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m653e1be[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mbba24ee[m -[33m (tag: 3.7)[m markit fails if new code in new repository; closes #20 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mdd0eceb[m -[33m (tag: 3.6)[m change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m5a45829[m -[33m[m Update markit [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31maf37c52[m -[33m[m remove dockerfile debug statement [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m0fc5a3b[m -[33m (tag: 3.5)[m New release, all issues closed and tested, ready for production fix #12 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m1090ede[m -[33m[m update install section and clone section [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m7d89e41[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m833eb2b[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mb8da7b4[m -[33m[m change install section ... testing [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m19fce22[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31macf674e[m -[33m[m completed testing -v --version closes #16 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mf87b479[m -[33m[m remove TEMP_MARKIT_FILE file after write permission test closes #18 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+*   [31mbb9e0d0[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31mefe9d11[m -[33m[m before commit 3.4-12-g238584b [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* | [31m9422267[m -[33m[m updated sample files [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* | [31md08587a[m -[33m[m before commit 3.4-12-g238584b [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|/  
+* [31m238584b[m -[33m[m complete testing for change comment indent to help with reading [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m6ea8ff3[m -[33m[m test indent for change comment [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m8c609ab[m -[33m[m test change comment indent [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mab83b55[m -[33m[m update source code comments [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m0e2a93d[m -[33m[m update source code comments [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mb4f84b5[m -[33m[m update compile code comments [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m427cf8d[m -[33m[m change two tabs to one tab in case statement using # [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31ma1543ee[m -[33m[m updated sameple files and .gitignore [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mb10d949[m -[33m[m move testfiles in testfile directory [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m527bd6f[m -[33m[m update comment on compile code [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mc073ef6[m -[33m[m update comments [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m4a1d94d[m -[33m[m comment change [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mcf5cbd3[m -[33m (tag: 3.4)[m New release, all issues closed and tested, ready for production [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m60fe794[m -[33m[m Test for dockerfile, closes #12 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m5487050[m -[33m[m remove deleted file when creating file list, closes #11 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m930a68c[m -[33m[m support comments that use file extension to determine what type of comment, closes #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m9b4055b[m -[33m[m support comments that use file extension to determine what type of comment #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m26542fb[m -[33m[m display a list of untracked files at end, closes #10 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m9b1f718[m -[33m[m beta 3.3 testing markit #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m98d404f[m -[33m[m beta 3.3 for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mad9d812[m -[33m[m for ${FILE_NAME} [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m504facc[m -[33m[m beta 3.3 testing markit for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m13f9e0c[m -[33m[m beta 3.3 testing markit for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m823a3f2[m -[33m[m beta 3.3 testing markit for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m8b12a7a[m -[33m[m beta 3.3 testing markit for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m7c8e576[m -[33m[m beta 3.3 testing sample.go sample.c for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mc6b50ed[m -[33m[m beta 3.3 testing sample.go sample.c for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m71c8992[m -[33m[m beta 3.3 testing sample.go sample.c sample.xml sample.scala sample.htm sample.rb for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mafa94a3[m -[33m[m beta 3.3 testing sample.go sample.c sample.xml sample.scala sample.htm sample.rb [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m343bfa0[m -[33m (tag: 3.3)[m testing x x.MK x.h x.sh for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m95418e1[m -[33m[m testing x x.MK x.h x.sh for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m270e96e[m -[33m[m testing x x.MK x.h x.sh for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m6d8266e[m -[33m[m testing x.c x.go x for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m2dafdfa[m -[33m[m start 3.2 beta release; major code rewrite for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m714d007[m -[33m (tag: 3.2)[m start 3.2 beta release; major code rewrite for #5 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m874ab44[m -[33m[m testing failed login; cleanup debugging for #9, closes #8 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m738b05e[m -[33m[m testing failed login; cleanup of debugging for #9 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m5f83560[m -[33m[m testing failed login; cleanup of debugging for #9 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mf58eb9f[m -[33m[m testing failed login; cleanup of debugging for #9 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31ma4915ea[m -[33m[m testing sample.c with wrong password for github BradleyA [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31md5d2018[m -[33m[m Testing failed git push login [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m232fc5f[m -[33m[m Check if user has write permission; closes #9 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mbbb8b0e[m -[33m[m Check if in Git repository; closes #7 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mc580ec9[m -[33m[m Delete testdir.sh [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31mcdf863f[m -[33m[m test added file in non add directory [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31ma7c4dd1[m -[33m[m clean up formating [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31mdcc0a36[m -[33m[m close #4 add command usage, complete #5 ruff draft of comment file extension case statement [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m85eaa6c[m -[33m[m update README.md after markit rewrite, closes #6 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m7bfdfac[m -[33m[m update sample.sh file example [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m8558e7b[m -[33m[m cleanup description [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m76ca32a[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m220529b[m -[33m[m update description [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m5a1531e[m -[33m[m update usage [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m1d494fc[m -[33m[m update sample.sh output [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* [31m874a7f5[m -[33m[m create output for README #6 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m157c045[m -[33m[m fix typo [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+*   [31m5b2744b[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31m56deda2[m -[33m[m begin modification of README for 3.1 rewrite [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31me4fcbc0[m -[33m[m Update README.md [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31m77936db[m -[33m[m create output for README #6 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|/  
+* [31m74fb4b0[m -[33m[m updated  display_help and continue working on case statement #5 and other typos [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m79c9b9a[m -[33m[m check argument $1 complete and tested, closes #3 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+*   [31m656b65b[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31m61a4acf[m -[33m (tag: 3.1)[m Delete fred.sh [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+| * [31m7e16a93[m -[33m[m Delete test1.sh [32m(2 years, 3 months ago) [1;34m<Bradley Allen>[m
+* | [31m578766a[m -[33m[m update display_help [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+|/  
+* [31m32d02e0[m -[33m[m Closes #2 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31me772a21[m -[33m[m Closes #2 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m336c768[m -[33m[m Closes #1 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m72294c4[m -[33m[m Closes #2 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m3da2b25[m -[33m[m Closes #2 [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m011ac2d[m -[33m[m Major rewrite to support multiple files [32m(2 years, 3 months ago) [1;34m<BradleyA>[m
+* [31m86b54b6[m -[33m[m is this 1.6 no/yes [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m59fc7f7[m -[33m (tag: 1.6, tag: 1.5)[m is this 1.5 ? [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31md745ae6[m -[33m[m 1.4 release [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31mec04434[m -[33m (tag: 1.4)[m commit 1.3 release [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m48c1535[m -[33m[m is this 1.3 [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m2c57e9c[m -[33m[m dded more notes [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m1f668c0[m -[33m[m Added comment to support multiple files [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m78de3ca[m -[33m[m ting git commit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31mfc475e2[m -[33m[m show current release when entering new release number: this closes issue 1 [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m1caf2c3[m -[33m[m Closes #1 [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m01daba2[m -[33m[m Update README.md [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+*   [31m61928e7[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31mdeb2453[m -[33m[m Update README.md [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+* | [31m22b3cc7[m -[33m[m Inital commit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+|/  
+* [31m0d6e47a[m -[33m[m changed version number prompt [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31mdea46c8[m -[33m[m edit README [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+* [31mfb1aa1d[m -[33m[m Update README.md [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+* [31m7bdacd6[m -[33m[m added output [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+*   [31mf37e7bd[m -[33m[m Merge branch 'master' of https://github.com/BradleyA/markit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+|\  
+| * [31m5fff064[m -[33m[m add output [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+| * [31m5fbfe6a[m -[33m[m Delete fred [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+* | [31ma83ffc5[m -[33m[m corrected logic with line description [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m008d377[m -[33m[m corrected login with line description string [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m91311ad[m -[33m[m This is a test again [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m513aa7b[m -[33m[m this is a test [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m23a9091[m -[33m[m $ ./markit sample.sh [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m8508643[m -[33m[m corrected logic in case statement [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* | [31m4c175dd[m -[33m[m inital commit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+|/  
+* [31macda820[m -[33m[m add logic for errors and display_help [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31md7741a9[m -[33m[m here is the top [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m8e3b1ec[m -[33m[m hello world [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31med3bbd4[m -[33m[m pop [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31ma18a817[m -[33m[m here we are [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m810d394[m -[33m[m bob is here [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31ma85e0d0[m -[33m[m third line to update fred [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m0048f98[m -[33m[m second commit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m7037e46[m -[33m[m second commit [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m205ca00[m -[33m[m inital commit of file [32m(2 years, 4 months ago) [1;34m<BradleyA>[m
+* [31m3b32247[m -[33m[m change license to :: [32m(2 years, 4 months ago) [1;34m<Bradley Allen>[m
+* [31ma290a12[m -[33m (tag: 1.2)[m add FQDN to version line to help understand the system the code was tested on and add git commands [32m(2 years, 5 months ago) [1;34m<Bradley Allen>[m
+* [31me4672e3[m -[33m[m clean up formating of install section [32m(2 years, 5 months ago) [1;34m<Bradley Allen>[m
+* [31m0a64405[m -[33m[m add install section [32m(2 years, 5 months ago) [1;34m<Bradley Allen>[m
+* [31mc918fbe[m -[33m (tag: 1.1)[m Initial commit for README.md [32m(2 years, 5 months ago) [1;34m<Bradley Allen>[m
