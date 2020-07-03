@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.280.670  2020-07-02T22:16:04.317518-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.279  
+#	   markit -->   add display_help about how to git push to more than one repository  
 #	markit  3.273.633  2020-04-24T22:02:05.072385-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.272-5-g1ff34ae  
 #	   markit -->   close #76   upgrade Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments  
 #	markit  3.272.627  2020-04-20T21:51:23.928268-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.271  
@@ -105,6 +107,15 @@ echo    "untracked file to a Git tracked file enter, 'git add <file_name>'.  To"
 echo    "include all tracked and untracked file(s) enter, 'markit all'.  To"
 echo    "prevent an untracked file from being tracked, add file(s) to .gitignore"
 echo    "file."
+echo -e "\nThere are several different methods to 'git push' to more than one repository"
+echo    "while using markit.  One method is to edit <repository>/.git/config and add a"
+echo    "pushurl line for each additional repository in the [remote "origin"] section."
+echo    "   [remote \"origin\"]"
+echo    "      url     = https://github.com/BradleyA/markit.git"
+echo    "      pushurl = https://github.com/BradleyA/markit.git"
+echo    "      pushurl = https://axebbq@bitbucket.org/axebbq/markit.git"
+echo    "      pushurl = https://BradleyAxe@gitlab.com/BradleyAxe/markit.git"
+echo    "      fetch   = +refs/heads/*:refs/remotes/origin/*"
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
