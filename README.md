@@ -110,7 +110,7 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     echo "Hello World"
 
 ## Usage: check-markit
-Check the release version of a file with the remote Git repository release version.  The **check-markit** script allows you to check if there is a newer release version of a file that was marked with markit.
+Check the release version of a file with the remote Git repository release version.  The **check-markit** script allows you to check if there is a newer release version of a file that was marked with markit.  The following example uses the file 'markit', but can be used with any file that was marked with markit.
 
     check-markit markit 
 
