@@ -49,7 +49,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * I use alias release-notes='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit' to help build release notes
 
 ## Clone
-To clone, change to the directory you want to download into. Use git clone into the directory. If you do not have Git installed then enter; "sudo apt-get install git" if using Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory that is included in your PATH (/usr/local/bin, ~/bin).
+To clone this repository, change to a directory you want to download the files into.  If you do not have Git installed then enter; "sudo apt-get install git" if using Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory that is included in your PATH (/usr/local/bin, ~/bin).
 
     git clone https://github.com/BradleyA/markit
     cd markit
