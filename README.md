@@ -151,7 +151,7 @@ Check if your local version of testfiles/sample.sh is the same version that is o
 
     ./check-markit -f ./testfiles/sample.sh
 
-On GitHub open the first issue on your markit repository, but first go to settings page and check the box next to issues.
+On GitHub go to your Forked markit repository settings page and check the box next to Issues. Then open the first issue on your markit repository, #1.
 
 Make a change to testfiles/sample.sh
 
