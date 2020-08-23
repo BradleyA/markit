@@ -9,20 +9,25 @@
 * New release, all issues closed and tested, ready for production
 
 ### Features Added
-* check argument $1 complete and tested, closes #3
-Update feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message close #XX
+* Check argument $1 complete and tested, closes #3
+* Updated display_help and continue working on case statement #5 and other typos
+* Updated usage, description
+* Updated README.md after markit rewrite, closes #6
+* Added command usage, closes #4
+* Completed ruff draft of comment file extension case statement #5
+* Check if in Git repository; closes #7
+* Check if user has write permission; closes #9
+* Start 3.2 beta release; major code rewrite for #5
+* Added test cases sample.go sample.c sample.xml sample.scala sample.htm sample.rb
 
 ### Features Changes
 ### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
+* close #3 check argument $1
+* close #4 add command and help usage
+* close #6 Updated README.md after markit rewrite
+* close #7 markit; Not a git repository (or any of the parent directories): .git
+* close #9 Check if user has write permission 
   
 ### Misc
 
