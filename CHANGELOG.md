@@ -4,7 +4,7 @@
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 # Version  3.4.102
-#### Release Name  beta-1
+#### Release Name  beta
 #### Release Date  2018-02-12_21:42:38_CST
 * New release, all issues closed and tested, ready for production
 
