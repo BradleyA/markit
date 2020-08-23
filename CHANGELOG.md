@@ -10,21 +10,17 @@
 
 ### Features Added
 * Added FQDN to version line to help understand the system the code was tested on and add git commands
+* Added license
 * Added logic for errors and display_help
+* Added sample.sh test case
 * Corrected logic with line description string
+* Added README.md
 * Show current release when entering new release number closes #1
-* #	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
-#	Closes #2 
-#	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
+* Added an argument $1 to support -u for untracked files closes #2
 
-
-### Features Changes
-### Features Deprecations
 ### Issues
 * close #1 show current release when entering new release number
-* close #2
-  
-### Misc
+* close #2 Add an argument $1 to support -u for untracked files
 
 # Version  1.1
 #### Release Name  alpha-1
