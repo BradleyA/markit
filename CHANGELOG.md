@@ -23,7 +23,7 @@
 
 ### Misc
 At a later time I need to see if I can add some git commands and use this script as a git wrapper
-* Add change description
+* Add change description message
   * git commit -m ‘$FILE_MESSAGE’ $FILE_NAME
 * Add tag reference
   * git tag -a $FILE_RELEASE -m ‘$FILE_MESSAGE’
