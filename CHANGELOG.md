@@ -3,14 +3,30 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# EXAMPLE: Latest Release -->  Version  X.X.????
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
-#### Release Date  ????
-* Brief description
-* sub-repository
-  * Brief description
+# Version  3.1.48
+#### Release Name  alpha-2
+#### Release Date  2018-02-07_22:39:36_CST
+* Major rewrite to support multiple files
 
 ### Features Added
+show current release when entering new release number
+Need more testing of all use cases
+#	markit	3.1.48	2018-02-07_22:39:36_CST uadmin six-rpi3b.cptx86.com 3.1-5-ge772a21 
+#	Closes #2 
+#	markit	3.1.43	2018-02-07_17:12:56_CST uadmin six-rpi3b.cptx86.com 3.1 
+#	Major rewrite to support multiple files 
+#	markit	2.02.34	2018-02-05_22:29:50_CST uadmin six-rpi3b.cptx86.com 0.02
+#	show current release when entering new release number: this closes issue 1
+#	markit	2.01.20	2018-02-05_20:08:39_CST uadmin six-rpi3b.cptx86.com 1.03
+#	corrected logic with line description string
+#	markit	2.0.14	2018-02-05_19:53:17_CST uadmin six-rpi3b.cptx86.com 4.0
+#	add logic for errors and display_help
+#	markit	1.2	2017-12-19_14:17:55_CST uadmin rpi3b-two.cptx86.com
+#	add FQDN to version line to help understand the system the code was tested on and add git commands
+#	markit	1.1	2017-12-18_19:09:50_CST uthree
+#	Testing added code to support one line description
+
+Multiple-file-support
 * Update feature||file
 * Added the following test cases
     * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
