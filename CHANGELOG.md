@@ -16,20 +16,27 @@
 * Added command usage, closes #4
 * Completed ruff draft of comment file extension case statement #5
 * Check if in Git repository; closes #7
+* login failed during git push, closes #8
 * Check if user has write permission; closes #9
 * Start 3.2 beta release; major code rewrite for #5
-* Added test cases sample.go sample.c sample.xml sample.scala sample.htm sample.rb
+* Added test cases sample.go sample.c sample.xml sample.scala sample.htm sample.rb dockerfile
+* Start beta 3.3 for #5
+* Display a list of untracked files at end, closes #10
+* Support comments that use file extension to determine what type of comment, closes #5
+* Remove deleted file when creating file list, closes #11
+* Test for dockerfile, closes #12
 
-### Features Changes
-### Features Deprecations
 ### Issues
 * close #3 check argument $1
 * close #4 add command and help usage
+* close #5 support comments that use file extension to determine what type of comment
 * close #6 Updated README.md after markit rewrite
 * close #7 markit; Not a git repository (or any of the parent directories): .git
-* close #9 Check if user has write permission 
-  
-### Misc
+* close #8 login failed during git push
+* close #9 Check if user has write permission
+* close #10 display a list of untracked files at end
+* close #11 remove deleted file when creating file list
+* close #12 Test for dockerfile
 
 # Version  3.1.48
 #### Release Name  alpha-2
