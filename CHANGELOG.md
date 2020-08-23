@@ -3,6 +3,29 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.4.102
+#### Release Name  beta-1
+#### Release Date  2018-02-12_21:42:38_CST
+* New release, all issues closed and tested, ready for production
+
+### Features Added
+* check argument $1 complete and tested, closes #3
+Update feature||file
+* Added the following test cases
+    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+* sub-repository
+  * directory/command   git commit message
+  * directory/command   git commit message close #XX
+
+### Features Changes
+### Features Deprecations
+### Issues
+* close #X  directory/command   git commit message
+* sub-repository
+  * close #XX directory/command git commit message
+  
+### Misc
+
 # Version  3.1.48
 #### Release Name  alpha-2
 #### Release Date  2018-02-07_22:39:36_CST
