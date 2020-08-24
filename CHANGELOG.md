@@ -3,6 +3,15 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.12.149
+#### Release Name  3.12
+#### Release Date  2018-03-18_13:30:07_CDT
+* New release, all issues closed and tested, ready for production
+
+### Features Added
+* Updated push error messages
+* Updated README.md
+
 # Version  3.11.145
 #### Release Name  3.11
 #### Release Date  2018-02-27_19:16:56_CST
