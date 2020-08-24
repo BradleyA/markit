@@ -13,17 +13,19 @@
 
 ### Features Added
 * Updated comments and formating
-* Added --version prompt
+* Added --version prompt, closes #16
 * Update README.md  install section and clone section
 * Moved testfiles into testfile directory
   * testfiles/sample.*   updated sample.* files and .gitignore
+  * testfiles/Dockerfile  Test for dockerfile, closes #12
 
 ### Features Deprecations
 * Removed TEMP_MARKIT_FILE, closes #18
 
 ### Issues
-* close #18  remove TEMP_MARKIT_FILE
+* close #12  Test for dockerfile
 * close #16  add --version prompt
+* close #18  remove TEMP_MARKIT_FILE
 
 # Version  3.4.102
 #### Release Name  beta
