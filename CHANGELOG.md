@@ -3,6 +3,20 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.11.145
+#### Release Name  3.11
+#### Release Date  2018-02-27_19:16:56_CST
+* New release, all issues closed and tested, ready for production
+
+### Features Added
+* Updated README.md
+* Updated comments with issue numbers
+* Added remote repository so I could determine where the code came from, closes #22
+* Added version flag
+
+### Issues
+* close #22  add GitHub repository
+
 # Version  3.8
 #### Release Name  3.8
 #### Release Date  Feb 21, 2018 
@@ -135,12 +149,12 @@ At a later time I need to see if I can add some git commands and use this script
   * Brief description
 
 ### Features Added
-* Update feature||file
+* Updated feature||file
 * Added the following test cases
     * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
 * sub-repository
   * directory/command   git commit message
-  * directory/command   git commit message close #XX
+  * directory/command   git commit message closes #XX
 
 ### Features Changes
 ### Features Deprecations
