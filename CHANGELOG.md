@@ -6,9 +6,7 @@
 # Version  3.76.225
 #### Release Name  3.76
 #### Release Date  2018-09-10_13:56:21_CDT
-* Brief description
-* sub-repository
-  * Brief description
+* Continue developing check-markit
 
 ### Features Added
 * Updated sync to standard script design changes
