@@ -9,22 +9,16 @@
 * Use markit on GitLab
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Added comment to git push section
+* Updated README.md
+* Add ${BOLD} & ${NORMAL} to messages for stdout  closes #27
+* error & exit 1 if repository not setup or not git cloned from remote repository, closes #28
+* Modify text to use markit on GitLab, closes #26
 
-### Features Changes
-### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
-  
-### Misc
-
+* close #26  modify text to use markit on GitLab
+* close #27  Add ${BOLD} & ${NORMAL} to messages for stdout
+* close #28  error & exit 1 if repository not setup or not git cloned from remote repository
 
 # Version  3.15.152
 #### Release Name  3.15
