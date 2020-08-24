@@ -3,6 +3,18 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.15.152
+#### Release Name  3.15
+#### Release Date  2018-05-17_17:58:57_CDT
+* New release, all issues closed and tested, ready for production
+
+### Features Added
+* Added -version
+* fix fatal: No names found, cannot describe anything. closes #23
+
+### Issues
+* close #23  returned error : fatal: No names found, cannot describe anything
+
 # Version  3.12.149
 #### Release Name  3.12
 #### Release Date  2018-03-18_13:30:07_CDT
