@@ -6,7 +6,7 @@
 # Version  3.7.130
 #### Release Name  3.7
 #### Release Date  2018-02-20_21:56:02_CST
-* Comtinue testing
+* New release, all issues closed and tested, ready for production
 
 ### Features Changes
 * testfiles/Dockerfile  Removed dockerfile debug statement
