@@ -6,9 +6,7 @@
 # Version  3.7.130
 #### Release Name  3.7
 #### Release Date  2018-02-20_21:56:02_CST
-* Brief description
-* sub-repository
-  * Brief description
+* Comtinue testing
 
 ### Features Changes
 * testfiles/Dockerfile  Removed dockerfile debug statement
