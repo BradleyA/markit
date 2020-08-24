@@ -3,6 +3,28 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.5.126
+#### Release Name  3.5
+#### Release Date  2018-02-18_21:33:53_CST
+* Brief description
+* sub-repository
+  * Brief description
+
+
+### Features Added
+* Updated comments and formating
+* Added --version prompt
+* Update README.md  install section and clone section
+* Moved testfiles into testfile directory
+  * testfiles/sample.*   updated sample.* files and .gitignore
+
+### Features Deprecations
+* Removed TEMP_MARKIT_FILE, closes #18
+
+### Issues
+* close #18  remove TEMP_MARKIT_FILE
+* close #16  add --version prompt
+
 # Version  3.4.102
 #### Release Name  beta
 #### Release Date  2018-02-12_21:42:38_CST
