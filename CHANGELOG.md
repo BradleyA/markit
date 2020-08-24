@@ -3,6 +3,23 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.7.130
+#### Release Name  3.7
+#### Release Date  2018-02-20_21:56:02_CST
+* Brief description
+* sub-repository
+  * Brief description
+
+### Features Changes
+* testfiles/Dockerfile  Removed dockerfile debug statement
+* change CURRENT_RELEASE command to work for 3.10 and across branches; closes #19
+* markit fails if new code in new repository; closes #20
+
+### Issues
+* close #19  markit order of tags not displaying latest
+  * change CURRENT_RELEASE command to work for 3.10 and across branches
+* close #20  markit fails if new code in new repository
+
 # Version  3.5.126
 #### Release Name  3.5
 #### Release Date  2018-02-18_21:33:53_CST
