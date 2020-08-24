@@ -6,9 +6,7 @@
 # Version  3.50.193
 #### Release Name  3.50
 #### Release Date  2018-08-05_21:08:54_CDT
-* Brief description
-* sub-repository
-  * Brief description
+* Added check-markit
 
 ### Features Added
 * Changed formating of file names while processing those files
@@ -20,9 +18,7 @@
 
 ### Issues
 * close #29  create new script to check if the current installed version is the latest version
-  
-### Misc
-
+* close #31  check-markit include GitLab repository
 
 # Version  3.23.164
 #### Release Name  3.23
