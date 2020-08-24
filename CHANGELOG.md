@@ -6,10 +6,7 @@
 # Version  3.5.126
 #### Release Name  3.5
 #### Release Date  2018-02-18_21:33:53_CST
-* Brief description
-* sub-repository
-  * Brief description
-
+* New release, all issues closed and tested, ready for production
 
 ### Features Added
 * Updated comments and formating
