@@ -3,27 +3,23 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# Version  X.X.????
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
-#### Release Date  ????
+# Version  3.50.193
+#### Release Name  3.50
+#### Release Date  2018-08-05_21:08:54_CDT
 * Brief description
 * sub-repository
   * Brief description
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Changed formating of file names while processing those files
+* Added check-markit
+    * create new script to check if the current installed version is the latest version, closes #29
+    * Updated display_help
+    * Changed script name from markcheck to check-markit
+    * check-markit work on Gitlab, closes #31
 
-### Features Changes
-### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
+* close #29  create new script to check if the current installed version is the latest version
   
 ### Misc
 
