@@ -10,7 +10,7 @@
 
 ### Features Added
 * Added -version
-* fix fatal: No names found, cannot describe anything. closes #23
+* Fixed fatal: No names found, cannot describe anything. closes #23
 
 ### Issues
 * close #23  returned error : fatal: No names found, cannot describe anything
