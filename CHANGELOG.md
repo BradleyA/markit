@@ -11,23 +11,16 @@
   * Brief description
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Updated sync to standard script design changes
+* Moved find-code.sh from user-work-files to markit
+* Changed grep <string-one> && <string-two, closes #32
+* redirect stderr to /dev/null to stop permission denied, closes #34
+* check-markit: print commit date of local command, closes #35
 
-### Features Changes
-### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
-  
-### Misc
-
-
+* close #32  check-markit: change grep <string-one> && <string-two
+* close #34  find-code.sh redirect stderr to /dev/null to stop permission denied
+* close #35  check-markit: print commit date of local command
 
 # Version  3.66.212
 #### Release Name  3.66
