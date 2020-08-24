@@ -6,7 +6,7 @@
 # Version  3.76.225
 #### Release Name  3.76
 #### Release Date  2018-09-10_13:56:21_CDT
-* Continue developing check-markit
+* Includes the addition of check-markit, and find-code.sh to markit
 
 ### Features Added
 * Updated sync to standard script design changes
