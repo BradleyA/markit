@@ -3,6 +3,14 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.8
+#### Release Name  3.8
+#### Release Date  Feb 21, 2018 
+* New release, all issues closed and tested, ready for production
+
+### Features Added
+* Update README.md
+
 # Version  3.7.130
 #### Release Name  3.7
 #### Release Date  2018-02-20_21:56:02_CST
