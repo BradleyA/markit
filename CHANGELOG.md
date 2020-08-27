@@ -6,25 +6,29 @@
 # Version  3.120.273
 #### Release Name  3.120
 #### Release Date  2018-10-18T14:36:15-05:00 (CDT)
-* Brief description
-* sub-repository
-  * Brief description
+* Changed to get_date_stamp() function
+* Added directory name to file_name so users can go directly to a file on GitHub or GitLab
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Update README.md
+* markit
+    * Added directory with file name on line one item 2, closes #39
+    * Updated sample.sh
+    * Changed echo or print DEBUG INFO WARNING ERROR, closes #40
+* find-code.sh
+    * Changed echo or print DEBUG INFO WARNING ERROR, closes #42
+    * Updated for display_help, closes #43 
+* check-markit
+    * Changed echo or print DEBUG INFO WARNING ERROR, closes #41
+    * Added ISO 8601 for date, closes #46
 
-### Features Changes
-### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
-
+* close #39  Added directory with file name on line one item 2
+* close #40  Changed echo or print DEBUG INFO WARNING ERROR
+* close #41  Changed echo or print DEBUG INFO WARNING ERROR
+* close #42  Changed echo or print DEBUG INFO WARNING ERROR
+* close #43  Updated for display_help
+* close #46  Added ISO 8601 for date
 
 # Version  3.81.231
 #### Release Name  3.81
