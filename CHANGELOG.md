@@ -14,7 +14,7 @@
 * Updated README.md
 
 ### Issues
-* close #33  close #33 because no incident after testing
+* close #33  No incident after testing
 * close #36  Added code to check if /usr/share/bash-completion/completions/git
 
 # Version  3.76.225
