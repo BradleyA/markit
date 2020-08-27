@@ -6,29 +6,18 @@
 # Version  3.197.368
 #### Release Name  3.197
 #### Release Date  2019-02-08T20:33:53.600661-06:00 (CST)
-* Brief description
+* Added support for local repository only without pushing to github, bitbucket, gitlab (use case not connected to network, ie github . . .but still want to push patches to local repository)
+
 * sub-repository
   * Brief description
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
-
-* 46f4c0d - Update README.md (1 year, 3 months ago) <Bradley Allen>
-* 8be0bf7 - (tag: 3.196) update display_help #61 (1 year, 3 months ago) <Bradley Allen>
-
-* e23273f - (tag: 3.191) markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote (1 year, 3 months ago) <Bradley Allen>
-
-* 72521bb - (tag: 3.189) corrent incident fatal: tag 'V0.34' already exists only tag if different version (1 year, 3 months ago) <Bradley Allen>
-
-* markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository 
-
-* 5a321d3 - (tag: 3.182) update user help message during failed git push (1 year, 3 months ago) <Bradley Allen>
-* 1327dc4 - (tag: 3.181) update user help message for untracked files (1 year, 4 months ago) <Bradley Allen>
+* Updated README.md
+* markit
+    * Updated display_help
+    * Added Environment Variables MARKITLOCAL to support markit on local system, closes #61
+    * Updated user help message during failed git push
+    * Updated user help message for untracked files
 
 * feefe44 - (tag: 3.178) update user help message for untracked files (1 year, 4 months ago) <Bradley Allen>
 
