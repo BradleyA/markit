@@ -7,8 +7,7 @@
 #### Release Name  3.197
 #### Release Date  2019-02-08T20:33:53.600661-06:00 (CST)
 * Added support for local repository only without pushing to github, bitbucket, gitlab (use case not connected to network, ie github . . .but still want to push patches to local repository)
-* 
-* 
+* Added support for additional file types
 
 ### Features Added
 * Updated README.md
@@ -26,14 +25,13 @@
     * Updated production standard 4 update display_help LANGUAGE, closes #58
     * Added nano seconds to the 6 most significant digits
     * Order of precedence: add support for environment variable (export DEBUG=1), default code, closes #50
-    8 Changed log format and order, closes #49
-
+    * Changed log format and order, closes #49
+    * shellcheck to clean up future minor incidents, closes #51
 * check-markit
     * Added section for bitbucket check-markit include Bitbucket repository, closes #37
     * shellcheck to clean up future minor incidents, closes #52
     * Changed log format and order, closes #54
     * Order of precedence: add support for environment variable (export DEBUG=1), default code, closes #53
-
 * find-code.sh
     * shellcheck to clean up future minor incidents, closes #57
     * Changed log format and order, closes #56
@@ -41,11 +39,6 @@
     * Support environment variables, closes #44
     * Completed display_help, closes #43
 
-* d830d50 - (tag: 3.138) markit run shellcheck to clean up future minor incidents close #51
-* 931318c - (tag: 3.137) testing changes from standard template and shellcheck #51 #49
-
-### Features Changes
-### Features Deprecations
 ### Issues
 * close #37  Added section for bitbucket check-markit include Bitbucket repository
 * close #38  Adapted to work with Bitbucket
@@ -53,6 +46,7 @@
 * close #44  Support environment variables
 * close #49  Changed log format and order
 * close #50  Order of precedence: add support for environment variable (export DEBUG=1), default code
+* close #51  shellcheck to clean up future minor incidents
 * close #52  shellcheck to clean up future minor incidents
 * close #53  Order of precedence: add support for environment variable (export DEBUG=1), default code
 * close #54  Changed log format and order
@@ -62,8 +56,6 @@
 * close #58  Updated production standard 4 update display_help LANGUAGE
 * close #59  Added support for tcsh csh ksh etc
 * close #61  Added Environment Variables MARKITLOCAL to support markit on local system
-* close #
-
 
 # Version  3.120.273
 #### Release Name  3.120
