@@ -6,8 +6,15 @@
 # Version  3.197.368
 #### Release Name  3.197
 #### Release Date  2019-02-08T20:33:53.600661-06:00 (CST)
-* Added support for local repository only without pushing to github, bitbucket, gitlab (use case not connected to network, ie github . . .but still want to push patches to local repository)
+* Markit adds two comment lines with information about file changes to all
+modified tracked file(s) in your local Git repository. Then pushes those
+modified file(s) to either a GitHub repository or Bitbucket repository or
+GitLab project. If environment variable MARKITLOCAL is set to 1, markit
+adds two comment lines, commits modified tracked file(s) in your local
+Git repository, but does not push to remote Git repository. I find this
+helpful when working without network access to a remote Git repository.
 * Added support for additional file types
+* Moved find-code.sh from user-work-files to markit
 
 ### Features Added
 * Updated README.md
