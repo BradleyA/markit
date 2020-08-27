@@ -3,9 +3,9 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# Version  X.X.????
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
-#### Release Date  ????
+# Version  3.197.368
+#### Release Name  3.197
+#### Release Date  2019-02-08T20:33:53.600661-06:00 (CST)
 * Brief description
 * sub-repository
   * Brief description
@@ -17,6 +17,69 @@
 * sub-repository
   * directory/command   git commit message
   * directory/command   git commit message closes #XX
+
+* 46f4c0d - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* 8be0bf7 - (tag: 3.196) update display_help #61 (1 year, 3 months ago) <Bradley Allen>
+
+* e23273f - (tag: 3.191) markit add Environment Variables MARKITLOCAL to support markit on local system #61 complete testing and tag changes local & remote (1 year, 3 months ago) <Bradley Allen>
+
+* 72521bb - (tag: 3.189) corrent incident fatal: tag 'V0.34' already exists only tag if different version (1 year, 3 months ago) <Bradley Allen>
+
+* markit add Environment Variables MARKITLOCAL to support markit on local system #61 change user message to include remote or local repository 
+
+* 5a321d3 - (tag: 3.182) update user help message during failed git push (1 year, 3 months ago) <Bradley Allen>
+* 1327dc4 - (tag: 3.181) update user help message for untracked files (1 year, 4 months ago) <Bradley Allen>
+
+* feefe44 - (tag: 3.178) update user help message for untracked files (1 year, 4 months ago) <Bradley Allen>
+
+* 61983a5 - (tag: 3.171) update untrack user help message (1 year, 4 months ago) <Bradley Allen>
+* 7a55286 - Update README.md (1 year, 4 months ago) <Bradley Allen>
+* 69b599e - (tag: 3.170) test Makefile (1 year, 4 months ago) <Bradley Allen>
+
+* 09a127d - (tag: 3.169) add support for tcsh csh ksh etc close #59 (1 year, 4 months ago) <Bradley Allen>
+
+* 5340690 - (tag: 3.160) added comment to run perl script (1 year, 4 months ago) <Bradley Allen>
+* 28b8b93 - (tag: 3.159) add build comment to sample.go (1 year, 4 months ago) <Bradley Allen>
+
+* 867e674 - (tag: 3.155) add presentation and notes (1 year, 4 months ago) <Bradley Allen>
+* f172d1d - presentation (1 year, 4 months ago) <Bradley Allen>
+* a2a0c78 - Update README.md (1 year, 4 months ago) <Bradley Allen>
+
+* 07fc9b6 - (tag: 3.154) production standard 5 include Copyright notice (1 year, 4 months ago) <Bradley Allen>
+* 30c703f - (tag: 3.153) markit considered adapting it to Bitbucket close #38 (1 year, 4 months ago) <Bradley Allen>
+* 83e3feb - (tag: 3.152) production standard 4 update display_help LANGUAGE close #58 (1 year, 4 months ago) <Bradley Allen>
+* f31b906 - (tag: 3.151) add section for bitbucket check-markit include Bitbucket repository close #37 (1 year, 4 months ago) <Bradley Allen>
+*   c8d1aa7 - Hope it is README   Merge branch 'master' of https://github.com/BradleyA/markit (1 year, 4 months ago) <Bradley Allen>
+|\  
+| * 1572ec6 - markit considered adapting it to Bitbucket #38 (1 year, 4 months ago) <Bradley Allen>
+* | c437903 - (tag: 3.150) add section for bitbucket check-markit include Bitbucket repository #37 (1 year, 4 months ago) <Bradley Allen>
+|/  
+* 6971c29 - (tag: 3.147) markit considered adapting it to Bitbucket #38 (1 year, 4 months ago) <Bradley Allen>
+
+* 36bbbd3 - (tag: 3.146) updated display_help (1 year, 5 months ago) <Bradley Allen>
+* 310d89c - Update README.md (1 year, 5 months ago) <Bradley Allen>
+* ac56e81 - Add LICENSE file (1 year, 5 months ago) <Bradley Allen>
+* da3aac0 - Update License with MIT License notice 1/2019 (1 year, 5 months ago) <Bradley Allen>
+* 2edafb5 - (tag: 3.145) find-code.sh run shellcheck to clean up future minor incidents close #57 (1 year, 6 months ago) <Bradley Allen>
+* d1d119e - (tag: 3.144) find-code.sh change log format and order close #56 (1 year, 6 months ago) <Bradley Allen>
+* ac036c1 - (tag: 3.143) find-code.sh Order of precedence: add support for environment variable (export DEBUG=1), default code close #55:w (1 year, 6 months ago) <Bradley Allen>
+* c3e9218 - (tag: 3.142) check-markit run shellcheck to clean up future minor incidents close #52 (1 year, 6 months ago) <Bradley Allen>
+* 71745d2 - (tag: 3.141) check-markit change log format and order close #54 (1 year, 6 months ago) <Bradley Allen>
+* 65280ae - (tag: 3.140) check-markit Order of precedence: add support for environment variable (export DEBUG=1), default code close #53 (1 year, 6 months ago) <Bradley Allen>
+* c84cdba - (tag: 3.139) markit change log format and order close #49 (1 year, 6 months ago) <Bradley Allen>
+* d830d50 - (tag: 3.138) markit run shellcheck to clean up future minor incidents close #51 (1 year, 6 months ago) <Bradley Allen>
+* 931318c - (tag: 3.137) testing changes from standard template and shellcheck #51 #49 (1 year, 6 months ago) <Bradley Allen>
+* feebac4 - (tag: 3.136) changes from standard template and shellcheck (1 year, 6 months ago) <Bradley Allen>
+
+* 2ce0045 - (tag: 3.133) Order of precedence: add support for environment variable (export DEBUG=1), default code close #50 (1 year, 6 months ago) <Bradley Allen>
+
+* 3f32bca - (tag: 3.129) find-code.sh support environment variables close #44 (1 year, 7 months ago) <Bradley Allen>
+* 5fc33f0 - (tag: 3.128) find-code.sh complete display_help close #43 (1 year, 7 months ago) <Bradley Allen>
+* e7e9819 - (tag: 3.127) added comment to about __gitdir (1 year, 7 months ago) <Bradley Allen>
+* 0acac1e - (tag: 3.126) added comment on how to run sample code for c ruby scala go (1 year, 7 months ago) <Bradley Allen>
+
+* f502588 - (tag: 3.123) added nano seconds to the 6 most significant digits (1 year, 7 months ago) <Bradley Allen>
+
 
 ### Features Changes
 ### Features Deprecations
