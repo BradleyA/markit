@@ -6,28 +6,16 @@
 # Version  3.81.231
 #### Release Name  3.81
 #### Release Date  2018-09-27_06:07:59_CDT
-* Brief description
-* sub-repository
-  * Brief description
+* Correct incident with check-markit
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Added code to check if /usr/share/bash-completion/completions/git, closes #36
+* No incident after testing, closes #33
+* Updated README.md
 
-### Features Changes
-### Features Deprecations
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
-  
-### Misc
-
-
+* close #33  close #33 because no incident after testing
+* close #36  Added code to check if /usr/share/bash-completion/completions/git
 
 # Version  3.76.225
 #### Release Name  3.76
