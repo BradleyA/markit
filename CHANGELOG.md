@@ -3,6 +3,55 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  X.X.????
+#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
+#### Release Date  ????
+* Brief description
+* sub-repository
+  * Brief description
+
+### Features Added
+* Updated feature||file
+* 0213963 - (tag: 3.210) markit - add file types for terraform close #64 (1 year ago) <Bradley Allen>
+* 3b1367c - Update README.md (1 year, 1 month ago) <Bradley Allen>
+* fe8dd5e - Update README.md (1 year, 1 month ago) <Bradley Allen>
+* 579385d - Update README.md (1 year, 1 month ago) <Bradley Allen>
+* 3c7c6d0 - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* 7e17ff1 - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* 7cb81a9 - missing text in objectives (1 year, 3 months ago) <Bradley Allen>
+* 239f29b - typo in objectives (1 year, 3 months ago) <Bradley Allen>
+* a384830 - update objectives in README (1 year, 3 months ago) <Bradley Allen>
+* 20443fe - update objectives (1 year, 3 months ago) <Bradley Allen>
+* ad68926 - (tag: 3.209) test git push using markit to github, gitlab, and bitbucket close #63 (1 year, 3 months ago) <Bradley Allen>
+* 334d4ff - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* 7abe87d - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* 0045334 - (tag: 3.208) again modified .git/config to push to github, gitlab, and bitbucket (1 year, 3 months ago) <Bradley Allen>
+* f540742 - (tag: 3.207) modified .git/config to push to github, gitlab, and bitbucket (1 year, 3 months ago) <Bradley Allen>
+* 31765fb - push to bitbucket and github (1 year, 3 months ago) <Bradley Allen>
+* 44eaed5 - push-two-repository-test (1 year, 3 months ago) <Bradley Allen>
+* 0ce5bfb - Update README.md (1 year, 3 months ago) <Bradley Allen>
+* dc81f9f - (tag: 3.200) close #28 retesting markit only works repositories that have been clone from a remote repository.  something to do with master origin I think (1 year, 3 months ago) <Bradley Allen>
+* 26fea01 - (tag: 3.199) testing #28 (1 year, 3 months ago) <Bradley Allen>
+* | 1c92f16 - (tag: 3.198) testing #28 again with Environment Variables MARKITLOCAL (1 year, 3 months ago) <Bradley Allen>
+
+
+
+* Added the following test cases
+    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+* sub-repository
+  * directory/command   git commit message
+  * directory/command   git commit message closes #XX
+
+### Features Changes
+### Features Deprecations
+### Issues
+* close #X  directory/command   git commit message
+* sub-repository
+  * close #XX directory/command git commit message
+  
+### Misc
+
+
 # Version  3.197.368
 #### Release Name  3.197
 #### Release Date  2019-02-08T20:33:53.600661-06:00 (CST)
