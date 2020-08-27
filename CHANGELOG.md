@@ -11,23 +11,67 @@
   * Brief description
 
 ### Features Added
-* Updated feature||file
-* Added the following test cases
-    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-* sub-repository
-  * directory/command   git commit message
-  * directory/command   git commit message closes #XX
+* Updated README.md
+* Updated view.table.md
+* Updated clone.table.md
+* Updated feature_request.md
+* Updated incident-report.md
+* Updated SECURITY.md
+* Updated comment.md
+* Updated CHANGELOG.md
 
-### Features Changes
-### Features Deprecations
+
+* dc1c9a2 - Include link to other Linux distributions install methods (7 weeks ago) <Bradley Allen>
+* 9e4e681 - (tag: 3.280) markit -->   add display_help about how to git push to more than one repository (8 weeks ago) <Bradley Allen>
+
+* 2084ee7 - (tag: 3.275) release-notes-1 -->   testing push using markit to more than one public repository (8 weeks ago) <Bradley Allen>
+* dc1c9a2 - Include link to other Linux distributions install methods (7 weeks ago) <Bradley Allen>
+* 9e4e681 - (tag: 3.280) markit -->   add display_help about how to git push to more than one repository (8 weeks ago) <Bradley Allen>
+* 437cf9b - added construction-icon.gif (3 months ago) <Bradley Allen>
+* bdf22c7 - Update incident_report.md (4 months ago) <Bradley Allen>
+* e036978 - deleted:    TEST/markit/SA-shellcheck-001.expected (4 months ago) <Bradley Allen>
+* 88cae04 - initial commit (4 months ago) <Bradley Allen>
+*   ecf2081 - Merge branch 'master' of https://github.com/BradleyA/markit (4 months ago) <Bradley Allen>
+|\  
+| * 186ca51 - (tag: 3.273) markit -->   close #76   upgrade Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments (4 months ago) <Bradley Allen>
+| * dd91124 - (tag: 3.272) markit -->   close #75   automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
+| * c407d04 - (tag: 3.271) markit -->   begin testing - automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
+| * 87af462 - (tag: 3.270) markit -->   begin testing - automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
+| * 606a76f - (tag: 3.269) markit -->   begin testing - automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
+| | * d1bf970 - (tag: 3.268, origin/dev) find-code.sh   close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable #74 (8 months ago) <Bradley Allen>
+| | * 7b06ed5 - updated output (8 months ago) <Bradley Allen>
+| | * c08dde4 - (tag: 3.267) find-code.sh   first draft of #74 ready for test (8 months ago) <Bradley Allen>
+| | * cce83e1 - (tag: 3.266) find-code.sh   changes for #74, next Parse CLI (8 months ago) <Bradley Allen>
+| | * d1113c7 - update test cases (8 months ago) <Bradley Allen>
+| | * 255f671 - delete file (8 months ago) <Bradley Allen>
+| | * b4a5746 - update output (8 months ago) <Bradley Allen>
+| | * fc77765 - (tag: 3.265) find-code.sh   changes for #74 (8 months ago) <Bradley Allen>
+| | * 64e80aa - initial commit (8 months ago) <Bradley Allen>
+| | * af19fd6 - (tag: 3.264) find-code.sh   begin change for #74 (8 months ago) <Bradley Allen>
+| |/  
+| *   61e5b03 - Merge branch 'dev#73' (8 months ago) <Bradley Allen>
+| |\  
+| | * 04003a9 - (tag: 3.263, origin/dev#73) markit check-markit   close #73  add test cases #73 (8 months ago) <Bradley Allen>
+| | * cc54c24 - (tag: 3.262) check-markit   added test cases #73 (8 months ago) <Bradley Allen>
+| | * a9e9003 - (tag: 3.261) markit   added test cases #73 (8 months ago) <Bradley Allen>
+| * 1839e66 - (tag: 3.259) check-markit   correct display-usage (8 months ago) <Bradley Allen>
+| * 559cb2d - (tag: 3.258) check-markit   testing changes to markit add branch to line 1  #69 (8 months ago) <Bradley Allen>
+* | 5972cd8 - remove git-TEST-commit-automation  hooks recursively (7 months ago) <Bradley Allen>
+* 57d5ab1 - (tag: 3.257) markit   close #69   add branch to line 1  #69 (8 months ago) <Bradley Allen>
+* b595153 - (tag: 3.254) check-markit    Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable (8 months ago) <Bradley Allen>
+* 626d8fb - (tag: 3.253) check-markit   updated (8 months ago) <Bradley Allen>
+* 86bdbcc - (tag: 3.244) check-markit   fisrt sections out dated to display_usage (8 months ago) <Bradley Allen>
+* | e1c5091 - (tag: 3.243) check-markit   lost all changes, restart making changed but commit every 15 minutes (8 months ago) <Bradley Allen>
+* da81c16 - (tag: 3.236) testfiles/sample.sh   testing markit with sample.sh (8 months ago) <Bradley Allen>
+* 0cf654b - (tag: 3.235) testing markit with sample.sh (8 months ago) <Bradley Allen>
+* 6bafab1 - (tag: 3.226) testfiles/sample.sh   testing markit changes (8 months ago) <Bradley Allen>
+
 ### Issues
 * close #X  directory/command   git commit message
 * sub-repository
   * close #XX directory/command git commit message
   
-### Misc
-
-
+  
 
 # Version  3.213.519
 #### Release Name  3.213
@@ -63,7 +107,7 @@
 * Updated README.md
 * markit
     * Added file types for terraform, closes #64
-    * Test git push using markit to github, gitlab, and bitbucket, closes #63
+    * Test git push using markit to github, gitlab, and bitbucket, closes 
     * Modified .git/config to push to github, gitlab, and bitbucket
     * Push-two-repository-test
     * Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin, closes #28
