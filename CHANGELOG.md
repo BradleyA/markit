@@ -12,7 +12,7 @@
 * Updated sync to standard script design changes
 * Moved find-code.sh from user-work-files to markit
 * Changed grep <string-one> && <string-two, closes #32
-* redirect stderr to /dev/null to stop permission denied, closes #34
+* Redirect stderr to /dev/null to stop permission denied, closes #34
 * check-markit: print commit date of local command, closes #35
 
 ### Issues
