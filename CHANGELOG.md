@@ -26,6 +26,7 @@
     * Updated production standard 4 update display_help LANGUAGE, closes #58
     * Added nano seconds to the 6 most significant digits
     * Order of precedence: add support for environment variable (export DEBUG=1), default code, closes #50
+    8 Changed log format and order, closes #49
 
 * check-markit
     * Added section for bitbucket check-markit include Bitbucket repository, closes #37
@@ -37,11 +38,9 @@
     * shellcheck to clean up future minor incidents, closes #57
     * Changed log format and order, closes #56
     * Order of precedence: add support for environment variable (export DEBUG=1), default code, closes #55
-    
-    * 3f32bca - (tag: 3.129) find-code.sh support environment variables close #44
-* 5fc33f0 - (tag: 3.128) find-code.sh complete display_help close #43
+    * Support environment variables, closes #44
+    * Completed display_help, closes #43
 
-* c84cdba - (tag: 3.139) markit change log format and order close #49
 * d830d50 - (tag: 3.138) markit run shellcheck to clean up future minor incidents close #51
 * 931318c - (tag: 3.137) testing changes from standard template and shellcheck #51 #49
 
@@ -50,9 +49,16 @@
 ### Issues
 * close #37  Added section for bitbucket check-markit include Bitbucket repository
 * close #38  Adapted to work with Bitbucket
+* close #43  Completed display_help
+* close #44  Support environment variables
+* close #49  Changed log format and order
 * close #50  Order of precedence: add support for environment variable (export DEBUG=1), default code
 * close #52  shellcheck to clean up future minor incidents
+* close #53  Order of precedence: add support for environment variable (export DEBUG=1), default code
 * close #54  Changed log format and order
+* close #55  Order of precedence: add support for environment variable (export DEBUG=1), default code
+* close #56  Changed log format and order
+* close #57  shellcheck to clean up future minor incidents
 * close #58  Updated production standard 4 update display_help LANGUAGE
 * close #59  Added support for tcsh csh ksh etc
 * close #61  Added Environment Variables MARKITLOCAL to support markit on local system
