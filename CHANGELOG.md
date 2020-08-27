@@ -3,6 +3,19 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
+# Version  3.212.517
+#### Release Name  3.212
+#### Release Date  2019-05-27T17:06:49.252530-05:00 (CDT)
+* check-markit - changed output to include date vers version
+
+### Features Added
+* Updated README.md
+* check-markit
+    * Changed output to include date vers version, closs #66
+
+### Issues
+* close #66  Changed output to include date vers version
+
 # Version  3.210.512
 #### Release Name  3.210.512
 #### Release Date  2019-05-21T13:32:34.729227-05:00 (CDT)
