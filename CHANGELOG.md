@@ -3,9 +3,9 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# EXAMPLE: Latest Release -->  Version  X.X.????
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
-#### Release Date  ????
+# Version  3.120.273
+#### Release Name  3.120
+#### Release Date  2018-10-18T14:36:15-05:00 (CDT)
 * Brief description
 * sub-repository
   * Brief description
