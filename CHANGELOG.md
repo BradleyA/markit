@@ -25,18 +25,8 @@
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
     
 | * dd91124 - (tag: 3.272) markit -->   close #75   automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
-
-
 | | * d1bf970 - (tag: 3.268, origin/dev) find-code.sh   close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable #74 (8 months ago) <Bradley Allen>
-	
-| | * c08dde4 - (tag: 3.267) find-code.sh   first draft of #74 ready for test (8 months ago) <Bradley Allen>
-| | * cce83e1 - (tag: 3.266) find-code.sh   changes for #74, next Parse CLI (8 months ago) <Bradley Allen>
-| | * d1113c7 - update test cases (8 months ago) <Bradley Allen>
-
-
 | | * 04003a9 - (tag: 3.263, origin/dev#73) markit check-markit   close #73  add test cases #73 (8 months ago) <Bradley Allen>
-| | * cc54c24 - (tag: 3.262) check-markit   added test cases #73 (8 months ago) <Bradley Allen>
-| | * a9e9003 - (tag: 3.261) markit   added test cases #73 (8 months ago) <Bradley Allen>
 | * 1839e66 - (tag: 3.259) check-markit   correct display-usage (8 months ago) <Bradley Allen>
 | * 559cb2d - (tag: 3.258) check-markit   testing changes to markit add branch to line 1  #69 (8 months ago) <Bradley Allen>
 * | 5972cd8 - remove git-TEST-commit-automation  hooks recursively (7 months ago) <Bradley Allen>
@@ -50,10 +40,7 @@
 * 6bafab1 - (tag: 3.226) testfiles/sample.sh   testing markit changes (8 months ago) <Bradley Allen>
 
 ### Issues
-* close #X  directory/command   git commit message
-* sub-repository
-  * close #XX directory/command git commit message
-  
+* close #
   
 
 # Version  3.213.519
