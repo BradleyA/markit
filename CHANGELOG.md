@@ -83,9 +83,12 @@
     * Modified .git/config to push to github, gitlab, and bitbucket
     * Push-two-repository-test
     * Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin, closes #28
+* find-code.sh 
+    * failed to find any when in ~/kubernets, closes #45
 
 ### Issues
 * close #28  Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin
+* close #45  find-code.sh - failed to find any when in ~/kubernets
 * close #62  From bitbucket includes github URL not Bitbucket URL on line 2
 * close #63  Test git push using markit to github, gitlab, and bitbucket
 * close #64  Added file types for terraform
@@ -177,7 +180,9 @@ helpful when working without network access to a remote Git repository.
 * close #41  Changed echo or print DEBUG INFO WARNING ERROR
 * close #42  Changed echo or print DEBUG INFO WARNING ERROR
 * close #43  Updated for display_help
-* close #46  Added ISO 8601 for date
+* close #46  check-markit Added ISO 8601 for date 
+* close #47  README.md Added ISO 8601 for date
+* close #48  duplicate incident
 
 # Version  3.81.231
 #### Release Name  3.81
