@@ -5,18 +5,19 @@
 ## Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
+* Added ISSUE_TEMPLATES, security policy
 * Brief description
 
 ### Features Added
-* Updated .github/ISSUE_TEMPLATE/feature_request.md
-* Updated .github/ISSUE_TEMPLATE/incident-report.md
-* Updated .github/ISSUE_TEMPLATE/comment.md
-* Updated CHANGELOG.md
+* Added .github/ISSUE_TEMPLATE/feature_request.md
+* Added .github/ISSUE_TEMPLATE/incident-report.md
+* Added .github/ISSUE_TEMPLATE/comment.md
+* Added CHANGELOG.md
+* Added SECURITY.md - create repository SECURITY.md, closes #78
+* Added images/clone.table.md
+* Added images/construction-icon.gif
+* Added images/view.table.md
 * Updated README.md
-* Feature Request - SECURITY.md - create repository SECURITY.md, closes #78
-* Updated images/clone.table.md
-* Updated images/construction-icon.gif
-* Updated images/view.table.md
 * Remove git-TEST-commit-automation hooks recursively
 * markit
     * Added display_help about how to git push to more than one repository
