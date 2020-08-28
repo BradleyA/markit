@@ -5,18 +5,22 @@
 ## Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
+* Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
+* Updated Production standards
+* Added file name(s) to beginning of git commit message, line 2, to help locate file(s) that changed 
+* Added branch name to line 1, to help locate changes to file(s)
 * Brief description
 
 ### Features Added
-* Updated .github/ISSUE_TEMPLATE/feature_request.md
-* Updated .github/ISSUE_TEMPLATE/incident-report.md
-* Updated .github/ISSUE_TEMPLATE/comment.md
-* Updated CHANGELOG.md
+* Added .github/ISSUE_TEMPLATE/feature_request.md
+* Added .github/ISSUE_TEMPLATE/incident-report.md
+* Added .github/ISSUE_TEMPLATE/comment.md
+* Added CHANGELOG.md
+* Added SECURITY.md - create repository SECURITY.md, closes #78
+* Added images/clone.table.md
+* Added images/construction-icon.gif
+* Added images/view.table.md
 * Updated README.md
-* Feature Request - SECURITY.md - create repository SECURITY.md, closes #78
-* Updated images/clone.table.md
-* Updated images/construction-icon.gif
-* Updated images/view.table.md
 * Remove git-TEST-commit-automation hooks recursively
 * markit
     * Added display_help about how to git push to more than one repository
@@ -82,9 +86,12 @@
     * Modified .git/config to push to github, gitlab, and bitbucket
     * Push-two-repository-test
     * Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin, closes #28
+* find-code.sh 
+    * failed to find any when in ~/kubernets, closes #45
 
 ### Issues
 * close #28  Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin
+* close #45  find-code.sh - failed to find any when in ~/kubernets
 * close #62  From bitbucket includes github URL not Bitbucket URL on line 2
 * close #63  Test git push using markit to github, gitlab, and bitbucket
 * close #64  Added file types for terraform
@@ -104,7 +111,7 @@ helpful when working without network access to a remote Git repository.
 
 ### Features Added
 * Updated LICENSE file
-* Updated README.md
+* Updated README.md, closes #60
 * markit
     * Updated display_help
     * Added Environment Variables MARKITLOCAL to support markit on local system, closes #61
@@ -148,6 +155,7 @@ helpful when working without network access to a remote Git repository.
 * close #57  shellcheck to clean up future minor incidents
 * close #58  Updated production standard 4 update display_help LANGUAGE
 * close #59  Added support for tcsh csh ksh etc
+* close #60  Added gitlog to README.md
 * close #61  Added Environment Variables MARKITLOCAL to support markit on local system
 
 # Version  3.120.273
@@ -175,7 +183,9 @@ helpful when working without network access to a remote Git repository.
 * close #41  Changed echo or print DEBUG INFO WARNING ERROR
 * close #42  Changed echo or print DEBUG INFO WARNING ERROR
 * close #43  Updated for display_help
-* close #46  Added ISO 8601 for date
+* close #46  check-markit Added ISO 8601 for date 
+* close #47  README.md Added ISO 8601 for date
+* close #48  duplicate incident
 
 # Version  3.81.231
 #### Release Name  3.81
