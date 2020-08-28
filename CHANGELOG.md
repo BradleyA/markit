@@ -3,23 +3,20 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
 ## Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
+#### Release Name  prerelease
 #### Release Date  ????
 * Brief description
 
-
 ### Features Added
-* Updated README.md
-* Updated view.table.md
-* Updated clone.table.md
-* Updated feature_request.md
-* Updated incident-report.md
-* Updated SECURITY.md
-* Updated comment.md
+* Updated .github/ISSUE_TEMPLATE/feature_request.md
+* Updated .github/ISSUE_TEMPLATE/incident-report.md
+* Updated .github/ISSUE_TEMPLATE/comment.md
 * Updated CHANGELOG.md
-* Added construction-icon.gif
-
+* Updated README.md
+* Updated SECURITY.md
+* Updated images/clone.table.md
+* Updated images/construction-icon.gif
+* Updated images/view.table.md
 * markit
     * add display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
@@ -101,8 +98,8 @@ helpful when working without network access to a remote Git repository.
 * Moved find-code.sh from user-work-files to markit
 
 ### Features Added
+* Updated LICENSE file
 * Updated README.md
-* Added LICENSE file
 * markit
     * Updated display_help
     * Added Environment Variables MARKITLOCAL to support markit on local system, closes #61
