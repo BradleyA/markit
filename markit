@@ -1,5 +1,7 @@
 #!/bin/bash
-#	markit  3.282.775  2020-08-28T12:47:57.633843-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.281-24-g5807c96  
+#	markit  3.283.778  2020-08-28T12:58:55.301882-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.282-2-g947e0a3  
+#	   markit -->   create repository CHANGELOG.md close #77  
+#	markit  3.282.775  2020-08-28T12:47:57.633843-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.281-24-g5807c96
 #	   markit -->   Add time zone, repository URL, and Git branch to display_help, close #82  
 #	markit  3.273.633  2020-04-24T22:02:05.072385-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 3.272-5-g1ff34ae  
 #	   markit -->   close #76   upgrade Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments  
