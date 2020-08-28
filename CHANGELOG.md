@@ -24,6 +24,7 @@
     * Automate adding file name(s) to beginning of message, closes #75
     * Added test cases, closes #73
     * Testing changes to markit add branch to line 1, closes #69
+    * Testing with branching, closes #68
 * find-code.sh
     * Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable, closes #74
 * check-markit
@@ -32,6 +33,7 @@
     * Correct display-usage
 
 ### Issues
+* close #68  markit test with branching #68
 * close #69  Testing changes to markit add branch to line 1
 * close #71  Review: https://github.com/commitizen/cz-cli
 * close #72  Updated Production Standards 3.550
