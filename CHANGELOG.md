@@ -20,21 +20,23 @@
 * markit
     * add display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
-    
-| * dd91124 - (tag: 3.272) markit -->   close #75   automate adding file name(s) to beginning of message #75 (4 months ago) <Bradley Allen>
-| | * d1bf970 - (tag: 3.268, origin/dev) find-code.sh   close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable #74 (8 months ago) <Bradley Allen>
-| | * 04003a9 - (tag: 3.263, origin/dev#73) markit check-markit   close #73  add test cases #73 (8 months ago) <Bradley Allen>
-| * 1839e66 - (tag: 3.259) check-markit   correct display-usage (8 months ago) <Bradley Allen>
-| * 559cb2d - (tag: 3.258) check-markit   testing changes to markit add branch to line 1  #69 (8 months ago) <Bradley Allen>
-* | 5972cd8 - remove git-TEST-commit-automation  hooks recursively (7 months ago) <Bradley Allen>
-* 57d5ab1 - (tag: 3.257) markit   close #69   add branch to line 1  #69 (8 months ago) <Bradley Allen>
-* b595153 - (tag: 3.254) check-markit    Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable (8 months ago) <Bradley Allen>
-* 626d8fb - (tag: 3.253) check-markit   updated (8 months ago) <Bradley Allen>
-* 86bdbcc - (tag: 3.244) check-markit   fisrt sections out dated to display_usage (8 months ago) <Bradley Allen>
-* | e1c5091 - (tag: 3.243) check-markit   lost all changes, restart making changed but commit every 15 minutes (8 months ago) <Bradley Allen>
-* da81c16 - (tag: 3.236) testfiles/sample.sh   testing markit with sample.sh (8 months ago) <Bradley Allen>
-* 0cf654b - (tag: 3.235) testing markit with sample.sh (8 months ago) <Bradley Allen>
-* 6bafab1 - (tag: 3.226) testfiles/sample.sh   testing markit changes (8 months ago) <Bradley Allen>
+    * Automate adding file name(s) to beginning of message, closes #75
+    * Added test cases, closes #73
+* find-code.sh
+    * Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable, closes #74
+* check-markit
+    * Added test cases, closes #73
+    * Correct display-usage
+| * 559cb2d - (tag: 3.258) check-markit   testing changes to markit add branch to line 1  #69
+* | 5972cd8 - remove git-TEST-commit-automation  hooks recursively
+* 57d5ab1 - (tag: 3.257) markit   close #69   add branch to line 1  #69
+* b595153 - (tag: 3.254) check-markit    Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable
+* 626d8fb - (tag: 3.253) check-markit   updated
+* 86bdbcc - (tag: 3.244) check-markit   fisrt sections out dated to display_usage
+* | e1c5091 - (tag: 3.243) check-markit   lost all changes, restart making changed but commit every 15 minutes
+* da81c16 - (tag: 3.236) testfiles/sample.sh   testing markit with sample.sh
+* 0cf654b - (tag: 3.235) testing markit with sample.sh
+* 6bafab1 - (tag: 3.226) testfiles/sample.sh   testing markit changes
 
 ### Issues
 * close #
