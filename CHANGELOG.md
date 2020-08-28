@@ -105,7 +105,7 @@ helpful when working without network access to a remote Git repository.
 
 ### Features Added
 * Updated LICENSE file
-* Updated README.md
+* Updated README.md, closes #60
 * markit
     * Updated display_help
     * Added Environment Variables MARKITLOCAL to support markit on local system, closes #61
@@ -149,6 +149,7 @@ helpful when working without network access to a remote Git repository.
 * close #57  shellcheck to clean up future minor incidents
 * close #58  Updated production standard 4 update display_help LANGUAGE
 * close #59  Added support for tcsh csh ksh etc
+* close #60  Added gitlog to README.md
 * close #61  Added Environment Variables MARKITLOCAL to support markit on local system
 
 # Version  3.120.273
