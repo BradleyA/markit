@@ -33,6 +33,7 @@
 
 ### Issues
 * close #69  Testing changes to markit add branch to line 1
+* close #71  Review: https://github.com/commitizen/cz-cli
 * close #72  Updated Production Standards 3.550
 * clone #73  Added test cases
 * close #74  Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable
