@@ -13,7 +13,7 @@
 * Updated .github/ISSUE_TEMPLATE/comment.md
 * Updated CHANGELOG.md
 * Updated README.md
-* Updated SECURITY.md
+* Feature Request - SECURITY.md - create repository SECURITY.md, closes #78
 * Updated images/clone.table.md
 * Updated images/construction-icon.gif
 * Updated images/view.table.md
@@ -35,7 +35,8 @@
 * clone #73  Added test cases
 * close #74  Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable
 * close #75  Automate adding file name(s) to beginning of message
-* close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments 
+* close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments
+* close #78  Feature Request - SECURITY.md - create repository SECURITY.md
 
 # Version  3.213.519
 #### Release Name  3.213
