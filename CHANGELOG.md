@@ -27,11 +27,13 @@
 * find-code.sh
     * Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable, closes #74
 * check-markit
+    * Updated Production Standards 3.550, closes #72
     * Added test cases, closes #73
     * Correct display-usage
 
 ### Issues
 * close #69  Testing changes to markit add branch to line 1
+* close #72  Updated Production Standards 3.550
 * clone #73  Added test cases
 * close #74  Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable
 * close #75  Automate adding file name(s) to beginning of message
