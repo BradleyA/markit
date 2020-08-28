@@ -12,7 +12,7 @@ In your report please include:
  
  * A brief description of the type of vulnerability.
 
- * Steps to reproduce. These should be benign, non-destructive, proof of concept. This helps to ensure that the report can be triaged quickly and accurately.
+ * Steps to reproduce. These steps should be benign, non-destructive, proof of concept. This helps to ensure that the report can be triaged quickly and accurately.
 
 ## What to expect
 
