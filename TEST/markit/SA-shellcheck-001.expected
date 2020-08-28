@@ -1,2 +1,25 @@
-#	TEST/markit/SA-shellcheck-001.expected  3.281.750  2020-08-28T09:38:06.333360-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.280-79-gdc07154  
-#	   TEST/check-markit/SA-shellcheck-001.expected TEST/find-code.sh/SA-shellcheck-001.expected TEST/markit/SA-shellcheck-001.expected markit -->   updated display_help  
+
+In SA-shellcheck-001 line 198:
+if ! $( __gitdir > /dev/null 2>&1 ) ; then
+     ^-- SC2091: Remove surrounding $() to avoid executing output.
+
+
+In SA-shellcheck-001 line 222:
+  CURRENT_RELEASE=$(git describe --tags $(git rev-list --tags --max-count=1))
+                                        ^-- SC2046: Quote this to prevent word splitting.
+
+
+In SA-shellcheck-001 line 236:
+cd $(git rev-parse --show-toplevel)
+   ^-- SC2046: Quote this to prevent word splitting.
+
+
+In SA-shellcheck-001 line 255:
+if ! $(touch "${TEMP_FILE}" > /dev/null 2>&1 ) ; then
+     ^-- SC2091: Remove surrounding $() to avoid executing output.
+
+
+In SA-shellcheck-001 line 376:
+  tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> "${TEMP_FILE}"
+          ^-- SC2046: Quote this to prevent word splitting.
+
