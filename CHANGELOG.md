@@ -75,13 +75,15 @@
 * Updated README.md
 * markit
     * Added file types for terraform, closes #64
-    * Test git push using markit to github, gitlab, and bitbucket, closes 
+    * Test git push using markit to github, gitlab, and bitbucket, closes #63
+    * From bitbucket includes github URL not Bitbucket URL on line 2, closes #62
     * Modified .git/config to push to github, gitlab, and bitbucket
     * Push-two-repository-test
     * Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin, closes #28
 
 ### Issues
 * close #28  Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin
+* close #62  From bitbucket includes github URL not Bitbucket URL on line 2
 * close #63  Test git push using markit to github, gitlab, and bitbucket
 * close #64  Added file types for terraform
 
