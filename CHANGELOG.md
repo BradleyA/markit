@@ -33,7 +33,7 @@
     * Correct display-usage
 
 ### Issues
-* close #68  markit test with branching #68
+* close #68  Testing with branching
 * close #69  Testing changes to markit add branch to line 1
 * close #71  Review: https://github.com/commitizen/cz-cli
 * close #72  Updated Production Standards 3.550
