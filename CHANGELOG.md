@@ -24,6 +24,7 @@
     * Automate adding file name(s) to beginning of message, closes #75
     * Added test cases, closes #73
     * Testing changes to markit add branch to line 1, closes #69
+    * Testing with branching, closes #68
 * find-code.sh
     * Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable, closes #74
 * check-markit
@@ -32,6 +33,7 @@
     * Correct display-usage
 
 ### Issues
+* close #68  Testing with branching
 * close #69  Testing changes to markit add branch to line 1
 * close #71  Review: https://github.com/commitizen/cz-cli
 * close #72  Updated Production Standards 3.550
@@ -75,13 +77,15 @@
 * Updated README.md
 * markit
     * Added file types for terraform, closes #64
-    * Test git push using markit to github, gitlab, and bitbucket, closes 
+    * Test git push using markit to github, gitlab, and bitbucket, closes #63
+    * From bitbucket includes github URL not Bitbucket URL on line 2, closes #62
     * Modified .git/config to push to github, gitlab, and bitbucket
     * Push-two-repository-test
     * Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin, closes #28
 
 ### Issues
 * close #28  Incident - retesting markit only works repositories that have been clone from a remote repository. something to do with master origin
+* close #62  From bitbucket includes github URL not Bitbucket URL on line 2
 * close #63  Test git push using markit to github, gitlab, and bitbucket
 * close #64  Added file types for terraform
 

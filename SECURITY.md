@@ -8,6 +8,8 @@ If you believe you have found a security vulnerability, please submit your repor
 
 In your report please include:
 
+ * In email subject in all caps; - SECURITY INCIDENT - ACTION REQUESTED -
+ 
  * A brief description of the type of vulnerability.
 
  * Steps to reproduce. These should be a benign, non-destructive, proof of concept. This helps to ensure that the report can be triaged quickly and accurately.
