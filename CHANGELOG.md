@@ -17,26 +17,18 @@
 * Updated images/clone.table.md
 * Updated images/construction-icon.gif
 * Updated images/view.table.md
+* Remove git-TEST-commit-automation hooks recursively
 * markit
     * add display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
     * Automate adding file name(s) to beginning of message, closes #75
     * Added test cases, closes #73
+    * Testing changes to markit add branch to line 1, closes #69
 * find-code.sh
     * Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable, closes #74
 * check-markit
     * Added test cases, closes #73
     * Correct display-usage
-| * 559cb2d - (tag: 3.258) check-markit   testing changes to markit add branch to line 1  #69
-* | 5972cd8 - remove git-TEST-commit-automation  hooks recursively
-* 57d5ab1 - (tag: 3.257) markit   close #69   add branch to line 1  #69
-* b595153 - (tag: 3.254) check-markit    Production standard 5.3.550 Copyright  Production standard 0.3.550 --help  Production standard 4.3.550 Documentation Language  Production standard 1.3.550 DEBUG variable
-* 626d8fb - (tag: 3.253) check-markit   updated
-* 86bdbcc - (tag: 3.244) check-markit   fisrt sections out dated to display_usage
-* | e1c5091 - (tag: 3.243) check-markit   lost all changes, restart making changed but commit every 15 minutes
-* da81c16 - (tag: 3.236) testfiles/sample.sh   testing markit with sample.sh
-* 0cf654b - (tag: 3.235) testing markit with sample.sh
-* 6bafab1 - (tag: 3.226) testfiles/sample.sh   testing markit changes
 
 ### Issues
 * close #
