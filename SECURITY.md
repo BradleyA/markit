@@ -18,7 +18,7 @@ In your report please include:
 
 After you have submitted your report, we will aim to triage your report within 10 working days.
 
-Priority for remediation is assessed by looking at the impact, severity and exploit complexity. Vulnerability reports might take some time to triage or address. You are welcome to enquire on the status but should avoid doing so more than once every 14 days. This allows our teams to focus on the remediation.  You may be invited to confirm that the solution covers the vulnerability adequately.
+Priority for remediation is assessed by looking at the impact, severity, and exploit complexity. Vulnerability reports might take some time to triage or address. You are welcome to enquire on the status but should avoid doing so more than once every 14 days. This allows our teams to focus on the remediation.  You may be invited to confirm that the solution covers the vulnerability adequately.
 
 ## General Guidance
 
