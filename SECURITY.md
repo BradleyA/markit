@@ -8,7 +8,7 @@ If you believe you have found a security vulnerability, please submit your repor
 
 In your report please include:
 
- * In email subject in all caps; - SECURITY INCIDENT - ACTION REQUESTED -
+ * In email subject line enter in all caps; - SECURITY INCIDENT - ACTION REQUESTED -
  
  * A brief description of the type of vulnerability.
 
