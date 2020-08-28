@@ -1,3 +1,4 @@
+
 In SA-shellcheck-001 line 199:
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
      ^-- SC2091: Remove surrounding $() to avoid executing output.
