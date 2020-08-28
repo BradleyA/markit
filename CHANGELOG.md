@@ -31,8 +31,11 @@
     * Correct display-usage
 
 ### Issues
-* close #
-  
+* close #69  Testing changes to markit add branch to line 1
+* clone #73  Added test cases
+* close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable
+* close #75  Automate adding file name(s) to beginning of message
+* close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments 
 
 # Version  3.213.519
 #### Release Name  3.213
