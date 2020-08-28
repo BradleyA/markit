@@ -46,6 +46,7 @@
 * close #75  Automate adding file name(s) to beginning of message
 * close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments
 * close #78  Feature Request - SECURITY.md - create repository SECURITY.md
+* close #82  Added repository and branch to display_help #82
 
 # Version  3.213.519
 #### Release Name  3.213
