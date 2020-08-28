@@ -19,13 +19,13 @@
 * Updated images/view.table.md
 * Remove git-TEST-commit-automation hooks recursively
 * markit
-    * add display_help about how to git push to more than one repository
+    * Added display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
     * Automate adding file name(s) to beginning of message, closes #75
     * Added test cases, closes #73
     * Testing changes to markit add branch to line 1, closes #69
 * find-code.sh
-    * Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable, closes #74
+    * Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable, closes #74
 * check-markit
     * Added test cases, closes #73
     * Correct display-usage
@@ -33,7 +33,7 @@
 ### Issues
 * close #69  Testing changes to markit add branch to line 1
 * clone #73  Added test cases
-* close #74  Production standard 5.3.550 Copyright Production standard 0.3.550 --help Production standard 4.3.550 Documentation Language Production standard 1.3.550 DEBUG variable
+* close #74  Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable
 * close #75  Automate adding file name(s) to beginning of message
 * close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments 
 
