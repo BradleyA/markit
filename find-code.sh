@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.1.796  2020-08-29T15:40:16.635391-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.0-1-g04e4bec  
-# 	   check-markit find-code.sh markit -->   release ready for production  
+# 	find-code.sh  4.1.2.799  2020-08-29T15:50:54.480539-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.1-2-gea7dc2d  
+# 	   check-markit find-code.sh markit -->   correct TEST case output, release ready for production  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
