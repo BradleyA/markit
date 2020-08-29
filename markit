@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  3.284.781  2020-08-28T22:15:46.127982-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.283-2-gb78adcf  
+#	   markit -->   upgrade Production standards close #79  
 #	markit  3.283.778  2020-08-28T12:58:55.301882-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.282-2-g947e0a3  
 #	   markit -->   create repository CHANGELOG.md close #77  
 #	markit  3.282.775  2020-08-28T12:47:57.633843-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.281-24-g5807c96
@@ -30,10 +32,10 @@
 #	Released files need a version number in text when checked in!
 #       This is not for your kernal, just files.  Bite me!  and  Merge that!
 ###
-###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
+###  Production standard 3.0 shellcheck
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
@@ -65,7 +67,7 @@ echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
 }
 
-###  Production standard 0.3.579 --help                                                     # 0.3.579
+###  Production standard 0.3.583 --help
 display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
@@ -108,12 +110,12 @@ echo    "      pushurl = https://axebbq@bitbucket.org/axebbq/markit.git"
 echo    "      pushurl = https://BradleyAxe@gitlab.com/BradleyAxe/markit.git"
 echo    "      fetch   = +refs/heads/*:refs/remotes/origin/*"
 
-###  Production standard 4.3.550 Documentation Language                                     # 3.550
+###  Production standard 4.3.587 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [[ "${LANG}" == "fr_CA.UTF-8" ]] || [[ "${LANG}" == "fr_FR.UTF-8" ]] || [[ "${LANG}" == "fr_CH.UTF-8" ]] ; then
   echo -e "\n--> ${LANG}"
-  echo    "<votre aide va ici>" # your help goes here
-  echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
+  echo    "<Votre aide va ici>" # Your help goes here
+  echo    "Souhaitez-vous traduire la section description?" # Would you like to translate the description section?
 elif ! [[ "${LANG}" == "en_US.UTF-8" ||  "${LANG}" == "en.UTF-8" || "${LANG}" == "C.UTF-8" ]] ; then  # 3.550
   new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
@@ -156,7 +158,7 @@ echo    "      normal       untracked files and directories"
 echo    "      all          Also individual files in untracked directories"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
-echo    "   https://github.com/BradleyA/markit/blob/master/README.md#markit"
+echo    "   ${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit${NORMAL}"  # 0.3.583"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   Mark tracked file(s) and push to remote Git repository\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" #  3.550
@@ -164,13 +166,13 @@ echo -e "   Mark tracked and untracked files, directories, and files in untracke
 echo -e "   Mark tracked file(s) but don't push to remote Git repository, only update\n   local repository\n\t${BOLD}export MARKITLOCAL=1 ; ${COMMAND_NAME} ; unset MARKITLOCAL${NORMAL}\n"  # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   check-markit (https://github.com/BradleyA/markit/blob/master/README.md)"        # 3.550
+echo    "   ${BOLD}check-markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})"        # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
 
 echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
-echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/markit/issues/new/choose"  # 0.3.579
+echo    "   Report ${COMMAND_NAME} bugs ${UNDERLINE}https://github.com/BradleyA/markit/issues/new/choose${NORMAL}"  # 0.3.579
 
 ###  Production standard 5.3.559 Copyright                                            # 3.559
 echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
