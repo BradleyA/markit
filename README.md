@@ -45,7 +45,6 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Support Bitbucket or GitLab
 * Support Git local repository without network access (without 'git push')
 * Support push to multiple Git remote repositories at once (edit .git/config)
-* Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
 * I use alias release-notes='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit' to help build release notes
 
 ## Clone
