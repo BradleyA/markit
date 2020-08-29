@@ -1,2 +1,5 @@
-#	TEST/check-markit/SA-shellcheck-001.expected  3.281.750  2020-08-28T09:37:37.899254-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.280-79-gdc07154  
-#	   TEST/check-markit/SA-shellcheck-001.expected TEST/find-code.sh/SA-shellcheck-001.expected TEST/markit/SA-shellcheck-001.expected markit -->   updated display_help  
+
+In SA-shellcheck-001 line 223:
+  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o /tmp/markit-temp/master.zip ; unzip -qq /tmp/markit-temp/master.zip -d /tmp/markit-temp/")
+                     ^-- SC2116: Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.
+
