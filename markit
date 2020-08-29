@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  4.1.0.794  2020-08-29T10:58:16.506296-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 3.284-12-g7effbe8  
-#	   markit -->   release ready for production  
+#	markit  4.1.1.796  2020-08-29T15:40:24.569025-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.0-1-g04e4bec  
+#	   check-markit find-code.sh markit -->   release ready for production  
 #86# markit
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
@@ -31,6 +31,7 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zer
 if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
 BOLD=$(tput -Txterm bold)
+UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
