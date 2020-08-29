@@ -48,6 +48,10 @@
 * close #78  Feature Request - SECURITY.md - create repository SECURITY.md
 * close #79  Upgraded Production standards
 * close #82  Added repository and branch to display_help
+  
+### Misc
+* backlog
+    * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
 
 # Version  3.213.519
 #### Release Name  3.213
@@ -461,3 +465,4 @@ At a later time I need to see if I can add some git commands and use this script
   * close #XX directory/command git commit message
   
 ### Misc
+* backlog
