@@ -20,13 +20,8 @@ If environment variable MARKITLOCAL is set to 1, markit automates this git commi
 
 The two comment lines of metadata include:
 
-file name, version.commit, date, time,
-time zone, repository URL, Git branch, user, hostname, and previous
-version. The second comment line includes updated file name(s) and a
-brief description about changes made to the file(s).
-
  * file_name, version.commits, date, time, time zone, repository URL, Git branch, user, hostname, previous version
- * updated file name(s) and a one line breif description about changes made to the file(s)
+ * file name(s) updated and a one line breif description about changes made to the file(s)
  
 Markit currently supports files with these file extensions:
 
