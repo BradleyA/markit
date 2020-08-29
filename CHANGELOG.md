@@ -15,7 +15,7 @@
 * backlog
     * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
 
-## Version  4.1.1
+## Version  4.1.2
 #### Release Name  prerelease
 #### Release Date  ????
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
