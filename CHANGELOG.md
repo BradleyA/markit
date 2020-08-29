@@ -29,12 +29,14 @@
     * Added test cases, closes #73
     * Testing changes to markit add branch to line 1, closes #69
     * Testing with branching, closes #68
+    * Added repository and branch to display_help, closes #82
 * find-code.sh
     * Production standards:  5.3.550 Copyright, 0.3.550 --help, 4.3.550 Documentation Language, 1.3.550 DEBUG variable, closes #74
 * check-markit
     * Updated Production Standards 3.550, closes #72
     * Added test cases, closes #73
     * Correct display-usage
+    * Upgraded Production standards, closes #79
 
 ### Issues
 * close #68  Testing with branching
@@ -46,7 +48,8 @@
 * close #75  Automate adding file name(s) to beginning of message
 * close #76  Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments
 * close #78  Feature Request - SECURITY.md - create repository SECURITY.md
-* close #82  Added repository and branch to display_help #82
+* close #79  Upgraded Production standards
+* close #82  Added repository and branch to display_help
 
 # Version  3.213.519
 #### Release Name  3.213
