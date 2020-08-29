@@ -6,10 +6,8 @@
 #### Release Name  prerelease
 #### Release Date  ????
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
-* Updated Production standards
 * Added file name(s) to beginning of git commit message, line 2, to help locate file(s) that changed 
 * Added branch name to line 1, to help locate changes to file(s)
-* Brief description
 
 ### Features Added
 * Added .github/ISSUE_TEMPLATE/feature_request.md
