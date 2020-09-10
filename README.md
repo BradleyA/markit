@@ -69,7 +69,7 @@ First modify test file,testfiles/sample.sh, by adding a blank line to learn how 
     echo "Hello World"
 
 ## Usage: markit
-Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
+Mark **tracked modified file(s)**, in your local Git repository and push those changes to a remote Git repository.  This example shows markit pushing to three remote Git repositories; GitHub, GitLab, and Bitbucket.  Enter **markit --help** to see how .git/config was edited to support three repositories.
 
     markit 
 
@@ -80,36 +80,51 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
 
     testfiles/sample.sh
 
-    Current Git repository release number:  3.196
-    Enter release number to commit files (example 3.41.7) or ctrl-c to stop.
+    Current Git repository release number:  4.1.5
+    Enter release number to commit files (examples:  3.217  3.1.231  v0.1.64-alpha) or ctrl-c to stop.
 
-    3.197
-    
-    Using release number:  3.197
+    4.1.6
+
+    Using release number:  4.1.6
 
     Enter a one line description about the changes or ctrl-c to stop.
-        (example: Added logic for --help; closes #12, resolves #14):
- 
-    test markit for sample.sh
+    	(example:  testfiles/sample.sh   Added logic for --help; closes #12, resolves #14):
 
-        testfiles/sample.sh     sh
+    testing markit after editing testfiles/sample.sh
 
-    [master 7cfa702] test markit for sample.sh
-     1 file changed, 7 insertions(+), 19 deletions(-)
-     rewrite testfiles/sample.sh (91%)
+    	testfiles/sample.sh	sh
+
+    [master ef33d26] testfiles/sample.sh -->   testing markit after editing testfiles/sample.sh
+     1 file changed, 1 insertion(+), 2 deletions(-)
     Counting objects: 5, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 658 bytes | 0 bytes/s, done.
-    Total 5 (delta 2), reused 0 (delta 0)
-    remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-    To https://github.com/BradleyA/markit
-       46f4c0d..7cfa702  master -> master
-     * [new tag]         3.197 -> 3.197
+    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
+    Total 5 (delta 3), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+    To https://github.com/BradleyA/markit.git
+       1331dac..ef33d26  master -> master
+     * [new tag]         4.1.6 -> 4.1.6
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (5/5), done.
+    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
+    Total 5 (delta 3), reused 0 (delta 0)
+    To https://axebbq@bitbucket.org/axebbq/markit.git
+       1331dac..ef33d26  master -> master
+     * [new tag]         4.1.6 -> 4.1.6
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (5/5), done.
+    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
+    Total 5 (delta 3), reused 0 (delta 0)
+    To https://BradleyAxe@gitlab.com/BradleyAxe/markit.git
+       1331dac..ef33d26  master -> master
+     * [new tag]         4.1.6 -> 4.1.6
 
     Files marked and stored in remote Git repository.
-    View commits example:  'git log --graph --decorate --oneline --color --stat'
-    2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.```
+    View commits example:  git log --graph --decorate --oneline --color --stat
+    2020-09-10T16:46:14.812944-05:00 (CDT) five-rpi3b.cptx86.com markit[28951] 4.1.4.803 434 uadmin 10000:10000 [INFO]    Operation finished...
 
 ## Usage: check-markit
 Check the release version of a file with the remote Git repository release version.  The **check-markit** script allows you to check if there is a newer release version of a file.  The following example uses the file 'markit', but can be used with any file that was marked with markit.
