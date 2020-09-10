@@ -54,7 +54,7 @@ To clone this repository, change to a directory you want to download the files i
     cd markit
     cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
 
-## Modify File Example
+## Modify Example File
 First modify test file,testfiles/sample.sh, by adding a blank line to learn how markit works.
 
     vi testfiles/sample.sh
