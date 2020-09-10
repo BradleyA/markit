@@ -54,6 +54,15 @@ To clone this repository, change to a directory you want to download the files i
     cd markit
     cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
 
+## Modified File Example
+    #!/bin/bash
+    #   testfiles/sample.sh  3.197.368  2019-02-08T20:33:53.600661-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.196-1-g46f4c0d  
+    #      test markit for sample.sh 
+    #
+    #   ./sample.sh
+    ###
+    echo "Hello World"
+
 ## Usage: markit
 Mark **tracked modified file(s)**, in your local Git repository and push those changes to remote Git repository.
 
@@ -96,15 +105,6 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     Files marked and stored in remote Git repository.
     View commits example:  'git log --graph --decorate --oneline --color --stat'
     2019-02-08T20:33:57.987383-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/markit[16972] 3.196.366 356 uadmin 10000:10000 [INFO]  Operation finished.```
-
-## Modified File Example
-    #!/bin/bash
-    #   testfiles/sample.sh  3.197.368  2019-02-08T20:33:53.600661-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.196-1-g46f4c0d  
-    #      test markit for sample.sh 
-    #
-    #   ./sample.sh
-    ###
-    echo "Hello World"
 
 ## Usage: check-markit
 Check the release version of a file with the remote Git repository release version.  The **check-markit** script allows you to check if there is a newer release version of a file.  The following example uses the file 'markit', but can be used with any file that was marked with markit.
