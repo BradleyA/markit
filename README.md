@@ -158,7 +158,7 @@ Change into clone directory on your system.
 
 Make a change to testfiles/sample.sh.
 
-    edit testfiles/sample.sh
+    vi testfiles/sample.sh
     
 Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
 
@@ -172,7 +172,7 @@ On GitHub go to your Forked markit repository settings page and check the box ne
 
 Make a change to testfiles/sample.sh
 
-    edit testfiles/sample.sh
+    vi testfiles/sample.sh
 
 Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.
 
@@ -199,7 +199,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 #### System OS script tested
  * Ubuntu 14.04.6 LTS (amd64,armv7l)
  * Ubuntu 16.04.7 LTS (amd64,armv7l)
- * Ubuntu 18.04.5 LTS
+ * Ubuntu 18.04.5 LTS (amd64,armv7l)
  * Raspbian GNU/Linux 10 (buster)
 
 #### Design Principles
