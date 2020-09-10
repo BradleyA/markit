@@ -133,17 +133,17 @@ Check the release version of a file with the remote Git repository release versi
 
 ## Output: check-markit
     $ check-markit markit
-    2019-02-08T20:48:42.953908-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 96 uadmin 10000:10000 [INFO]  Started...
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 2265k    0 2265k    0     0  1035k      0 --:--:--  0:00:02 --:--:-- 2946k
+    100 2386k    0 2386k    0     0   939k      0 --:--:--  0:00:02 --:--:-- 1412k
 
-      /usr/local/bin/markit release 3.196.366, commit date 2019-02-08T20:04:48.891593-06:00
+      /usr/local/bin/markit release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
 
-      markit repository release 3.196.366, commit date 2019-02-08T20:04:48.891593-06:00
+      markit repository release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
 
-    2019-02-08T20:48:45.397890-06:00 (CST) six-rpi3b.cptx86.com /usr/local/bin/check-markit[25119] 3.154.314 195 uadmin 10000:10000 [INFO]  Operation finished.
+    Repository copy placed in /tmp/markit
+    2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
 
 ## Getting Started
 **Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
