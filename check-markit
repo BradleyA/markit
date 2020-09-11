@@ -91,7 +91,7 @@ echo -e "\tOn-line command usage\n"                                             
 echo    "   --version, -version, -v"                                                      # 0.3.579
 echo -e "\tOn-line command version\n"                                                  # 3.572
 #
-echo    "   -f, --file  <PATH>/<FILE_NAME>"
+echo    "   --file <PATH>/<FILE_NAME>, -f"
 echo -e "\tInclude the relative or absolute path with the file name"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
