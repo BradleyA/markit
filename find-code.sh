@@ -99,11 +99,11 @@ echo -e "\tOn-line command usage\n"                                             
 echo    "   --version, -version, -v"                                                      # 0.3.579
 echo -e "\tOn-line command version\n"                                                  # 3.572
 #
-echo    "   -c, --cluster, -c=, --cluster=<CLUSTER>"
+echo    "   --cluster, -c, --cluster=<CLUSTER>", -c=
 echo -e "\tCluster directory name (default '${DEFAULT_CLUSTER}')\n"
-echo    "   -d, --datadir, -d=, --datadir=<DATA_DIR>"
+echo    "   --datadir, -d, --datadir=<DATA_DIR>", -d=
 echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
-echo    "   -s, --systems, -s=, --systems=<SYSTEMS_FILE>"
+echo    "   --systems, -s, --systems=<SYSTEMS_FILE>", -s=
 echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})"
 
 ###  Production standard 6.3.547  Architecture tree
