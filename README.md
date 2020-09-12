@@ -1,6 +1,5 @@
 # markit
 
-[![Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)
 [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.213.svg)](https://github.com/BradleyA/markit/commits/)
 [![Issues](https://img.shields.io/github/issues/BradleyA/markit.svg)](https://github.com/BradleyA/markit/issues?q=is%3Aopen+is%3Aissue)
 [![Size](https://img.shields.io/github/repo-size/BradleyA/markit.svg)](https://github.com/BradleyA/markit/)
@@ -8,9 +7,10 @@
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=254&color=blue">](images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1409&color=blue">](images/view.table.md)
 
-[![GitHub Stable Release](https://img.shields.io/badge/Release-v2.2-blue.svg)](https://github.com/BradleyA/Search-docker-registry-v2-script/releases/tag/v2.2)
-![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/Search-docker-registry-v2-script?color=blue)
-[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/Search-docker-registry-v2-script/v2.2?color=orange)](https://github.com/BradleyA/Search-docker-registry-v2-script/commits/)
+[![GitHub Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)
+![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/markit?color=blue)
+[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/3.213?color=orange)](https://github.com/BradleyA/markit/commits/)
+
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/Search-docker-registry-v2-script.svg)](https://github.com/BradleyA/Search-docker-registry-v2-script/commits/)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/Search-docker-registry-v2-script?color=purple)](https://github.com/BradleyA/Search-docker-registry-v2-script/issues?q=is%3Aopen+is%3Aissue)
