@@ -1,9 +1,4 @@
 # markit
-[![Size](https://img.shields.io/github/repo-size/BradleyA/markit.svg)](https://github.com/BradleyA/markit/)
-[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
-[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=254&color=blue">](images/clone.table.md)
-[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1409&color=blue">](images/view.table.md)
-
 [![GitHub Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)
 ![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/markit?color=blue)
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/3.213?color=orange)](https://github.com/BradleyA/markit/commits/)
@@ -13,14 +8,11 @@
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aclosed+is%3Aissue)
 [<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=254&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/clone.table.md)
 [<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=1409&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/view.table.md)
-
 [![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/markit.svg)](https://github.com/BradleyA/markit/)
 ![Written in Bash](https://img.shields.io/badge/written%20in-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
 ----
-
-
 
 Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
 
