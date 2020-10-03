@@ -15,9 +15,9 @@
 * backlog
     * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
 
-## Version  4.1.8
+## Version  4.1.8.836
 #### Release Name  4.1.8
-#### Release Date  2020-10-03T15:35:46.713132-05:00 (CDT)
+#### Release Date  2020-10-03T15:36:36.764370-05:00 (CDT)
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
 * Added file name(s) to beginning of git commit message, line 2, to help locate file(s) that changed 
 * Added branch name to line 1, to help locate changes to file(s)
