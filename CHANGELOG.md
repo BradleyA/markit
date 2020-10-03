@@ -32,7 +32,7 @@
 * Added images/construction-icon.gif
 * Added images/view.table.md
 * Updated README.md
-* Remove git-TEST-commit-automation hooks recursively
+* Added default BradleyA/git-TEST-commit-automation testcases for code development
 * markit
     * Added display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
