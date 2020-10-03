@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  4.1.7.833  2020-10-03T14:31:38.282049-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.6-19-gfc186fb  
-#	   markit -->   test added git-TEST-commit-automation  
+#	markit  4.1.8.836  2020-10-03T15:36:36.764370-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.7-2-g0cd1700  
+#	   markit -->   release ready for production  
 #86# markit
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
