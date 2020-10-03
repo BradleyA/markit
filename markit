@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  4.1.4.803  2020-08-29T22:25:50.210493-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.3-1-g691863b  
-#	   check-markit find-code.sh markit -->   testing FVT test cases for markit and check-markit  
+#	markit  4.1.7.833  2020-10-03T14:31:38.282049-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.6-19-gfc186fb  
+#	   markit -->   test added git-TEST-commit-automation  
 #86# markit
 #	I created this script because Git fails me when it comes to including a
 #	version number and a change description in each file being checked-in.
