@@ -21,6 +21,7 @@
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
 * Added file name(s) to beginning of git commit message, line 2, to help locate file(s) that changed 
 * Added branch name to line 1, to help locate changes to file(s)
+* Added default BradleyA/git-TEST-commit-automation testcases
 
 ### Features Added
 * Added .github/ISSUE_TEMPLATE/feature_request.md
@@ -32,7 +33,7 @@
 * Added images/construction-icon.gif
 * Added images/view.table.md
 * Updated README.md
-* Added default BradleyA/git-TEST-commit-automation testcases for code development
+* Added default BradleyA/git-TEST-commit-automation testcases for testing during code development
 * markit
     * Added display_help about how to git push to more than one repository
     * Updated Production standards 5.3.559 Copyright,  2.3.578 Log format,  9.3.562 Parse CLI options and arguments, closes #76
