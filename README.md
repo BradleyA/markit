@@ -1,7 +1,7 @@
 # markit
-[![GitHub Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)
+[![GitHub Stable Release](https://img.shields.io/badge/Release-4.1.8-blue.svg)](https://github.com/BradleyA/markit/releases/tag/4.1.8)
 ![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/markit?color=blue)
-[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/3.213?color=orange)](https://github.com/BradleyA/markit/commits/)
+[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/4.1.8?color=orange)](https://github.com/BradleyA/markit/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/markit.svg)](https://github.com/BradleyA/markit/commits/)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aopen+is%3Aissue)
