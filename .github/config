@@ -1,0 +1,14 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+        url     = https://github.com/BradleyA/markit.git
+        pushurl = https://github.com/BradleyA/markit.git
+        pushurl = https://axebbq@bitbucket.org/axebbq/markit.git
+        pushurl = https://BradleyAxe@gitlab.com/BradleyAxe/markit.git
+        fetch   = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
