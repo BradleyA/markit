@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.9.847  2020-10-13T12:38:41.703339-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.8-10-g5c27829  
+# 	   find-code.sh -->   change output color to help review of output  
 # 	find-code.sh  4.1.4.803  2020-08-29T22:25:47.235949-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.3-1-g691863b  
 # 	   check-markit find-code.sh markit -->   testing FVT test cases for markit and check-markit  
 #86# find-code.sh - Search systems from clones from repositories
@@ -202,7 +204,9 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${
 
 #	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
 #	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
-REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
+#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
+#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./\~/' | GREP_COLORS='sl=1;33;49:ms=0;97;49' grep --color=always '^\|[^/]*$'"
+REMOTECOMMAND="echo -e '${BOLD}${YELLOW}\c' ; find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//' ; echo -e '${NORMAL}\c'"
 
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
@@ -216,7 +220,7 @@ fi
 #    Loop through hosts in ${SYSTEMS_FILE} file
 REMOTEHOST=$(grep -v "#" "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}")
 for NODE in ${REMOTEHOST} ; do
-  echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}       ->${REMOTECOMMAND}<-" 
+  echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}"
   if [ "${LOCALHOST}" != "${NODE}" ] ; then
     ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
   else
