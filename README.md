@@ -19,7 +19,12 @@ Bash script that adds Git Verion Control information into files and pushes them 
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
-#### If you like this repository, select in the upper-right corner, star, thank you.
+#### If you like this repository, select in the upper-right corner, <a class="github-button" href="https://github.com/BradleyA/markit" data-size="large" data-show-count="true" aria-label="Star BradleyA/markit on GitHub">Star</a>, thank you.
+
+<a class="github-button" href="https://github.com/BradleyA/markit" data-size="large" data-show-count="true" aria-label="Star BradleyA/markit on GitHub">Star</a>
+
+<a class="github-button" href="https://github.com/BradleyA/markit" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true" aria-label="Star BradleyA/markit on GitHub">Star</a>
+
 
 ## Description
 Markit is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push –follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
