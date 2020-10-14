@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.9.847  2020-10-13T12:38:41.703339-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.8-10-g5c27829  
-# 	   find-code.sh -->   change output color to help review of output  
-# 	find-code.sh  4.1.4.803  2020-08-29T22:25:47.235949-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.3-1-g691863b  
-# 	   check-markit find-code.sh markit -->   testing FVT test cases for markit and check-markit  
+# 	find-code.sh  4.1.10.856  2020-10-14T10:42:41.879543-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.9-8-g1412ac9  
+# 	   find-code.sh -->   testing color and format output changes  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
@@ -20,6 +18,7 @@ BOLD=$(tput -Txterm bold)
 UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 YELLOW=$(tput setaf 3)
+PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
@@ -202,11 +201,10 @@ if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
 if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
 
-#	REMOTECOMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
-#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
-#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
-#	REMOTECOMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./\~/' | GREP_COLORS='sl=1;33;49:ms=0;97;49' grep --color=always '^\|[^/]*$'"
-REMOTECOMMAND="echo -e '${BOLD}${YELLOW}\c' ; find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//' ; echo -e '${NORMAL}\c'"
+#	REMOTE_COMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
+#	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
+#	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
+REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
 
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
@@ -220,15 +218,14 @@ fi
 #    Loop through hosts in ${SYSTEMS_FILE} file
 REMOTEHOST=$(grep -v "#" "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}")
 for NODE in ${REMOTEHOST} ; do
-  echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}"
+  echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}    ->${PURPLE}${REMOTE_COMMAND}${WHITE}<-"
   if [ "${LOCALHOST}" != "${NODE}" ] ; then
-    ssh -t "${USER}"@"${NODE}" "${REMOTECOMMAND}"
+    ssh -t "${USER}"@"${NODE}" "echo -e '${BOLD}${YELLOW}\c' ; ${REMOTE_COMMAND} ; echo -e '${NORMAL}\c'"
   else
-    eval "${REMOTECOMMAND}"
+    eval "echo -e '${BOLD}${YELLOW}\c' ; ${REMOTE_COMMAND} ; echo -e '${NORMAL}\c'"
   fi
 done
 
 #
 new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
-
 ###
