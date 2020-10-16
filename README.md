@@ -238,7 +238,7 @@ To install the latest commit of check-markit, change markit to check-markit in t
 ----
 
 #### Contribute
-Please do contribute! Issues and pull requests are welcome.  Thank you for your help improving software.
+Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
@@ -247,7 +247,7 @@ Please do contribute! Issues and pull requests are welcome.  Thank you for your 
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
-#### System OS script tested
+#### Tested OS
  * Ubuntu 14.04.6 LTS (amd64,armv7l)
  * Ubuntu 16.04.7 LTS (amd64,armv7l)
  * Ubuntu 18.04.5 LTS (amd64,armv7l)
