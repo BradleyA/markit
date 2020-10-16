@@ -105,9 +105,9 @@ Check if your local version of testfiles/sample.sh is the same version that is o
 
     ./check-markit -f ./testfiles/sample.sh
 
-On GitHub go to your Forked markit repository settings page and check the box next to Issues. Then open the first issue on your markit repository, #1.
+On GitHub go to your Forked markit repository settings page and check the box next to Issues. Then open the first GitHub issue on your forked markit Git repository, #1.
 
-First modify test file,testfiles/sample.sh, by adding a blank line to learn how markit works.
+Modify test file, testfiles/sample.sh, by adding a blank line to learn how markit works.
 
     vi testfiles/sample.sh
     
@@ -120,7 +120,7 @@ First modify test file,testfiles/sample.sh, by adding a blank line to learn how 
     
     echo "Hello World"
 
-Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.
+Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote forked markit Git repository.
 
     ./markit
     
