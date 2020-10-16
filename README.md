@@ -38,7 +38,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 ## Description
 Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
 
-**Markit** is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push –follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
+**Markit** is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push --follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
 
 Markit supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning (v0.1.64-alpha).  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
 
