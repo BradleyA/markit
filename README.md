@@ -32,7 +32,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Output: check-markit](#Output-check-markit)
 - [Contribute](#Contribute)
 - [Author](#Author)
-- [Tested](#Tested)
+- [Tested OS](#Tested-OS)
 - [Design Principles](#Design-Principles)
 - [License](#License)
 
