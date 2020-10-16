@@ -29,7 +29,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Usage: markit](#Usage-markit)
 - [Output: markit](#Output-markit)
 - [Usage: check-markit](#Usage-check-markit)
-- [Output: check-markit](#Output: check-markit)
+- [Output: check-markit](#Output-check-markit)
 - [Contribute](#Contribute)
 - [Author](#Author)
 - [Tested](#Tested)
