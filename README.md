@@ -27,8 +27,8 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Clone](#Clone)
 - [Install latest markit command](#Install-latest-markit-command)
 - [Usage markit](#Usage-markit)
+- [Output: markit](#Output-markit)
 
-- [Modify Example File](#Modify-Example-File)
 - [Modify Example File](#Modify-Example-File)
 - [Modify Example File](#Modify-Example-File)
 - [Modify Example File](#Modify-Example-File)
