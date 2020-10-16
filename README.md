@@ -12,17 +12,33 @@
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
-----
-
-Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
-
 ## Goal
 Answer one question over the phone by looking at the code; ***What version are you running?**
 
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
+
+<details>
+<summary>Table of content</summary>
+
+## Table of content
+- [Descriptions](#Descriptions)
+- [Objectives](#Objectives)
+- [Clone](#Clone)
+- [Modify Example File](#Modify Example File)
+- [TLS](#TLS)
+- [Author](#Author)
+- [Tested](#Tested)
+- [Design Principles](#Design-Principles)
+- [License](#License)
+
+</details>
+
+----
   
 ## Description
-Markit is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push –follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
+Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
+
+**Markit** is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push –follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
 
 Markit supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning (v0.1.64-alpha).  Markit will display the current version before prompting you to enter the next version.  Markit includes the number of commits with the version in the file(s).  I find this helpful when commiting several different changes while working on the same PATCH.
 
