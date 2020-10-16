@@ -26,6 +26,8 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Clone](#Clone)
 - [Modify Example File](#Modify-Example-File)
 - [TLS](#TLS)
+
+- [Contribute](#Contribute)
 - [Author](#Author)
 - [Tested](#Tested)
 - [Design Principles](#Design-Principles)
