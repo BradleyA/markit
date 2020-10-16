@@ -26,16 +26,10 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Getting Started](#Getting-Started)
 - [Clone](#Clone)
 - [Install latest markit command](#Install-latest-markit-command)
-- [Usage markit](#Usage-markit)
+- [Usage: markit](#Usage-markit)
 - [Output: markit](#Output-markit)
-
-- [Modify Example File](#Modify-Example-File)
-- [Modify Example File](#Modify-Example-File)
-- [Modify Example File](#Modify-Example-File)
-- [Modify Example File](#Modify-Example-File)
-- [Modify Example File](#Modify-Example-File)
-- [Modify Example File](#Modify-Example-File)
-
+- [Usage: check-markit](#Usage-check-markit)
+- [Output: check-markit](#Output: check-markit)
 - [Contribute](#Contribute)
 - [Author](#Author)
 - [Tested](#Tested)
@@ -218,10 +212,14 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     View commits example:  git log --graph --decorate --oneline --color --stat
     2020-09-10T16:46:14.812944-05:00 (CDT) five-rpi3b.cptx86.com markit[28951] 4.1.4.803 434 uadmin 10000:10000 [INFO]    Operation finished...
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Usage: check-markit
 Check the release version of a file with the remote Git repository release version.  The **check-markit** script allows you to check if there is a newer release version of a file.  The following example uses the file 'markit', but can be used with any file that was marked with markit.
 
     check-markit markit 
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Output: check-markit
     $ check-markit markit
