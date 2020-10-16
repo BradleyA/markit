@@ -54,7 +54,9 @@ Markit currently supports files with these file extensions:
 c(c), C++(cc|cpp|c++|cxx), C header(h|H|hpp), C++ header(hxx|Hxx|HXX), Go(go), HTML(html|htm), Java(java|class|jar), JavaScript(js), Kotlin(kt|kts), Makefile(mk|MK), Pascal(p|pp|paa), Perl(pl|PL|psh), PHP(php|php3|php4|ph3|ph4), PowerShell(ps1|msh), Python(py), R(R), Ruby(rb), Rust(rs|rlib), Scala(scala|sc), Shell(sh|bash|csh|tcsh|ksh), Terraform(tf|tfstate), Text(txt), XML(xml), YAML(yml|yaml)
 
 Markit currently supports these files without file extensions: Dockerfile, Makefile.  There will be a prompt to add comment character(s) for unknown file names when needed and a prompt to add a description about the changes.
-     
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
@@ -73,12 +75,16 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Support push to multiple Git remote repositories at once (edit .git/config)
 * I use alias release-notes='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit' to help build release notes
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Clone
 To clone this repository, change to a directory you want to download the files into.  If you do not have Git installed then enter; "sudo apt-get install git" if using Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory that is included in your PATH (/usr/local/bin, ~/bin).
 
     git clone https://github.com/BradleyA/markit
     cd markit
     cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Modify Example File
 First modify test file,testfiles/sample.sh, by adding a blank line to learn how markit works.
@@ -94,10 +100,14 @@ First modify test file,testfiles/sample.sh, by adding a blank line to learn how 
     
     echo "Hello World"
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Usage: markit
 Mark **tracked modified file(s)**, in your local Git repository and push those changes to a remote Git repository.  This example shows markit pushing to three remote Git repositories; GitHub, GitLab, and Bitbucket.  Enter **markit --help** to see how .git/config was edited to support three repositories.
 
     markit 
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Output: markit
 
@@ -171,6 +181,8 @@ Check the release version of a file with the remote Git repository release versi
     Repository copy placed in /tmp/markit
     2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Getting Started
 **Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
 
@@ -212,6 +224,8 @@ View ./markit help pages to learn more about how markit works with tracked and u
 
 Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number and GitHub will update the issue.
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ## Install
 To install the latest commit of markit, change to the directory you want to download the script to (cd /usr/local/bin) and enter the follow command.
 
@@ -219,8 +233,19 @@ To install the latest commit of markit, change to the directory you want to down
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
+----
+
+#### Contribute
+Please do contribute! Issues and pull requests are welcome.  Thank you for your help improving software.
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 #### Author
 [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>          [![GitHub followers](https://img.shields.io/github/followers/BradleyA.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/BradleyA?tab=followers)
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 #### System OS script tested
  * Ubuntu 14.04.6 LTS (amd64,armv7l)
@@ -228,13 +253,14 @@ To install the latest commit of check-markit, change markit to check-markit in t
  * Ubuntu 18.04.5 LTS (amd64,armv7l)
  * Raspbian GNU/Linux 10 (buster)
 
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root
  * Be easy to install and configure
  
-#### Contribute
-Please do contribute! Issues and pull requests are welcome.  Thank you for your help improving software.
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 #### License
 MIT License
@@ -246,6 +272,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
