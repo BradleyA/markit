@@ -21,7 +21,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 <summary>Table of content</summary>
 
 ## Table of content
-- [Descriptions](#Descriptions)
+- [Description](#Description)
 - [Objectives](#Objectives)
 - [Getting Started](#Getting-Started)
 - [Clone](#Clone)
