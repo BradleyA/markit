@@ -23,9 +23,19 @@ Answer one question over the phone by looking at the code; ***What version are y
 ## Table of content
 - [Descriptions](#Descriptions)
 - [Objectives](#Objectives)
+- [Getting Started](#Getting-Started)
 - [Clone](#Clone)
+- [Install latest markit command](#Install-latest-markit-command)
+
+- [Usage: markit](#Usage:-markit)
+
 - [Modify Example File](#Modify-Example-File)
-- [TLS](#TLS)
+- [Modify Example File](#Modify-Example-File)
+- [Modify Example File](#Modify-Example-File)
+- [Modify Example File](#Modify-Example-File)
+- [Modify Example File](#Modify-Example-File)
+- [Modify Example File](#Modify-Example-File)
+- [Modify Example File](#Modify-Example-File)
 
 - [Contribute](#Contribute)
 - [Author](#Author)
@@ -79,20 +89,35 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
-## Clone
-To clone this repository, change to a directory you want to download the files into.  If you do not have Git installed then enter; "sudo apt-get install git" if using Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit and check-markit to a directory that is included in your PATH (/usr/local/bin, ~/bin).
+## Getting Started
+**Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
 
-    git clone https://github.com/BradleyA/markit
+On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
+
+    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
+
+Change into clone directory on your system.
+
     cd markit
-    cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
 
-[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+Make a change to testfiles/sample.sh.
 
-## Modify Example File
+    vi testfiles/sample.sh
+    
+Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
+
+    ./markit
+
+Check if your local version of testfiles/sample.sh is the same version that is on your remote Git repository.
+
+    ./check-markit -f ./testfiles/sample.sh
+
+On GitHub go to your Forked markit repository settings page and check the box next to Issues. Then open the first issue on your markit repository, #1.
+
 First modify test file,testfiles/sample.sh, by adding a blank line to learn how markit works.
 
     vi testfiles/sample.sh
-
+    
     #!/bin/bash
     #   testfiles/sample.sh  3.197.368  2019-02-08T20:33:53.600661-06:00 (CST)  https://github.com/BradleyA/markit  uadmin  six-rpi3b.cptx86.com 3.196-1-g46f4c0d  
     #      test markit for sample.sh 
@@ -101,6 +126,36 @@ First modify test file,testfiles/sample.sh, by adding a blank line to learn how 
     ###
     
     echo "Hello World"
+
+Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.
+
+    ./markit
+    
+The file testfiles/sample.sh has been updated with metadata, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
+
+View ./markit help pages to learn more about how markit works with tracked and untracked files and without network access to remote Git repository. 
+
+    ./markit --help
+
+Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number and GitHub will update the issue.
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
+## Clone
+To clone this repository, change to a directory you want to download the files into.  If you do not have Git installed then enter; "sudo apt-get install git" if using Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  Copy markit, check-markit, and find-code.sh to a directory that is included in your PATH (/usr/local/bin or ~/bin).
+
+    git clone https://github.com/BradleyA/markit
+    cd markit
+    cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
+## Install latest markit command
+To install the latest commit of markit, change to the directory you want to download the script to (cd /usr/local/bin) and enter the follow command.
+
+    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
+
+To install the latest commit of check-markit, change markit to check-markit in the above command.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
@@ -182,58 +237,6 @@ Check the release version of a file with the remote Git repository release versi
 
     Repository copy placed in /tmp/markit
     2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
-
-[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
-
-## Getting Started
-**Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
-
-On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
-
-    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
-
-Change into clone directory on your system.
-
-    cd markit
-
-Make a change to testfiles/sample.sh.
-
-    vi testfiles/sample.sh
-    
-Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
-
-    ./markit
-
-Check if your local version of testfiles/sample.sh is the same version that is on your remote Git repository.
-
-    ./check-markit -f ./testfiles/sample.sh
-
-On GitHub go to your Forked markit repository settings page and check the box next to Issues. Then open the first issue on your markit repository, #1.
-
-Make a change to testfiles/sample.sh
-
-    vi testfiles/sample.sh
-
-Run ./markit.  Enter the next version number when prompted and this brief description '[testing markit issue changes close #1](https://help.github.com/articles/closing-issues-using-keywords/)'.  You will be prompted for your GitHub password when git pushes testfiles/sample.sh to your remote Git repository.
-
-    ./markit
-    
-The file testfiles/sample.sh has been updated with metadata, git tag, git commit, git push, and the issue #1 on GitHub has been [closed](https://help.github.com/articles/closing-issues-using-keywords/).
-
-View ./markit help pages to learn more about how markit works with tracked and untracked files and without network access to remote Git repository. 
-
-    ./markit --help
-
-Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number and GitHub will update the issue.
-
-[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
-
-## Install
-To install the latest commit of markit, change to the directory you want to download the script to (cd /usr/local/bin) and enter the follow command.
-
-    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
-
-To install the latest commit of check-markit, change markit to check-markit in the above command.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
