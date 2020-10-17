@@ -76,7 +76,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 * Include path with filename in remote Git repository as part of metadata
 * Don't create any requirements for markit other than the version and those required by Git
 * Support several file extensions for comment character
-* Support Bitbucket or GitLab
+* Support Bitbucket and GitLab
 * Support Git local repository without network access (without 'git push')
 * Support push to multiple Git remote repositories at once (edit .git/config)
 * I use alias release-notes='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit' to help build release notes
