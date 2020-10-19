@@ -4,6 +4,7 @@
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/4.1.8?color=orange)](https://github.com/BradleyA/markit/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/markit.svg)](https://github.com/BradleyA/markit/commits/)
 
+[![Open GitHub Issue](https://img.shields.io/badge/Open-Incident-blue.svg)](https://github.com/BradleyA/markit/issues/new/choose)
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aclosed+is%3Aissue)
 [<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=356&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/clone.table.md)
