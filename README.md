@@ -30,8 +30,8 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Output: markit](#Output-markit)
 - [Usage: check-markit](#Usage-check-markit)
 - [Output: check-markit](#Output-check-markit)
-- [Usage:find-code.sh](#Usage-find-code.sh)
-- [Output: find-code.sh](#Output-find-code.sh)
+- [Usage:find-code.sh](#Usage-find-code\.sh)
+- [Output: find-code.sh](#Output-find-code\.sh)
 ----
 - [Contribute](#Contribute)
 - [Author](#Author)
@@ -248,7 +248,6 @@ Search each system found in <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> file for .git re
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Output: find-code.sh
-
     2020-10-19T08:52:23.693833-05:00 (CDT) six-rpi3b.cptx86.com find-code.sh[8972] 4.1.10.856 169 uadmin 10000:10000 [INFO]    Started...
 
       -->  five-rpi3b.cptx86.com    ->find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'<-
