@@ -1,4 +1,21 @@
-
+#	.gitignore (sudo apt-get install git-all)
+#	.gitignore  4.1.11.877  2020-10-18T21:38:57.189442-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.10-20-gd09ee09  
+#	   .gitignore -->   added hooks/ directory to .gitignore for git-TEST-commit-automation testing  
+#	.gitignore  3.594.958  2020-10-18T16:02:16.726384-05:00 (CDT)  https://github.com/BradleyA/user-files.git  master  uadmin  one-rpi3b.cptx86.com 3.593  
+#	   .gitignore -->   add hooks/ git-TEST-commit-automation directories:wq  
+#	.gitignore  3.306.535  2019-08-16T17:15:26.734333-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.305-2-g62999fe  
+#	   .gitignore add *.test-case-output .netrc 
+#	.gitignore	1.0.6	2018-02-15_10:58:09_CST uadmin four-rpi3b.cptx86.com 1.0 
+#	   Inital commit of basic .gitignore settings
+# all git-TEST-commit-automation files other than custom test cases in TEST directories
+hooks/
+# ignore
+*.test-case-output
+.netrc
+.env
+chefignore
+.gitignore
+.dockerignore
 # editor #
 **/*~
 **/*.bak
