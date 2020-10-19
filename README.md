@@ -238,6 +238,45 @@ Check the release version of a file with the remote Git repository release versi
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
+## Usage: find-code.sh
+Search each system found in <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> file for .git repositories in ~/.. directories.
+
+    find-code.sh
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
+## Output: find-code.sh
+
+    2020-10-19T08:52:23.693833-05:00 (CDT) six-rpi3b.cptx86.com find-code.sh[8972] 4.1.10.856 169 uadmin 10000:10000 [INFO]    Started...
+
+      -->  five-rpi3b.cptx86.com    ->find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'<-
+     # #####   All connections monitored   ##### #
+       ~/uadmin/github/BradleyA/Linux-admin
+       ~/uadmin/github/BradleyA/docker-security-infrastructure
+       ~/uadmin/github/BradleyA/git-TEST-commit-automation
+       ~/uadmin/github/BradleyA/pi-display
+       ~/uadmin/github/BradleyA/markit
+       ~/uadmin/github/BradleyA/git-TEST-commit
+       ~/uadmin/github/BradleyA/Search-docker-registry-v2-script
+       ~/uadmin/github/BradleyA/user-files
+       ~/uadmin/github/animated-GIF/ttygif
+       ~/uadmin/github/animated-GIF/ttyrec
+       ~/uadmin/github/animated-GIF/gifsicle
+       ~/uadmin/github/animated-GIF/giflossy
+       ~/uadmin/temp/temp/docker-security-infrastructure
+    Connection to five-rpi3b.cptx86.com closed.
+
+      -->  six-rpi3b.cptx86.com    ->find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'<-
+       ~/uadmin/github/animated-GIF/ttygif
+       ~/uadmin/github/animated-GIF/ttyrec
+       ~/uadmin/github/animated-GIF/gifsicle
+       ~/uadmin/github/animated-GIF/giflossy
+       ~/uadmin/github/franiglesias/versiontag
+       ~/bob/github/BradleyA/pi-display
+    2020-10-19T08:52:24.919012-05:00 (CDT) six-rpi3b.cptx86.com find-code.sh[8972] 4.1.10.856 230 uadmin 10000:10000 [INFO]    Operation finished...
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 ----
 
 #### Contribute
