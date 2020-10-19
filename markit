@@ -1,5 +1,5 @@
 #!/bin/bash
-#	markit  4.1.12.878  2020-10-19T08:59:03.255414-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.11  
+#	markit  4.1.14.881  2020-10-19T09:00:17.735111-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613  
 #	   find-code.sh markit -->   minor code cleanup  
 #	markit  4.1.8.836  2020-10-03T15:36:36.764370-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.7-2-g0cd1700  
 #	   markit -->   release ready for production  
