@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.15.896  2020-10-19T16:28:58.922235-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.14-14-g9db9ac6  
+#	   check-markit -->   added find-code.sh to check-markit SEE ALSO section  
 #	check-markit  4.1.4.803  2020-08-29T22:25:47.061044-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.3-1-g691863b  
 #	   check-markit find-code.sh markit -->   testing FVT test cases for markit and check-markit  
 #86# check-markit - check file release with repository release
@@ -105,6 +107,7 @@ echo -e "\t${BOLD}${COMMAND_NAME} markit${NORMAL}\n"
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   ${BOLD}markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})"         # 0.3.583
+echo    "   ${BOLD}find-code.sh${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-find-codesh${NORMAL})"        # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
