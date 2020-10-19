@@ -30,7 +30,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 - [Output: markit](#Output-markit)
 - [Usage: check-markit](#Usage-check-markit)
 - [Output: check-markit](#Output-check-markit)
-- [Usage: find-code.sh](#Usage-find--code.sh)
+- [Usage: find-code.sh](#Usage-find-codesh)
 - [Output: find-code.sh](#Output-find\-code.sh)
 ----
 - [Contribute](#Contribute)
