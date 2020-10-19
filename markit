@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  4.1.12.878  2020-10-19T08:59:03.255414-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.11  
+#	   find-code.sh markit -->   minor code cleanup  
 #	markit  4.1.8.836  2020-10-03T15:36:36.764370-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.7-2-g0cd1700  
 #	   markit -->   release ready for production  
 #86# markit
@@ -154,6 +156,7 @@ echo -e "   Mark tracked file(s) but don't push to remote Git repository, only u
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   ${BOLD}check-markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})"        # 3.550
+echo    "   ${BOLD}find-code.sh${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-find-codesh${NORMAL})"        # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550

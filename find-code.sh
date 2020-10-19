@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.10.856  2020-10-14T10:42:41.879543-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.9-8-g1412ac9  
-# 	   find-code.sh -->   testing color and format output changes  
+# 	find-code.sh  4.1.12.878  2020-10-19T08:58:59.456695-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.11  
+# 	   find-code.sh markit -->   minor code cleanup  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
@@ -32,7 +32,6 @@ COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                   
 display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   Search systems for .git repositories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
-echo    "   ${YELLOW}Positional Arguments${NORMAL}"
 echo -e "   ${COMMAND_NAME} [-c <CLUSTER>] [-d <DATA_DIR>] [-s <SYSTEMS_FILE>]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
@@ -175,7 +174,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USE
 #    DEBUG
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  2.3.578
 
-###  Production standard 9.3.513 Parse CLI options and arguments
 ###  Production standard 9.3.562 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
@@ -219,7 +217,7 @@ fi
 REMOTEHOST=$(grep -v "#" "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}")
 for NODE in ${REMOTEHOST} ; do
   echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}    ->${PURPLE}${REMOTE_COMMAND}${WHITE}<-"
-  if [ "${LOCALHOST}" != "${NODE}" ] ; then
+  if [[ "${LOCALHOST}" != "${NODE}" ]] ; then
     ssh -t "${USER}"@"${NODE}" "echo -e '${BOLD}${YELLOW}\c' ; ${REMOTE_COMMAND} ; echo -e '${NORMAL}\c'"
   else
     eval "echo -e '${BOLD}${YELLOW}\c' ; ${REMOTE_COMMAND} ; echo -e '${NORMAL}\c'"
