@@ -1,21 +1,3 @@
-# markit
-[![GitHub Stable Release](https://img.shields.io/badge/Release-4.1.8-blue.svg)](https://github.com/BradleyA/markit/releases/tag/4.1.8)
-![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/markit?color=blue)
-[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/4.1.8?color=orange)](https://github.com/BradleyA/markit/commits/)
-[![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/markit.svg)](https://github.com/BradleyA/markit/commits/)
-
-[![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aopen+is%3Aissue)
-[![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aclosed+is%3Aissue)
-[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=356&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/clone.table.md)
-[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=1939&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/view.table.md)
-[![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/markit.svg)](https://github.com/BradleyA/markit/)
-![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
-[![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
-
-## Goal
-Answer one question over the phone by looking at the code; ***What version are you running?**
-
-#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
 
 details {
   font: 16px "Open Sans", Calibri, sans-serif;
@@ -38,6 +20,25 @@ details > p {
   margin: 0;
   box-shadow: 3px 3px 4px black;
 }
+
+# markit
+[![GitHub Stable Release](https://img.shields.io/badge/Release-4.1.8-blue.svg)](https://github.com/BradleyA/markit/releases/tag/4.1.8)
+![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/markit?color=blue)
+[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/markit/4.1.8?color=orange)](https://github.com/BradleyA/markit/commits/)
+[![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/markit.svg)](https://github.com/BradleyA/markit/commits/)
+
+[![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/markit?color=purple)](https://github.com/BradleyA/markit/issues?q=is%3Aclosed+is%3Aissue)
+[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=356&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/clone.table.md)
+[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=1939&color=blueviolet">](https://github.com/BradleyA/markit/blob/master/images/view.table.md)
+[![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/markit.svg)](https://github.com/BradleyA/markit/)
+![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
+[![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
+
+## Goal
+Answer one question over the phone by looking at the code; ***What version are you running?**
+
+#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
 
 <details>
 <summary>Table of content</summary>
