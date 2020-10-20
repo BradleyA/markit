@@ -1,5 +1,7 @@
 #!/bin/bash
-#	check-markit  4.1.16.898  2020-10-20T17:48:35.349351-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.15-1-g337b0ef  
+#	check-markit  4.1.17.899  2020-10-20T17:52:07.514460-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.16  
+#	   check-markit -->   define unique temporary directory names to support automation,  close #84  
+#	check-markit  4.1.16.898  2020-10-20T17:48:35.349351-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.15-1-g337b0ef
 #	   check-markit -->   define unique temporary directory names to support automation  
 #	check-markit  4.1.15.896  2020-10-19T16:28:58.922235-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.14-14-g9db9ac6  
 #	   check-markit -->   added find-code.sh to check-markit SEE ALSO section  
