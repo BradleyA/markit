@@ -2,15 +2,31 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-
 ## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
 * Brief description
+
 ### Features Added
+* Updated .github/ISSUE_TEMPLATE/feature_request.md changed command example
+* Updated .github/ISSUE_TEMPLATE/incident_report.md changed command example
+* Updated .gitignore added hooks/ directory to .gitignore for git-TEST-commit-automation testing
+* Updated README.md
+* check-markit 
+  * Added unique temporary directory names to support automation,  close #84
+  * Added find-code.sh to check-markit SEE ALSO section
+* find-code.sh markit
+  * change output color to help review of output
+  * minor code cleanup
+* markit
+  * minor code cleanup
+
 ### Features Changes
 ### Features Deprecations
+
 ### Issues
+* close #84  define unique temporary directory names to support automation
+
 ### Misc
 * backlog
     * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
