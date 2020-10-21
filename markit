@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  4.1.18.901  2020-10-21T12:38:21.010657-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.17-1-g3ba3553  
+#	   markit -->   updated if statement syntax from this [ to this [[  
 #	markit  4.1.14.881  2020-10-19T09:00:17.735111-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613  
 #	   find-code.sh markit -->   minor code cleanup  
 #	markit  4.1.8.836  2020-10-03T15:36:36.764370-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uadmin  five-rpi3b.cptx86.com 4.1.7-2-g0cd1700  
@@ -379,9 +381,8 @@ for FILE_NAME in ${FILE_LIST} ; do
         #    Prompt for single-line beginning comment character(s)
         echo -e "\nEnter single-line  ${BOLD}${YELLOW}BEGINNING${NORMAL}${YELLOW}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}\n\t(example: # // -- ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
         read BEGIN_COMMENT_CHAR
-        if [ -z "${BEGIN_COMMENT_CHAR}" ] ; then
-          display_help | more
-          new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Single-line comment character(s) is required.\n"  1>&2
+        if [[ -z "${BEGIN_COMMENT_CHAR}" ]] ; then
+          new_message "${LINENO}" "${RED}ERROR${WHITE}" "${BOLD}${YELLOW}  Single-line comment character(s) is required.${NORMAL}\n"  1>&2
           exit 1
         fi
         echo -e "\nEnter single-line  ${BOLD}${YELLOW}ENDING${NORMAL}${YELLOW}  comment character(s) for ${BOLD}${FILE_NAME}${NORMAL}.\nPress enter for none.\n\t(example: */ --> ---> -} */ --]] %} *) #> )"
