@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	find-code.sh  4.1.14.881  2020-10-19T09:00:11.806725-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613  
+# 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
+# 	   find-code.sh -->   begin testing options  
+# 	find-code.sh  4.1.14.881  2020-10-19T09:00:11.806725-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613 
 # 	   find-code.sh markit -->   minor code cleanup  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
