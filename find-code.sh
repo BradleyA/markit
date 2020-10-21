@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.23.910  2020-10-21T14:28:05.073387-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.22-1-g4aba95a  
+# 	   find-code.sh -->   correct options -u incidnet  
 # 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
 # 	   find-code.sh -->   begin testing options  
 # 	find-code.sh  4.1.14.881  2020-10-19T09:00:11.806725-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613 
@@ -167,7 +169,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi  #  2.3.578
 
 #    Added following code because USER is not defined in crobtab jobs
 if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
