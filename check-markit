@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.21.907  2020-10-21T14:17:04.091568-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.20-2-g76989d3  
+#	   check-markit -->   correct shellcheck incident  
 #	check-markit  4.1.20.904  2020-10-21T14:07:08.485855-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.19-1-g9b31165  
 #	   check-markit -->   begin testing options  
 #	check-markit  4.1.17.899  2020-10-20T17:52:07.514460-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.16 
@@ -254,7 +256,7 @@ REPOSITORY_FILE_NAME_LOCATION=$(find "${MARKIT_TEMP}" -type f -name "${FILE_NAME
 REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk '{print $3}')
 REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk '{print $4}')
 cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
-rm -rf ${MARKIT_TEMP}
+rm -rf "${MARKIT_TEMP}"
 ###
 echo -e "\n  ${BOLD}${CYAN}${MARKIT_FILE}${NORMAL} release ${BOLD}${YELLOW}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
 echo -e "\n  ${BOLD}${CYAN}${FILE_NAME}${NORMAL} repository release ${BOLD}${YELLOW}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
