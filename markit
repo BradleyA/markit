@@ -1,5 +1,7 @@
 #!/bin/bash
-#	markit  4.1.19.902  2020-10-21T13:56:17.514013-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.18  
+#	markit  4.1.26.914  2020-10-21T21:18:03.221106-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.25-1-gcaee1fa  
+#	   markit -->   testing  
+#	markit  4.1.19.902  2020-10-21T13:56:17.514013-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.18 
 #	   markit -->   begin testing options  
 #	markit  4.1.18.901  2020-10-21T12:38:21.010657-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.17-1-g3ba3553 
 #	   markit -->   updated if statement syntax from this [ to this [[  
