@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24  
+# 	   find-code.sh -->   add test case for no found DATA_DIR and CLUSTER  
 # 	find-code.sh  4.1.24.911  2020-10-21T19:28:01.906915-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.23  
 # 	   find-code.sh -->   testing FVT-option-cluster-001  
 # 	find-code.sh  4.1.23.910  2020-10-21T14:28:05.073387-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.22-1-g4aba95a 
@@ -209,6 +211,18 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${
 #	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
 #	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
 REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
+
+#    Check if ${DATA_DIR} directory is on system
+if ! [[ -d ${DATA_DIR} ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  DATA_DIR, ${DATA_DIR}, directory is not found." 1>&2
+  exit 1
+fi
+
+#    Check if ${CLUSTER} directory is on system
+if ! [[ -d ${DATA_DIR}/${CLUSTER} ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  CLUSTER, ${CLUSTER}, directory is not found." 1>&2
+  exit 1
+fi
 
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
