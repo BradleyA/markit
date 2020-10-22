@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.30.918  2020-10-22T01:07:03.670763-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.29  
+# 	   find-code.sh -->   redesign -c, -d, -s  
 # 	find-code.sh  4.1.29.917  2020-10-22T00:29:11.790151-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.28  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27 
@@ -31,6 +33,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
@@ -194,11 +197,11 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; CLUSTER=${2} ; shift 2 ;; # 9.3.558  9.3.561  9.3.562
+    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else CLUSTER=${2} ; fi ; shift 2  ;;
     -c=*|--cluster=*)  CLUSTER=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2 ;; # 9.3.558  9.3.561  9.3.562
+    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else DATA_DIR=${2} ; fi ; shift 2  ;;
     -d=*|--datadir=*)  DATA_DIR=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2 ;; 
+    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else SYSTEMS_FILE=${2} ; fi ; shift 2  ;; 
     -s=*|--systems=*)  SYSTEMS_FILE=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
     *)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.561
   esac
