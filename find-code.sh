@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27  
+# 	   find-code.sh -->   improve user feed back on ERROR  
 # 	find-code.sh  4.1.27.915  2020-10-21T21:49:46.017638-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.26  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
@@ -216,19 +218,19 @@ REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.
 
 #    Check if ${DATA_DIR} directory is on system
 if ! [[ -d ${DATA_DIR} ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  DATA_DIR, ${DATA_DIR}, directory is not found." 1>&2
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
   exit 1
 fi
 
 #    Check if ${CLUSTER} directory is on system
 if ! [[ -d ${DATA_DIR}/${CLUSTER} ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  CLUSTER, ${CLUSTER}, directory is not found." 1>&2
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Cluster directory name, ${CLUSTER}, not found." 1>&2
   exit 1
 fi
 
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
-  new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  ${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
+  new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Name of systems file, ${SYSTEMS_FILE} not found or empty.  Creating ${SYSTEMS_FILE} file and including local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
   echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
   echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
   echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
