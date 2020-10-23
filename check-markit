@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.31.919  2020-10-22T20:41:17.906563-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.30  
+#	   check-markit -->   added TMP_MARKIT_DIR=$(mktemp --directory  
 #	check-markit  4.1.21.907  2020-10-21T14:17:04.091568-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.20-2-g76989d3  
 #	   check-markit -->   correct shellcheck incident  
 #	check-markit  4.1.20.904  2020-10-21T14:07:08.485855-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.19-1-g9b31165  
@@ -35,7 +37,7 @@ WHITE=$(tput  setaf 7)
 ###  Production standard 7.0 Default variable value
 FILE_NAME=""
 MARKIT_FILE=""
-MARKIT_TEMP=$(mktemp --directory /tmp/MARKIT_TEMPXXXXXX)   # Create a temporary directory
+TMP_MARKIT_DIR=$(mktemp --directory /tmp/TMP_MARKIT_DIRXXXXXX)   # Create a temporary directory
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -230,18 +232,18 @@ fi
 if grep -q "github" <<< ${REPOSITORY_COMMAND} ; then
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking GitHub for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
   REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/github.com/api.github.com\/repos/')
-  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory ${MARKIT_TEMP} -xzf - "
+  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}/tarball | tar --directory ${TMP_MARKIT_DIR} -xzf - "
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 elif grep -q "gitlab" <<< ${REPOSITORY_COMMAND} ; then
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking GitLab for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
   REPOSITORY_PROJECT_NAME=$(echo "${REPOSITORY_COMMAND}" | sed 's/^https:\/\/.*\/.*\///' | sed 's/\.git$//')
   REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\.git$/\/-\/archive\/master\//')
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
-  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory ${MARKIT_TEMP} -xzf - "
+  REPOSITORY_COMMAND="curl \-L ${REPOSITORY_COMMAND}${REPOSITORY_PROJECT_NAME}-master.tar.gz | tar --directory ${TMP_MARKIT_DIR} -xzf - "
 elif grep -q "bitbucket" <<< ${REPOSITORY_COMMAND} ; then
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Checking Bitbucket for ${BOLD}${FILE_NAME}${NORMAL} repository release information" 1>&2 ; fi
   REPOSITORY_COMMAND=$(echo "${REPOSITORY_COMMAND}" | sed 's/\/\/.*@/\/\//')
-  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o ${MARKIT_TEMP}/master.zip ; unzip -qq ${MARKIT_TEMP}/master.zip -d ${MARKIT_TEMP}/")
+  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o ${TMP_MARKIT_DIR}/master.zip ; unzip -qq ${TMP_MARKIT_DIR}/master.zip -d ${TMP_MARKIT_DIR}/")
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  REPOSITORY_COMMAND >${REPOSITORY_COMMAND}<" 1>&2 ; fi
 else 
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
@@ -252,11 +254,11 @@ fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  MARKIT_FILE >${MARKIT_FILE}< FILE_NAME >${FILE_NAME}< REPOSITORY_COMMAND >${REPOSITORY_COMMAND}< MARKIT_FILE_RELEASE >${MARKIT_FILE_RELEASE}<" 1>&2 ; fi
 #
 eval "${REPOSITORY_COMMAND}"
-REPOSITORY_FILE_NAME_LOCATION=$(find "${MARKIT_TEMP}" -type f -name "${FILE_NAME}" -print)
+REPOSITORY_FILE_NAME_LOCATION=$(find "${TMP_MARKIT_DIR}" -type f -name "${FILE_NAME}" -print)
 REPOSITORY_MARKIT_FILE_RELEASE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk '{print $3}')
 REPOSITORY_MARKIT_FILE_DATE=$(grep git "${REPOSITORY_FILE_NAME_LOCATION}" | grep -m 1 "${FILE_NAME}" | awk '{print $4}')
 cp -f "${REPOSITORY_FILE_NAME_LOCATION}" /tmp/"${FILE_NAME}"
-rm -rf "${MARKIT_TEMP}"
+rm -rf "${TMP_MARKIT_DIR}"
 ###
 echo -e "\n  ${BOLD}${CYAN}${MARKIT_FILE}${NORMAL} release ${BOLD}${YELLOW}${MARKIT_FILE_RELEASE}${NORMAL}, commit date ${MARKIT_FILE_DATE}" 1>&2
 echo -e "\n  ${BOLD}${CYAN}${FILE_NAME}${NORMAL} repository release ${BOLD}${YELLOW}${REPOSITORY_MARKIT_FILE_RELEASE}${NORMAL}, commit date ${REPOSITORY_MARKIT_FILE_DATE}\n" 1>&2
