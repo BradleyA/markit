@@ -1,4 +1,6 @@
 #!/bin/bash
+#	TEST/find-code.sh/FVT-option-cluster-003  4.1.42.933  2020-10-23T10:42:30.511687-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.41  
+#	   TEST/find-code.sh/FVT-option-cluster-001 TEST/find-code.sh/FVT-option-cluster-002 TEST/find-code.sh/FVT-option-cluster-003 TEST/find-code.sh/FVT-option-cluster-004 -->   update test response  
 #	TEST/find-code.sh/FVT-option-cluster-003  4.1.41.932  2020-10-23T10:23:08.867097-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.40-1-ge8b760e  
 #	   TEST/find-code.sh/FVT-option-cluster-001 TEST/find-code.sh/FVT-option-cluster-002 TEST/find-code.sh/FVT-option-cluster-003 TEST/find-code.sh/FVT-option-cluster-004 TEST/find-code.sh/FVT-option-cluster-005 TEST/find-code.sh/FVT-option-cluster-006 find-code.sh -->   update PASS response  
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-cluster-003  -  custom test case
@@ -99,11 +101,11 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Output is correct for ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Test option with directory argument not found ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test option with directory argument not found ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
