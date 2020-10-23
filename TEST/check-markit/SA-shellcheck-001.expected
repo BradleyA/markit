@@ -1,5 +1,5 @@
 
 In SA-shellcheck-001 line 225:
-  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o ${MARKIT_TEMP}/master.zip ; unzip -qq ${MARKIT_TEMP}/master.zip -d ${MARKIT_TEMP}/")
+  REPOSITORY_COMMAND=$(echo "curl \-L ${REPOSITORY_COMMAND}/get/master.zip -o ${TMP_MARKIT_DIR}/master.zip ; unzip -qq ${TMP_MARKIT_DIR}/master.zip -d ${TMP_MARKIT_DIR}/")
                      ^-- SC2116: Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.
 
