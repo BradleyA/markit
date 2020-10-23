@@ -1,4 +1,6 @@
 #!/bin/bash
+#	TEST/find-code.sh/FVT-option-cluster-003  4.1.41.932  2020-10-23T10:23:08.867097-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.40-1-ge8b760e  
+#	   TEST/find-code.sh/FVT-option-cluster-001 TEST/find-code.sh/FVT-option-cluster-002 TEST/find-code.sh/FVT-option-cluster-003 TEST/find-code.sh/FVT-option-cluster-004 TEST/find-code.sh/FVT-option-cluster-005 TEST/find-code.sh/FVT-option-cluster-006 find-code.sh -->   update PASS response  
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-cluster-003  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -97,7 +99,7 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output, ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Output is correct for ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
