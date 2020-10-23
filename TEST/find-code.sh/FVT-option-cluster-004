@@ -1,0 +1,113 @@
+#!/bin/bash
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-cluster-004  -  custom test case
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
+#
+BOLD=$(tput -Txterm bold)
+UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
+NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
+WHITE=$(tput  setaf 7)
+
+#    Date and time function ISO 8601
+get_date_stamp() {
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+
+#    Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+
+#    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used any where in script (for dev, test teams)
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
+
+#    GID
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+}
+
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
+
+###
+
+TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
+TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
+TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
+FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
+FILE_NAME="${BOLD}${YELLOW}${FILE_NAME_TMP_3}${NORMAL}"
+
+if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
+  RETURN_CODE=126
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 126 - File, ${FILE_NAME}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+  exit "${RETURN_CODE}"
+fi
+
+#    Create empty file if missing
+touch "${0}.expected"
+
+###  Place test case here
+
+FVT_TEST_INPUT="${1} --cluster test/test"
+
+eval "${FVT_TEST_INPUT}" 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
+
+if [[ -s ${1} ]] ; then  #  file size is greater than zero
+  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+  RETURN_CODE=${?}
+else
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
+  RETURN_CODE=2
+fi
+
+if [[ "${RETURN_CODE}" -eq 0 ]] ; then
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output, ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
+  exit 0
+elif [[ ${RETURN_CODE} -eq 1 ]] ; then
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  diff -y "${0}".expected "${0}".test-case-output
+  exit 1
+else
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 2 - Test script ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+  exit 2
+fi
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 124 - Test script logic ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+exit 124
+###
