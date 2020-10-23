@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	find-code.sh  4.1.46.937  2020-10-23T12:00:29.606751-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.45  
+# 	find-code.sh  4.1.47.938  2020-10-23T12:01:10.265751-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.46  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27 
 # 	   find-code.sh -->   improve user feed back on ERROR  
