@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.39.928  2020-10-22T22:15:55.371027-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.38  
+# 	find-code.sh  4.1.40.930  2020-10-22T22:27:46.154456-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.39-1-g3d65083  
 # 	   find-code.sh -->   testing  
-# 	find-code.sh  4.1.30.918  2020-10-22T01:07:03.670763-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.29 
-# 	   find-code.sh -->   redesign -c, -d, -s  
 # 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27 
 # 	   find-code.sh -->   improve user feed back on ERROR  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
