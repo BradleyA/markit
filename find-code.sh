@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	find-code.sh  4.1.35.924  2020-10-22T21:48:18.818109-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.34  
+# 	find-code.sh  4.1.36.925  2020-10-22T21:51:27.146092-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.35  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.30.918  2020-10-22T01:07:03.670763-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.29 
 # 	   find-code.sh -->   redesign -c, -d, -s  
