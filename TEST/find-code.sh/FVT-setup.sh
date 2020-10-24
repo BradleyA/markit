@@ -1,4 +1,8 @@
 #!/bin/bash
+# 	TEST/find-code.sh/FVT-setup.sh  4.1.72.968  2020-10-24T14:28:12.981878-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.71  
+# 	   TEST/find-code.sh/FVT-setup.sh find-code.sh -->   testing  
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.104.1745  2020-10-24T14:23:20.619242-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.103  
+# 	   hooks/EXAMPLES/FVT-setup.sh -->   added datadir  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.100.1741  2020-10-23T22:33:52.995488-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.99-9-ge5bd164  
 # 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-cluster-001/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-008/SA-shellcheck-001.expected -->   added cluster  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.32.1578  2020-05-22T05:59:06.586723-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.31 
@@ -129,6 +133,22 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-cluster-007"	FVT-option-clus
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-cluster-007.expected"	FVT-option-cluster-007.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-cluster-008"	FVT-option-cluster-008
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-cluster-008.expected"	FVT-option-cluster-008.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-001"	FVT-option-datadir-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-001.expected"	FVT-option-datadir-001.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-002"	FVT-option-datadir-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-002.expected"	FVT-option-datadir-002.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-003"	FVT-option-datadir-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-003.expected"	FVT-option-datadir-003.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-004"	FVT-option-datadir-004
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-004.expected"	FVT-option-datadir-004.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-005"	FVT-option-datadir-005
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-005.expected"	FVT-option-datadir-005.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-006"	FVT-option-datadir-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-006.expected"	FVT-option-datadir-006.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-007"	FVT-option-datadir-007
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-007.expected"	FVT-option-datadir-007.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-008"	FVT-option-datadir-008
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-008.expected"	FVT-option-datadir-008.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001"	FVT-option-filename-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001.expected"	FVT-option-filename-001.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-002"	FVT-option-filename-002
