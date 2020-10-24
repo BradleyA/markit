@@ -1,7 +1,7 @@
 #!/bin/bash
-# 	find-code.sh  4.1.51.943  2020-10-23T21:03:26.180261-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.50  
+# 	find-code.sh  4.1.52.944  2020-10-23T21:07:25.503320-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.51  
 # 	   find-code.sh -->   testing  
-# 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27 
+# 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27
 # 	   find-code.sh -->   improve user feed back on ERROR  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
 # 	   find-code.sh -->   add test case for no found DATA_DIR and CLUSTER  
