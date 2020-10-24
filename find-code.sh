@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.57.953  2020-10-23T22:50:46.710999-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.56-4-gafd7de2  
-# 	   find-code.sh -->   testing  
-# 	find-code.sh  4.1.53.945  2020-10-23T21:16:42.807835-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.52  
-# 	   find-code.sh -->   testing  
+# 	find-code.sh  4.1.58.954  2020-10-24T11:03:05.670656-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.57  
+# 	   find-code.sh -->   Production standard 0.3.595 --help  
 # 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27
 # 	   find-code.sh -->   improve user feed back on ERROR  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
@@ -53,10 +51,10 @@ echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
 }
 
-###  Production standard 0.3.583 --help
+###  Production standard 0.3.595 --help
 display_help() {
 display_usage
-#    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
+#    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo    "This script searches each system found in SYSTEMS file for .git repositories"
 echo    "in ~/.. directories."
@@ -87,18 +85,18 @@ echo    "command, 'unset DEBUG' to remove the exported information from the envi
 echo    "variable DEBUG.  You are on your own defining environment variables if"
 echo    "you are using other shells."
 
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
-echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 3.550
-echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 3.550
-echo    "                   all DEBUG messages during execution of this script.  The"       # 3.550
-echo    "                   setting 1 will print all DEBUG messages during execution."      # 3.550
-echo    "                   Setting 2 (set -x) will print a trace of simple commands"       # 3.550
-echo    "                   before they are executed.  Setting 3 (set -v) will print"       # 3.550
-echo    "                   shell input lines as they are read.  Setting 4 (set -e) will"   # 3.550
-echo    "                   exit immediately if non-zero exit status is recieved with"      # 3.550
-echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
-echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
-echo    "                   more information about the set options, see man bash."          # 3.550
+###  Production standard 1.3.550 DEBUG variable                                             # 1.3.550
+echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 1.3.550
+echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 1.3.550
+echo    "                   all DEBUG messages during execution of this script.  The"       # 1.3.550
+echo    "                   setting 1 will print all DEBUG messages during execution."      # 1.3.550
+echo    "                   Setting 2 (set -x) will print a trace of simple commands"       # 1.3.550
+echo    "                   before they are executed.  Setting 3 (set -v) will print"       # 1.3.550
+echo    "                   shell input lines as they are read.  Setting 4 (set -e) will"   # 1.3.550
+echo    "                   exit immediately if non-zero exit status is recieved with"      # 1.3.550
+echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 1.3.550
+echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 1.3.550
+echo    "                   more information about the set options, see man bash."          # 1.3.550
 #
 echo    "   CLUSTER         Cluster name (default '${DEFAULT_CLUSTER}')"
 echo    "   DATA_DIR        Data directory (default '${DEFAULT_DATA_DIR}')"
@@ -106,20 +104,20 @@ echo    "   SYSTEMS_FILE    Name of file that includes hosts in cluster"
 echo    "                   (default '${DEFAULT_SYSTEMS_FILE}')"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
-echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
-echo    "   --help, -help, help, -h, h, -?"                                            # 3.572
-echo -e "\tOn-line brief reference manual\n"                                           # 3.572
-echo    "   --usage, -usage, -u"                                                       # 3.572
-echo -e "\tOn-line command usage\n"                                                    # 3.572
-echo    "   --version, -version, -v"                                                      # 0.3.579
-echo -e "\tOn-line command version\n"                                                  # 3.572
+echo -e "Order of precedence: CLI options, environment variable, default value.\n"                     # 0.3.595
+echo    "   --help, -help, help, -h, h, -?"                                                            # 0.3.595
+echo -e "\tOn-line brief reference manual\n"                                                           # 0.3.595
+echo    "   --usage, -usage, -u"                                                                       # 0.3.595
+echo -e "\tOn-line command usage\n"                                                                    # 0.3.595
+echo    "   --version, -version, -v"                                                                   # 0.3.595
+echo -e "\tOn-line command version\n"                                                                  # 0.3.595
 #
-echo    "   --cluster, -c, --cluster=<CLUSTER>, -c="
-echo -e "\tCluster directory name (default '${DEFAULT_CLUSTER}')\n"
-echo    "   --datadir, -d, --datadir=<DATA_DIR>, -d="
-echo -e "\tPath to cluster data directory (default '${DEFAULT_DATA_DIR}')\n"
-echo    "   --systems, -s, --systems=<SYSTEMS_FILE>, -s="
-echo -e "\tName of systems file (default ${DEFAULT_SYSTEMS_FILE})"
+echo    "   --cluster <CLUSTER>, -c <CLUSTER>, --cluster=<CLUSTER>, -c=<CLUSTER>"                      # 0.3.595
+echo -e "\tCluster name (default '${DEFAULT_CLUSTER}')\n"
+echo    "   --datadir <DATA_DIR>, -d <DATA_DIR>, --datadir=<DATA_DIR>, -d=<DATA_DIR>"                  # 0.3.595
+echo -e "\tData directory (default '${DEFAULT_DATA_DIR}')\n"
+echo    "   --systems <SYSTEMS_FILE>, -s <SYSTEMS_FILE>, --systems=<SYSTEMS_FILE>, -s=<SYSTEMS_FILE>"  # 0.3.595
+echo -e "\tName of systems file (default '${DEFAULT_SYSTEMS_FILE}')"
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
@@ -131,24 +129,24 @@ echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   ${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL}"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n" # 3.550
-echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} -c australia-southeast1 ${NORMAL}\n" # 3.550
-echo -e "   Search systems for .git repositories using a different <SYSTEMS_FILE>.\n\t${BOLD}${COMMAND_NAME} -s SYSTEMS-RASPBERRY ${NORMAL}" # 3.550
+echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n"  # 0.3.595
+echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} -c australia-southeast1 ${NORMAL}\n" # 0.3.595
+echo -e "   Search systems for .git repositories using a different <SYSTEMS_FILE>.\n\t${BOLD}${COMMAND_NAME} -s SYSTEMS-RASPBERRY ${NORMAL}" # 0.3.595
 
-echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   ${BOLD}markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})" # 3.550
-echo    "   ${BOLD}check-markit${NORMAL}  (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-check-markit${NORMAL})" # 3.550
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                   # 0.3.595
+echo    "   ${BOLD}markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})" # 0.3.595
+echo    "   ${BOLD}check-markit${NORMAL}  (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-check-markit${NORMAL})" # 0.3.595
 
-echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
-echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
+echo -e "\n${BOLD}AUTHOR${NORMAL}"
+echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"
 
-echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
-echo    "   Report ${COMMAND_NAME} bugs ${UNDERLINE}https://github.com/BradleyA/markit/issues/new/choose${NORMAL}"  # 3.550
+echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                             # 0.3.595
+echo    "   Report ${COMMAND_NAME} bugs ${UNDERLINE}https://github.com/BradleyA/markit/issues/new/choose${NORMAL}"  # 0.3.595
 
-###  Production standard 5.3.559 Copyright                                            # 3.559
-echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
-echo    "   Copyright (c) 2020 Bradley Allen"                                               # 3.550
-echo    "   MIT License is online in the repository as a file named LICENSE"          # 3.559
+###  Production standard 5.3.559 Copyright
+echo -e "\n${BOLD}COPYRIGHT${NORMAL}"
+echo    "   Copyright (c) 2020 Bradley Allen"
+echo    "   MIT License is online in the repository as a file named LICENSE"
 }
 
 #    Date and time function ISO 8601
@@ -195,12 +193,13 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else CLUSTER=${2} ; fi ; shift 2  ;;
-    -c=*|--cluster=*)  CLUSTER=$(echo "${1}" | cut -d '=' -f 2) ; if [[ "${CLUSTER}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;
-    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else DATA_DIR=${2} ; fi ; shift 2  ;;
-    -d=*|--datadir=*)  DATA_DIR=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; else SYSTEMS_FILE=${2} ; fi ; shift 2  ;; 
+    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; CLUSTER=${2} ; shift 2  ;;  # 9.3.558  9.3.561  9.3.562
+    -c=*|--cluster=*)  CLUSTER="${1#*=}" ; if [[ "${CLUSTER}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;
+    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2  ;;  # 9.3.558  9.3.561  9.3.562
+    -d=*|--datadir=*)  DATA_DIR="${1#*=}" ; if [[ "${DATA_DIR}" == "" ]] ; then echo  -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;
+    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2  ;; 
     -s=*|--systems=*)  SYSTEMS_FILE=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
+    -*|--*=|--*=*)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; #
     *)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.561
   esac
 done
