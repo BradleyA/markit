@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.68.964  2020-10-24T13:57:50.142596-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.67  
-# 	   find-code.sh -->   testing  
+# 	find-code.sh  4.1.69.965  2020-10-24T14:12:17.119417-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.68  
+# 	   find-code.sh -->   testing datadir  
 # 	find-code.sh  4.1.67.963  2020-10-24T13:12:36.389677-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.66  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
