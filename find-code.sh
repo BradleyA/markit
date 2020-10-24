@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
+# 	   find-code.sh -->   Production standard 9.3.596 Parse CLI options and arguments  
 # 	find-code.sh  4.1.58.954  2020-10-24T11:03:05.670656-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.57  
 # 	   find-code.sh -->   Production standard 0.3.595 --help  
 # 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27
@@ -187,20 +189,19 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USE
 #    DEBUG
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  2.3.578
 
-###  Production standard 9.3.562 Parse CLI options and arguments
+###  Production standard 9.3.596 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; CLUSTER=${2} ; shift 2  ;;  # 9.3.558  9.3.561  9.3.562
-    -c=*|--cluster=*)  CLUSTER="${1#*=}" ; if [[ "${CLUSTER}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;
-    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2  ;;  # 9.3.558  9.3.561  9.3.562
-    -d=*|--datadir=*)  DATA_DIR="${1#*=}" ; if [[ "${DATA_DIR}" == "" ]] ; then echo  -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;
-    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2  ;; 
-    -s=*|--systems=*)  SYSTEMS_FILE=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -*|--*=|--*=*)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; #
-    *)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.561
+    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; CLUSTER=${2} ; shift 2  ;;  # 9.3.596
+    -c=*|--cluster=*) CLUSTER="${1#*=}" ;      if [[ "${CLUSTER}" == "" ]]      ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.596
+    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2  ;;  # 9.3.596
+    -d=*|--datadir=*) DATA_DIR="${1#*=}" ;     if [[ "${DATA_DIR}" == "" ]]     ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.596
+    -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2  ;;  # 9.3.596
+    -s=*|--systems=*) SYSTEMS_FILE="${1#*=}" ; if [[ "${SYSTEMS_FILE}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.596
+    *) echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.596
   esac
 done
 
