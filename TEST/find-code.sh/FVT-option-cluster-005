@@ -86,9 +86,7 @@ touch "${0}.expected"
 
 ###  Place test case here
 
-COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-
-FVT_TEST_INPUT="${1} -c test-${COMMAND_NAME}"
+FVT_TEST_INPUT="${1} -c="
 
 eval "${FVT_TEST_INPUT}" 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
@@ -101,11 +99,11 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Output is correct for ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Test option with no argument ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test option with no argument ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
