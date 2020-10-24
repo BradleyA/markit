@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.68.964  2020-10-24T13:57:50.142596-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.67  
+# 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.67.963  2020-10-24T13:12:36.389677-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.66  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
@@ -209,35 +211,32 @@ done
 
 ###  Production standard 7.0 Default variable value
 #    Order of precedence: CLI argument, environment variable, default code
-if [[ "${CLUSTER}" == "" ]] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
-if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
-if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
+if [[ "${CLUSTER}" == "" ]] ; then CLUSTER="${DEFAULT_CLUSTER}" ; fi
+if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR="${DEFAULT_DATA_DIR}" ; fi
+if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE="${DEFAULT_SYSTEMS_FILE}" ; fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
 
-#	REMOTE_COMMAND="find /home/uadmin -type d \( -name 'git*' -o -name 'bitbucket' \)  -print"
-#	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -execdir test -d '.git' \; -print -prune"
-#	REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print"
 REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
 
-#    Check if ${DATA_DIR} directory is on system
-if ! [[ -d ${DATA_DIR} ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
-  exit 1
-fi
-
 #    Check if ${CLUSTER} directory is on system
-if ! [[ -d ${DATA_DIR}/${CLUSTER} ]] ; then
+if ! [[ -d "${DATA_DIR}"/"${CLUSTER}" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Cluster directory name, ${CLUSTER}, not found." 1>&2
   exit 1
 fi
 
+#    Check if ${DATA_DIR} directory is on system
+if ! [[ -d "${DATA_DIR}" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
+  exit 1
+fi
+
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
-if ! [[ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] || ! [[ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ]] ; then
+if ! [[ -e "${DATA_DIR}"/"${CLUSTER}"/"${SYSTEMS_FILE}" ]] || ! [[ -s "${DATA_DIR}"/"${CLUSTER}"/"${SYSTEMS_FILE}" ]] ; then
   new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Name of systems file, ${SYSTEMS_FILE} not found or empty.  Creating ${SYSTEMS_FILE} file and including local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
-  echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-  echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-  echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-  echo    "${LOCALHOST}" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+  echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}"
+  echo -e "#       One FQDN or IP address per line for all hosts in cluster" > "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}"
+  echo -e "###" > "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}"
+  echo    "${LOCALHOST}" > "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}"
 fi
 
 #    Loop through hosts in ${SYSTEMS_FILE} file
