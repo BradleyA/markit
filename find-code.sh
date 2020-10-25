@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	find-code.sh  4.1.85.983  2020-10-25T10:30:52.362747-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.84  
+# 	find-code.sh  4.1.86.984  2020-10-25T11:26:05.513991-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.85  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
 # 	   find-code.sh -->   Production standard 9.3.596 Parse CLI options and arguments  
@@ -216,15 +216,21 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${
 
 REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
 
+#    Check if ${DATA_DIR} directory is on system
+if ! [[ -d "${DATA_DIR}" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
+  exit 1
+fi
+
 #    Check if ${CLUSTER} directory is on system
 if ! [[ -d "${DATA_DIR}"/"${CLUSTER}" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Cluster directory name, ${CLUSTER}, not found." 1>&2
   exit 1
 fi
 
-#    Check if ${DATA_DIR} directory is on system
-if ! [[ -d "${DATA_DIR}" ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
+#    Check if ${SYSTEMS_FILE} file contains /
+if [[  "${SYSTEMS_FILE}" == *"/"* ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  SYSTEMS filename, ${SYSTEMS_FILE}, includes a '/'." 1>&2
   exit 1
 fi
 
