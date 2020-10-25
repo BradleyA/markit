@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	find-code.sh  4.1.86.984  2020-10-25T11:26:05.513991-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.85  
+# 	find-code.sh  4.1.87.985  2020-10-25T11:55:36.787881-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.86  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
 # 	   find-code.sh -->   Production standard 9.3.596 Parse CLI options and arguments  
