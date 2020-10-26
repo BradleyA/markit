@@ -142,6 +142,8 @@ View ./markit help pages to learn more about how markit works with tracked and u
 
 Continue testing with the other test files to help you integrate markit with your development solutions.  Open a GitHub issue and then modify two test files.   When running markit enter a message and include the GitHub issue number and GitHub will update the issue.
 
+#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
+
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Clone
@@ -150,8 +152,6 @@ To clone this repository, change to a directory you want to download the files i
     git clone https://github.com/BradleyA/markit
     cd markit
     cp -p {./markit,./check-markit,./find-code.sh} /usr/local/bin
-
-#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
