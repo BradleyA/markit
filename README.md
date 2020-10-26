@@ -151,7 +151,8 @@ To clone this repository, change to a directory you want to download the files i
 ## Install latest markit command
 To install the latest commit of markit, change to the directory you want to download the script to (cd /usr/local/bin) and enter the follow command.
 
-    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards */markit ; mv BradleyA*/markit . ; rmdir BradleyA*/
+    curl -L https://api.github.com/repos/BradleyA/markit/tarball | tar -xzf - --wildcards BradleyA-markit-*/markit ; mv BradleyA-markit-*/markit . ; rm -r BradleyA-markit-*
+
 
 To install the latest commit of check-markit, change markit to check-markit in the above command.
 
