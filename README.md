@@ -24,7 +24,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 
 - [Description](#Description)
 - [Objectives](#Objectives)
-- [Getting Started](#Getting-Started)
+- [Quick Start Tutorials](#Quick-Start-Tutorials)
 - [Clone](#Clone)
 - [Install latest markit command](#Install-latest-markit-command)
 - [Usage: markit](#Usage-markit)
@@ -91,7 +91,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 </details>
 
 ## Quick Start Tutorials
-## Getting Started
+
 **Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
 
 On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
