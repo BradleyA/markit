@@ -19,10 +19,9 @@ Answer one question over the phone by looking at the code; ***What version are y
 
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/markit.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/markit/stargazers/), thank you.
 
-<details>
-<summary>Table of content</summary>
-
 ## Table of content
+<details>
+
 - [Description](#Description)
 - [Objectives](#Objectives)
 - [Getting Started](#Getting-Started)
