@@ -67,6 +67,9 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
+<details>
+<summary>Objectives</summary>
+  
 ## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
@@ -87,6 +90,8 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
+</details>
+  
 ## Getting Started
 **Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
 
