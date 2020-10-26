@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
+# 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
 # 	find-code.sh  4.1.87.985  2020-10-25T11:55:36.787881-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.86  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
@@ -37,7 +39,7 @@ PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
-###  Production standard 7.0 Default variable value
+###  Production standard 7.3.602 Default variable value
 DEFAULT_CLUSTER="us-tx-cluster-1/"
 DEFAULT_DATA_DIR="/usr/local/data/"
 DEFAULT_SYSTEMS_FILE="SYSTEMS"
@@ -207,33 +209,31 @@ done
 
 ###
 
-###  Production standard 7.0 Default variable value
+###  Production standard 7.3.602 Default variable value
 #    Order of precedence: CLI argument, environment variable, default code
 if [[ "${CLUSTER}" == "" ]] ; then CLUSTER="${DEFAULT_CLUSTER}" ; fi
 if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR="${DEFAULT_DATA_DIR}" ; fi
 if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE="${DEFAULT_SYSTEMS_FILE}" ; fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
-
-REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
-
+#
 #    Check if ${DATA_DIR} directory is on system
 if ! [[ -d "${DATA_DIR}" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Path to cluster data directory, ${DATA_DIR}, not found." 1>&2
   exit 1
 fi
-
+#
 #    Check if ${CLUSTER} directory is on system
 if ! [[ -d "${DATA_DIR}"/"${CLUSTER}" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Cluster directory name, ${CLUSTER}, not found." 1>&2
   exit 1
 fi
-
+#
 #    Check if ${SYSTEMS_FILE} file contains /
 if [[  "${SYSTEMS_FILE}" == *"/"* ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  SYSTEMS filename, ${SYSTEMS_FILE}, includes a '/'." 1>&2
   exit 1
 fi
-
+#
 #    Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [[ -e "${DATA_DIR}"/"${CLUSTER}"/"${SYSTEMS_FILE}" ]] || ! [[ -s "${DATA_DIR}"/"${CLUSTER}"/"${SYSTEMS_FILE}" ]] ; then
   new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Name of systems file, ${SYSTEMS_FILE} not found or empty.  Creating ${SYSTEMS_FILE} file and including local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster." 1>&2
@@ -244,6 +244,7 @@ if ! [[ -e "${DATA_DIR}"/"${CLUSTER}"/"${SYSTEMS_FILE}" ]] || ! [[ -s "${DATA_DI
 fi
 
 #    Loop through hosts in ${SYSTEMS_FILE} file
+REMOTE_COMMAND="find ~/.. 2>/dev/null -type d -name '.git' -print | sed 's/^.*\.\./   \~/' | sed 's/\/\.git//'"
 REMOTEHOST=$(grep -v "#" "${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}")
 for NODE in ${REMOTEHOST} ; do
   echo -e "\n${BOLD}  -->  ${CYAN}${NODE}${NORMAL}    ->${PURPLE}${REMOTE_COMMAND}${WHITE}<-"
