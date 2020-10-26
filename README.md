@@ -69,7 +69,6 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 ## Objectives
 <details>
-<summary>Objectives</summary>
   
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
