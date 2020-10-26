@@ -67,10 +67,10 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
+## Objectives
 <details>
 <summary>Objectives</summary>
   
-## Objectives
 * Any person without knowledge of Git or GitHub or Bitbucket or GitLab or markit to be able to answer one question; 
   **What version are you running?**
 * Supports [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) and alphanumeric versioning (v0.1.64-alpha)
