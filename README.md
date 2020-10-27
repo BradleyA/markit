@@ -92,14 +92,18 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 ## Quick Start Tutorials
 
-To fork this repo you need to be logged into your GitHub account.
+1) First make a copy of or fork this GitHub repository so you can modify the test files while learning how simple it is to work with markit.
 
-**Fork https://github.com/BradleyA/markit** repository so you can modify the test files while learning how simple it is to work with markit.  
+* To fork a GitHub repository you need to be logged into your GitHub account.
 
-On your system, git clone the forked copy of markit from \<YOUR-REPOSITORY\>.  
+* Go to repository **https://github.com/BradleyA/markit**
+
+* Click the fork icon in the upper right
+
+2) Second download or clone the forked copy of markit from your GitHub \<YOUR-REPOSITORY\> to your system.
 
     git clone https://github.com/<YOUR-REPOSITORY>/markit.git
-
+        
 Change into clone directory on your system.
 
     cd markit
