@@ -102,17 +102,17 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 2) Second download or clone the forked copy of markit from your GitHub \<YOUR-REPOSITORY\> to your system.
 
-    git clone https://github.com/<YOUR-REPOSITORY>/markit.git
-        
-Change into clone directory on your system.
+* Enter the following command with the name of your repository,  git clone https://github.com/<YOUR-REPOSITORY>/markit.git
+
+* Change into the cloned directory on your system.
 
     cd markit
 
-Make a change to testfiles/sample.sh.
+* Make a change to testfiles/sample.sh.
 
     vi testfiles/sample.sh
     
-Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
+* Run ./markit to tag, commit, and push the change in testfiles/sample.sh to your local and remote Git repositories.  Enter the next version number when prompted and a brief description of the changes to testfiles/sample.sh.  You will be prompted for your password when Git pushes testfiles/sample.sh to your remote Git repository.  **That is it!**
 
     ./markit
 
