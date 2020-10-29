@@ -1,22 +1,18 @@
 #!/bin/bash
+# 	find-code.sh  4.1.90.1006  2020-10-28T23:09:53.099726-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.89-2-gb198448  
+# 	   find-code.sh -->   testing test cases  
 # 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
 # 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
-# 	find-code.sh  4.1.87.985  2020-10-25T11:55:36.787881-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.86  
-# 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
 # 	   find-code.sh -->   Production standard 9.3.596 Parse CLI options and arguments  
 # 	find-code.sh  4.1.58.954  2020-10-24T11:03:05.670656-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.57  
 # 	   find-code.sh -->   Production standard 0.3.595 --help  
-# 	find-code.sh  4.1.28.916  2020-10-22T00:10:58.432404-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.27
-# 	   find-code.sh -->   improve user feed back on ERROR  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
 # 	   find-code.sh -->   add test case for no found DATA_DIR and CLUSTER  
 # 	find-code.sh  4.1.23.910  2020-10-21T14:28:05.073387-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.22-1-g4aba95a 
 # 	   find-code.sh -->   correct options -u incidnet  
 # 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
 # 	   find-code.sh -->   begin testing options  
-# 	find-code.sh  4.1.14.881  2020-10-19T09:00:11.806725-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.12-2-g9390613 
-# 	   find-code.sh markit -->   minor code cleanup  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
