@@ -1,28 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.109.1786  2020-10-28T23:16:49.623016-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.108-16-gc9fcde7  
-# 	   hooks/EXAMPLES/FVT-setup.sh -->   comment out option-system option-datadir option-cluster from default  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.108.1769  2020-10-25T11:11:55.508285-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.107-9-g7d67e50  
-# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-systems-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-008/SA-shellcheck-001.expected -->   updated FVT-setup.sh  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.107.1759  2020-10-24T22:32:14.709918-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.106-1-g34370be  
-# 	   hooks/EXAMPLES/FVT-setup.sh -->   adding options systems test cases  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.106.1757  2020-10-24T15:13:17.244716-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.105-1-g755b078  
-# 	   hooks/EXAMPLES/FVT-setup.sh -->   added link for FVT-option-datadir-00?.expected  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.105.1755  2020-10-24T14:47:06.123988-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.104-9-g93a5b73  
-# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-datadir-001/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-datadir-008/SA-shellcheck-001.expected -->   testing datadir  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.100.1741  2020-10-23T22:33:52.995488-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.99-9-ge5bd164  
-# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-cluster-001/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-008/SA-shellcheck-001.expected -->   added cluster  
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.32.1578  2020-05-22T05:59:06.586723-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.31 
-# 	   hooks/EXAMPLES/FVT-setup.sh -->   upgrade Production standards #49  
-# 	hooks/EXAMPLES/FVT-setup.sh  2.460.1364  2020-01-31T19:15:09.843806-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.459  
-# 	   hooks/EXAMPLES/FVT-setup.sh   added This script does not support -* or help or usage or version 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
-# 	   FVT-*    Production standard 5.3.559 Copyright 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.268.1065  2020-01-20T09:38:47.880404-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.267-1-gb19da99  
-# 	   hooks/EXAMPLES/FVT-setup.sh    added test cases from TEST/git-TEST-cases.sh to EXAMPLES for FVT 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
-# 	   hooks/EXAMPLES/FVT-setup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format:w 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
-# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
+# 	TEST/check-markit/FVT-setup.sh  4.1.94.1012  2020-10-30T15:32:55.728345-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.93  
+# 	   TEST/check-markit/FVT-setup.sh -->   update to add FVT-option-filename  
 #86# hooks/EXAMPLES/FVT-setup.sh  -  This test script is optional.  It is for
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If FVT-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -171,18 +149,22 @@ fi
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-007.expected"	FVT-option-systems-007.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-008"	FVT-option-systems-008
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-008.expected"	FVT-option-systems-008.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001"	FVT-option-filename-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001"	FVT-option-filename-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001.expected"	FVT-option-filename-001.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-002"	FVT-option-filename-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-002"	FVT-option-filename-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-002.expected"	FVT-option-filename-002.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-003"	FVT-option-filename-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-003"	FVT-option-filename-003
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-003.expected"	FVT-option-filename-003.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-004"	FVT-option-filename-004
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-004"	FVT-option-filename-004
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-004.expected"	FVT-option-filename-004.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-005"	FVT-option-filename-005
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-005"	FVT-option-filename-005
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-005.expected"	FVT-option-filename-005.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-006"	FVT-option-filename-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-006"	FVT-option-filename-006
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-006.expected"	FVT-option-filename-006.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007"	FVT-option-filename-007
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007.expected"	FVT-option-filename-007.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008"	FVT-option-filename-008
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008.expected"	FVT-option-filename-008.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001"	FVT-option-filename-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001.expected"	FVT-option-filename-hooks-001.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-002"	FVT-option-filename-hooks-002
