@@ -1,6 +1,6 @@
 #!/bin/bash
-#	check-markit  4.1.92.1008  2020-10-28T23:21:43.388698-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.91  
-#	   check-markit -->   testing FVT default  
+#	check-markit  4.1.93.1011  2020-10-30T00:13:57.586676-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.92-2-gb0c441d  
+#	   check-markit -->   change --file to --filename  
 #	check-markit  4.1.31.919  2020-10-22T20:41:17.906563-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.30  
 #	   check-markit -->   added TMP_MARKIT_DIR=$(mktemp --directory  
 #	check-markit  4.1.20.904  2020-10-21T14:07:08.485855-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.19-1-g9b31165  
@@ -41,7 +41,7 @@ display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   check file release with repository release"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${COMMAND_NAME} <FILE_NAME>"
-echo -e "   ${COMMAND_NAME} [--file <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]\n"
+echo -e "   ${COMMAND_NAME} [--filename <PATH>/<FILE_NAME> | -f <PATH>/<FILE_NAME>]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -54,8 +54,8 @@ display_usage
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo    "Check the release of a file that was marked using markit with the GitHub"
 echo    "repository or Bitbucket repository or GitLab project release.  Check-markit may"
-echo    "require --file option to include the relative or absolute path with the file"
-echo    "name."
+echo    "require --filename option to include the relative or absolute path with the"
+echo    "file name."
 echo -e "\nCheck-markit only works on files that are marked after 2018-02-27."
 echo -e "\nCheck-markit only works with markit files that used the https:// URLs for"
 echo    "GitHub, Bitbucket, and GitLab repositories.  Check-markit does not currently"
@@ -100,7 +100,7 @@ echo -e "\tOn-line command usage\n"                                             
 echo    "   --version, -version, -v"                                                      # 0.3.579
 echo -e "\tOn-line command version\n"                                                  # 3.572
 #
-echo    "   --file <PATH>/<FILE_NAME>, -f"
+echo    "   --filename <PATH>/<FILE_NAME>, -f"
 echo -e "\tInclude the relative or absolute path with the file name"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
@@ -172,7 +172,9 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -f|--file)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${BOLD}${YELLOW}${1}${NORMAL} is not found on command line" 1>&2 ; exit 1 ; fi ; MARKIT_FILE=${2} ; shift 2 ;;
+#
+    -f|--filename)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; MARKIT_FILE=${2} ; shift 2 ;;  # 9.3.605
+    -f=*|--filename=*)  MARKIT_FILE="${1#*=}" ; if [[ "${FILE_NAME}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.605
     *) break ;;
   esac
 done
