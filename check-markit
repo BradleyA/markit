@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.95.1013  2020-10-30T16:38:42.942185-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.94  
+#	   check-markit -->   correct incident while working on test case FVT-option-filename-007  
 #	check-markit  4.1.93.1011  2020-10-30T00:13:57.586676-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.92-2-gb0c441d  
 #	   check-markit -->   change --file to --filename  
 #	check-markit  4.1.31.919  2020-10-22T20:41:17.906563-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.30  
@@ -174,7 +176,7 @@ while [[ "${#}" -gt 0 ]] ; do
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
 #
     -f|--filename)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; MARKIT_FILE=${2} ; shift 2 ;;  # 9.3.605
-    -f=*|--filename=*)  MARKIT_FILE="${1#*=}" ; if [[ "${FILE_NAME}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.605
+    -f=*|--filename=*)  MARKIT_FILE="${1#*=}" ; if [[ "${MARKIT_FILE}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.605
     *) break ;;
   esac
 done
