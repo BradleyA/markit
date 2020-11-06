@@ -100,11 +100,13 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 * Click the fork icon in the upper right
 
-2) Second download or clone the forked copy of markit from your GitHub \<YOUR-REPOSITORY\> to your system.
+2) Second download or clone the forked copy of markit from your GitHub \<YOUR-USERNAME\>/markit to your Linux system.
 
-* Enter the following command with the name of your repository,  git clone https://github.com/\<YOUR-REPOSITORY\>/markit.git
+* Enter the following command with the name of your repository,
+    
+      git clone https://github.com/\<YOUR-USERNAME\>/markit.git
 
-* Change into the cloned directory on your system.
+* Change into the cloned directory on your Linux system.
 
       cd markit
 
