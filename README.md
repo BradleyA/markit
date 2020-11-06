@@ -104,7 +104,7 @@ Markit currently supports these files without file extensions: Dockerfile, Makef
 
 * Enter the following command with the name of your repository,
     
-      git clone https://github.com/\<YOUR-USERNAME\>/markit.git
+      git clone https://github.com/<YOUR-USERNAME>/markit.git
 
 * Change into the cloned directory on your Linux system.
 
