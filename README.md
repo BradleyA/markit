@@ -157,10 +157,10 @@ Continue testing with the other test files to help you integrate markit with you
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
-## Install
-To Install, change into a directory that you want to download the scripts.  Use git to pull or clone these scripts into the directory.  If you do not have Git installed then enter; "sudo apt-get install git" if using Debian/Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux.  On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.  
+## Clone
 
-    cd /tmp
+To Install, change into a directory that you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have Git installed then enter; "sudo apt-get install git" if using Debian/Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
     git clone https://github.com/BradleyA/markit
     cd markit
 
