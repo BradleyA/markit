@@ -45,7 +45,7 @@ Answer one question over the phone by looking at the code; ***What version are y
 ----
   
 ## Description
-Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
+Bash script that adds Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.   Most scripts in this repository support --help and --usage options.
 
 **Markit** is a bash script that is a wrapper around these Git commands; git add ${FILE_NAME}, git commit -m "${FILE_MESSAGE}", git tag -a ${RELEASE_VERSION}, and git push --follow-tags. It automates this Git commit process and adds two comment lines of metadata about file changes to all tracked modified files in your local Git repository.  This metadata allows any person to answer the question; What version are you running? 
 
