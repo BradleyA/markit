@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.90.1006  2020-10-28T23:09:53.099726-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.89-2-gb198448  
-# 	   find-code.sh -->   testing test cases  
+# 	find-code.sh  4.1.108.1030  2020-11-12T13:13:54.908899-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.107  
+# 	   find-code.sh -->   Production standard 9.3.606 Parse CLI options and arguments  
 # 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
 # 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
 # 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
@@ -187,7 +187,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USE
 #    DEBUG
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  2.3.578
 
-###  Production standard 9.3.596 Parse CLI options and arguments
+###  Production standard 9.3.606 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
@@ -199,7 +199,7 @@ while [[ "${#}" -gt 0 ]] ; do
     -d=*|--datadir=*) DATA_DIR="${1#*=}" ;     if [[ "${DATA_DIR}" == "" ]]     ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.596
     -s|--systems)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SYSTEMS_FILE=${2} ; shift 2  ;;  # 9.3.596
     -s=*|--systems=*) SYSTEMS_FILE="${1#*=}" ; if [[ "${SYSTEMS_FILE}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.596
-    *) echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.596
+    *) echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try ${YELLOW}--usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.606
   esac
 done
 
