@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.103.1025  2020-11-12T12:34:18.447690-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.102  
+#	   check-markit -->   change code for none valid option  
 #	check-markit  4.1.102.1024  2020-11-12T12:22:13.526100-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.101  
 #	   check-markit -->   testing  
 #	check-markit  4.1.95.1013  2020-10-30T16:38:42.942185-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.94 
@@ -179,7 +181,7 @@ while [[ "${#}" -gt 0 ]] ; do
 #
     -f|--filename)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; MARKIT_FILE=${2} ; shift 2 ;;  # 9.3.605
     -f=*|--filename=*)  MARKIT_FILE="${1#*=}" ; if [[ "${MARKIT_FILE}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; shift  ;;  # 9.3.605
-    *) break ;;
+    *) echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.596
   esac
 done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... MARKIT_FILE >${MARKIT_FILE}<" 1>&2 ; fi
