@@ -1,6 +1,6 @@
 #!/bin/bash
-#	markit  4.1.91.1007  2020-10-28T23:18:51.204300-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.90  
-#	   markit -->   testing FVT default test cases  
+#	markit  4.1.112.1034  2020-11-12T13:45:39.964077-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.111  
+#	   markit -->   Production standard 9.3.606 Parse CLI options and arguments  
 #	markit  4.1.19.902  2020-10-21T13:56:17.514013-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.18 
 #	   markit -->   begin testing options  
 #	markit  4.1.18.901  2020-10-21T12:38:21.010657-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.17-1-g3ba3553 
@@ -210,13 +210,13 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 #    DEBUG
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  2.3.578
 
-###  Production standard 9.3.562 Parse CLI options and arguments
+###  Production standard 9.3.606 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    *) break ;;
+    *) echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try ${YELLOW}--usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.606
   esac
 done
 
