@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	TEST/find-code.sh/FVT-setup.sh  4.1.109.1031  2020-11-12T13:39:23.653205-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.108  
+# 	   TEST/find-code.sh/FVT-setup.sh -->   added FVT-option-invalid-00?  
 # 	TEST/find-code.sh/FVT-setup.sh  4.1.89.1003  2020-10-27T11:36:44.695882-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.88-16-gb5e2758  
 # 	   TEST/find-code.sh/FVT-setup.sh -->   --> Created copy of FVT-setup.sh for find-code.sh test cases  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.108.1769  2020-10-25T11:11:55.508285-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.107-9-g7d67e50  
@@ -213,6 +215,10 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-003"	FVT-option-help-00
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-004"	FVT-option-help-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-005"	FVT-option-help-005
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001"        FVT-option-invalid-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001.expected"       FVT-option-invalid-001.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002"        FVT-option-invalid-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002.expected"       FVT-option-invalid-002.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
