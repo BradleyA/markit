@@ -1,5 +1,7 @@
 #!/bin/bash
-#	check-markit  4.1.104.1026  2020-11-12T12:52:43.624779-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.103  
+#	check-markit  4.1.105.1027  2020-11-12T13:00:01.790761-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.104  
+#	   check-markit -->   testing  
+#	check-markit  4.1.104.1026  2020-11-12T12:52:43.624779-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.103 
 #	   check-markit -->   Production standard 9.3.606 Parse CLI options and arguments  
 #	check-markit  4.1.103.1025  2020-11-12T12:34:18.447690-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.102  
 #	   check-markit -->   change code for none valid option  
