@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	TEST/check-markit/FVT-setup.sh  4.1.114.1036  2020-11-12T21:18:36.702712-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.113  
+# 	   TEST/check-markit/FVT-setup.sh -->   rm FVT-option-filename-009 FVT-option-filename-010 because FVT-option-invalid replaced them  
 # 	TEST/check-markit/FVT-setup.sh  4.1.113.1035  2020-11-12T21:14:04.301049-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.112  
 # 	   TEST/check-markit/FVT-setup.sh -->   add FVT-option-invalid-001  
 # 	TEST/check-markit/FVT-setup.sh  4.1.98.1016  2020-10-30T22:48:23.925754-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.97  
@@ -171,10 +173,6 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007"	FVT-option-fil
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007.expected"	FVT-option-filename-007.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008"	FVT-option-filename-008
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008.expected"	FVT-option-filename-008.expected
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-009"	FVT-option-filename-009
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-009.expected"	FVT-option-filename-009.expected
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-010"	FVT-option-filename-010
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-010.expected"	FVT-option-filename-010.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001"	FVT-option-filename-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001.expected"	FVT-option-filename-hooks-001.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-002"	FVT-option-filename-hooks-002
