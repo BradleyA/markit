@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	TEST/check-markit/FVT-setup.sh  4.1.113.1035  2020-11-12T21:14:04.301049-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.112  
+# 	   TEST/check-markit/FVT-setup.sh -->   add FVT-option-invalid-001  
 # 	TEST/check-markit/FVT-setup.sh  4.1.98.1016  2020-10-30T22:48:23.925754-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.97  
 # 	   TEST/check-markit/FVT-setup.sh -->   added 2 additional test cases FVT-option-filename-009 FVT-option-filename-010  
 # 	TEST/check-markit/FVT-setup.sh  4.1.96.1014  2020-10-30T22:35:05.238425-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.95  
@@ -203,6 +205,10 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-003"	FVT-option-help-00
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-004"	FVT-option-help-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-005"	FVT-option-help-005
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001"        FVT-option-invalid-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001.expected"       FVT-option-invalid-001.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002"        FVT-option-invalid-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002.expected"       FVT-option-invalid-002.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
