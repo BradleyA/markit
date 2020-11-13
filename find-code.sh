@@ -1,18 +1,14 @@
 #!/bin/bash
-# 	find-code.sh  4.1.116.1038  2020-11-12T21:56:06.903318-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.115  
-# 	   find-code.sh -->   testing  
+# 	find-code.sh  4.1.117.1039  2020-11-12T22:07:12.001301-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.116  
+# 	   TEST/find-code.sh/FVT-setup.sh find-code.sh -->   testing  
 # 	find-code.sh  4.1.108.1030  2020-11-12T13:13:54.908899-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.107 
 # 	   find-code.sh -->   Production standard 9.3.606 Parse CLI options and arguments  
 # 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
 # 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
-# 	find-code.sh  4.1.59.955  2020-10-24T11:42:23.127641-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.58  
-# 	   find-code.sh -->   Production standard 9.3.596 Parse CLI options and arguments  
 # 	find-code.sh  4.1.58.954  2020-10-24T11:03:05.670656-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.57  
 # 	   find-code.sh -->   Production standard 0.3.595 --help  
 # 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
 # 	   find-code.sh -->   add test case for no found DATA_DIR and CLUSTER  
-# 	find-code.sh  4.1.23.910  2020-10-21T14:28:05.073387-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.22-1-g4aba95a 
-# 	   find-code.sh -->   correct options -u incidnet  
 # 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
 # 	   find-code.sh -->   begin testing options  
 #86# find-code.sh - Search systems from clones from repositories
