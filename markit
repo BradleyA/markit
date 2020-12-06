@@ -167,7 +167,7 @@ echo -e "\twith the remote Git repository release version"                      
 echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})\n"                 #  0.3.615
 echo    "   ${BOLD}find-code.sh${NORMAL}  Search each system found in"                                        #  0.3.615
 echo -e "\t<DATA_DIR>/<SYSTEMS_FILE> file for .git repositories in ~/.. directories"                          #  0.3.615
-echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-find-codesh${NORMAL})\n"  #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-find-codesh${NORMAL})" #  0.3.615
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
@@ -212,7 +212,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
-#    DEBUG
+#    DEBUG  #  1.3.614
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  1.3.614
 
 ###  Production standard 9.3.606 Parse CLI options and arguments
