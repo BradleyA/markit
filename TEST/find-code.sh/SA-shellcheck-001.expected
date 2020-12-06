@@ -1,5 +1,5 @@
 
-In SA-shellcheck-001 line 227:
+In SA-shellcheck-001 line 233:
     ssh -t "${USER}"@"${NODE}" "echo -e '${BOLD}${YELLOW}\c' ; ${REMOTE_COMMAND} ; echo -e '${NORMAL}\c'"
                                          ^-- SC2029: Note that, unescaped, this expands on the client side.
 
