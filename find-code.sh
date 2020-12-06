@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.123.1049  2020-11-18T22:04:06.530310-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.122  
-# 	   find-code.sh -->   testing  
+# 	find-code.sh  4.1.134.1073  2020-12-06T11:47:37.157945-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.133-3-g33ebd0b  
+# 	   find-code.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  Production standard 0.3.615 --help  
 # 	find-code.sh  4.1.108.1030  2020-11-12T13:13:54.908899-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.107 
 # 	   find-code.sh -->   Production standard 9.3.606 Parse CLI options and arguments  
 # 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
@@ -16,7 +16,7 @@
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 3.0 shellcheck
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -24,11 +24,13 @@ if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as 
 if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
 if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
+#
 BOLD=$(tput -Txterm bold)
 UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
@@ -49,7 +51,7 @@ echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
 }
 
-###  Production standard 0.3.595 --help
+###  Production standard 0.3.615 --help
 display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8
@@ -83,7 +85,7 @@ echo    "command, 'unset DEBUG' to remove the exported information from the envi
 echo    "variable DEBUG.  You are on your own defining environment variables if"
 echo    "you are using other shells."
 
-###  Production standard 1.3.550 DEBUG variable                                             # 1.3.550
+###  Production standard 1.3.614 DEBUG variable
 echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 1.3.550
 echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 1.3.550
 echo    "                   all DEBUG messages during execution of this script.  The"       # 1.3.550
@@ -131,9 +133,13 @@ echo -e "   Search systems for .git repositories using defaults\n\t${BOLD}${COMM
 echo -e "   Search systems for .git repositories using a different <CLUSTER>.\n\t${BOLD}${COMMAND_NAME} -c australia-southeast1 ${NORMAL}\n" # 0.3.595
 echo -e "   Search systems for .git repositories using a different <SYSTEMS_FILE>.\n\t${BOLD}${COMMAND_NAME} -s SYSTEMS-RASPBERRY ${NORMAL}" # 0.3.595
 
-echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                   # 0.3.595
-echo    "   ${BOLD}markit${NORMAL} (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})" # 0.3.595
-echo    "   ${BOLD}check-markit${NORMAL}  (${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#usage-check-markit${NORMAL})" # 0.3.595
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                          #  0.3.615
+echo    "   ${BOLD}check-markit${NORMAL}  Check the release version of a file"                                #  0.3.615
+echo -e "\twith the remote Git repository release version"                                                    #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})\n"                 #  0.3.615
+echo    "   ${BOLD}markit${NORMAL}  Mark tracked modified file(s), in your local"                             #  0.3.615
+echo -e "\tGit repository and push those changes to a remote Git repository"                                  #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL})"                   #  0.3.615
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"
@@ -169,21 +175,21 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi  #  2.3.578
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Added following code because USER is not defined in crobtab jobs
 if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${YELLOW}${USER}${WHITE}<  LOGNAME >${YELLOW}${LOGNAME}${WHITE}<" 1>&2 ; fi  #  2.3.578
 
-#    DEBUG
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  2.3.578
+#    DEBUG  #  1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi  #  1.3.614
 
 ###  Production standard 9.3.606 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
@@ -208,7 +214,7 @@ done
 if [[ "${CLUSTER}" == "" ]] ; then CLUSTER="${DEFAULT_CLUSTER}" ; fi
 if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR="${DEFAULT_DATA_DIR}" ; fi
 if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE="${DEFAULT_SYSTEMS_FILE}" ; fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< SYSTEMS_FILE >${SYSTEMS_FILE}< PATH >${PATH}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  CLUSTER >${BOLD}${CYAN}${CLUSTER}${NORMAL}< DATA_DIR >${BOLD}${CYAN}${DATA_DIR}${NORMAL}< SYSTEMS_FILE >${BOLD}${CYAN}${SYSTEMS_FILE}${NORMAL}< PATH >${BOLD}${CYAN}${PATH}${NORMAL}<" 1>&2 ; fi
 #
 #    Check if ${DATA_DIR} directory is on system
 if ! [[ -d "${DATA_DIR}" ]] ; then
@@ -250,5 +256,5 @@ for NODE in ${REMOTEHOST} ; do
 done
 
 #
-new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2  # 1.3.614
 ###
