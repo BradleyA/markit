@@ -1,4 +1,6 @@
 #!/bin/bash
+#	check-markit  4.1.137.1078  2020-12-13T22:18:55.781195-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.136-1-g402a5b2  
+#	   check-markit find-code.sh -->   minor changes  
 #	check-markit  4.1.136.1076  2020-12-08T13:59:36.981110-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.135-1-gb6bfd83  
 #	   check-markit -->   check if file starts with '-'  
 #	check-markit  4.1.135.1074  2020-12-08T13:36:53.680669-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.134  
@@ -113,10 +115,10 @@ echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "  ${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL}"    # 0.3.583
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   Check file named sample.c release in relative path testfile/ with\n   repository release."
-echo -e "\t${BOLD}${COMMAND_NAME} -f testfiles/sample.c${NORMAL}\n"
-echo -e "   Check file named markit release with repository release."
-echo -e "\t${BOLD}${COMMAND_NAME} markit${NORMAL}\n"
+echo -e "   Check file named sample.c release in relative path testfile/ with\n   repository release."  # 0.3.550
+echo -e "\t${BOLD}${COMMAND_NAME} -f testfiles/sample.c${NORMAL}\n"                                     # 0.3.550
+echo    "   Check file named markit release with repository release."                                   # 0.3.550
+echo -e "\t${BOLD}${COMMAND_NAME} markit${NORMAL}"                                                      # 0.3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                          #  0.3.615
 echo    "   ${BOLD}markit${NORMAL}  Mark tracked modified file(s), in your local"                             #  0.3.615

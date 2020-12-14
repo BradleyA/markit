@@ -1,14 +1,12 @@
 #!/bin/bash
+# 	find-code.sh  4.1.137.1078  2020-12-13T22:18:55.949099-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.136-1-g402a5b2  
+# 	   check-markit find-code.sh -->   minor changes  
 # 	find-code.sh  4.1.134.1073  2020-12-06T11:47:37.157945-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.133-3-g33ebd0b  
 # 	   find-code.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  Production standard 0.3.615 --help  
 # 	find-code.sh  4.1.108.1030  2020-11-12T13:13:54.908899-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.107 
 # 	   find-code.sh -->   Production standard 9.3.606 Parse CLI options and arguments  
 # 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
 # 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
-# 	find-code.sh  4.1.58.954  2020-10-24T11:03:05.670656-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.57  
-# 	   find-code.sh -->   Production standard 0.3.595 --help  
-# 	find-code.sh  4.1.25.912  2020-10-21T21:10:22.362937-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.24 
-# 	   find-code.sh -->   add test case for no found DATA_DIR and CLUSTER  
 # 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
 # 	   find-code.sh -->   begin testing options  
 #86# find-code.sh - Search systems from clones from repositories
@@ -56,17 +54,24 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo    "This script searches each system found in SYSTEMS file for .git repositories"
-echo    "in ~/.. directories."
-echo -e "\nThis script reads <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> file for hosts."
-echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
-echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
-echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
+echo -e "\nThis script reads ${DEFAULT_DATA_DIR}${DEFAULT_CLUSTER}${DEFAULT_SYSTEMS_FILE} file for hosts"
+echo    "to search for .git repositories in ~/.. directories."
+echo -e "\nThe <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per"
+echo    "line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin with a"
+echo    "'#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh,"
+echo    "Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,"
 echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
-echo    "different SYSTEMS file can be entered on the command line or environment"
-echo    "variable."
-echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
-echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
+echo    "different <SYSTEMS_FILE> can be used by setting the SYSTEMS_FILE environment"
+echo    "variable or by editing this script and changing DEFAULT_SYSTEMS_FILE."
+echo -e "\nThe user may receive password and/or passphrase prompts from a remote system;"
+echo    "running the following may stop the prompts in your cluster."
+echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<REMOTE_HOST>${NORMAL}"
+echo    "or"
+echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<192.168.x.x>${NORMAL}"
+echo    "If that does not resolve the prompting challenge then review the man pages for"
+echo    "ssh-agent and ssh-add before entering the following in a terminal window."
+echo -e "\t${BOLD}eval \$(ssh-agent)${NORMAL}"
+echo -e "\t${BOLD}ssh-add${NORMAL}"
 
 ###  Production standard 4.3.587 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -121,9 +126,9 @@ echo -e "\tName of systems file (default '${DEFAULT_SYSTEMS_FILE}')"
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
-echo    "/usr/local/data/                           <-- <DATA_DIR>"
-echo    "└── <CLUSTER>/                             <-- <CLUSTER>"
-echo    "    └── SYSTEMS                            <-- List of hosts in cluster"
+echo    "/usr/local/data/                           <-- <DATA_DIR> Data directory"
+echo    "└── <CLUSTER>/                             <-- <CLUSTER> Cluster name"
+echo    "    └── SYSTEMS                            <-- <SYSTEMS_FILE> List of hosts in cluster"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   ${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md${NORMAL}"
