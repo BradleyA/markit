@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  4.1.142.1085  2020-12-15T22:01:29.028586-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.141-1-gb50bf22  
+#	   markit -->   testing  
 #	markit  4.1.141.1083  2020-12-15T21:56:45.934017-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.140  
 #	   markit -->   testing one line  
 #	markit  4.1.133.1069  2020-12-06T11:19:58.893672-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.132-10-ge0073d4  
@@ -366,7 +368,7 @@ for FILE_NAME in ${FILE_LIST} ; do
   else
 # >>> #??	This does not work if the last character is '.' but it does work if more than one "."
     FILE_EXTENSION=${FILE_NAME##*\.}
-    echo -e "\n\t${BOLD}${YELLOW}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
+    echo -e "\t${BOLD}${YELLOW}${FILE_NAME}	${FILE_EXTENSION}${NORMAL}"
     #    Single-line comment character(s) matching file extension
     #    ONLY SUPPORT single-line comments NOT multiple line block comment
     case "${FILE_EXTENSION}" in
