@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	find-code.sh  4.1.138.1080  2020-12-13T22:22:25.771621-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  three-rpi3b.cptx86.com 4.1.137-1-g7667cfd  
+# 	find-code.sh  4.1.145.1088  2020-12-15T22:14:45.165434-06:00 (CST)  https://github.com/BradleyA/markit.git  master  uadmin  three-rpi3b.cptx86.com 4.1.144  
 # 	   find-code.sh -->   testing  
 # 	find-code.sh  4.1.134.1073  2020-12-06T11:47:37.157945-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.133-3-g33ebd0b  
 # 	   find-code.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  Production standard 0.3.615 --help  
