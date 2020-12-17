@@ -18,4 +18,4 @@ Total views: 259
 
 **Note**  Data collection stopped between 10/14/2019 & 12/9/2019
 
-[Return to README](https://github.com/BradleyA/markit#markit)
+[Return to README](https://github.com/BradleyA/markit/blob/master/README.md)
