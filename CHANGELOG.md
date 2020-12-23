@@ -6,7 +6,6 @@
 #### Release Name  prerelease
 #### Release Date  ????
 * Brief description
-* Brief description
 * sub-repository
   * Brief description
 
