@@ -6,35 +6,27 @@
 #### Release Name  prerelease
 #### Release Date  ????
 * Brief description
+* Brief description
+* sub-repository
+  * Brief description
 
+### Features Added
+* Updated feature||file
+* Added the following test cases
+    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+* sub-repository
+  * directory/command   git commit message
+  * directory/command   git commit message closes #XX
 
-Release Name {unreleased rc-# alpha-# beta prerelease latest}
-Release Date ????
+### Features Changes
+### Features Deprecations
+### Issues
+* close #X  directory/command   git commit message
+* sub-repository
+  * close #XX directory/command git commit message
 
-    Brief description
-    sub-repository
-        Brief description
-
-Features Added
-
-    Updated feature||file
-    Added the following test cases
-        hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
-    sub-repository
-        directory/command git commit message
-        directory/command git commit message closes #XX
-
-Features Changes
-Features Deprecations
-Issues
-
-    close #X directory/command git commit message
-    sub-repository
-        close #XX directory/command git commit message
-
-Misc
-
-    backlog
+### Misc
+* backlog
 
 
 # Latest Release --> Version  4.2.1.
