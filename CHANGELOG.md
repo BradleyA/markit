@@ -16,6 +16,7 @@
   * Added unique temporary directory names to support automation,  close #84
   * Added find-code.sh to check-markit SEE ALSO section
   * Check if file starts with '-', Invalid option
+  * Change --file option to --filename option
   * Production standard 1.3.614 DEBUG variable
   * Production standard 2.3.614 Log format
   * Production standard 0.3.615 --help
@@ -28,6 +29,7 @@
   * Production standard 2.3.614 Log format
   * Production standard 0.3.615 --help
   * Production standard 9.3.606 Parse CLI options and arguments
+  * Production standard 7.3.602 Default variable value
   * Added test cases
 * markit
   * minor code cleanup
