@@ -27,11 +27,10 @@
 ### Misc
 * backlog
 
-
-# Latest Release --> Version  4.2.1.
-
+# Latest Release --> Version  4.2.1.1114
 #### Release Name  4.2.1
-#### Release Date  ????
+#### Release Date  2020-12-22T21:02:03.686774-06:00 (CST)
+* Added test cases to be used with repository BradleyA/git-TEST-commit-automation 
 
 ### Features Added
 * Updated .github/ISSUE_TEMPLATE/feature_request.md changed command example
@@ -47,7 +46,6 @@
   * Production standard 2.3.614 Log format
   * Production standard 0.3.615 --help
   * Production standard 9.3.606 Parse CLI options and arguments
-  * Added test cases
 * find-code.sh markit
   * Change output color to help review of output
   * Redesign -c, -d, -s option code
@@ -56,14 +54,12 @@
   * Production standard 0.3.615 --help
   * Production standard 9.3.606 Parse CLI options and arguments
   * Production standard 7.3.602 Default variable value
-  * Added test cases
 * markit
   * Updated if statement syntax from this [] to this [[]] 
   * Production standard 1.3.614 DEBUG variable
   * Production standard 2.3.614 Log format
   * Production standard 0.3.615 --help
   * Production standard 9.3.606 Parse CLI options and arguments
-  * Added test cases
 
 ### Issues
 * close #84  define unique temporary directory names to support automation
