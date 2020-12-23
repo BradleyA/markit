@@ -2,6 +2,37 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
+EXAMPLE: Next Version Under Construction {Version X.X.????}
+EXAMPLE: Latest Release --> Version X.X.????
+Release Name {unreleased rc-# alpha-# beta prerelease latest}
+Release Date ????
+
+    Brief description
+    sub-repository
+        Brief description
+
+Features Added
+
+    Updated feature||file
+    Added the following test cases
+        hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+    sub-repository
+        directory/command git commit message
+        directory/command git commit message closes #XX
+
+Features Changes
+Features Deprecations
+Issues
+
+    close #X directory/command git commit message
+    sub-repository
+        close #XX directory/command git commit message
+
+Misc
+
+    backlog
+
+
 ## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
