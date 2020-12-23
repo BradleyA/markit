@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	find-code.sh  4.1.145.1088  2020-12-15T22:14:45.165434-06:00 (CST)  https://github.com/BradleyA/markit.git  master  uadmin  three-rpi3b.cptx86.com 4.1.144  
-# 	   find-code.sh -->   testing  
-# 	find-code.sh  4.1.134.1073  2020-12-06T11:47:37.157945-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.133-3-g33ebd0b  
-# 	   find-code.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  Production standard 0.3.615 --help  
-# 	find-code.sh  4.1.108.1030  2020-11-12T13:13:54.908899-06:00 (CST)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.107 
-# 	   find-code.sh -->   Production standard 9.3.606 Parse CLI options and arguments  
-# 	find-code.sh  4.1.88.986  2020-10-25T22:59:40.978813-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.87  
-# 	   find-code.sh -->   Production standard 7.3.602 Default variable value  
-# 	find-code.sh  4.1.22.908  2020-10-21T14:20:37.170990-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.21  
-# 	   find-code.sh -->   begin testing options  
+# 	find-code.sh  4.2.1.1114  2020-12-22T21:01:38.358134-06:00 (CST)  https://github.com/BradleyA/markit.git  master  uadmin  three-rpi3b.cptx86.com 4.1.146-24-g68844ef  
+# 	   check-markit find-code.sh markit -->   release ready for production  
 #86# find-code.sh - Search systems from clones from repositories
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
