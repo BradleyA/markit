@@ -15,6 +15,7 @@
 * check-markit 
   * Added unique temporary directory names to support automation,  close #84
   * Added find-code.sh to check-markit SEE ALSO section
+  * Check if file starts with '-', Invalid option
 * find-code.sh markit
   * change output color to help review of output
   * minor code cleanup
