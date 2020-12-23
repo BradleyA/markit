@@ -16,11 +16,20 @@
   * Added unique temporary directory names to support automation,  close #84
   * Added find-code.sh to check-markit SEE ALSO section
   * Check if file starts with '-', Invalid option
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
 * find-code.sh markit
   * change output color to help review of output
   * minor code cleanup
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
 * markit
   * minor code cleanup
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
 
 ### Features Changes
 ### Features Deprecations
