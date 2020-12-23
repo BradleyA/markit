@@ -37,11 +37,10 @@ Misc
     backlog
 
 
-## Latest Release --> Version  4.2.1
+# Latest Release --> Version  4.2.1.
 
 #### Release Name  4.2.1
 #### Release Date  ????
-* Brief description
 
 ### Features Added
 * Updated .github/ISSUE_TEMPLATE/feature_request.md changed command example
@@ -75,15 +74,9 @@ Misc
   * Production standard 9.3.606 Parse CLI options and arguments
   * Added test cases
 
-### Features Changes
-### Features Deprecations
-
 ### Issues
 * close #84  define unique temporary directory names to support automation
-
-### Misc
-* backlog
-    * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
+* close #88  look at adding default TEST cases and update README.md
 
 # Version  4.1.8.836
 #### Release Name  4.1.8
