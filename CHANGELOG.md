@@ -36,6 +36,7 @@
   * Production standard 2.3.614 Log format
   * Production standard 0.3.615 --help
   * Production standard 9.3.606 Parse CLI options and arguments
+  * Updated if statement syntax from this [ to this [[
 
 ### Features Changes
 ### Features Deprecations
