@@ -2,6 +2,11 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
+## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+#### Release Name  prerelease
+#### Release Date  ????
+* Brief description
+
 EXAMPLE: Next Version Under Construction {Version X.X.????}
 EXAMPLE: Latest Release --> Version X.X.????
 Release Name {unreleased rc-# alpha-# beta prerelease latest}
