@@ -2,13 +2,12 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+## Next Version Under Construction {Version  4.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
 * Brief description
 
-EXAMPLE: Next Version Under Construction {Version X.X.????}
-EXAMPLE: Latest Release --> Version X.X.????
+
 Release Name {unreleased rc-# alpha-# beta prerelease latest}
 Release Date ????
 
@@ -38,8 +37,9 @@ Misc
     backlog
 
 
-## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-#### Release Name  prerelease
+## Latest Release --> Version  4.2.1
+
+#### Release Name  4.2.1
 #### Release Date  ????
 * Brief description
 
@@ -85,7 +85,7 @@ Misc
 * backlog
     * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
 
-# Latest Release -->  Version  4.1.8.836
+# Version  4.1.8.836
 #### Release Name  4.1.8
 #### Release Date  2020-10-03T15:36:36.764370-05:00 (CDT)
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
