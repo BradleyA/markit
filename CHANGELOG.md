@@ -2,10 +2,35 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Next Version Under Construction {Version  4.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+## Next Version Under Construction {Version  4.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  prerelease
 #### Release Date  ????
 * Brief description
+* sub-repository
+  * Brief description
+
+### Features Added
+* Updated feature||file
+* Added the following test cases
+    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+* sub-repository
+  * directory/command   git commit message
+  * directory/command   git commit message closes #XX
+
+### Features Changes
+### Features Deprecations
+### Issues
+* close #X  directory/command   git commit message
+* sub-repository
+  * close #XX directory/command git commit message
+
+### Misc
+* backlog
+
+# Latest Release --> Version  4.2.1.1114
+#### Release Name  4.2.1
+#### Release Date  2020-12-22T21:02:03.686774-06:00 (CST)
+* Added test cases to be used with repository BradleyA/git-TEST-commit-automation 
 
 ### Features Added
 * Updated .github/ISSUE_TEMPLATE/feature_request.md changed command example
@@ -15,23 +40,32 @@
 * check-markit 
   * Added unique temporary directory names to support automation,  close #84
   * Added find-code.sh to check-markit SEE ALSO section
+  * Check if file starts with '-', Invalid option
+  * Change --file option to --filename option
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
+  * Production standard 9.3.606 Parse CLI options and arguments
 * find-code.sh markit
-  * change output color to help review of output
-  * minor code cleanup
+  * Change output color to help review of output
+  * Redesign -c, -d, -s option code
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
+  * Production standard 9.3.606 Parse CLI options and arguments
+  * Production standard 7.3.602 Default variable value
 * markit
-  * minor code cleanup
-
-### Features Changes
-### Features Deprecations
+  * Updated if statement syntax from this [] to this [[]] 
+  * Production standard 1.3.614 DEBUG variable
+  * Production standard 2.3.614 Log format
+  * Production standard 0.3.615 --help
+  * Production standard 9.3.606 Parse CLI options and arguments
 
 ### Issues
 * close #84  define unique temporary directory names to support automation
+* close #88  look at adding default TEST cases and update README.md
 
-### Misc
-* backlog
-    * Need to test with [git-secrets](https://github.com/awslabs/git-secrets) (Prevents you from committing passwords and other sensitive information to a Git repository), should work [git-hound](https://github.com/ezekg/git-hound) (Git plugin that prevents sensitive data from being committed.)  [truffleHog](https://github.com/dxa4481/truffleHog) (Searches through git repositories for high entropy strings and secrets, digging deep into commit history)
-
-# Latest Release -->  Version  4.1.8.836
+# Version  4.1.8.836
 #### Release Name  4.1.8
 #### Release Date  2020-10-03T15:36:36.764370-05:00 (CDT)
 * Added ISSUE_TEMPLATES, security policy - SECURITY.md, CHANGELOG.md, clone.table.md, view.table.md
