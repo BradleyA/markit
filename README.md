@@ -268,7 +268,6 @@ Check the release version of a file with the remote Git repository release versi
 
 <img id="check-markit-output.gif" src="images/check-markit-output.gif" >
 
-
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Usage: find-code.sh
