@@ -240,7 +240,7 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     View commits example:  git log --graph --decorate --oneline --color --stat
     2020-09-10T16:46:14.812944-05:00 (CDT) five-rpi3b.cptx86.com markit[28951] 4.1.4.803 434 uadmin 10000:10000 [INFO]    Operation finished...
     
-<img id="markit-output.gif" src="../images/markit-output.gif" >
+<img id="markit-output.gif" src="images/markit-output.gif" >
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
