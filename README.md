@@ -266,6 +266,9 @@ Check the release version of a file with the remote Git repository release versi
     Repository copy placed in /tmp/markit
     2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
 
+<img id="check-markit-output.gif" src="images/check-markit-output.gif" >
+
+
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Usage: find-code.sh
