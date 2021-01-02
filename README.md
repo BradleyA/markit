@@ -241,6 +241,7 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
     2021-01-02T15:10:43.483243-06:00 (CST) three.cptx86.com markit[1154] 4.1.144.1087 451 uthree 1000:1000 [INFO]    Operation finished...
 
 <img id="markit-output.gif" src="images/markit-output.gif" >
+Note: The above markit output includes the output from git-TEST-commit-automation solution.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
