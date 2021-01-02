@@ -194,53 +194,54 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
 
     testfiles/sample.sh
 
-    Current Git repository release number:  4.1.5
+    Current Git repository release number:  4.2.3
     Enter release number to commit files (examples:  3.217  3.1.231  v0.1.64-alpha) or ctrl-c to stop.
 
-    4.1.6
+       4.2.4
 
-    Using release number:  4.1.6
+    Using release number:  4.2.4
 
     Enter a one line description about the changes or ctrl-c to stop.
     	(example:  testfiles/sample.sh   Added logic for --help; closes #12, resolves #14):
 
-    testing markit after editing testfiles/sample.sh
+       recording animation after editing testfile/sample.sh
 
-    	testfiles/sample.sh	sh
+        	testfiles/sample.sh	sh
 
-    [master ef33d26] testfiles/sample.sh -->   testing markit after editing testfiles/sample.sh
-     1 file changed, 1 insertion(+), 2 deletions(-)
-    Counting objects: 5, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
-    Total 5 (delta 3), reused 0 (delta 0)
-    remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-    To https://github.com/BradleyA/markit.git
-       1331dac..ef33d26  master -> master
-     * [new tag]         4.1.6 -> 4.1.6
-    Counting objects: 5, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
-    Total 5 (delta 3), reused 0 (delta 0)
+    [master 58ba47d] testfiles/sample.sh -->   recording animation after editing testfile/sample.sh
+     1 file changed, 2 insertions(+), 5 deletions(-)
+    Counting objects: 19, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (7/7), done.
+    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
+    Total 7 (delta 4), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+    To https://github.com/BradleyA/markit
+       e5ad655..58ba47d  master -> master
+     * [new tag]         4.2.4 -> 4.2.4
+    Counting objects: 19, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (7/7), done.
+    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
+    Total 7 (delta 4), reused 0 (delta 0)
     To https://axebbq@bitbucket.org/axebbq/markit.git
        1331dac..ef33d26  master -> master
-     * [new tag]         4.1.6 -> 4.1.6
-    Counting objects: 5, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (5/5), done.
-    Writing objects: 100% (5/5), 617 bytes | 0 bytes/s, done.
-    Total 5 (delta 3), reused 0 (delta 0)
+     * [new tag]         4.2.4 -> 4.2.4
+    Counting objects: 19, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (7/7), done.
+    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
+    Total 7 (delta 4), reused 0 (delta 0)
     To https://BradleyAxe@gitlab.com/BradleyAxe/markit.git
        1331dac..ef33d26  master -> master
-     * [new tag]         4.1.6 -> 4.1.6
-
+     * [new tag]         4.2.4 -> 4.2.4
+    
     Files marked and stored in remote Git repository.
     View commits example:  git log --graph --decorate --oneline --color --stat
-    2020-09-10T16:46:14.812944-05:00 (CDT) five-rpi3b.cptx86.com markit[28951] 4.1.4.803 434 uadmin 10000:10000 [INFO]    Operation finished...
-    
+    2021-01-02T15:10:43.483243-06:00 (CST) three.cptx86.com markit[1154] 4.1.144.1087 451 uthree 1000:1000 [INFO]    Operation finished...
+
 <img id="markit-output.gif" src="images/markit-output.gif" >
+Note: The above markit output includes the output from git-TEST-commit-automation solution.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
@@ -264,6 +265,9 @@ Check the release version of a file with the remote Git repository release versi
 
     Repository copy placed in /tmp/markit
     2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
+
+<img id="check-markit-output.gif" src="images/check-markit-output.gif" >
+
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
