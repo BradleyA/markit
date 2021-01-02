@@ -257,14 +257,14 @@ Check the release version of a file with the remote Git repository release versi
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
       0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 2386k    0 2386k    0     0   939k      0 --:--:--  0:00:02 --:--:-- 1412k
+    100 2545k    0 2545k    0     0  2721k      0 --:--:-- --:--:-- --:--:-- 4314k
 
-      /usr/local/bin/markit release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
+      /usr/local/bin/markit release 4.2.1.1114, commit date 2020-12-22T21:02:03.686774-06:00
 
-      markit repository release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
+      markit repository release 4.2.1.1114, commit date 2020-12-22T21:02:03.686774-06:00
 
     Repository copy placed in /tmp/markit
-    2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
+    2021-01-02T15:54:52.211224-06:00 (CST) three.cptx86.com check-markit[3613] 4.1.136.1076 279 uthree 1000:1000 [INFO]    Operation finished...
 
 <img id="check-markit-output.gif" src="images/check-markit-output.gif" >
 
