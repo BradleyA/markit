@@ -202,18 +202,6 @@ Check the release version of a file with the remote Git repository release versi
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Output: check-markit
-    $ check-markit markit
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 2545k    0 2545k    0     0  2721k      0 --:--:-- --:--:-- --:--:-- 4314k
-
-      /usr/local/bin/markit release 4.2.1.1114, commit date 2020-12-22T21:02:03.686774-06:00
-
-      markit repository release 4.2.1.1114, commit date 2020-12-22T21:02:03.686774-06:00
-
-    Repository copy placed in /tmp/markit
-    2021-01-02T15:54:52.211224-06:00 (CST) three.cptx86.com check-markit[3613] 4.1.136.1076 279 uthree 1000:1000 [INFO]    Operation finished...
 
 <img id="check-markit-output.gif" src="images/check-markit-output.gif" >
 
