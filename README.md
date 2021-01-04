@@ -189,57 +189,6 @@ Mark **tracked modified file(s)**, in your local Git repository and push those c
 
 ## Output: markit
 
-    $ markit
-    Files to be marked and pushed to remote Git repository:
-
-    testfiles/sample.sh
-
-    Current Git repository release number:  4.2.3
-    Enter release number to commit files (examples:  3.217  3.1.231  v0.1.64-alpha) or ctrl-c to stop.
-
-       4.2.4
-
-    Using release number:  4.2.4
-
-    Enter a one line description about the changes or ctrl-c to stop.
-    	(example:  testfiles/sample.sh   Added logic for --help; closes #12, resolves #14):
-
-       recording animation after editing testfile/sample.sh
-
-        	testfiles/sample.sh	sh
-
-    [master 58ba47d] testfiles/sample.sh -->   recording animation after editing testfile/sample.sh
-     1 file changed, 2 insertions(+), 5 deletions(-)
-    Counting objects: 19, done.
-    Delta compression using up to 8 threads.
-    Compressing objects: 100% (7/7), done.
-    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
-    Total 7 (delta 4), reused 0 (delta 0)
-    remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
-    To https://github.com/BradleyA/markit
-       e5ad655..58ba47d  master -> master
-     * [new tag]         4.2.4 -> 4.2.4
-    Counting objects: 19, done.
-    Delta compression using up to 8 threads.
-    Compressing objects: 100% (7/7), done.
-    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
-    Total 7 (delta 4), reused 0 (delta 0)
-    To https://axebbq@bitbucket.org/axebbq/markit.git
-       1331dac..ef33d26  master -> master
-     * [new tag]         4.2.4 -> 4.2.4
-    Counting objects: 19, done.
-    Delta compression using up to 8 threads.
-    Compressing objects: 100% (7/7), done.
-    Writing objects: 100% (7/7), 912 bytes | 0 bytes/s, done.
-    Total 7 (delta 4), reused 0 (delta 0)
-    To https://BradleyAxe@gitlab.com/BradleyAxe/markit.git
-       1331dac..ef33d26  master -> master
-     * [new tag]         4.2.4 -> 4.2.4
-    
-    Files marked and stored in remote Git repository.
-    View commits example:  git log --graph --decorate --oneline --color --stat
-    2021-01-02T15:10:43.483243-06:00 (CST) three.cptx86.com markit[1154] 4.1.144.1087 451 uthree 1000:1000 [INFO]    Operation finished...
-
 <img id="markit-output.gif" src="images/markit-output.gif" >
 Note: The above markit output includes the output from git-TEST-commit-automation solution.
 
@@ -253,21 +202,8 @@ Check the release version of a file with the remote Git repository release versi
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
 ## Output: check-markit
-    $ check-markit markit
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100 2386k    0 2386k    0     0   939k      0 --:--:--  0:00:02 --:--:-- 1412k
-
-      /usr/local/bin/markit release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
-
-      markit repository release 4.1.4.803, commit date 2020-08-29T22:25:50.210493-05:00
-
-    Repository copy placed in /tmp/markit
-    2020-09-10T17:03:50.405525-05:00 (CDT) five-rpi3b.cptx86.com check-markit[747] 4.1.4.803 259 uadmin 10000:10000 [INFO]    Operation finished...
 
 <img id="check-markit-output.gif" src="images/check-markit-output.gif" >
-
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
