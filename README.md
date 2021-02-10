@@ -257,6 +257,16 @@ Please do contribute!  Issues and pull requests are welcome.  Thank you for your
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
+#### Stars
+[![Stargazers repo roster for @BradleyA/markit](https://reporoster.com/stars/BradleyA/markit)](https://github.com/BradleyA/markit/stargazers)
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
+#### Forks
+[![Forkers repo roster for @BradleyA/markit](https://reporoster.com/forks/BradleyA/markit)](https://github.com/BradleyA/markit/network/members)
+
+[Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
+
 #### Tested OS
  * Ubuntu 14.04.6 LTS (amd64,armv7l)
  * Ubuntu 16.04.7 LTS (amd64,armv7l)
