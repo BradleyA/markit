@@ -250,7 +250,7 @@ Search each system found in <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> file for .git re
 ----
 
 #### Contribute
-Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+Please do contribute!  Issues, comments, and pull requests are welcome.  Thank you for your help improving software.
 
 [Return to top](https://github.com/BradleyA/markit/blob/master/README.md#markit)
 
