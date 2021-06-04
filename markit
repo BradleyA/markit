@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  4.2.7.1146  2021-06-04T10:51:14.392781-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.6-5-g803e81d  
+#	   markit -->   updated display_help and examples  
 #	markit  4.2.1.1114  2020-12-22T21:02:03.686774-06:00 (CST)  https://github.com/BradleyA/markit.git  master  uadmin  three-rpi3b.cptx86.com 4.1.146-24-g68844ef  
 #	   check-markit find-code.sh markit -->   release ready for production  
 #86# markit
@@ -65,10 +67,10 @@ echo    "Shell(sh|bash|csh|tcsh|ksh), Go, Dockerfile, YAML, Makefile, Scala,"
 echo    "Terraform, Python, Java, PHP, C, C++, JavaScript, Perl, Ruby, PowerShell,"
 echo    "Ri, C header, C++ header, HTML, Kotlin, Pascal, R, Rust, Text, XML . . ."
 echo -e "\nMarkit supports Semantic Versioning (MAJOR.MINOR.PATCH) and alphanumeric"
-echo    "versioning.  Markit will display the current version before prompting you"
-echo    "to enter the next version.  Markit includes the number of commits with"
-echo    "the version in the file(s).  I find this helpful when commiting several"
-echo    "different changes while working on the same PATCH."
+echo    "versioning (1.2.5-beta.1).  Markit will display the current version before"
+echo    "prompting you to enter the next version.  Markit includes the number of"
+echo    "commits with the version in the file(s).  I find this helpful when"
+echo    "commiting several different changes while working on the same PATCH."
 echo -e "\nMarkit adds two comment lines with information about file changes to all"
 echo    "modified tracked file(s) in your local Git repository.  Then pushes those"
 echo    "modified file(s) to either a GitHub repository or Bitbucket repository or"
@@ -305,7 +307,7 @@ fi
 #    Prompt for release number
 echo -e "\n${BOLD}${CYAN}${FILE_LIST}${NORMAL}"
 echo -e "\nCurrent Git repository release number:  ${BOLD}${YELLOW}${CURRENT_RELEASE}${NORMAL}"
-echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples:  3.217  3.1.231  v0.1.64-alpha) or ctrl-c to stop.\n"
+echo -e "Enter ${BOLD}${YELLOW}release number${NORMAL} to commit files (examples:  3.217  3.1.231  2.3.5-alpha.4  2.1.64-rc.1) or ctrl-c to stop.\n"
 read -p "${BOLD}${CYAN}   "  FILE_RELEASE
 echo    "${NORMAL}"
 if [[ -z "${FILE_RELEASE}" ]] ; then
@@ -322,7 +324,7 @@ echo -e "${NORMAL}Using release number:  ${BOLD}${YELLOW}${FILE_RELEASE}${NORMAL
 #    Prompt for single line change description
 FIRST_FILE=$(echo "${FILE_LIST}" | head -n1 | cut -d ' ' -f1)
 echo -e "\n${NORMAL}Enter a ${BOLD}${YELLOW}one line description${NORMAL} about the changes or ctrl-c to stop."
-echo -e "\t(example:  ${FIRST_FILE}   Added logic for --help; closes #12, resolves #14):\n"
+echo -e "\t(example:  Added logic for --help; closes #12, resolves #14):\n"
 read -p "${BOLD}${CYAN}   " FILE_MESSAGE
 echo    "${NORMAL}"
 if [[ -z "${FILE_MESSAGE}" ]] ; then
