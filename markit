@@ -1,5 +1,5 @@
 #!/bin/bash
-#	markit  4.2.8.1147  2021-06-04T10:59:23.602610-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.7  
+#	markit  4.2.9.1149  2021-06-04T11:10:33.646600-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.8-1-g675dc09  
 #	   markit -->   correct Test case SA-shellcheck-001 markit  
 #	markit  4.2.7.1146  2021-06-04T10:51:14.392781-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.6-5-g803e81d  
 #	   markit -->   updated display_help and examples  
