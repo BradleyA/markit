@@ -1,4 +1,9 @@
 
+In SA-shellcheck-001 line 22:
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
+               ^-- SC2001: See if you can use ${variable//search/replace} instead.
+
+
 In SA-shellcheck-001 line 206:
 if ! $( __gitdir > /dev/null 2>&1 ) ; then
      ^-- SC2091: Remove surrounding $() to avoid executing output.
@@ -19,7 +24,7 @@ if ! $(touch "${TEMP_FILE}" > /dev/null 2>&1 ) ; then
      ^-- SC2091: Remove surrounding $() to avoid executing output.
 
 
-In SA-shellcheck-001 line 385:
+In SA-shellcheck-001 line 384:
   tail -n $(wc -l "${FILE_NAME}" | awk '{print $1  - 1}') "${FILE_NAME}" >> "${TEMP_FILE}"
           ^-- SC2046: Quote this to prevent word splitting.
 
