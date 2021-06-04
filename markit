@@ -1,4 +1,6 @@
 #!/bin/bash
+#	markit  4.2.8.1147  2021-06-04T10:59:23.602610-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.7  
+#	   markit -->   correct Test case SA-shellcheck-001 markit  
 #	markit  4.2.7.1146  2021-06-04T10:51:14.392781-05:00 (CDT)  https://github.com/BradleyA/markit.git  master  uthree  three.cptx86.com 4.2.6-5-g803e81d  
 #	   markit -->   updated display_help and examples  
 #	markit  4.2.1.1114  2020-12-22T21:02:03.686774-06:00 (CST)  https://github.com/BradleyA/markit.git  master  uadmin  three-rpi3b.cptx86.com 4.1.146-24-g68844ef  
@@ -322,7 +324,6 @@ fi
 echo -e "${NORMAL}Using release number:  ${BOLD}${YELLOW}${FILE_RELEASE}${NORMAL}"  1>&2
 
 #    Prompt for single line change description
-FIRST_FILE=$(echo "${FILE_LIST}" | head -n1 | cut -d ' ' -f1)
 echo -e "\n${NORMAL}Enter a ${BOLD}${YELLOW}one line description${NORMAL} about the changes or ctrl-c to stop."
 echo -e "\t(example:  Added logic for --help; closes #12, resolves #14):\n"
 read -p "${BOLD}${CYAN}   " FILE_MESSAGE
